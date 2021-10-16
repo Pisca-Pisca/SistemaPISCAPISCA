@@ -22,27 +22,22 @@ public class UI_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JPasswordField();
+        txtLogin = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1024, 948));
         setMinimumSize(new java.awt.Dimension(1024, 948));
         setUndecorated(true);
-        getContentPane().setLayout(null);
 
-        jPasswordField1.setBackground(new java.awt.Color(196, 196, 196));
-        jPasswordField1.setBorder(null);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(770, 788, 450, 70);
+        txtSenha.setBackground(new java.awt.Color(196, 196, 196));
+        txtSenha.setBorder(null);
 
-        jTextField1.setBackground(new java.awt.Color(196, 196, 196));
-        jTextField1.setBorder(null);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(780, 588, 440, 70);
+        txtLogin.setBackground(new java.awt.Color(196, 196, 196));
+        txtLogin.setBorder(null);
 
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
@@ -51,17 +46,46 @@ public class UI_Login extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(1693, 1008, 160, 50);
 
-        jButton1.setBorder(null);
-        jButton1.setContentAreaFilled(false);
-        getContentPane().add(jButton1);
-        jButton1.setBounds(780, 970, 360, 50);
+        btnLogin.setBorder(null);
+        btnLogin.setContentAreaFilled(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LOGIN.jpg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 1920, 1080);
+        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LOGIN.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(780, 780, 780)
+                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1693, 1693, 1693)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(780, 780, 780)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgTela)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(770, 770, 770)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(588, 588, 588)
+                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1008, 1008, 1008)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(970, 970, 970)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgTela)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(788, 788, 788)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         setSize(new java.awt.Dimension(1920, 1080));
         setLocationRelativeTo(null);
@@ -107,10 +131,10 @@ public class UI_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel imgTela;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtLogin;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
