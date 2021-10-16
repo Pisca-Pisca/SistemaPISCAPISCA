@@ -24,7 +24,7 @@ public class UI_Login extends javax.swing.JFrame {
 
         txtSenha = new javax.swing.JPasswordField();
         txtLogin = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnEncerrar = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         imgTela = new javax.swing.JLabel();
 
@@ -34,21 +34,30 @@ public class UI_Login extends javax.swing.JFrame {
         setUndecorated(true);
 
         txtSenha.setBackground(new java.awt.Color(196, 196, 196));
+        txtSenha.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtSenha.setBorder(null);
 
         txtLogin.setBackground(new java.awt.Color(196, 196, 196));
+        txtLogin.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtLogin.setBorder(null);
 
-        jButton2.setBorder(null);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEncerrar.setBorder(null);
+        btnEncerrar.setContentAreaFilled(false);
+        btnEncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnEncerrarMouseClicked(evt);
             }
         });
 
         btnLogin.setBorder(null);
         btnLogin.setContentAreaFilled(false);
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LOGIN.jpg"))); // NOI18N
 
@@ -61,7 +70,7 @@ public class UI_Login extends javax.swing.JFrame {
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(1693, 1693, 1693)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(780, 780, 780)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -77,7 +86,7 @@ public class UI_Login extends javax.swing.JFrame {
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(1008, 1008, 1008)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(970, 970, 970)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -91,9 +100,13 @@ public class UI_Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnEncerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEncerrarMouseClicked
       System.exit(0);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnEncerrarMouseClicked
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,9 +144,9 @@ public class UI_Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEncerrar;
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JButton jButton2;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
