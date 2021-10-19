@@ -6,8 +6,8 @@
 package Model.DAO;
 
 import Connection.ConnectionFac;
-import Model.Clientes;
-import Model.Produtos;
+import Model.DAO.Clientes;
+import Model.DAO.Produtos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -26,7 +26,7 @@ public class ClientesDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO Clientes(CodigoCliente, DateNascimento, NomeCliente, RazaoSocial, Cpf, Cnpj, Rg, IncricaoEstadual, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone, idProduto  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO Clientes(CodigoCliente, DateNascimento, NomeCliente, RazaoSocial, Cpf, Cnpj, Rg, IncricaoEstadual, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone, idProduto  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
             stmt.setInt(1, C.getCodigoCliente());  
             stmt.setString(2, C.getDateNascimento());
@@ -43,7 +43,7 @@ public class ClientesDAO {
             stmt.setString(13, C.getBairro());
             stmt.setString(14, C.getEmail());
             stmt.setString(15, C.getTelefone());
-            stmt.setInt(15, C.getIdProduto());
+            stmt.setInt(16, C.getIdProduto());
             
             stmt.executeUpdate();
             

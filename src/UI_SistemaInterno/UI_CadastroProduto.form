@@ -26,157 +26,183 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="1670" pref="1670" max="-2" attributes="0"/>
-              <Component id="txtData" min="-2" pref="230" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
               <EmptySpace min="1720" pref="1720" max="-2" attributes="0"/>
               <Component id="txtUsuario" min="-2" pref="200" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="1790" pref="1790" max="-2" attributes="0"/>
-              <Component id="btnLogout" min="-2" pref="110" max="-2" attributes="0"/>
+              <EmptySpace min="730" pref="730" max="-2" attributes="0"/>
+              <Component id="txtPesquisa" min="-2" pref="750" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="1483" pref="1483" max="-2" attributes="0"/>
-              <Component id="btnSearch" min="-2" pref="80" max="-2" attributes="0"/>
+              <Component id="btnCadastro" min="-2" pref="370" max="-2" attributes="0"/>
+              <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtCodProd" min="-2" pref="370" max="-2" attributes="0"/>
+                  <Component id="txtFornecedor" min="-2" pref="360" max="-2" attributes="0"/>
+              </Group>
           </Group>
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnProdutos" min="-2" pref="370" max="-2" attributes="0"/>
-                  <Component id="btnCadastro" min="-2" pref="370" max="-2" attributes="0"/>
-                  <Component id="btnFinanceiro" min="-2" pref="370" max="-2" attributes="0"/>
-                  <Component id="btnCaixa" min="-2" pref="370" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="txtCodProd" min="-2" pref="370" max="-2" attributes="0"/>
-                      <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                      <Component id="txtDescricao" min="-2" pref="910" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
-                      <Component id="txtCategoria" min="-2" pref="340" max="-2" attributes="0"/>
-                      <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                      <Component id="txtQtd" min="-2" pref="220" max="-2" attributes="0"/>
-                      <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                      <Component id="txtVoltagem" min="-2" pref="250" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="txtValorCompra" min="-2" pref="280" max="-2" attributes="0"/>
-                      <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                      <Component id="txtValorVenda" min="-2" pref="270" max="-2" attributes="0"/>
-                      <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                      <Component id="txtNFe" min="-2" pref="370" max="-2" attributes="0"/>
-                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                      <Component id="txtSerie" min="-2" pref="250" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
-                      <Component id="txtNomeArquivo" min="-2" pref="1180" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="1600" pref="1600" max="-2" attributes="0"/>
+              <Component id="txtSerie" min="-2" pref="250" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
               <Component id="btnEncerrar" min="-2" pref="150" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="500" pref="500" max="-2" attributes="0"/>
+              <Component id="btnEnviarArquivo" min="-2" pref="140" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1330" pref="1330" max="-2" attributes="0"/>
+              <Component id="txtQtd" min="-2" pref="220" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="940" pref="940" max="-2" attributes="0"/>
+              <Component id="txtCategoria" min="-2" pref="340" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1600" pref="1600" max="-2" attributes="0"/>
+              <Component id="txtVoltagem" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="520" pref="520" max="-2" attributes="0"/>
+              <Component id="txtValorCompra" min="-2" pref="280" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1680" pref="1680" max="-2" attributes="0"/>
+              <Component id="txtData" min="-2" pref="230" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1190" pref="1190" max="-2" attributes="0"/>
+              <Component id="txtNFe" min="-2" pref="370" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1800" pref="1800" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" pref="110" max="-2" attributes="0"/>
+          </Group>
           <Component id="btnVenda" min="-2" pref="370" max="-2" attributes="0"/>
           <Group type="102" attributes="0">
-              <EmptySpace min="730" pref="730" max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="750" max="-2" attributes="0"/>
+              <EmptySpace min="660" pref="660" max="-2" attributes="0"/>
+              <Component id="txtNomeArquivo" min="-2" pref="1180" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="510" pref="510" max="-2" attributes="0"/>
-              <Component id="txtFornecedor" min="-2" pref="360" max="-2" attributes="0"/>
+              <EmptySpace min="940" pref="940" max="-2" attributes="0"/>
+              <Component id="txtDescricao" min="-2" pref="910" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1480" pref="1480" max="-2" attributes="0"/>
+              <Component id="btnSearch" min="-2" pref="80" max="-2" attributes="0"/>
+          </Group>
+          <Component id="imgTela" min="-2" pref="1920" max="-2" attributes="0"/>
           <Group type="102" attributes="0">
               <EmptySpace min="1000" pref="1000" max="-2" attributes="0"/>
               <Component id="btnEnviar" min="-2" pref="350" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="500" pref="500" max="-2" attributes="0"/>
-              <Component id="btnEnviarArquivo" min="-2" pref="130" max="-2" attributes="0"/>
+              <EmptySpace min="860" pref="860" max="-2" attributes="0"/>
+              <Component id="txtValorVenda" min="-2" pref="270" max="-2" attributes="0"/>
           </Group>
-          <Component id="imgTela" min="-2" pref="1920" max="-2" attributes="0"/>
+          <Component id="btnFinanceiro" min="-2" pref="370" max="-2" attributes="0"/>
+          <Component id="btnProdutos" min="-2" pref="370" max="-2" attributes="0"/>
+          <Component id="btnCaixa" min="-2" pref="370" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Component id="txtData" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace min="66" pref="66" max="-2" attributes="0"/>
+              <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
               <Component id="txtUsuario" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-              <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
-              <Component id="btnSearch" min="-2" pref="60" max="-2" attributes="0"/>
-              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+              <EmptySpace min="200" pref="200" max="-2" attributes="0"/>
+              <Component id="txtPesquisa" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="108" pref="108" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btnProdutos" min="-2" pref="110" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
                       <Component id="btnCadastro" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnFinanceiro" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="btnCaixa" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="88" pref="88" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtCodProd" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="txtDescricao" min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtCategoria" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="txtQtd" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="txtVoltagem" min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtValorCompra" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="txtValorVenda" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="txtNFe" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="txtSerie" min="-2" pref="50" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                      <Component id="txtNomeArquivo" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="txtCodProd" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
+                      <Component id="txtFornecedor" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
+              <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+              <Component id="txtSerie" min="-2" pref="50" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1010" pref="1010" max="-2" attributes="0"/>
               <Component id="btnEncerrar" min="-2" pref="50" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="830" pref="830" max="-2" attributes="0"/>
+              <Component id="btnEnviarArquivo" min="-2" pref="50" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
+              <Component id="txtQtd" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
+              <Component id="txtCategoria" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
+              <Component id="txtVoltagem" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="720" pref="720" max="-2" attributes="0"/>
+              <Component id="txtValorCompra" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="txtData" min="-2" pref="30" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="720" pref="720" max="-2" attributes="0"/>
+              <Component id="txtNFe" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="148" pref="148" max="-2" attributes="0"/>
+              <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="300" pref="300" max="-2" attributes="0"/>
               <Component id="btnVenda" min="-2" pref="100" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="340" pref="340" max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="830" pref="830" max="-2" attributes="0"/>
+              <Component id="txtNomeArquivo" min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
-              <Component id="txtFornecedor" min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="490" pref="490" max="-2" attributes="0"/>
+              <Component id="txtDescricao" min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="330" pref="330" max="-2" attributes="0"/>
+              <Component id="btnSearch" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Component id="imgTela" min="-2" max="-2" attributes="0"/>
           <Group type="102" attributes="0">
               <EmptySpace min="930" pref="930" max="-2" attributes="0"/>
               <Component id="btnEnviar" min="-2" pref="80" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="830" pref="830" max="-2" attributes="0"/>
-              <Component id="btnEnviarArquivo" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="720" pref="720" max="-2" attributes="0"/>
+              <Component id="txtValorVenda" min="-2" pref="60" max="-2" attributes="0"/>
           </Group>
-          <Component id="imgTela" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="630" pref="630" max="-2" attributes="0"/>
+              <Component id="btnFinanceiro" min="-2" pref="100" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="400" pref="400" max="-2" attributes="0"/>
+              <Component id="btnProdutos" min="-2" pref="110" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="740" pref="740" max="-2" attributes="0"/>
+              <Component id="btnCaixa" min="-2" pref="100" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -225,6 +251,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnviarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnVenda">
       <Properties>
@@ -420,7 +449,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtPesquisa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="24" style="0"/>

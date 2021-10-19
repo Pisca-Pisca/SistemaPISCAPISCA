@@ -6,8 +6,8 @@
 package Model.DAO;
 
 import Connection.ConnectionFac;
-import Model.Categorias;
-import Model.Clientes;
+import Model.DAO.Categorias;
+import Model.DAO.Clientes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
