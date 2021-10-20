@@ -13,15 +13,15 @@ public class Produtos {
     
    private int IdProduto;
    private int CodigoProduto;
-   private String NomeProduto;
+   private String NomeProduto = "";
    private int QtdProduto;
    private double ValorCompra;
    private double ValorVenda;
    private String NotaFiscal = "";
    private int Serie;
    private String Url_Img = "";
-   private int IdCategoria;
-   private int IdFornecedor;
+   private int IdCategoria = 1;
+   private int IdFornecedor = 1;
 
    
    // GETTERS E SETTERS
