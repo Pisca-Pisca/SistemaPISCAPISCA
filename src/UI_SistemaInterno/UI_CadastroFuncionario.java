@@ -78,7 +78,6 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         baseTela.setBackground(new java.awt.Color(37, 37, 37));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
@@ -156,6 +155,11 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtRG.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtRG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRGActionPerformed(evt);
+            }
+        });
         baseTela.add(txtRG);
         txtRG.setBounds(510, 560, 360, 60);
 
@@ -295,7 +299,6 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         comboEstado.setBackground(new java.awt.Color(102, 102, 102));
         comboEstado.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        comboEstado.setBorder(null);
         comboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEstadoActionPerformed(evt);
@@ -370,6 +373,10 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
             txtNomeArquivo.setText("Nenhum arquivo escolhido !");
         }
     }//GEN-LAST:event_btnEnviarArquivoActionPerformed
+
+    private void txtRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRGActionPerformed
 
     /**
      * @param args the command line arguments

@@ -21,15 +21,15 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
     private final JFileChooser abrirEscolhaArquivo;
     private BufferedImage originalBI;
-    
+
     /**
      * Creates new form UI_CadastroProduto
      */
     public UI_CadastroProduto() {
         initComponents();
-       
-         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
+
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         abrirEscolhaArquivo = new JFileChooser();
         abrirEscolhaArquivo.setCurrentDirectory(new File("c:\\images"));
         abrirEscolhaArquivo.setFileFilter(new FileNameExtensionFilter("PNG images", "png"));
@@ -49,12 +49,16 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnFinanceiro = new javax.swing.JButton();
         btnCaixa = new javax.swing.JButton();
         btnEncerrar = new javax.swing.JButton();
-        btnEnviar = new javax.swing.JButton();
+        btnCadastro = new javax.swing.JButton();
         btnVenda = new javax.swing.JButton();
+        btnEnviar = new javax.swing.JButton();
         btnProdutos = new javax.swing.JButton();
+<<<<<<< HEAD
         btnCadastro = new javax.swing.JButton();
         btnEnviarArquivo = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+=======
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
         txtCategoria = new javax.swing.JTextField();
         txtFornecedor = new javax.swing.JTextField();
         txtValorVenda = new javax.swing.JTextField();
@@ -74,14 +78,24 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(37, 37, 37));
         setUndecorated(true);
+        getContentPane().setLayout(null);
 
+<<<<<<< HEAD
         baseTela.setBackground(new java.awt.Color(37, 37, 37));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
         baseTela.setLayout(null);
+=======
+        btnFinanceiro.setBorderPainted(false);
+        btnFinanceiro.setContentAreaFilled(false);
+        btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnFinanceiro);
+        btnFinanceiro.setBounds(10, 630, 350, 90);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+<<<<<<< HEAD
         baseTela.add(btnLogout);
         btnLogout.setBounds(1780, 148, 120, 30);
 
@@ -90,22 +104,54 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         baseTela.add(btnFinanceiro);
         btnFinanceiro.setBounds(10, 630, 360, 100);
+=======
+        getContentPane().add(btnLogout);
+        btnLogout.setBounds(1790, 148, 110, 30);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+<<<<<<< HEAD
         baseTela.add(btnCaixa);
         btnCaixa.setBounds(10, 740, 360, 100);
+=======
+        getContentPane().add(btnCaixa);
+        btnCaixa.setBounds(10, 740, 350, 90);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
         btnEncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+<<<<<<< HEAD
         baseTela.add(btnEncerrar);
         btnEncerrar.setBounds(110, 1010, 150, 50);
+=======
+        btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEncerrar);
+        btnEncerrar.setBounds(100, 1010, 170, 50);
+
+        btnCadastro.setBorderPainted(false);
+        btnCadastro.setContentAreaFilled(false);
+        btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnCadastro);
+        btnCadastro.setBounds(10, 520, 350, 90);
+
+        btnVenda.setBorderPainted(false);
+        btnVenda.setContentAreaFilled(false);
+        btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnVenda);
+        btnVenda.setBounds(10, 300, 350, 90);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         btnEnviar.setBorderPainted(false);
         btnEnviar.setContentAreaFilled(false);
         btnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+<<<<<<< HEAD
         baseTela.add(btnEnviar);
         btnEnviar.setBounds(1000, 930, 350, 80);
 
@@ -114,10 +160,20 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         baseTela.add(btnVenda);
         btnVenda.setBounds(10, 300, 360, 100);
+=======
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEnviar);
+        btnEnviar.setBounds(1000, 930, 350, 70);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+<<<<<<< HEAD
         baseTela.add(btnProdutos);
         btnProdutos.setBounds(10, 400, 360, 110);
 
@@ -143,22 +199,43 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         baseTela.add(btnSearch);
         btnSearch.setBounds(1480, 330, 80, 60);
+=======
+        getContentPane().add(btnProdutos);
+        btnProdutos.setBounds(10, 410, 350, 90);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         txtCategoria.setBackground(new java.awt.Color(187, 184, 184));
         txtCategoria.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCategoria.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtCategoria);
         txtCategoria.setBounds(940, 600, 320, 60);
+=======
+        getContentPane().add(txtCategoria);
+        txtCategoria.setBounds(940, 610, 320, 40);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         txtFornecedor.setBackground(new java.awt.Color(187, 184, 184));
         txtFornecedor.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtFornecedor.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtFornecedor);
         txtFornecedor.setBounds(520, 600, 360, 60);
+=======
+        getContentPane().add(txtFornecedor);
+        txtFornecedor.setBounds(520, 600, 350, 50);
+
+        txtValorCompra.setBackground(new java.awt.Color(187, 184, 184));
+        txtValorCompra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtValorCompra.setBorder(null);
+        getContentPane().add(txtValorCompra);
+        txtValorCompra.setBounds(520, 720, 270, 50);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         txtValorVenda.setBackground(new java.awt.Color(187, 184, 184));
         txtValorVenda.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtValorVenda.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtValorVenda);
         txtValorVenda.setBounds(860, 720, 260, 60);
 
@@ -167,40 +244,67 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtValorCompra.setBorder(null);
         baseTela.add(txtValorCompra);
         txtValorCompra.setBounds(520, 720, 270, 60);
+=======
+        getContentPane().add(txtValorVenda);
+        txtValorVenda.setBounds(860, 730, 260, 50);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         txtNFe.setBackground(new java.awt.Color(187, 184, 184));
         txtNFe.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtNFe.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtNFe);
         txtNFe.setBounds(1190, 720, 370, 60);
+=======
+        getContentPane().add(txtNFe);
+        txtNFe.setBounds(1190, 730, 370, 50);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         txtSerie.setBackground(new java.awt.Color(187, 184, 184));
         txtSerie.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtSerie.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtSerie);
+=======
+        getContentPane().add(txtSerie);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
         txtSerie.setBounds(1600, 730, 240, 50);
 
         txtDescricao.setBackground(new java.awt.Color(187, 184, 184));
         txtDescricao.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDescricao.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtDescricao);
+=======
+        getContentPane().add(txtDescricao);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
         txtDescricao.setBounds(940, 490, 900, 50);
 
         txtQtd.setBackground(new java.awt.Color(187, 184, 184));
         txtQtd.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtQtd.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtQtd);
         txtQtd.setBounds(1330, 600, 210, 60);
+=======
+        getContentPane().add(txtQtd);
+        txtQtd.setBounds(1330, 610, 200, 40);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         txtVoltagem.setBackground(new java.awt.Color(187, 184, 184));
         txtVoltagem.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtVoltagem.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtVoltagem);
+=======
+        getContentPane().add(txtVoltagem);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
         txtVoltagem.setBounds(1600, 600, 240, 60);
 
         txtCodProd.setBackground(new java.awt.Color(187, 184, 184));
         txtCodProd.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCodProd.setBorder(null);
+<<<<<<< HEAD
         baseTela.add(txtCodProd);
         txtCodProd.setBounds(520, 488, 360, 50);
 
@@ -211,11 +315,24 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         baseTela.add(txtData);
+=======
+        txtCodProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodProdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCodProd);
+        txtCodProd.setBounds(520, 488, 360, 50);
+
+        txtData.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtData);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
         txtData.setBounds(1680, 10, 230, 30);
 
         txtUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+<<<<<<< HEAD
         baseTela.add(txtUsuario);
         txtUsuario.setBounds(1720, 110, 190, 30);
 
@@ -244,6 +361,41 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+=======
+        getContentPane().add(txtUsuario);
+        txtUsuario.setBounds(1720, 110, 200, 30);
+
+        btnEnviarArquivo.setBorderPainted(false);
+        btnEnviarArquivo.setContentAreaFilled(false);
+        btnEnviarArquivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEnviarArquivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarArquivoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEnviarArquivo);
+        btnEnviarArquivo.setBounds(500, 830, 140, 50);
+
+        txtNomeArquivo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        getContentPane().add(txtNomeArquivo);
+        txtNomeArquivo.setBounds(660, 830, 1180, 50);
+
+        txtPesquisa.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtPesquisa.setBorder(null);
+        getContentPane().add(txtPesquisa);
+        txtPesquisa.setBounds(730, 340, 750, 40);
+
+        btnSearch.setBorderPainted(false);
+        btnSearch.setContentAreaFilled(false);
+        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnSearch);
+        btnSearch.setBounds(1480, 330, 80, 60);
+
+        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTOCADASTRO.jpg"))); // NOI18N
+        imgTela.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(imgTela);
+        imgTela.setBounds(0, 0, 1920, 1080);
+>>>>>>> 550ccdae92119dfaf10a4fff55c20ca77fe66709
 
         pack();
         setLocationRelativeTo(null);
@@ -259,10 +411,22 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             } catch (Exception e) {
                 txtNomeArquivo.setText("Falha ao importar a imagem !");
             }
-        } else{
+        } else {
             txtNomeArquivo.setText("Nenhum arquivo escolhido !");
         }
     }//GEN-LAST:event_btnEnviarArquivoActionPerformed
+
+    private void txtCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodProdActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnEncerrarActionPerformed
 
     /**
      * @param args the command line arguments
