@@ -110,7 +110,7 @@ public class ProdutosDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("Update produtos SET CodigoProduto = ?, NomeProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, idFornecedor, idCategoria WHERE idProduto = ?");
+            stmt = con.prepareStatement("UPDATE Produtos SET CodigoProduto = ?, NomeProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, idFornecedor, idCategoria WHERE idProduto = ?");
             
             stmt.setString(2, P.getNomeProduto());
             stmt.setInt(1, P.getCodigoProduto());
@@ -137,9 +137,31 @@ public class ProdutosDAO {
         }
              
     }
+     
+    public void Delete(Produtos P){
+        
+        Connection con = ConnectionFac.getConnecton();
+        
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("DELETE FROM Produtos WHERE idProduto = ?");
+
+            stmt.setInt(1, P.getIdProduto());
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Excluído com Sucesso");
+        } 
+        catch (SQLException ex) {
+            throw new RuntimeException("Erro ao excluir valores na tabela Produtos", ex);
+        }
+        finally {
+            ConnectionFac.closeConnection(con, stmt);
+        }
+             
+    }
     
-    
-    
-    
+     
     
 }
