@@ -59,7 +59,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         setUndecorated(true);
 
         baseTala.setBackground(new java.awt.Color(37, 37, 37));
-        baseTala.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        baseTala.setPreferredSize(new java.awt.Dimension(1980, 1220));
 
         comboEstado.setBackground(new java.awt.Color(102, 102, 102));
         comboEstado.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N

@@ -12,6 +12,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import Model.DAO.Produtos;
+import Model.DAO.ProdutosDAO;
 
 /**
  *
@@ -33,6 +35,8 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         abrirEscolhaArquivo = new JFileChooser();
         abrirEscolhaArquivo.setCurrentDirectory(new File("c:\\images"));
         abrirEscolhaArquivo.setFileFilter(new FileNameExtensionFilter("PNG images", "png"));
+        
+        
     }
 
     /**
@@ -92,6 +96,11 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnEnviar.setBorderPainted(false);
         btnEnviar.setContentAreaFilled(false);
         btnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
@@ -344,6 +353,20 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private void txtCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodProdActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        Produtos P = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
+        
+        P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
+        P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
+        P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+        P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
+        P.setNotaFiscal(txtNFe.getText());
+        P.setSerie(Integer.parseInt(txtSerie.getText()));
+        
+        dao.Create(P);
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
      * @param args the command line arguments
