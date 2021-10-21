@@ -7,6 +7,7 @@ package UI_SistemaInterno;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.sql.Date;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -27,7 +28,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     public UI_CadastroProduto() {
         initComponents();
        
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+         setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         abrirEscolhaArquivo = new JFileChooser();
         abrirEscolhaArquivo.setCurrentDirectory(new File("c:\\images"));
