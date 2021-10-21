@@ -2,7 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
+=======
 <<<<<<< HEAD
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/ProdutosDAO.java</file>
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/nbproject/private/private.properties</file>
@@ -21,6 +27,8 @@
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroFuncionario.java</file>
 >>>>>>> ad02433c4ffdc56a7db3190516339631e042b588
 >>>>>>> 4e993ad0fd33095ecfbc4f2d3586608606d8ef43
+>>>>>>> bc44c05f8fc3191ba90e0ef3a2d2c345b70d0a9d
         </group>
+>>>>>>> 8c647bf6c14397171b45116d6fb47963cc50470b
     </open-files>
 </project-private>
