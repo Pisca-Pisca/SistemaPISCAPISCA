@@ -43,6 +43,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gupoSelectTelCel = new javax.swing.ButtonGroup();
         baseTela = new javax.swing.JPanel();
         txtDataDesligamento = new javax.swing.JFormattedTextField();
         txtDataAdimissao = new javax.swing.JFormattedTextField();
@@ -57,6 +58,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         txtEndereco = new javax.swing.JTextField();
         txtNomeCompleto = new javax.swing.JTextField();
         txtBusca = new javax.swing.JTextField();
+        txtTelefoneCelular = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         btnSearch1 = new javax.swing.JButton();
         btnVenda = new javax.swing.JButton();
@@ -71,10 +73,14 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         btnEnviarArquivo = new javax.swing.JButton();
         comboTipoAcesso = new javax.swing.JComboBox<>();
         comboEstado = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jPanel2 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
         txtNomeArquivo = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
-        txtData = new javax.swing.JLabel();
         imgTela = new javax.swing.JLabel();
+        txtData = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -197,12 +203,18 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         txtNomeCompleto.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtNomeCompleto.setBorder(null);
         baseTela.add(txtNomeCompleto);
-        txtNomeCompleto.setBounds(1040, 460, 480, 50);
+        txtNomeCompleto.setBounds(1460, 680, 350, 60);
 
         txtBusca.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
         baseTela.add(txtBusca);
         txtBusca.setBounds(780, 340, 660, 40);
+
+        txtTelefoneCelular.setBackground(new java.awt.Color(187, 184, 184));
+        txtTelefoneCelular.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtTelefoneCelular.setBorder(null);
+        baseTela.add(txtTelefoneCelular);
+        txtTelefoneCelular.setBounds(1040, 460, 480, 50);
 
         jPasswordField1.setBackground(new java.awt.Color(187, 184, 184));
         jPasswordField1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -307,6 +319,66 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(comboEstado);
         comboEstado.setBounds(820, 900, 100, 70);
 
+        jPanel1.setBackground(new java.awt.Color(228, 228, 228));
+
+        gupoSelectTelCel.add(jRadioButton2);
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRadioButton2)
+                .addContainerGap())
+        );
+
+        baseTela.add(jPanel1);
+        jPanel1.setBounds(1440, 640, 30, 30);
+
+        jPanel2.setBackground(new java.awt.Color(228, 228, 228));
+
+        gupoSelectTelCel.add(jRadioButton1);
+        jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jRadioButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jRadioButton1.setPreferredSize(new java.awt.Dimension(120, 18));
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        baseTela.add(jPanel2);
+        jPanel2.setBounds(1590, 640, 30, 30);
+
         txtNomeArquivo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         baseTela.add(txtNomeArquivo);
         txtNomeArquivo.setBounds(1110, 910, 700, 50);
@@ -316,13 +388,13 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(txtUsuario);
         txtUsuario.setBounds(1719, 100, 200, 30);
 
-        txtData.setForeground(new java.awt.Color(255, 255, 255));
-        baseTela.add(txtData);
-        txtData.setBounds(1659, 10, 250, 30);
-
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FUNCIONÁRIO - CADASTRO.png"))); // NOI18N
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1928, 1080);
+
+        txtData.setForeground(new java.awt.Color(255, 255, 255));
+        baseTela.add(txtData);
+        txtData.setBounds(1659, 10, 250, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -378,6 +450,14 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRGActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -428,8 +508,13 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btnVenda;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JComboBox<String> comboTipoAcesso;
+    private javax.swing.ButtonGroup gupoSelectTelCel;
     private javax.swing.JLabel imgTela;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JFormattedTextField txtCEP;
@@ -445,6 +530,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel txtNomeArquivo;
     private javax.swing.JTextField txtNomeCompleto;
     private javax.swing.JFormattedTextField txtRG;
+    private javax.swing.JTextField txtTelefoneCelular;
     private javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

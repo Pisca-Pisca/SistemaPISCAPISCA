@@ -63,7 +63,7 @@
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="1010" pref="1010" max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" pref="340" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
@@ -72,11 +72,17 @@
                   <Component id="txtCartaoValorGaveta" min="-2" pref="270" max="-2" attributes="0"/>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Component id="txtCartaoFaltaSobra" min="-2" pref="310" max="-2" attributes="0"/>
+                  <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
+                  <Component id="txtEntradaSistema" min="-2" pref="320" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="800" pref="800" max="-2" attributes="0"/>
+                  <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
+                  <Component id="txtDineiroEntradaSistema" min="-2" pref="370" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Component id="txtDinheiroValorGaveta" min="-2" pref="270" max="-2" attributes="0"/>
-                  <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="txtDinheiroFaltaSobra" min="-2" pref="310" max="-2" attributes="0"/>
+                  <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
                   <Component id="txtTotalGaveta" min="-2" pref="320" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -84,7 +90,9 @@
                   <Component id="txtBoletoEntradaSistema" min="-2" pref="370" max="-2" attributes="0"/>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Component id="txtBoletoValorGaveta" min="-2" pref="270" max="-2" attributes="0"/>
-                  <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="txtBoletoFaltaSobra" min="-2" pref="310" max="-2" attributes="0"/>
+                  <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
                   <Component id="txtFaltaSobra" min="-2" pref="320" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -92,22 +100,6 @@
                   <Component id="btnConfirmar" min="-2" pref="290" max="-2" attributes="0"/>
                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Component id="btnCancelar" min="-2" pref="290" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="1080" pref="1080" max="-2" attributes="0"/>
-                  <Component id="txtDinheiroFaltaSobra" min="-2" pref="310" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
-                  <Component id="txtDineiroEntradaSistema" min="-2" pref="370" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="1530" pref="1530" max="-2" attributes="0"/>
-                  <Component id="txtEntradaSistema" min="-2" pref="320" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="1080" pref="1080" max="-2" attributes="0"/>
-                  <Component id="txtBoletoFaltaSobra" min="-2" pref="310" max="-2" attributes="0"/>
               </Group>
               <Component id="imgTela" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -120,51 +112,51 @@
                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace min="112" pref="112" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtCartaoEntradaSistema" min="-2" pref="140" max="-2" attributes="0"/>
-                      <Component id="txtCartaoValorGaveta" min="-2" pref="140" max="-2" attributes="0"/>
-                      <Component id="txtCartaoFaltaSobra" min="-2" pref="140" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtDinheiroValorGaveta" min="-2" pref="140" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                          <Component id="txtTotalGaveta" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          <Component id="txtEntradaSistema" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="txtCartaoFaltaSobra" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                      <Component id="txtCartaoValorGaveta" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                      <Component id="txtCartaoEntradaSistema" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtDineiroEntradaSistema" min="-2" pref="140" max="-2" attributes="0"/>
+                      <Component id="txtDinheiroFaltaSobra" min="-2" pref="140" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="txtTotalGaveta" min="-2" pref="90" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="txtDinheiroValorGaveta" min="-2" pref="128" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtBoletoEntradaSistema" min="-2" pref="140" max="-2" attributes="0"/>
-                      <Component id="txtBoletoValorGaveta" min="-2" pref="140" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="txtFaltaSobra" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="txtBoletoFaltaSobra" min="-2" pref="140" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="txtBoletoEntradaSistema" min="-2" pref="127" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="txtBoletoValorGaveta" min="-2" pref="129" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                          <Component id="txtFaltaSobra" min="-2" pref="79" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnConfirmar" min="-2" pref="60" max="-2" attributes="0"/>
                       <Component id="btnCancelar" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
-                  <Component id="txtDinheiroFaltaSobra" min="-2" pref="140" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
-                  <Component id="txtDineiroEntradaSistema" min="-2" pref="140" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
-                  <Component id="txtEntradaSistema" min="-2" pref="110" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="800" pref="800" max="-2" attributes="0"/>
-                  <Component id="txtBoletoFaltaSobra" min="-2" pref="140" max="-2" attributes="0"/>
               </Group>
               <Component id="imgTela" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -181,18 +173,28 @@
             </Property>
           </Properties>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="270" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="sansserif" size="48" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="21/05/2021"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="-20" y="-10" width="307" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+          </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="txtDinheiroValorGaveta">
           <Properties>
