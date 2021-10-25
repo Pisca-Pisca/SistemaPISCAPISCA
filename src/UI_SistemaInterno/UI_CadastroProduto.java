@@ -183,6 +183,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTOCADASTRO.jpg"))); // NOI18N
+        imgTela.setMaximumSize(new java.awt.Dimension(1280, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -308,7 +309,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(830, 830, 830)
                 .addComponent(btnEnviarArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
+            .addComponent(imgTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -338,6 +339,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         Produtos P = new Produtos();
         ProdutosDAO dao = new ProdutosDAO();
         
+        
         P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
         P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
         P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
@@ -346,8 +348,18 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         P.setSerie(Integer.parseInt(txtSerie.getText()));
         
         dao.Create(P);
+        limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
-
+    
+    private void limparCamposProdutos(){
+        
+        txtCodProd.setText("");
+        txtQtd.setText("");
+        txtValorCompra.setText("");
+        txtValorVenda.setText("");
+        txtNFe.setText("");
+        txtSerie.setText("");
+    }
     /**
      * @param args the command line arguments
      */

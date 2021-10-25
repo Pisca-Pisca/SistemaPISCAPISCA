@@ -11,14 +11,14 @@ package Model.DAO;
  */
 public class Produtos {
     
-   private int IdProduto;
-   private int CodigoProduto;
+   private int IdProduto = 0;
+   private int CodigoProduto = 0;
    private String NomeProduto = "";
-   private int QtdProduto;
-   private double ValorCompra;
-   private double ValorVenda;
+   private int QtdProduto = 0;
+   private double ValorCompra = 0;
+   private double ValorVenda = 0;
    private String NotaFiscal = "";
-   private int Serie;
+   private int Serie = 0;
    private String Url_Img = "";
    private int IdCategoria = 1;
    private int IdFornecedor = 1;
