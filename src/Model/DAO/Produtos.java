@@ -5,18 +5,14 @@
  */
 package Model.DAO;
 
-/**
- *
- * @author lucve
- */
 public class Produtos {
     
    private int IdProduto = 0;
    private int CodigoProduto = 0;
    private String NomeProduto = "";
    private int QtdProduto = 0;
-   private double ValorCompra = 0;
-   private double ValorVenda = 0;
+   private double ValorCompra = 0.0;
+   private double ValorVenda = 0.0;
    private String NotaFiscal = "";
    private int Serie = 0;
    private String Url_Img = "";

@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class ConnectionFac {
     
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    
+   
     private static final String URL = "jdbc:mysql://localhost:3306/mydb";
     
     private static final String USER = "root";
@@ -33,7 +33,7 @@ public class ConnectionFac {
         try {
             Class.forName(DRIVER);
             
-            return DriverManager.getConnection(DRIVER, URL, USER);
+            return DriverManager.getConnection(URL, USER, PASS);
             
         } catch (ClassNotFoundException | SQLException ex) {
             throw new RuntimeException("Erro ao conectar com o BD", ex);
