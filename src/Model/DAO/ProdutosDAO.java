@@ -32,29 +32,36 @@ public class ProdutosDAO {
         try {
             stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, NomeProduto, QtdProduto, ValorCompra, ValorVenda, NotaFiscal, Serie, Url_Img, idCategoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?)");
             
-            System.out.println("CodigoProduto" + P.getCodigoProduto());
-            System.out.println("Nome Produto" + P.getNomeProduto());
-            System.out.println("Qtd Produto" + P.getQtdProduto());
-            System.out.println("Valor Compra" + P.getValorCompra());
-            System.out.println("Valor Venda" + P.getValorVenda());
-            System.out.println("Nota Fiscal" + P.getNotaFiscal());
-            System.out.println("Serie" + P.getSerie());
-            System.out.println("Url Img" + P.getUrl_Img());
-            System.out.println("Id Categoria" + P.getIdCategoria());
-            System.out.println("Id Produto" + P.getIdFornecedor());
-            
-            
             
             stmt.setInt(1, P.getCodigoProduto());
+            System.out.println("CodigoProduto" + P.getCodigoProduto());
+            
             stmt.setString(2, P.getNomeProduto());
+            System.out.println("Nome Produto" + P.getNomeProduto());
+            
             stmt.setInt(3, P.getQtdProduto());
+            System.out.println("Qtd Produto" + P.getQtdProduto());
+            
             stmt.setDouble(4, P.getValorCompra());
+            System.out.println("Valor Compra" + P.getValorCompra());
+            
             stmt.setDouble(5, P.getValorVenda());
+            System.out.println("Valor Venda" + P.getValorVenda());
+            
             stmt.setString(6, P.getNotaFiscal());
+            System.out.println("Nota Fiscal" + P.getNotaFiscal());
+            
             stmt.setInt(7, P.getSerie());
+            System.out.println("Serie" + P.getSerie());
+            
             stmt.setString(8, P.getUrl_Img());
+            System.out.println("Url Img" + P.getUrl_Img());
+            
             stmt.setInt(9, P.getIdCategoria());
+            System.out.println("Id Categoria" + P.getIdCategoria());
+            
             stmt.setInt(10, P.getIdFornecedor());
+            System.out.println("Id Produto" + P.getIdFornecedor());
             
             System.out.println("dentro do stmt" + stmt);
             System.out.println("dentro do stmt.execute" + stmt.executeQuery());
