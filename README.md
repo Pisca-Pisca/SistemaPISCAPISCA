@@ -1,9 +1,9 @@
 <h1 align="center">
-    <img src="https://github.com/Pisca-Pisca/SistemaPISCAPISCA/blob/dev/logo%20pp.jpg?raw=true" width="400">
+    <img src="https://github.com/Pisca-Pisca/SistemaPISCAPISCA/blob/master/Files%20Readme/logo%20pp.jpg" width="400">
 </h1>
 
 <div align="center">
-    <img src="https://github.com/Pisca-Pisca/SistemaPISCAPISCA/blob/dev/Files%20Readme/PISCA%20PISCA%20-%20Figma%20(1).gif?raw=true">
+    <img src="https://github.com/Pisca-Pisca/SistemaPISCAPISCA/blob/master/Files%20Readme/PISCA%20PISCA%20-%20Figma%20(1).gif?raw=true">
 </div>
 
 ##
@@ -12,7 +12,7 @@
     <a href="https://piscapisca.netlify.app/">Acesse nossa Landing Page!</a>
 </h3>
 
-# índice
+# 📌&nbsp;índice
 
 - [Sobre](#-sobre)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
@@ -33,13 +33,14 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 - [Java](https://www.java.com/en/)
 - [MySQL](https://www.mysql.com)
 
-## Nossa Equipe
+## 👩‍💻 Nossa Equipe
 
-- Jéssica Nagata [Linkedin](https://www.linkedin.com/in/j%C3%A9ssica-marques-nagata-08935a1b1/) (https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/fagnerpsantos)](https://github.com/orgs/Pisca-Pisca/people/JessicaNagata)
-- Lucas Cabral [Linkedin](https://www.linkedin.com/in/lucas-cabral-r3006/) [Github](https://github.com/orgs/Pisca-Pisca/people/LucasCabral1)
-- Luiz Nagata [Linkedin](https://www.linkedin.com/in/luiz-nagata-b99189211/) [Github](https://github.com/orgs/Pisca-Pisca/people/luiz266)
-- Matheus Motta [Linkedin](https://www.linkedin.com/in/matheus-motta-a54646209/) [Github](https://github.com/orgs/Pisca-Pisca/people/MatheusMotta12)
-- Nicoli Carvalho [Linkedin](https://www.linkedin.com/in/nicoli-carvalho/) [Github](https://github.com/orgs/Pisca-Pisca/people/Nickcarv18)
+- Jéssica Nagata [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/j%C3%A9ssica-marques-nagata-08935a1b1/)](https://www.linkedin.com/in/j%C3%A9ssica-marques-nagata-08935a1b1/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/JessicaNagata)](https://github.com/orgs/Pisca-Pisca/people/JessicaNagata)
 
+- Lucas Cabral [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/lucas-cabral-r3006/)](https://www.linkedin.com/in/lucas-cabral-r3006/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/LucasCabral1)](https://github.com/orgs/Pisca-Pisca/people/LucasCabral1)
 
-[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/LucasCabral1)](https://github.com/fagnerpsantos)
+- Luiz Nagata [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/luiz-nagata-b99189211//)](https://www.linkedin.com/in/luiz-nagata-b99189211/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/luiz266)](https://github.com/orgs/Pisca-Pisca/people/luiz266)
+
+- Matheus Motta [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-motta-a54646209/)](https://www.linkedin.com/in/matheus-motta-a54646209/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/MatheusMotta12)](https://github.com/orgs/Pisca-Pisca/people/MatheusMotta12)
+
+- Nicoli Carvalho [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nicoli-carvalho/)](https://www.linkedin.com/in/nicoli-carvalho/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/Nickcarv18)](https://github.com/orgs/Pisca-Pisca/people/Nickcarv18)
