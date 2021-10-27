@@ -44,3 +44,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 - Matheus Motta [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/matheus-motta-a54646209/)](https://www.linkedin.com/in/matheus-motta-a54646209/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/MatheusMotta12)](https://github.com/orgs/Pisca-Pisca/people/MatheusMotta12)
 
 - Nicoli Carvalho [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nicoli-carvalho/)](https://www.linkedin.com/in/nicoli-carvalho/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/orgs/Pisca-Pisca/people/Nickcarv18)](https://github.com/orgs/Pisca-Pisca/people/Nickcarv18)
+
+
+## 📃 Licença
+
+Este projeto é licenciado sob a Licença do BSD 3-Clause License - consulte o arquivo <a href="https://github.com/Pisca-Pisca/SistemaPISCAPISCA/blob/master/LICENSE">License</a> para obter detalhes.
