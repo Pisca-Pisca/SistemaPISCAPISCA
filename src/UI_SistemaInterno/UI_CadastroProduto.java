@@ -366,18 +366,18 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                     + "Serie,"
                     + "Url_Img,"
                     + "idCategoria,"
-                    + "idFornecedor,"
+                    + "idFornecedor"
                 + ") VALUES ("
-                    + "'" + NovoProduto.getCodigoProduto() + "',"
+                    + "" + NovoProduto.getCodigoProduto() + ","
                     + "'" + NovoProduto.getNomeProduto()+ "',"
-                    + "'" + NovoProduto.getQtdProduto() + "',"
-                    + "'" + NovoProduto.getValorCompra() + "',"
-                    + "'" + NovoProduto.getValorVenda() + "',"
-                    + "'" + NovoProduto.getNotaFiscal() + "'"
-                    + "'" + NovoProduto.getSerie() + "'"
-                    + "'" + NovoProduto.getUrl_Img() + "'"
-                    + "'" + NovoProduto.getIdCategoria()+ "'"
-                    + "'" + NovoProduto.getIdFornecedor()+ "'"
+                    + "" + NovoProduto.getQtdProduto() + ","
+                    + "" + NovoProduto.getValorCompra() + ","
+                    + "" + NovoProduto.getValorVenda() + ","
+                    + "'" + NovoProduto.getNotaFiscal() + "',"
+                    + "" + NovoProduto.getSerie() + ","
+                    + "'" + NovoProduto.getUrl_Img() + "',"
+                    + "" + NovoProduto.getIdCategoria()+ ","
+                    + "" + NovoProduto.getIdFornecedor()
                 + ");");
             
             System.out.println("Produto:" + NovoProduto);

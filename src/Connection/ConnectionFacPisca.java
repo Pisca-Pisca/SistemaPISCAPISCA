@@ -82,8 +82,8 @@ public class ConnectionFacPisca {
         try {
             conn.close();
             return true;
-        } catch (Exception e) {
-            System.out.println("Erro ao fechar conexao " + e.getMessage());
+        } catch (SQLException ex ) {
+            System.out.println("Erro ao fechar conexao " + ex.getMessage());
             return false;
         }
     }
@@ -93,7 +93,7 @@ public class ConnectionFacPisca {
         try {
             //createStatement de con para criar o Statement
             this.setStatement(getConn().createStatement());   
-            System.out.println("Entrou na consulta" + SQL);
+            System.out.println("Entrou na consulta " + SQL);
 
             // Definido o Statement, executamos a query no banco de dados
             this.getStatement().executeUpdate(SQL);            
