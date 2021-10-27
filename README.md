@@ -17,6 +17,7 @@
 - [Sobre](#-sobre)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Nossa Equipe](#-nossa-equipe)
+- [Licença](#-licença)
 
 ## 🔖&nbsp; Sobre
 
