@@ -5,6 +5,8 @@
  */
 package UI_SistemaInterno;
 
+import Connection.ConnectionFac;
+import Connection.ConnectionFacPisca;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.sql.Date;
@@ -14,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +26,9 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
     private final JFileChooser abrirEscolhaArquivo;
     private BufferedImage originalBI;
+    
+     ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
+      Produtos NovoProduto = new Produtos(); //acessar os atributos da classe produtos
     
     /**
      * Creates new form UI_CadastroProduto
@@ -334,7 +340,63 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private void txtCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodProdActionPerformed
-
+    
+    private void cadastraProdutoPisca(Produtos NovoProduto){
+       
+        this.conectar.conectaBanco(); 
+        
+        NovoProduto.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
+        NovoProduto.setQtdProduto(Integer.parseInt(txtQtd.getText()));
+        NovoProduto.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+        NovoProduto.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
+        NovoProduto.setNotaFiscal(txtNFe.getText());
+        NovoProduto.setSerie(Integer.parseInt(txtSerie.getText()));
+        
+        
+        
+        try {
+                        
+            this.conectar.insertSQL("INSERT INTO Produtos ("
+                    + "CodigoProduto,"
+                    + "NomeProduto,"
+                    + "QtdProduto,"
+                    + "ValorCompra,"
+                    + "ValorVenda,"
+                    + "NotaFiscal,"
+                    + "Serie,"
+                    + "Url_Img,"
+                    + "idCategoria,"
+                    + "idFornecedor,"
+                + ") VALUES ("
+                    + "'" + NovoProduto.getCodigoProduto() + "',"
+                    + "'" + NovoProduto.getNomeProduto()+ "',"
+                    + "'" + NovoProduto.getQtdProduto() + "',"
+                    + "'" + NovoProduto.getValorCompra() + "',"
+                    + "'" + NovoProduto.getValorVenda() + "',"
+                    + "'" + NovoProduto.getNotaFiscal() + "'"
+                    + "'" + NovoProduto.getSerie() + "'"
+                    + "'" + NovoProduto.getUrl_Img() + "'"
+                    + "'" + NovoProduto.getIdCategoria()+ "'"
+                    + "'" + NovoProduto.getIdFornecedor()+ "'"
+                + ");");
+            
+            System.out.println("Produto:" + NovoProduto);
+            JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso");
+            
+        } catch (Exception e) {
+            
+            System.out.println("Erro ao cadastrar um produto " +  e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar Produto");
+            
+        } finally{            
+            this.conectar.fechaBanco();
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+            //novoCliente.limpaCliente();
+            //limparCamposCadastro();
+        }
+        
+    }
+    
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         Produtos P = new Produtos();
         ProdutosDAO dao = new ProdutosDAO();
@@ -347,7 +409,8 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         P.setNotaFiscal(txtNFe.getText());
         P.setSerie(Integer.parseInt(txtSerie.getText()));
         
-        dao.Create(P);
+        //dao.Create(P);
+        cadastraProdutoPisca(NovoProduto);
         limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
     

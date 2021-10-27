@@ -29,6 +29,7 @@ public class ProdutosDAO {
         
         PreparedStatement stmt = null;
         
+        
         try {
             stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, NomeProduto, QtdProduto, ValorCompra, ValorVenda, NotaFiscal, Serie, Url_Img, idCategoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?)");
             
@@ -64,14 +65,13 @@ public class ProdutosDAO {
             System.out.println("Id Produto" + P.getIdFornecedor());
             
             System.out.println("dentro do stmt" + stmt);
-            System.out.println("dentro do stmt.execute" + stmt.executeQuery());
-            
-           
             
             
             stmt.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+      
+          
         } 
         catch (SQLException ex) {
             throw new RuntimeException("Erro ao inserir valores na tabela Produtos", ex);
