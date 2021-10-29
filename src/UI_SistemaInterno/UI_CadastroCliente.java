@@ -5,7 +5,10 @@
  */
 package UI_SistemaInterno;
 
+import Connection.ConnectionFacPisca;
+import Model.DAO.Clientes;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,9 +16,8 @@ import javax.swing.JFrame;
  */
 public class UI_CadastroCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UI_CdastroCliente
-     */
+    ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
+    Clientes NovoCliente = new Clientes(); //acessar os atributos da classe produtos
     public UI_CadastroCliente() {
         initComponents();
         
@@ -86,6 +88,11 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         comboEstado.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         comboEstado.setBorder(null);
+        comboEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEstadoActionPerformed(evt);
+            }
+        });
         baseTala.add(comboEstado);
         comboEstado.setBounds(1664, 886, 140, 70);
 
@@ -158,6 +165,11 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtRGInscricao1.setBackground(new java.awt.Color(187, 184, 184));
         txtRGInscricao1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtRGInscricao1.setBorder(null);
+        txtRGInscricao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRGInscricao1ActionPerformed(evt);
+            }
+        });
         baseTala.add(txtRGInscricao1);
         txtRGInscricao1.setBounds(1400, 580, 390, 50);
 
@@ -267,7 +279,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel8);
-        jPanel8.setBounds(1330, 650, 24, 30);
+        jPanel8.setBounds(1330, 650, 27, 35);
 
         jPanel7.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -290,7 +302,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel7);
-        jPanel7.setBounds(1480, 650, 20, 30);
+        jPanel7.setBounds(1480, 650, 23, 35);
 
         jPanel6.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -313,7 +325,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel6);
-        jPanel6.setBounds(1480, 420, 30, 30);
+        jPanel6.setBounds(1480, 420, 33, 35);
 
         jPanel5.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -337,7 +349,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel5);
-        jPanel5.setBounds(1390, 420, 30, 30);
+        jPanel5.setBounds(1390, 420, 33, 35);
 
         jPanel4.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -409,7 +421,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel2);
-        jPanel2.setBounds(730, 540, 20, 30);
+        jPanel2.setBounds(730, 540, 21, 30);
 
         jPanel1.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -460,12 +472,21 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
+        cadastraClientePisca(NovoCliente);
+        limparCamposClientes();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void txtRGInscricao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRGInscricao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRGInscricao1ActionPerformed
+
+    private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboEstadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,6 +522,99 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
                 new UI_CadastroCliente().setVisible(true);
             }
         });
+    }
+    
+    private void cadastraClientePisca(Clientes NovoCliente){
+       
+        this.conectar.conectaBanco(); 
+        
+        NovoCliente.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
+        NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
+        NovoCliente.setRazaoSocial(txtNomeRazaoSocial.getText());
+        NovoCliente.setDateNascimento(txtDataNascimento.getText());
+        NovoCliente.setCpf(txtCPF_CNPJ.getText());
+        NovoCliente.setCnpj(txtCPF_CNPJ.getText());
+        NovoCliente.setRazaoSocial(txtRGInscricao1.getText());
+        NovoCliente.setRg(txtRGInscricao1.getText());
+        NovoCliente.setEmail(txtEmail.getText());
+        NovoCliente.setTelefone(txtCelTel.getText());
+        NovoCliente.setCep(txtCEP.getText());
+        NovoCliente.setEndereco(txtEndereco.getText());
+        NovoCliente.setBairro(txtBairro.getText());
+        NovoCliente.setCidade(txtCidade.getText());
+        NovoCliente.setEstado((String)comboEstado.getSelectedItem());
+        
+        
+        
+        try {
+                        
+            this.conectar.insertSQL("INSERT INTO Clientes ("
+                    + "CodigoCliente,"
+                    + "DateNascimento,"
+                    + "NomeCliente,"
+                    + "RazãoSocial,"
+                    + "Cpf,"
+                    + "Cnpj,"
+                    + "Rg,"
+                    + "InscricaoEstadual,"
+                    + "Endereco,"
+                    + "Cep,"
+                    + "Estado,"
+                    + "Cidade,"
+                    + "Bairro,"
+                    + "Email,"
+                    + "Telefone,"
+                    + "idProduto,"
+                + ") VALUES ("
+                    + "" + NovoCliente.getCodigoCliente() + ","
+                    + "'" +NovoCliente.getDateNascimento()+ "',"
+                    + "'" + NovoCliente.getNomeCliente() + "',"
+                    + "'" + NovoCliente.getRazaoSocial() + "',"
+                    + "'" + NovoCliente.getCpf() + "',"
+                    + "'" + NovoCliente.getCnpj() + "',"
+                    + "'" + NovoCliente.getRg() + "',"
+                    + "'" + NovoCliente.getInscricaoSocial() + "',"
+                    + "'" + NovoCliente.getEndereco() +"',"
+                    + "'" + NovoCliente.getCep() +"',"
+                    + "'" + NovoCliente.getEstado() +"',"
+                    + "'" + NovoCliente.getCidade() +"',"
+                    + "'" + NovoCliente.getBairro() +"',"
+                    + "'" + NovoCliente.getEmail() +"',"
+                    + "'" + NovoCliente.getTelefone() +"',"
+                    + "" + NovoCliente.getIdProduto()
+                + ");");
+            
+            System.out.println("Cliente:" + NovoCliente);
+           
+            
+        } catch (Exception e) {
+            
+            System.out.println("Erro ao cadastrar um cliente " +  e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar Cliente");
+            
+        } finally{            
+            this.conectar.fechaBanco();
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+           
+           
+        }
+        
+    }
+    
+    private void limparCamposClientes(){
+        
+        txtBairro.setText("");
+        txtCEP.setText("");
+        txtCPF_CNPJ.setText("");
+        txtCelTel.setText("");
+        txtCidade.setText("");
+        txtCodigoCliente.setText("");
+        txtDataNascimento.setText("");
+        txtEmail.setText("");
+        txtEndereco.setText("");
+        txtNomeRazaoSocial.setText("");
+        txtRGInscricao1.setText("");
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

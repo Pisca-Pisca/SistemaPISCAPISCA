@@ -139,6 +139,11 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtNFe.setBackground(new java.awt.Color(187, 184, 184));
         txtNFe.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtNFe.setBorder(null);
+        txtNFe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNFeActionPerformed(evt);
+            }
+        });
 
         txtSerie.setBackground(new java.awt.Color(187, 184, 184));
         txtSerie.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -381,7 +386,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 + ");");
             
             System.out.println("Produto:" + NovoProduto);
-            JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso");
+           
             
         } catch (Exception e) {
             
@@ -390,7 +395,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             
         } finally{            
             this.conectar.fechaBanco();
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
             //novoCliente.limpaCliente();
             //limparCamposCadastro();
         }
@@ -398,21 +403,14 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }
     
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        Produtos P = new Produtos();
-        ProdutosDAO dao = new ProdutosDAO();
         
-        
-        P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
-        P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
-        P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
-        P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
-        P.setNotaFiscal(txtNFe.getText());
-        P.setSerie(Integer.parseInt(txtSerie.getText()));
-        
-        //dao.Create(P);
         cadastraProdutoPisca(NovoProduto);
         limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void txtNFeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNFeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNFeActionPerformed
     
     private void limparCamposProdutos(){
         
@@ -422,6 +420,11 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtValorVenda.setText("");
         txtNFe.setText("");
         txtSerie.setText("");
+        txtDescricao.setText("");
+        txtFornecedor.setText("");
+        txtVoltagem.setText("");
+        txtCategoria.setText("");
+        
     }
     /**
      * @param args the command line arguments
