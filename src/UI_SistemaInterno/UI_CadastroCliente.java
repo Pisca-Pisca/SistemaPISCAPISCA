@@ -5,14 +5,11 @@
  */
 package UI_SistemaInterno;
 
-<<<<<<< HEAD
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-=======
 import Connection.ConnectionFacPisca;
 import Model.DAO.Clientes;
->>>>>>> 16ee7615632ea78d793e04d053a33290c75d7e9c
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 

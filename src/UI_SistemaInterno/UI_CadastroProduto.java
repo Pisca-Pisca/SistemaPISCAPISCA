@@ -194,16 +194,8 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtNFe.setBackground(new java.awt.Color(187, 184, 184));
         txtNFe.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtNFe.setBorder(null);
-<<<<<<< HEAD
         getContentPane().add(txtNFe);
         txtNFe.setBounds(1180, 720, 370, 60);
-=======
-        txtNFe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNFeActionPerformed(evt);
-            }
-        });
->>>>>>> 16ee7615632ea78d793e04d053a33290c75d7e9c
 
         txtSerie.setBackground(new java.awt.Color(187, 184, 184));
         txtSerie.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -344,13 +336,8 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                     + ");");
 
             System.out.println("Produto:" + NovoProduto);
-<<<<<<< HEAD
             JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso");
 
-=======
-           
-            
->>>>>>> 16ee7615632ea78d793e04d053a33290c75d7e9c
         } catch (Exception e) {
 
             System.out.println("Erro ao cadastrar um produto " + e.getMessage());
@@ -358,7 +345,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
         } finally {
             this.conectar.fechaBanco();
-            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
             //novoCliente.limpaCliente();
             //limparCamposCadastro();
         }
@@ -366,7 +353,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-<<<<<<< HEAD
         Produtos P = new Produtos();
         ProdutosDAO dao = new ProdutosDAO();
 
@@ -378,39 +364,22 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         P.setSerie(Integer.parseInt(txtSerie.getText()));
 
         //dao.Create(P);
-=======
-        
->>>>>>> 16ee7615632ea78d793e04d053a33290c75d7e9c
         cadastraProdutoPisca(NovoProduto);
         limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
-<<<<<<< HEAD
     private void btnEncerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEncerrarMouseClicked
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarMouseClicked
 
     private void limparCamposProdutos() {
 
-=======
-    private void txtNFeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNFeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNFeActionPerformed
-    
-    private void limparCamposProdutos(){
-        
->>>>>>> 16ee7615632ea78d793e04d053a33290c75d7e9c
         txtCodProd.setText("");
         txtQtd.setText("");
         txtValorCompra.setText("");
         txtValorVenda.setText("");
         txtNFe.setText("");
         txtSerie.setText("");
-        txtDescricao.setText("");
-        txtFornecedor.setText("");
-        txtVoltagem.setText("");
-        txtCategoria.setText("");
-        
     }
 
     /**
