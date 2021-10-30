@@ -5,6 +5,10 @@
  */
 package UI_SistemaInterno;
 
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author jessi
@@ -16,6 +20,31 @@ public class UI_Carrinho extends javax.swing.JFrame {
      */
     public UI_Carrinho() {
         initComponents();
+        
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     /**
@@ -151,6 +180,9 @@ public class UI_Carrinho extends javax.swing.JFrame {
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
         txtUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         imgTela.setForeground(new java.awt.Color(187, 184, 184));
@@ -224,8 +256,8 @@ public class UI_Carrinho extends javax.swing.JFrame {
         baseTelaLayout.setVerticalGroup(
             baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)

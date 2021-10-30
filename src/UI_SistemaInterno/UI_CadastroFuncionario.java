@@ -7,6 +7,9 @@ package UI_SistemaInterno;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -28,6 +31,31 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         initComponents();
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
         
         abrirEscolhaArquivo = new JFileChooser();
         abrirEscolhaArquivo.setCurrentDirectory(new File("c:\\images"));
@@ -79,8 +107,8 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         txtNomeArquivo = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
-        imgTela = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
+        imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -388,13 +416,15 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(txtUsuario);
         txtUsuario.setBounds(1719, 100, 200, 30);
 
+        txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtData.setForeground(new java.awt.Color(255, 255, 255));
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtData);
+        txtData.setBounds(1659, 10, 250, 30);
+
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FUNCIONÁRIO - CADASTRO.png"))); // NOI18N
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1928, 1080);
-
-        txtData.setForeground(new java.awt.Color(255, 255, 255));
-        baseTela.add(txtData);
-        txtData.setBounds(1659, 10, 250, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -5,6 +5,10 @@
  */
 package UI_SistemaInterno;
 
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author jessi
@@ -16,6 +20,31 @@ public class UI_Catalogo extends javax.swing.JFrame {
      */
     public UI_Catalogo() {
         initComponents();
+        
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     /**
@@ -77,6 +106,10 @@ public class UI_Catalogo extends javax.swing.JFrame {
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtData.setForeground(new java.awt.Color(255, 255, 255));
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -106,9 +139,7 @@ public class UI_Catalogo extends javax.swing.JFrame {
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(490, 490, 490)
-                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,14 +147,17 @@ public class UI_Catalogo extends javax.swing.JFrame {
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1351, 1351, 1351)
+                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(imgTela)
         );
         baseTelaLayout.setVerticalGroup(
             baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(10, 10, 10)
                 .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(50, 50, 50)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,11 +166,8 @@ public class UI_Catalogo extends javax.swing.JFrame {
                     .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(baseTelaLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
                 .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,6 +177,9 @@ public class UI_Catalogo extends javax.swing.JFrame {
                 .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(190, 190, 190)
                 .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(350, 350, 350)
+                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(imgTela)
         );
 

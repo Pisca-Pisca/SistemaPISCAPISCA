@@ -5,6 +5,9 @@
  */
 package UI_SistemaInterno;
 
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 
 /**
@@ -20,6 +23,31 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         initComponents();
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+           new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     /**
@@ -242,7 +270,9 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         baseTala.add(txtUsuario);
         txtUsuario.setBounds(1720, 100, 200, 30);
 
+        txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         baseTala.add(txtData);
         txtData.setBounds(1660, 10, 250, 30);
 
@@ -452,7 +482,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(baseTala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(baseTala, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

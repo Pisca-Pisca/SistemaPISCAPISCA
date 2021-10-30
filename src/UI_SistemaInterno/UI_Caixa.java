@@ -61,6 +61,7 @@ public class UI_Caixa extends javax.swing.JFrame {
         jScrollCupom.setBorder(null);
         jScrollCupom.setEnabled(false);
 
+        txtCupom.setEditable(false);
         txtCupom.setBackground(new java.awt.Color(254, 242, 196));
         txtCupom.setColumns(20);
         txtCupom.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N

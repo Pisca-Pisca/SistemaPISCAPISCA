@@ -1,9 +1,39 @@
 package UI_SistemaInterno;
 
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class UI_Inicio extends javax.swing.JFrame {
 
     public UI_Inicio() {
         initComponents();
+        
+        new Thread() {;
+
+            public void run() {
+                try {
+                    while (true) {
+                        
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();        
     }
 
     @SuppressWarnings("unchecked")
@@ -71,7 +101,9 @@ public class UI_Inicio extends javax.swing.JFrame {
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         imgTela.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TELA DE INICIO - ATUALIZADA.png"))); // NOI18N
