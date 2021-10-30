@@ -48,7 +48,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="1670" pref="1670" max="-2" attributes="0"/>
+                  <EmptySpace min="1660" pref="1660" max="-2" attributes="0"/>
                   <Component id="txtData" min="-2" pref="240" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -59,10 +59,8 @@
                   <EmptySpace min="1790" pref="1790" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" pref="110" max="-2" attributes="0"/>
               </Group>
-              <Component id="btnVenda" min="-2" pref="360" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
-                  <Component id="btnProdutos" min="-2" pref="360" max="-2" attributes="0"/>
-                  <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
+                  <EmptySpace min="610" pref="610" max="-2" attributes="0"/>
                   <Component id="txtCPF" min="-2" pref="960" max="-2" attributes="0"/>
               </Group>
               <Component id="btnCadastro" min="-2" pref="360" max="-2" attributes="0"/>
@@ -72,6 +70,8 @@
                   <Component id="btnEncerrar" min="-2" pref="170" max="-2" attributes="0"/>
               </Group>
               <Component id="btnCaixa" min="-2" pref="360" max="-2" attributes="0"/>
+              <Component id="btnProdutos" min="-2" pref="360" max="-2" attributes="0"/>
+              <Component id="btnVenda" min="-2" pref="360" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace min="1590" pref="1590" max="-2" attributes="0"/>
                   <Component id="btnPesquisar" min="-2" pref="80" max="-2" attributes="0"/>
@@ -82,32 +82,34 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="56" pref="56" max="-2" attributes="0"/>
-                  <Component id="txtData" min="-2" pref="20" max="-2" attributes="0"/>
-                  <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="txtData" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
                   <Component id="txtUsuario" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
-                  <Component id="btnVenda" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnProdutos" min="-2" pref="60" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Component id="txtCPF" min="-2" pref="40" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace min="280" pref="280" max="-2" attributes="0"/>
+                  <Component id="txtCPF" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
                   <Component id="btnCadastro" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
                   <Component id="btnFinanceiro" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace min="300" pref="300" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="1010" pref="1010" max="-2" attributes="0"/>
                   <Component id="btnEncerrar" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="760" pref="760" max="-2" attributes="0"/>
                   <Component id="btnCaixa" min="-2" pref="60" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="430" pref="430" max="-2" attributes="0"/>
+                  <Component id="btnProdutos" min="-2" pref="60" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="320" pref="320" max="-2" attributes="0"/>
+                  <Component id="btnVenda" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
@@ -208,6 +210,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtData">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtUsuario">
           <Properties>
@@ -219,7 +229,7 @@
         <Component class="javax.swing.JLabel" name="imgTela">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/FinanceiroConsulta.png"/>
+              <Image iconType="3" name="/img/FINANCEIRO - CONSULTA.png"/>
             </Property>
           </Properties>
         </Component>
