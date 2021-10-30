@@ -26,7 +26,7 @@ public class Clientes {
     private String Bairro = "";
     private String Email = "";
     private String Telefone = "";
-    private int IdProduto;
+    private int IdProduto = 1;
     
     // GETTERS E SETTERS
 

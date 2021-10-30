@@ -231,11 +231,17 @@
           <Border info="null"/>
         </Property>
       </Properties>
+<<<<<<< HEAD
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="1180" y="720" width="370" height="60"/>
         </Constraint>
       </Constraints>
+=======
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNFeActionPerformed"/>
+      </Events>
+>>>>>>> 16ee7615632ea78d793e04d053a33290c75d7e9c
     </Component>
     <Component class="javax.swing.JTextField" name="txtSerie">
       <Properties>

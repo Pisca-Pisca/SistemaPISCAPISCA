@@ -73,7 +73,7 @@ public class ConnectionFacPisca {
                 System.out.println("Conexão efetuada com sucesso! " + "ID: " + conn);
             }            
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Conexão não realizada - ERRO: " + e.getMessage());
         }
     }
@@ -111,9 +111,7 @@ public class ConnectionFacPisca {
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             this.resultSet = this.statement.executeQuery(sql);
 
-//            while (this.getResultSet().next()) {
-//                System.out.println(this.getResultSet().getInt(1));
-//            }
+
         } catch (SQLException sqlex) {
             sqlex.printStackTrace();
         }
