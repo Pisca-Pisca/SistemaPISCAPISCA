@@ -107,6 +107,7 @@ public class ConnectionFacPisca {
     
     public void executarSQL(String sql) {
         try {
+            System.out.println("Funcionario:" + sql);
             this.statement = conn.createStatement(
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             this.resultSet = this.statement.executeQuery(sql);

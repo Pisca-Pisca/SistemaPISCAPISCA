@@ -1,12 +1,15 @@
 package UI_SistemaInterno;
 
+import Connection.ConnectionFacPisca;
+import Model.DAO.Funcionarios;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class UI_Login extends javax.swing.JFrame {
+    
+    ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
+    Funcionarios Funcionario = new Funcionarios(); //acessar os atributos da classe produtos
 
-    /**
-     * Creates new form UI_Login
-     */
     public UI_Login() {
         initComponents();
         
@@ -110,12 +113,14 @@ public class UI_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarMouseClicked
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+     
+         buscarFuncionarios(Funcionario);
+         
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        UI_CadastroProduto produto = new UI_CadastroProduto();
-        produto.setVisible(true);
+//        UI_CadastroProduto produto = new UI_CadastroProduto();
+//        produto.setVisible(true);
     }//GEN-LAST:event_btnLoginMouseClicked
 
     /**
@@ -153,6 +158,49 @@ public class UI_Login extends javax.swing.JFrame {
         });
     }
 
+private void buscarFuncionarios(Funcionarios Funcionario){
+        this.conectar.conectaBanco();
+        
+        String login = this.txtLogin.getText();
+        String senha = this. txtSenha.getText();
+
+        
+        try {
+            this.conectar.executarSQL(
+                   "SELECT "
+                    + "Email,"                    
+                    + "Senha"
+                 + " FROM"
+                     + " Funcionarios"
+                 + " WHERE"
+                     + " Email = '" + login + "'"
+                     + "And Senha = '" + senha + "'"
+                + ";"
+            );
+            
+            while(this.conectar.getResultSet().next()){
+                
+                Funcionario.setEmail(this.conectar.getResultSet().getString(1));
+                Funcionario.setSenha(this.conectar.getResultSet().getString(2));
+
+           }
+            
+           if(Funcionario.getEmail() == ""){
+                JOptionPane.showMessageDialog(null, "Login Inválido!");
+           }
+           
+        } catch (Exception e) {            
+            System.out.println("Erro ao consultar funcionários " +  e.getMessage());
+            
+        }finally {
+            UI_Inicio inicio = new UI_Inicio();
+            inicio.setVisible(true);
+            dispose();
+            
+            this.conectar.fechaBanco();   
+        }               
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEncerrar;
     private javax.swing.JButton btnLogin;
@@ -161,3 +209,4 @@ public class UI_Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }
+
