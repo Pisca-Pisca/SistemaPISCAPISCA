@@ -124,6 +124,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProdutosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCadastro">
       <Properties>
@@ -145,6 +148,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFinanceiroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCaixa">
       <Properties>
@@ -154,6 +160,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCaixaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEncerrar">
       <Properties>
@@ -175,6 +184,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="txtUsuario">
       <Properties>

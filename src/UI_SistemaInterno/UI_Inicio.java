@@ -1,5 +1,6 @@
 package UI_SistemaInterno;
 
+import Model.DAO.Funcionarios;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,13 +9,14 @@ public class UI_Inicio extends javax.swing.JFrame {
 
     public UI_Inicio() {
         initComponents();
-        
-        new Thread() {;
+
+        new Thread() {
+            ;
 
             public void run() {
                 try {
                     while (true) {
-                        
+
                         Date d = new Date();
                         String dataHora;
                         StringBuffer data = new StringBuffer();
@@ -33,7 +35,12 @@ public class UI_Inicio extends javax.swing.JFrame {
                     ex.printStackTrace();
                 }
             }
-        }.start();        
+        }.start();
+    }
+
+    public void enviaDados(UI_Login login, Funcionarios funcionarios) {
+        String email = funcionarios.getEmail();
+        txtUsuario.setText(email);
     }
 
     @SuppressWarnings("unchecked")
@@ -66,6 +73,11 @@ public class UI_Inicio extends javax.swing.JFrame {
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
@@ -79,10 +91,20 @@ public class UI_Inicio extends javax.swing.JFrame {
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -96,6 +118,11 @@ public class UI_Inicio extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         txtUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,45 +204,47 @@ public class UI_Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        // TODO add your handling code here:
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-        // TODO add your handling code here:
+        UI_CadastroCliente cliente = new UI_CadastroCliente();
+        cliente.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
 
-        /* Create and display the form */
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta financeiroConsulta = new UI_FinanceiroConsulta();
+        financeiroConsulta.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    public static void main(String args[]) {
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UI_Inicio().setVisible(true);
