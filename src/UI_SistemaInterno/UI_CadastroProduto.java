@@ -363,8 +363,8 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         P.setNotaFiscal(txtNFe.getText());
         P.setSerie(Integer.parseInt(txtSerie.getText()));
 
-        //dao.Create(P);
-        cadastraProdutoPisca(NovoProduto);
+        dao.Create(P);
+        //cadastraProdutoPisca(NovoProduto);
         limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
