@@ -6,9 +6,13 @@
 package UI_SistemaInterno;
 
 import Model.DAO.Funcionarios;
+import Model.DAO.Produtos;
+import Model.DAO.ProdutosDAO;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -21,6 +25,11 @@ public class UI_Catalogo extends javax.swing.JFrame {
      */
     public UI_Catalogo() {
         initComponents();
+        
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        Tabela.setRowSorter(new TableRowSorter(modelo));
+        
+        readTabela();
 
         new Thread() {
 
@@ -46,6 +55,23 @@ public class UI_Catalogo extends javax.swing.JFrame {
                 }
             }
         }.start();
+    }
+    
+    public void readTabela(){
+         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+         modelo.setNumRows(0);
+         
+         ProdutosDAO pdao = new ProdutosDAO();
+         
+         for(Produtos p: pdao.Read()){
+             
+             modelo.addRow(new Object[]{
+                 p.getCodigoProduto(),
+                 p.getNomeProduto(),
+                 p.getQtdProduto(),
+                 p.getValorVenda()
+             });
+         }
     }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
@@ -121,23 +147,21 @@ public class UI_Catalogo extends javax.swing.JFrame {
         btnPesquisa.setContentAreaFilled(false);
         btnPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Código", "Descrição", "Estoque", "Preço"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         TabelaScroll.setViewportView(Tabela);
