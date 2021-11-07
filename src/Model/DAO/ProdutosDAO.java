@@ -128,6 +128,52 @@ public class ProdutosDAO {
       return produtos;
     }
     
+    public List<Produtos> ReadByName(String Nome){
+        Connection con = ConnectionFac.getConnecton();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Produtos> produtos = new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM Produtos WHERE NomeProduto like ?");
+            stmt.setString(1, "%"+Nome+"%");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+            
+                Produtos produto = new Produtos();
+                
+                produto.setIdProduto(rs.getInt("idProduto"));
+                produto.setCodigoProduto(rs.getInt("CodigoProduto"));
+                produto.setNomeProduto(rs.getString("NomeProduto"));
+                produto.setQtdProduto(rs.getInt("QtdProduto"));
+                produto.setValorCompra(rs.getDouble("ValorCompra"));
+                produto.setValorVenda(rs.getDouble("ValorVenda"));
+                produto.setNotaFiscal(rs.getString("NotaFiscal"));
+                produto.setSerie(rs.getInt("Serie"));
+                produto.setUrl_Img(rs.getString("Url_Img"));
+                produto.setIdCategoria(rs.getInt("idCategoria"));
+                produto.setIdFornecedor(rs.getInt("idFornecedor"));
+                
+                
+                
+                produtos.add(produto);
+                
+                
+            }
+       } 
+        catch (SQLException ex) {
+            throw new RuntimeException("Erro ao ler os valores da tabela Produtos - Filtro de Nome", ex);
+       }
+        finally {
+          ConnectionFac.closeConnection(con, stmt, rs);
+        
+        }
+      
+      return produtos;
+    }
+    
      public void Update(Produtos P){
         
         Connection con = ConnectionFac.getConnecton();
