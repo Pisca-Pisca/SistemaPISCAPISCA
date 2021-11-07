@@ -290,6 +290,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 System.out.println(caminho);
                 File outputfile = new File(caminho + arquivo.getName());
                 ImageIO.write(imagem, "jpg", outputfile);
+                
                 txtNomeArquivo.setText("Imagem enviada com sucesso");
                 P.setUrl_Img(caminho + arquivo.getName());
 
