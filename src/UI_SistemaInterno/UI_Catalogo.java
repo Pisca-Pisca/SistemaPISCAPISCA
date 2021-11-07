@@ -74,6 +74,23 @@ public class UI_Catalogo extends javax.swing.JFrame {
              });
          }
     }
+    
+    public void readTabelaByName(String Nome){
+         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+         modelo.setNumRows(0);
+         
+         ProdutosDAO pdao = new ProdutosDAO();
+         
+         for(Produtos p: pdao.ReadByName(Nome)){
+             
+             modelo.addRow(new Object[]{
+                 p.getCodigoProduto(),
+                 p.getNomeProduto(),
+                 p.getQtdProduto(),
+                 p.getValorVenda()
+             });
+         }
+    }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
@@ -147,6 +164,11 @@ public class UI_Catalogo extends javax.swing.JFrame {
         btnPesquisa.setBorderPainted(false);
         btnPesquisa.setContentAreaFilled(false);
         btnPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaActionPerformed(evt);
+            }
+        });
 
         Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
@@ -262,6 +284,10 @@ public class UI_Catalogo extends javax.swing.JFrame {
     private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
+        readTabelaByName(txtBusca.getText());
+    }//GEN-LAST:event_btnPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
