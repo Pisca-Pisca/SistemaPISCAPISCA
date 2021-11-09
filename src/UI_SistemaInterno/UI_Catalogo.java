@@ -6,9 +6,13 @@
 package UI_SistemaInterno;
 
 import Model.DAO.Funcionarios;
+import Model.DAO.Produtos;
+import Model.DAO.ProdutosDAO;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -21,6 +25,11 @@ public class UI_Catalogo extends javax.swing.JFrame {
      */
     public UI_Catalogo() {
         initComponents();
+        
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        Tabela.setRowSorter(new TableRowSorter(modelo));
+        
+        readTabela();
 
         new Thread() {
 
@@ -47,6 +56,41 @@ public class UI_Catalogo extends javax.swing.JFrame {
             }
         }.start();
     }
+    
+    public void readTabela(){
+         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+         modelo.setNumRows(0);
+         
+         ProdutosDAO pdao = new ProdutosDAO();
+         
+         for(Produtos p: pdao.Read()){
+             
+             modelo.addRow(new Object[]{
+                 p.getUrl_Img(),
+                 p.getCodigoProduto(),
+                 p.getNomeProduto(),
+                 p.getQtdProduto(),
+                 p.getValorVenda()
+             });
+         }
+    }
+    
+    public void readTabelaByName(String Nome){
+         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+         modelo.setNumRows(0);
+         
+         ProdutosDAO pdao = new ProdutosDAO();
+         
+         for(Produtos p: pdao.ReadByName(Nome)){
+             
+             modelo.addRow(new Object[]{
+                 p.getCodigoProduto(),
+                 p.getNomeProduto(),
+                 p.getQtdProduto(),
+                 p.getValorVenda()
+             });
+         }
+    }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
@@ -68,6 +112,8 @@ public class UI_Catalogo extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         btnPesquisa = new javax.swing.JButton();
+        TabelaScroll = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
         txtBusca = new javax.swing.JTextField();
         imgTela = new javax.swing.JLabel();
 
@@ -118,6 +164,30 @@ public class UI_Catalogo extends javax.swing.JFrame {
         btnPesquisa.setBorderPainted(false);
         btnPesquisa.setContentAreaFilled(false);
         btnPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaActionPerformed(evt);
+            }
+        });
+
+        Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Imagem", "Código", "Descrição", "Estoque", "Preço"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TabelaScroll.setViewportView(Tabela);
 
         txtBusca.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
@@ -129,58 +199,70 @@ public class UI_Catalogo extends javax.swing.JFrame {
         baseTelaLayout.setHorizontalGroup(
             baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1670, 1670, 1670)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(1710, 1710, 1710)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1790, 1790, 1790)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
                 .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(490, 490, 490)
-                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(981, 981, 981)
+                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(436, 436, 436)
+                .addComponent(TabelaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1420, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1670, 1670, 1670)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1351, 1351, 1351)
-                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(860, 860, 860)
+                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1790, 1790, 1790)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(imgTela)
         );
         baseTelaLayout.setVerticalGroup(
             baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(100, 100, 100)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130)
+                .addGap(170, 170, 170)
                 .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(640, 640, 640)
+                .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(530, 530, 530)
+                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(480, 480, 480)
+                .addComponent(TabelaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1010, 1010, 1010)
                 .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(350, 350, 350)
-                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(360, 360, 360)
+                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(750, 750, 750)
+                .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(imgTela)
         );
 
@@ -202,6 +284,10 @@ public class UI_Catalogo extends javax.swing.JFrame {
     private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
+        readTabelaByName(txtBusca.getText());
+    }//GEN-LAST:event_btnPesquisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,6 +325,8 @@ public class UI_Catalogo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela;
+    private javax.swing.JScrollPane TabelaScroll;
     private javax.swing.JPanel baseTela;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
