@@ -5,22 +5,21 @@
  */
 package UI_SistemaInterno;
 
-import Connection.ConnectionFac;
 import Connection.ConnectionFacPisca;
 import Model.DAO.Funcionarios;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import javax.imageio.ImageIO;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import sistemainternopisca.ManipularImagem;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -28,11 +27,12 @@ import javax.swing.table.TableRowSorter;
  */
 public class UI_CadastroProduto extends javax.swing.JFrame {
 
-    private final JFileChooser abrirEscolhaArquivo;
-    private BufferedImage originalBI;
+    private BufferedImage imagem;
 
     ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
     Produtos NovoProduto = new Produtos(); //acessar os atributos da classe produtos
+    Produtos P = new Produtos();
+    ProdutosDAO dao = new ProdutosDAO();
 
     /**
      * Creates new form UI_CadastroProduto
@@ -70,10 +70,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 }
             }
         }.start();
-
-        abrirEscolhaArquivo = new JFileChooser();
-        abrirEscolhaArquivo.setCurrentDirectory(new File("c:\\images"));
-        abrirEscolhaArquivo.setFileFilter(new FileNameExtensionFilter("PNG images", "png"));
     }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
@@ -344,17 +340,29 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarArquivoActionPerformed
-        int retornaValor = abrirEscolhaArquivo.showOpenDialog(this);
+        JFileChooser fc = new JFileChooser();
+        int res = fc.showOpenDialog(null);
 
-        if (retornaValor == JFileChooser.APPROVE_OPTION) {
+        if (res == JFileChooser.APPROVE_OPTION) {
+            File arquivo = fc.getSelectedFile();
+
             try {
-                originalBI = ImageIO.read(abrirEscolhaArquivo.getSelectedFile());
-                txtNomeArquivo.setText("Imagem importada com sucesso !");
-            } catch (Exception e) {
-                txtNomeArquivo.setText("Falha ao importar a imagem !");
+                imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 160, 160);
+
+                String caminho = getClass().getResource("../uploadImg/produto/").toString().substring(5);
+                System.out.println(caminho);
+                File outputfile = new File(caminho + arquivo.getName());
+                ImageIO.write(imagem, "jpg", outputfile);
+                
+                txtNomeArquivo.setText("Imagem enviada com sucesso");
+                P.setUrl_Img(caminho + arquivo.getName());
+
+            } catch (Exception ex) {
+                // System.out.println(ex.printStackTrace().toString());
             }
+
         } else {
-            txtNomeArquivo.setText("Nenhum arquivo escolhido !");
+            txtNomeArquivo.setText("Voce não selecionou nenhum arquivo.");
         }
     }//GEN-LAST:event_btnEnviarArquivoActionPerformed
 
@@ -409,17 +417,12 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
         } finally {
             this.conectar.fechaBanco();
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
-            //novoCliente.limpaCliente();
-            //limparCamposCadastro();
         }
 
     }
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        Produtos P = new Produtos();
-        ProdutosDAO dao = new ProdutosDAO();
-
+        P.setNomeProduto(txtDescricao.getText());
         P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
         P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
         P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));

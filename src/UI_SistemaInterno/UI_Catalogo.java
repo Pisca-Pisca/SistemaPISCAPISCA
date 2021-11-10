@@ -66,6 +66,7 @@ public class UI_Catalogo extends javax.swing.JFrame {
          for(Produtos p: pdao.Read()){
              
              modelo.addRow(new Object[]{
+                 p.getUrl_Img(),
                  p.getCodigoProduto(),
                  p.getNomeProduto(),
                  p.getQtdProduto(),
@@ -175,11 +176,11 @@ public class UI_Catalogo extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Descrição", "Estoque", "Preço"
+                "Imagem", "Código", "Descrição", "Estoque", "Preço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

@@ -29,7 +29,6 @@ public class CategoriasDAO {
             
             stmt.setString(1, Cat.getNomeCategoria());  
             
-            
             stmt.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
