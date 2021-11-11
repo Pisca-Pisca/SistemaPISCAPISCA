@@ -185,7 +185,7 @@ public class UI_Login extends javax.swing.JFrame {
                 financeiroConsulta.enviaDados(this, Funcionario);
                 financeiro.enviaDados(this, Funcionario);
 
-                dispose();
+                setVisible(false);
             }
 
         } catch (Exception e) {

@@ -9,12 +9,12 @@ package UI_SistemaInterno;
  *
  * @author jessi
  */
-public class UI_VizualizacaoClientes extends javax.swing.JFrame {
+public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
 
     /**
-     * Creates new form UI_VizualizacaoClientes
+     * Creates new form UI_VizualizacaoFornecedores
      */
-    public UI_VizualizacaoClientes() {
+    public UI_VisualizacaoFornecedores() {
         initComponents();
     }
 
@@ -39,6 +39,10 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         btnPesquisa = new javax.swing.JButton();
         txtBusca = new javax.swing.JTextField();
+        btnExcluir = new javax.swing.JButton();
+        imgExcluir = new javax.swing.JLabel();
+        btnEditar = new javax.swing.JButton();
+        imgEditar = new javax.swing.JLabel();
         tabelaScroll = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         imgTela = new javax.swing.JLabel();
@@ -82,7 +86,7 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imgBase.add(btnProdutos);
-        btnProdutos.setBounds(12, 435, 350, 70);
+        btnProdutos.setBounds(10, 420, 350, 70);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
@@ -90,7 +94,7 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
         imgBase.add(btnVenda);
         btnVenda.setBounds(12, 315, 350, 70);
         imgBase.add(txtUsuario);
-        txtUsuario.setBounds(1722, 105, 200, 40);
+        txtUsuario.setBounds(1720, 100, 200, 40);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,6 +124,26 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
         imgBase.add(txtBusca);
         txtBusca.setBounds(860, 360, 490, 40);
 
+        btnExcluir.setBorderPainted(false);
+        btnExcluir.setContentAreaFilled(false);
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imgBase.add(btnExcluir);
+        btnExcluir.setBounds(1680, 1030, 200, 40);
+
+        imgExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 7.png"))); // NOI18N
+        imgBase.add(imgExcluir);
+        imgExcluir.setBounds(1670, 1030, 210, 40);
+
+        btnEditar.setBorderPainted(false);
+        btnEditar.setContentAreaFilled(false);
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imgBase.add(btnEditar);
+        btnEditar.setBounds(1450, 1030, 210, 40);
+
+        imgEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 8.png"))); // NOI18N
+        imgBase.add(imgEditar);
+        imgEditar.setBounds(1450, 1030, 210, 40);
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -128,16 +152,15 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código do Cliente", "Nome Completo", "Telefone"
+                "CNPJ", "RAZÃO SOCIAL", "Telefone"
             }
         ));
         tabelaScroll.setViewportView(jTable1);
 
         imgBase.add(tabelaScroll);
-        tabelaScroll.setBounds(420, 430, 1460, 620);
+        tabelaScroll.setBounds(420, 430, 1460, 570);
 
-        imgTela.setForeground(new java.awt.Color(37, 37, 37));
-        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BUSCA CLIENTES- editado.png"))); // NOI18N
+        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/VIZUALIZAÇÃO FORNECEDORES - editado.png"))); // NOI18N
         imgBase.add(imgTela);
         imgTela.setBounds(0, 0, 1921, 1080);
 
@@ -145,11 +168,11 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgBase, javax.swing.GroupLayout.PREFERRED_SIZE, 1921, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(imgBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgBase, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(imgBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -161,7 +184,7 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        
+
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     /**
@@ -181,20 +204,21 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_VizualizacaoClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_VizualizacaoClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_VizualizacaoClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_VizualizacaoClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_VizualizacaoClientes().setVisible(true);
+                new UI_VisualizacaoFornecedores().setVisible(true);
             }
         });
     }
@@ -202,13 +226,17 @@ public class UI_VizualizacaoClientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEncerrar;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnFinanceiro;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnProdutos;
     private javax.swing.JButton btnVenda;
     private javax.swing.JPanel imgBase;
+    private javax.swing.JLabel imgEditar;
+    private javax.swing.JLabel imgExcluir;
     private javax.swing.JLabel imgTela;
     private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane tabelaScroll;
