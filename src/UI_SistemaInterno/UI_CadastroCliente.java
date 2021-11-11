@@ -117,7 +117,6 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         comboEstado.setBackground(new java.awt.Color(102, 102, 102));
         comboEstado.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        comboEstado.setBorder(null);
         comboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEstadoActionPerformed(evt);
@@ -137,7 +136,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtCEP.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtCEP.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         baseTala.add(txtCEP);
-        txtCEP.setBounds(500, 780, 280, 60);
+        txtCEP.setBounds(500, 790, 280, 40);
 
         txtDataNascimento.setBackground(new java.awt.Color(187, 184, 184));
         txtDataNascimento.setBorder(null);
@@ -149,7 +148,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtDataNascimento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtDataNascimento.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         baseTala.add(txtDataNascimento);
-        txtDataNascimento.setBounds(980, 460, 360, 60);
+        txtDataNascimento.setBounds(980, 470, 360, 40);
 
         txtBusca.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
@@ -160,13 +159,13 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtEndereco.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtEndereco.setBorder(null);
         baseTala.add(txtEndereco);
-        txtEndereco.setBounds(830, 780, 960, 60);
+        txtEndereco.setBounds(830, 790, 960, 40);
 
         txtCPF_CNPJ.setBackground(new java.awt.Color(187, 184, 184));
         txtCPF_CNPJ.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCPF_CNPJ.setBorder(null);
         baseTala.add(txtCPF_CNPJ);
-        txtCPF_CNPJ.setBounds(1400, 460, 390, 60);
+        txtCPF_CNPJ.setBounds(1400, 470, 390, 40);
 
         txtEmail.setBackground(new java.awt.Color(187, 184, 184));
         txtEmail.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -178,19 +177,19 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtBairro.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBairro.setBorder(null);
         baseTala.add(txtBairro);
-        txtBairro.setBounds(510, 890, 450, 60);
+        txtBairro.setBounds(510, 900, 450, 40);
 
         txtCodigoCliente.setBackground(new java.awt.Color(187, 184, 184));
         txtCodigoCliente.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCodigoCliente.setBorder(null);
         baseTala.add(txtCodigoCliente);
-        txtCodigoCliente.setBounds(500, 460, 400, 60);
+        txtCodigoCliente.setBounds(500, 470, 400, 40);
 
         txtCidade.setBackground(new java.awt.Color(187, 184, 184));
         txtCidade.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCidade.setBorder(null);
         baseTala.add(txtCidade);
-        txtCidade.setBounds(1060, 890, 520, 60);
+        txtCidade.setBounds(1060, 900, 520, 40);
 
         txtRGInscricao1.setBackground(new java.awt.Color(187, 184, 184));
         txtRGInscricao1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -207,7 +206,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtNomeRazaoSocial.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtNomeRazaoSocial.setBorder(null);
         baseTala.add(txtNomeRazaoSocial);
-        txtNomeRazaoSocial.setBounds(500, 580, 840, 60);
+        txtNomeRazaoSocial.setBounds(500, 590, 840, 40);
 
         txtCelTel.setBackground(new java.awt.Color(187, 184, 184));
         txtCelTel.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -311,7 +310,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel8);
-        jPanel8.setBounds(1330, 650, 27, 35);
+        jPanel8.setBounds(1330, 650, 29, 37);
 
         jPanel7.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -334,7 +333,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel7);
-        jPanel7.setBounds(1480, 650, 23, 35);
+        jPanel7.setBounds(1480, 650, 23, 37);
 
         jPanel6.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -357,7 +356,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel6);
-        jPanel6.setBounds(1480, 420, 33, 35);
+        jPanel6.setBounds(1480, 420, 33, 37);
 
         jPanel5.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -381,7 +380,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel5);
-        jPanel5.setBounds(1390, 420, 33, 35);
+        jPanel5.setBounds(1390, 420, 37, 37);
 
         jPanel4.setBackground(new java.awt.Color(228, 228, 228));
 

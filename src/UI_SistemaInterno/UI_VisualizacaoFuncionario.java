@@ -9,12 +9,12 @@ package UI_SistemaInterno;
  *
  * @author nicol
  */
-public class UI_VisualizacaoProduto extends javax.swing.JFrame {
+public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
 
     /**
-     * Creates new form UI_visualizacaoProduto
+     * Creates new form UI_VizualizacaoFuncionario
      */
-    public UI_VisualizacaoProduto() {
+    public UI_VisualizacaoFuncionario() {
         initComponents();
     }
 
@@ -39,17 +39,20 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         txtBusca = new javax.swing.JTextField();
         btnPesquisa = new javax.swing.JButton();
-        TabelaScroll = new javax.swing.JScrollPane();
-        Tabela = new javax.swing.JTable();
+        tabelaScroll = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
         imgExcluir = new javax.swing.JLabel();
         imgEditar = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        baseGambiarra = new javax.swing.JPanel();
+        gambiarra = new javax.swing.JLabel();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        baseTela.setBackground(new java.awt.Color(53, 53, 53));
+        baseTela.setBackground(new java.awt.Color(56, 56, 56));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
         baseTela.setLayout(null);
 
@@ -129,27 +132,21 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         baseTela.add(btnPesquisa);
         btnPesquisa.setBounds(1357, 355, 80, 50);
 
-        Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Imagem", "Código", "Descrição", "Estoque", "Preço"
+                "Imagem", "Nome Completo", "Telefone", "Status"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
+        ));
+        tabelaScroll.setViewportView(tabela);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        TabelaScroll.setViewportView(Tabela);
-
-        baseTela.add(TabelaScroll);
-        TabelaScroll.setBounds(430, 440, 1450, 560);
+        baseTela.add(tabelaScroll);
+        tabelaScroll.setBounds(420, 430, 1460, 570);
 
         imgExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 7.png"))); // NOI18N
         imgExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -173,7 +170,31 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         baseTela.add(btnExcluir);
         btnExcluir.setBounds(1680, 1030, 200, 40);
 
-        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTO-BUSCA.png"))); // NOI18N
+        baseGambiarra.setBackground(new java.awt.Color(228, 228, 228));
+
+        gambiarra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BUSCA - FUNCIONÁRIOS.png"))); // NOI18N
+
+        javax.swing.GroupLayout baseGambiarraLayout = new javax.swing.GroupLayout(baseGambiarra);
+        baseGambiarra.setLayout(baseGambiarraLayout);
+        baseGambiarraLayout.setHorizontalGroup(
+            baseGambiarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, baseGambiarraLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(gambiarra, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        baseGambiarraLayout.setVerticalGroup(
+            baseGambiarraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, baseGambiarraLayout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addComponent(gambiarra, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        baseTela.add(baseGambiarra);
+        baseGambiarra.setBounds(880, 240, 540, 100);
+
+        imgTela.setBackground(new java.awt.Color(204, 204, 204));
+        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FUNCIONÁRIO - BUSCA.png"))); // NOI18N
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1921, 1080);
 
@@ -205,7 +226,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscaActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-
+    
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     /**
@@ -225,13 +246,13 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -239,14 +260,13 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_VisualizacaoProduto().setVisible(true);
+                new UI_VisualizacaoFuncionario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabela;
-    private javax.swing.JScrollPane TabelaScroll;
+    private javax.swing.JPanel baseGambiarra;
     private javax.swing.JPanel baseTela;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
@@ -258,9 +278,12 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnProdutos;
     private javax.swing.JButton btnVenda;
+    private javax.swing.JLabel gambiarra;
     private javax.swing.JLabel imgEditar;
     private javax.swing.JLabel imgExcluir;
     private javax.swing.JLabel imgTela;
+    private javax.swing.JTable tabela;
+    private javax.swing.JScrollPane tabelaScroll;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtUsuario;
