@@ -54,13 +54,10 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
 
         baseTela.setBackground(new java.awt.Color(56, 56, 56));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
-        baseTela.setLayout(null);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnCaixa);
-        btnCaixa.setBounds(6, 755, 360, 70);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -70,46 +67,30 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
                 btnEncerrarActionPerformed(evt);
             }
         });
-        baseTela.add(btnEncerrar);
-        btnEncerrar.setBounds(106, 1015, 160, 40);
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnFinanceiro);
-        btnFinanceiro.setBounds(6, 645, 360, 70);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnCadastro);
-        btnCadastro.setBounds(6, 535, 360, 70);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnProdutos);
-        btnProdutos.setBounds(6, 435, 360, 70);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnVenda);
-        btnVenda.setBounds(6, 315, 360, 70);
-        baseTela.add(txtUsuario);
-        txtUsuario.setBounds(1716, 105, 200, 40);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        baseTela.add(txtData);
-        txtData.setBounds(1676, 15, 240, 40);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnLogout);
-        btnLogout.setBounds(1790, 150, 100, 30);
 
         txtBusca.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
@@ -118,8 +99,6 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
                 txtBuscaActionPerformed(evt);
             }
         });
-        baseTela.add(txtBusca);
-        txtBusca.setBounds(866, 355, 480, 50);
 
         btnPesquisa.setBorderPainted(false);
         btnPesquisa.setContentAreaFilled(false);
@@ -129,8 +108,6 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
                 btnPesquisaActionPerformed(evt);
             }
         });
-        baseTela.add(btnPesquisa);
-        btnPesquisa.setBounds(1357, 355, 80, 50);
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,30 +122,19 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
         ));
         tabelaScroll.setViewportView(tabela);
 
-        baseTela.add(tabelaScroll);
-        tabelaScroll.setBounds(420, 430, 1460, 570);
-
         imgExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 7.png"))); // NOI18N
         imgExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(imgExcluir);
-        imgExcluir.setBounds(1670, 1030, 210, 40);
 
         imgEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 8.png"))); // NOI18N
         imgEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(imgEditar);
-        imgEditar.setBounds(1450, 1030, 210, 40);
 
         btnEditar.setBorderPainted(false);
         btnEditar.setContentAreaFilled(false);
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnEditar);
-        btnEditar.setBounds(1450, 1030, 210, 40);
 
         btnExcluir.setBorderPainted(false);
         btnExcluir.setContentAreaFilled(false);
         btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnExcluir);
-        btnExcluir.setBounds(1680, 1030, 200, 40);
 
         baseGambiarra.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -190,13 +156,108 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        baseTela.add(baseGambiarra);
-        baseGambiarra.setBounds(880, 240, 540, 100);
-
         imgTela.setBackground(new java.awt.Color(204, 204, 204));
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FUNCIONÁRIO - BUSCA.png"))); // NOI18N
-        baseTela.add(imgTela);
-        imgTela.setBounds(0, 0, 1921, 1080);
+
+        javax.swing.GroupLayout baseTelaLayout = new javax.swing.GroupLayout(baseTela);
+        baseTela.setLayout(baseTelaLayout);
+        baseTelaLayout.setHorizontalGroup(
+            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(1676, 1676, 1676)
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(1716, 1716, 1716)
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(1790, 1790, 1790)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(500, 500, 500)
+                        .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(baseTelaLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(baseGambiarra, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(baseTelaLayout.createSequentialGroup()
+                                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addComponent(tabelaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1184, 1184, 1184)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imgExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(baseTelaLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(1450, 1450, 1450)
+                        .addComponent(imgEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(imgTela))
+                .addGap(1, 1, 1))
+        );
+        baseTelaLayout.setVerticalGroup(
+            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addComponent(baseGambiarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(25, 25, 25)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tabelaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imgExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1030, 1030, 1030)
+                .addComponent(imgEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgTela)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

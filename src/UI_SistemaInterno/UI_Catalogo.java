@@ -10,10 +10,11 @@ import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
+import sistemainternopisca.ModeloTabela;
 
 /**
  *
@@ -26,9 +27,6 @@ public class UI_Catalogo extends javax.swing.JFrame {
      */
     public UI_Catalogo() {
         initComponents();
-
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-        Tabela.setRowSorter(new TableRowSorter(modelo));
 
         readTabela();
 
@@ -59,44 +57,73 @@ public class UI_Catalogo extends javax.swing.JFrame {
     }
 
     public void readTabela() {
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-        modelo.setNumRows(0);
-
-
         ProdutosDAO pdao = new ProdutosDAO();
+        List<Produtos> list = pdao.Read();
 
-        for (Produtos p : pdao.Read()) {
-            
-            ImageIcon image = new ImageIcon(new ImageIcon(p.getUrl_Img()).getImage());
-                     
-            modelo.addRow(new Object[]{
-                image,
-                p.getCodigoProduto(),
-                p.getNomeProduto(),
-                p.getQtdProduto(),
-                p.getValorVenda()
-            });
+        String[] columnName = {"Imagem", "Código", "Descrição", "Estoque", "Preço R$"};
+        Object[][] rows = new Object[list.size()][5];
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getUrl_Img() != null) {
+                ImageIcon image = new ImageIcon(new ImageIcon(list.get(i).getUrl_Img()).getImage()
+                        .getScaledInstance(200, 130, 0));
+
+                rows[i][0] = image;
+            } else {
+                rows[i][0] = null;
+            }
+
+            rows[i][1] = list.get(i).getCodigoProduto();
+            rows[i][2] = list.get(i).getNomeProduto();
+            rows[i][3] = list.get(i).getQtdProduto();
+            rows[i][4] = list.get(i).getValorVenda();
         }
-             
-        Tabela.getColumnModel().getColumn(4).setPreferredWidth(150);
+
+        ModeloTabela model = new ModeloTabela(rows, columnName);
+        Tabela.setModel(model);
+        Tabela.setRowHeight(130);
+        Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+        Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+        Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+        Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
+        Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+        Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+
     }
 
     public void readTabelaByName(String Nome) {
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-        modelo.setNumRows(0);
 
         ProdutosDAO pdao = new ProdutosDAO();
+        List<Produtos> list = pdao.ReadByName(Nome);
 
-        for (Produtos p : pdao.ReadByName(Nome)) {
+        String[] columnName = {"Imagem", "Código", "Descrição", "Estoque", "Preço R$"};
+        Object[][] rows = new Object[list.size()][5];
 
-            modelo.addRow(new Object[]{
-                p.getUrl_Img(),
-                p.getCodigoProduto(),
-                p.getNomeProduto(),
-                p.getQtdProduto(),
-                p.getValorVenda()
-            });
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getUrl_Img() != null) {
+                ImageIcon image = new ImageIcon(new ImageIcon(list.get(i).getUrl_Img()).getImage()
+                        .getScaledInstance(200, 130, 0));
+
+                rows[i][0] = image;
+            } else {
+                rows[i][0] = null;
+            }
+
+            rows[i][1] = list.get(i).getCodigoProduto();
+            rows[i][2] = list.get(i).getNomeProduto();
+            rows[i][3] = list.get(i).getQtdProduto();
+            rows[i][4] = list.get(i).getValorVenda();
         }
+
+        ModeloTabela model = new ModeloTabela(rows, columnName);
+        Tabela.setModel(model);
+        Tabela.setRowHeight(130);
+        Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+        Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+        Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+        Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
+        Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+        Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
     }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
@@ -330,6 +357,9 @@ public class UI_Catalogo extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(UI_Catalogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
