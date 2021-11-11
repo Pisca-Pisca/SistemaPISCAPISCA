@@ -11,6 +11,7 @@ import Model.DAO.ProdutosDAO;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -25,10 +26,10 @@ public class UI_Catalogo extends javax.swing.JFrame {
      */
     public UI_Catalogo() {
         initComponents();
-        
+
         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
         Tabela.setRowSorter(new TableRowSorter(modelo));
-        
+
         readTabela();
 
         new Thread() {
@@ -56,48 +57,52 @@ public class UI_Catalogo extends javax.swing.JFrame {
             }
         }.start();
     }
-    
-    public void readTabela(){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-         
-         for(Produtos p: pdao.Read()){
+
+    public void readTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
+
+
+        ProdutosDAO pdao = new ProdutosDAO();
+
+        for (Produtos p : pdao.Read()) {
+            
+            ImageIcon image = new ImageIcon(new ImageIcon(p.getUrl_Img()).getImage());
+                     
+            modelo.addRow(new Object[]{
+                image,
+                p.getCodigoProduto(),
+                p.getNomeProduto(),
+                p.getQtdProduto(),
+                p.getValorVenda()
+            });
+        }
              
-             modelo.addRow(new Object[]{
-                 p.getUrl_Img(),
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
+        Tabela.getColumnModel().getColumn(4).setPreferredWidth(150);
     }
-    
-    public void readTabelaByName(String Nome){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-          
-         for(Produtos p: pdao.ReadByName(Nome)){
-              
-             modelo.addRow(new Object[]{
-                 p.getUrl_Img(),
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
+
+    public void readTabelaByName(String Nome) {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
+
+        ProdutosDAO pdao = new ProdutosDAO();
+
+        for (Produtos p : pdao.ReadByName(Nome)) {
+
+            modelo.addRow(new Object[]{
+                p.getUrl_Img(),
+                p.getCodigoProduto(),
+                p.getNomeProduto(),
+                p.getQtdProduto(),
+                p.getValorVenda()
+            });
+        }
     }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
         txtUsuario.setText(email);
     }
-   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

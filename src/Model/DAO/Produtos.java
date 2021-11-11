@@ -9,13 +9,13 @@ public class Produtos {
     
    private int IdProduto = 0;
    private int CodigoProduto = 0;
-   private String NomeProduto = "";
+   private String DescricaoProduto = "";
    private int QtdProduto = 0;
    private double ValorCompra = 0.0;
    private double ValorVenda = 0.0;
    private String NotaFiscal = "";
    private int Serie = 0;
-   private String Url_Img = "";
+   private byte[] Url_Img;
    private int IdCategoria = 1;
    private int IdFornecedor = 1;
 
@@ -38,11 +38,11 @@ public class Produtos {
     }
 
     public String getNomeProduto() {
-        return NomeProduto;
+        return DescricaoProduto;
     }
 
-    public void setNomeProduto(String NomeProduto) {
-        this.NomeProduto = NomeProduto;
+    public void setNomeProduto(String DescricaoProduto) {
+        this.DescricaoProduto = DescricaoProduto;
     }
 
     public int getQtdProduto() {
@@ -85,11 +85,11 @@ public class Produtos {
         this.Serie = Serie;
     }
 
-    public String getUrl_Img() {
+    public byte[] getUrl_Img() {
         return Url_Img;
     }
 
-    public void setUrl_Img(String Url_Img) {
+    public void setUrl_Img(byte[] Url_Img) {
         this.Url_Img = Url_Img;
     }
 
@@ -107,8 +107,6 @@ public class Produtos {
 
     public void setIdFornecedor(int IdFornecedor) {
         this.IdFornecedor = IdFornecedor;
-    }
-   
-   
+    }   
     
 }
