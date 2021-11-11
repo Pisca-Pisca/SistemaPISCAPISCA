@@ -9,12 +9,12 @@ package UI_SistemaInterno;
  *
  * @author nicol
  */
-public class UI_visualizacaoProduto extends javax.swing.JFrame {
+public class UI_VisualizacaoProduto extends javax.swing.JFrame {
 
     /**
      * Creates new form UI_visualizacaoProduto
      */
-    public UI_visualizacaoProduto() {
+    public UI_VisualizacaoProduto() {
         initComponents();
     }
 
@@ -39,6 +39,8 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         txtBusca = new javax.swing.JTextField();
         btnPesquisa = new javax.swing.JButton();
+        TabelaScroll = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,6 +125,28 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
         baseTela.add(btnPesquisa);
         btnPesquisa.setBounds(1357, 355, 80, 50);
 
+        Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Imagem", "Código", "Descrição", "Estoque", "Preço"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TabelaScroll.setViewportView(Tabela);
+
+        baseTela.add(TabelaScroll);
+        TabelaScroll.setBounds(430, 450, 1440, 550);
+
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTO-BUSCA.png"))); // NOI18N
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1921, 1080);
@@ -175,25 +199,28 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_VisualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_visualizacaoProduto().setVisible(true);
+                new UI_VisualizacaoProduto().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela;
+    private javax.swing.JScrollPane TabelaScroll;
     private javax.swing.JPanel baseTela;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;

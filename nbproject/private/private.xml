@@ -3,18 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VizualizacaoFuncionario.java</file>
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_Catalogo.java</file>
+            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_visualizacaoProduto.java</file>
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/Model/DAO/ProdutosDAO.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_Catalogo.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/ProdutosDAO.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Connection/ConnectionFac.java</file>
-
->>>>>>> 88531970b4f12d220b19c0ac3d55e690bbb8740e
         </group>
     </open-files>
 </project-private>
