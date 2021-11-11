@@ -15,7 +15,6 @@ import Model.DAO.ProdutosDAO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -348,14 +347,10 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             File arquivo = fc.getSelectedFile();
 
             try {
-                imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 160, 160);
-
-                String caminho = getClass().getResource("../uploadImg/produto/").toString().substring(5);
-                File outputfile = new File(caminho + arquivo.getName());
-                ImageIO.write(imagem, "jpg", outputfile);
-                
+                imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 200, 130);
+              
                 txtNomeArquivo.setText("Imagem enviada com sucesso");
-                //P.setUrl_Img(caminho + arquivo.getName());
+                P.setUrl_Img(ManipularImagem.getImgBytes(imagem));
 
             } catch (Exception ex) {
                 // System.out.println(ex.printStackTrace().toString());
