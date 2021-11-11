@@ -8,9 +8,13 @@ package UI_SistemaInterno;
 import Model.DAO.Funcionarios;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
+import java.awt.Component;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -25,10 +29,10 @@ public class UI_Catalogo extends javax.swing.JFrame {
      */
     public UI_Catalogo() {
         initComponents();
-        
+
         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
         Tabela.setRowSorter(new TableRowSorter(modelo));
-        
+
         readTabela();
 
         new Thread() {
@@ -56,45 +60,59 @@ public class UI_Catalogo extends javax.swing.JFrame {
             }
         }.start();
     }
-    
-    public void readTabela(){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-         
-         for(Produtos p: pdao.Read()){
-             
-             modelo.addRow(new Object[]{
-                 p.getUrl_Img(),
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
+
+    public void readTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
+
+        ProdutosDAO pdao = new ProdutosDAO();
+
+        for (Produtos p : pdao.Read()) {
+
+            modelo.addRow(new Object[]{
+                p.getUrl_Img(),
+                p.getCodigoProduto(),
+                p.getNomeProduto(),
+                p.getQtdProduto(),
+                p.getValorVenda()
+            });
+        }
     }
-    
-    public void readTabelaByName(String Nome){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-         
-         for(Produtos p: pdao.ReadByName(Nome)){
-             
-             modelo.addRow(new Object[]{
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
+
+    public void readTabelaByName(String Nome) {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
+
+        ProdutosDAO pdao = new ProdutosDAO();
+
+        for (Produtos p : pdao.ReadByName(Nome)) {
+            
+            Component lbl  = this.getTableCellRendererComponent(Tabela, 0);
+
+            modelo.addRow(new Object[]{
+                lbl,
+                p.getCodigoProduto(),
+                p.getNomeProduto(),
+                p.getQtdProduto(),
+                p.getValorVenda()
+            });
+        }
     }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
         txtUsuario.setText(email);
+    }
+
+    public Component getTableCellRendererComponent(JTable table, int column) {
+        String caminho = "C:\\workspace\\ws-java\\SistemaInternoPisca\\SistemaPISCAPISCA\\build\\classes\\uploadImg\\produto";
+        JLabel lbl = new JLabel();
+        ImageIcon icon = new ImageIcon(caminho);
+        lbl.setHorizontalAlignment(JLabel.CENTER);
+        lbl.setVerticalAlignment(JLabel.CENTER);
+        lbl.setIcon(icon);
+
+        return lbl;
     }
 
     @SuppressWarnings("unchecked")
@@ -191,6 +209,11 @@ public class UI_Catalogo extends javax.swing.JFrame {
 
         txtBusca.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
+        txtBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscaActionPerformed(evt);
+            }
+        });
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTO CATÁLOGO- editado.png"))); // NOI18N
 
@@ -288,6 +311,10 @@ public class UI_Catalogo extends javax.swing.JFrame {
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
         readTabelaByName(txtBusca.getText());
     }//GEN-LAST:event_btnPesquisaActionPerformed
+
+    private void txtBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscaActionPerformed
 
     /**
      * @param args the command line arguments

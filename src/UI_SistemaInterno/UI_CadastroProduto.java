@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import sistemainternopisca.ManipularImagem;
 import javax.swing.JFileChooser;
 
@@ -39,6 +41,10 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         initComponents();
 
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();;
+        Tabela.setRowSorter(new TableRowSorter(modelo));
+        
+        readTableProduto();
 
         new Thread() {
 
@@ -70,6 +76,40 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         String email = funcionarios.getEmail();
         txtUsuario.setText(email);
     }
+    
+    public void readTableProduto(){
+         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+         modelo.setNumRows(0);
+         
+         ProdutosDAO pdao = new ProdutosDAO();
+         
+         for(Produtos p: pdao.Read()){
+             
+             modelo.addRow(new Object[]{
+                 p.getCodigoProduto(),
+                 p.getNomeProduto(),
+                 p.getQtdProduto(),
+                 p.getValorVenda()
+             });
+         }
+    }
+    
+    public void readTableProdutoByName(String Nome){
+         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+         modelo.setNumRows(0);
+         
+         ProdutosDAO pdao = new ProdutosDAO();
+         
+         for(Produtos p: pdao.ReadByName(Nome)){
+             
+             modelo.addRow(new Object[]{
+                 p.getCodigoProduto(),
+                 p.getNomeProduto(),
+                 p.getQtdProduto(),
+                 p.getValorVenda()
+             });
+         }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -97,9 +137,11 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JLabel();
         btnEnviarArquivo = new javax.swing.JButton();
         txtNomeArquivo = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBusca = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         imgTela = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -256,14 +298,19 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         getContentPane().add(txtNomeArquivo);
         txtNomeArquivo.setBounds(660, 830, 1180, 50);
 
-        jTextField1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jTextField1.setBorder(null);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(730, 340, 750, 40);
+        txtBusca.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtBusca.setBorder(null);
+        getContentPane().add(txtBusca);
+        txtBusca.setBounds(730, 340, 750, 40);
 
         btnSearch.setBorderPainted(false);
         btnSearch.setContentAreaFilled(false);
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSearch);
         btnSearch.setBounds(1483, 328, 80, 60);
 
@@ -272,6 +319,22 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         imgTela.setMaximumSize(new java.awt.Dimension(1280, 720));
         getContentPane().add(imgTela);
         imgTela.setBounds(0, 0, 1920, 1080);
+
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Tabela);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(460, 942, 400, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -376,6 +439,10 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarMouseClicked
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+            readTableProdutoByName(txtBusca.getText());
+    }//GEN-LAST:event_btnSearchActionPerformed
+
     private void limparCamposProdutos() {
 
         txtCodProd.setText("");
@@ -422,6 +489,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEncerrar;
@@ -433,7 +501,8 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCodProd;
     private javax.swing.JLabel txtData;

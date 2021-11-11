@@ -6,14 +6,19 @@
 package UI_SistemaInterno;
 
 import Model.DAO.Funcionarios;
+import java.awt.Component;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 import sistemainternopisca.ManipularImagem;
 
 /**
