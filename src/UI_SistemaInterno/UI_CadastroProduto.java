@@ -40,27 +40,23 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
      */
     public UI_CadastroProduto(Produtos ProdutosRetorno) {
         initComponents();
+
         ProdutoRetorno = ProdutosRetorno;
-        if(ProdutoRetorno.getIdProduto() != 0){
+
+        if (ProdutoRetorno.getIdProduto() != 0) {
             txtCodProd.setText(String.valueOf(ProdutoRetorno.getCodigoProduto()));
             txtDescricao.setText(ProdutoRetorno.getNomeProduto());
             txtNFe.setText(ProdutoRetorno.getNotaFiscal());
             txtQtd.setText(String.valueOf(ProdutoRetorno.getQtdProduto()));
             txtValorCompra.setText(String.valueOf(ProdutoRetorno.getValorCompra()));
             txtValorVenda.setText(String.valueOf(ProdutoRetorno.getValorVenda()));
-            
-            
+            txtSerie.setText(String.valueOf(ProdutoRetorno.getSerie()));
         }
-       
-        
+
     }
+
     public UI_CadastroProduto() {
         initComponents();
-        
-
-        
-
-        
 
         new Thread() {
 
@@ -92,10 +88,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         String email = funcionarios.getEmail();
         txtUsuario.setText(email);
     }
-    
-   
-    
-   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -334,7 +326,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
             try {
                 imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 200, 130);
-              
+
                 txtNomeArquivo.setText("Imagem enviada com sucesso");
                 P.setUrl_Img(ManipularImagem.getImgBytes(imagem));
 
@@ -351,75 +343,29 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodProdActionPerformed
 
-    private void cadastraProdutoPisca(Produtos NovoProduto) {
-
-        this.conectar.conectaBanco();
-
-        NovoProduto.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
-        NovoProduto.setQtdProduto(Integer.parseInt(txtQtd.getText()));
-        NovoProduto.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
-        NovoProduto.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
-        NovoProduto.setNotaFiscal(txtNFe.getText());
-        NovoProduto.setSerie(Integer.parseInt(txtSerie.getText()));
-
-        try {
-
-            this.conectar.insertSQL("INSERT INTO Produtos ("
-                    + "CodigoProduto,"
-                    + "NomeProduto,"
-                    + "QtdProduto,"
-                    + "ValorCompra,"
-                    + "ValorVenda,"
-                    + "NotaFiscal,"
-                    + "Serie,"
-                    + "Url_Img,"
-                    + "idCategoria,"
-                    + "idFornecedor"
-                    + ") VALUES ("
-                    + "" + NovoProduto.getCodigoProduto() + ","
-                    + "'" + NovoProduto.getNomeProduto() + "',"
-                    + "" + NovoProduto.getQtdProduto() + ","
-                    + "" + NovoProduto.getValorCompra() + ","
-                    + "" + NovoProduto.getValorVenda() + ","
-                    + "'" + NovoProduto.getNotaFiscal() + "',"
-                    + "" + NovoProduto.getSerie() + ","
-                    + "'" + NovoProduto.getUrl_Img() + "',"
-                    + "" + NovoProduto.getIdCategoria() + ","
-                    + "" + NovoProduto.getIdFornecedor()
-                    + ");");
-
-            System.out.println("Produto:" + NovoProduto);
-            JOptionPane.showMessageDialog(null, "Produto Cadastrado com Sucesso");
-
-        } catch (Exception e) {
-
-            System.out.println("Erro ao cadastrar um produto " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar Produto");
-
-        } finally {
-            this.conectar.fechaBanco();
-        }
-
-    }
-    
-
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        P.setNomeProduto(txtDescricao.getText());
+        if (ProdutoRetorno.getIdProduto() == 0) {
+            P.setNomeProduto(txtDescricao.getText());
             P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
             P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
             P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             P.setNotaFiscal(txtNFe.getText());
             P.setSerie(Integer.parseInt(txtSerie.getText()));
-        
-        
-         if(ProdutoRetorno.getIdProduto() != 0){
-             dao.Create(P);
-        }else {
-          dao.Update(ProdutoRetorno);
-         }
-         
-        //cadastraProdutoPisca(NovoProduto);
+            
+            dao.Create(P);
+        } else {
+            ProdutoRetorno.setNomeProduto(txtDescricao.getText());
+            ProdutoRetorno.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
+            ProdutoRetorno.setQtdProduto(Integer.parseInt(txtQtd.getText()));
+            ProdutoRetorno.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+            ProdutoRetorno.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
+            ProdutoRetorno.setNotaFiscal(txtNFe.getText());
+            ProdutoRetorno.setSerie(Integer.parseInt(txtSerie.getText()));
+
+            dao.Update(ProdutoRetorno);
+        }
+
         limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -428,15 +374,17 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-            
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void limparCamposProdutos() {
 
         txtCodProd.setText("");
+        txtDescricao.setText("");
         txtQtd.setText("");
         txtValorCompra.setText("");
         txtValorVenda.setText("");
+        txtVoltagem.setText("");
         txtNFe.setText("");
         txtSerie.setText("");
     }

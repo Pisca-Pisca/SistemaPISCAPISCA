@@ -15,7 +15,7 @@ public class Produtos {
    private double ValorVenda = 0.0;
    private String NotaFiscal = "";
    private int Serie = 0;
-   private byte[] Url_Img;
+   private byte[] Url_Img = new byte[5];
    private int IdCategoria = 1;
    private int IdFornecedor = 1;
 

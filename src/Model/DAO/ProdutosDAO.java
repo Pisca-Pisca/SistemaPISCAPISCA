@@ -31,25 +31,24 @@ public class ProdutosDAO {
             stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, DescricaoProduto, QtdProduto, ValorCompra, ValorVenda, NotaFiscal, Serie, Url_Img, idCategoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?)");
 
             stmt.setInt(1, P.getCodigoProduto());
-                     
-            stmt.setString(2, P.getNomeProduto());
-            
-            stmt.setInt(3, P.getQtdProduto());
-            
-            stmt.setDouble(4, P.getValorCompra());
-            
-            stmt.setDouble(5, P.getValorVenda());
-            
-            stmt.setString(6, P.getNotaFiscal());
-            
-            stmt.setInt(7, P.getSerie());
-            
-            stmt.setBytes(8, P.getUrl_Img());
-            
-            stmt.setInt(9, P.getIdCategoria());
-            
-            stmt.setInt(10, P.getIdFornecedor());
 
+            stmt.setString(2, P.getNomeProduto());
+
+            stmt.setInt(3, P.getQtdProduto());
+
+            stmt.setDouble(4, P.getValorCompra());
+
+            stmt.setDouble(5, P.getValorVenda());
+
+            stmt.setString(6, P.getNotaFiscal());
+
+            stmt.setInt(7, P.getSerie());
+
+            stmt.setBytes(8, P.getUrl_Img());
+
+            stmt.setInt(9, P.getIdCategoria());
+
+            stmt.setInt(10, P.getIdFornecedor());
 
             stmt.executeUpdate();
 
@@ -72,16 +71,13 @@ public class ProdutosDAO {
 
         try {
             stmt = con.prepareStatement("SELECT * FROM Produtos");
-            
+
             rs = stmt.executeQuery();
-            
- 
 
             while (rs.next()) {
 
                 Produtos produto = new Produtos();
 
-              
                 produto.setIdProduto(rs.getInt("idProduto"));
                 produto.setCodigoProduto(rs.getInt("CodigoProduto"));
                 produto.setNomeProduto(rs.getString("DescricaoProduto"));
@@ -94,12 +90,7 @@ public class ProdutosDAO {
                 produto.setIdCategoria(rs.getInt("idCategoria"));
                 produto.setIdFornecedor(rs.getInt("idFornecedor"));
 
-               
-                
                 produtos.add(produto);
-                
-                
-               
 
             }
         } catch (SQLException ex) {
@@ -171,10 +162,7 @@ public class ProdutosDAO {
             stmt.setBytes(8, P.getUrl_Img());
             stmt.setInt(9, P.getIdCategoria());
             stmt.setInt(10, P.getIdFornecedor());
-
             stmt.setInt(11, P.getIdProduto());
-
-            stmt.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
         } catch (SQLException ex) {

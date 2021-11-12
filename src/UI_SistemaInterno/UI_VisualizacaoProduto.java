@@ -24,76 +24,70 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     /**
      * Creates new form UI_visualizacaoProduto
      */
-    
     Produtos P = new Produtos();
     ProdutosDAO dao = new ProdutosDAO();
-    
+
     public UI_VisualizacaoProduto() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();;
         Tabela.setRowSorter(new TableRowSorter(modelo));
-        
-        
-        
+
         readTableProduto();
     }
-    
-    
-     public void readTableProduto(){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-         ImageIcon image;
-         for(Produtos p: pdao.Read()){
-             if (p.getUrl_Img() != null) {
+
+    public void readTableProduto() {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
+
+        ProdutosDAO pdao = new ProdutosDAO();
+        ImageIcon image;
+        for (Produtos p : pdao.Read()) {
+            if (p.getUrl_Img() != null) {
                 image = new ImageIcon(new ImageIcon(
                         p.getUrl_Img()).getImage()
                         .getScaledInstance(200, 130, 0));
 
-                
             } else {
-                 image = null;
+                image = null;
             }
-             
-             modelo.addRow(new Object[]{
-                 image,
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
+
+            modelo.addRow(new Object[]{
+                image,
+                p.getCodigoProduto(),
+                p.getNomeProduto(),
+                p.getQtdProduto(),
+                p.getValorVenda()
+            });
+        }
     }
-     
-     public void readTableProdutoByName(String Nome){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-         ImageIcon image;
-         
-         for(Produtos p: pdao.ReadByName(Nome)){
-             
-             if (p.getUrl_Img() != null) {
+
+    public void readTableProdutoByName(String Nome) {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
+
+        ProdutosDAO pdao = new ProdutosDAO();
+        ImageIcon image;
+
+        for (Produtos p : pdao.ReadByName(Nome)) {
+
+            if (p.getUrl_Img() != null) {
                 image = new ImageIcon(new ImageIcon(
                         p.getUrl_Img()).getImage()
                         .getScaledInstance(200, 130, 0));
 
-                
             } else {
-                 image = null;
+                image = null;
             }
-             
-             modelo.addRow(new Object[]{
-                 image,
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
+
+            modelo.addRow(new Object[]{
+                image,
+                p.getCodigoProduto(),
+                p.getNomeProduto(),
+                p.getQtdProduto(),
+                p.getValorVenda()
+            });
+        }
     }
 
     /**
@@ -126,13 +120,17 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         baseTela.setBackground(new java.awt.Color(53, 53, 53));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        baseTela.setLayout(null);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnCaixa);
+        btnCaixa.setBounds(6, 755, 360, 70);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -142,30 +140,46 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 btnEncerrarActionPerformed(evt);
             }
         });
+        baseTela.add(btnEncerrar);
+        btnEncerrar.setBounds(106, 1015, 160, 40);
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnFinanceiro);
+        btnFinanceiro.setBounds(6, 645, 360, 70);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnCadastro);
+        btnCadastro.setBounds(6, 535, 360, 70);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnProdutos);
+        btnProdutos.setBounds(6, 435, 360, 70);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnVenda);
+        btnVenda.setBounds(6, 315, 360, 70);
+        baseTela.add(txtUsuario);
+        txtUsuario.setBounds(1716, 105, 200, 40);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtData);
+        txtData.setBounds(1676, 15, 240, 40);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnLogout);
+        btnLogout.setBounds(1790, 150, 100, 30);
 
         txtBusca.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
@@ -174,6 +188,8 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 txtBuscaActionPerformed(evt);
             }
         });
+        baseTela.add(txtBusca);
+        txtBusca.setBounds(866, 355, 480, 50);
 
         btnPesquisa.setBorderPainted(false);
         btnPesquisa.setContentAreaFilled(false);
@@ -183,6 +199,8 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 btnPesquisaActionPerformed(evt);
             }
         });
+        baseTela.add(btnPesquisa);
+        btnPesquisa.setBounds(1357, 355, 80, 50);
 
         Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
@@ -208,15 +226,29 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         });
         TabelaScroll.setViewportView(Tabela);
 
+        baseTela.add(TabelaScroll);
+        TabelaScroll.setBounds(430, 440, 1450, 560);
+
         imgExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 7.png"))); // NOI18N
         imgExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(imgExcluir);
+        imgExcluir.setBounds(1670, 1030, 210, 40);
 
         imgEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 8.png"))); // NOI18N
         imgEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(imgEditar);
+        imgEditar.setBounds(1450, 1030, 210, 40);
 
         btnEditar.setBorderPainted(false);
         btnEditar.setContentAreaFilled(false);
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnEditar);
+        btnEditar.setBounds(1450, 1030, 210, 40);
 
         btnExcluir.setBorderPainted(false);
         btnExcluir.setContentAreaFilled(false);
@@ -226,110 +258,12 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
+        baseTela.add(btnExcluir);
+        btnExcluir.setBounds(1680, 1030, 200, 40);
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTO-BUSCA.png"))); // NOI18N
-
-        javax.swing.GroupLayout baseTelaLayout = new javax.swing.GroupLayout(baseTela);
-        baseTela.setLayout(baseTelaLayout);
-        baseTelaLayout.setHorizontalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1676, 1676, 1676)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(991, 991, 991)
-                .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(430, 430, 430)
-                .addComponent(TabelaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1450, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1184, 1184, 1184)
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imgEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(866, 866, 866)
-                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1790, 1790, 1790)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1670, 1670, 1670)
-                .addComponent(imgExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1680, 1680, 1680)
-                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1716, 1716, 1716)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        baseTelaLayout.setVerticalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(260, 260, 260)
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35)
-                .addComponent(TabelaScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(imgEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(755, 755, 755)
-                .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(355, 355, 355)
-                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1030, 1030, 1030)
-                .addComponent(imgExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1030, 1030, 1030)
-                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(435, 435, 435)
-                .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(535, 535, 535)
-                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(645, 645, 645)
-                .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        baseTela.add(imgTela);
+        imgTela.setBounds(0, 0, 1921, 1080);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -359,16 +293,16 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscaActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-            readTableProdutoByName(txtBusca.getText());
+        readTableProdutoByName(txtBusca.getText());
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void TabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TabelaKeyReleased
-        
-        
+
+
     }//GEN-LAST:event_TabelaKeyReleased
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        if(Tabela.getSelectedRow() != - 1){
+        if (Tabela.getSelectedRow() != - 1) {
             SelecionarProdutosDeletar();
             readTableProduto();
         } else {
@@ -376,26 +310,34 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    public void SelecionarProdutosDeletar(){
-         Produtos produtoRetorno = new Produtos();
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (Tabela.getSelectedRow() != - 1) {
+            SelecionarProdutos();
+            readTableProduto();
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    public void SelecionarProdutosDeletar() {
+        Produtos produtoRetorno = new Produtos();
         ProdutosDAO pdao = new ProdutosDAO();
         String NomeProduto;
         ImageIcon image;
- 
+
         NomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
-        
-        for(Produtos p: pdao.ReadByName(NomeProduto)){
-             
-             if (p.getUrl_Img() != null) {
+
+        for (Produtos p : pdao.ReadByName(NomeProduto)) {
+
+            if (p.getUrl_Img() != null) {
                 image = new ImageIcon(new ImageIcon(
                         p.getUrl_Img()).getImage()
                         .getScaledInstance(200, 130, 0));
 
-                
             } else {
-                 image = null;
+                image = null;
             }
-             
+
             produtoRetorno.setCodigoProduto(p.getCodigoProduto());
             produtoRetorno.setIdProduto(p.getIdProduto());
             produtoRetorno.setNomeProduto(p.getNomeProduto());
@@ -404,56 +346,55 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
             produtoRetorno.setValorCompra(p.getValorCompra());
             produtoRetorno.setValorVenda(p.getValorVenda());
             produtoRetorno.setUrl_Img(p.getUrl_Img());
+            produtoRetorno.setSerie(p.getSerie());
             produtoRetorno.setIdCategoria(p.getIdCategoria());
             produtoRetorno.setIdFornecedor(p.getIdFornecedor());
-         }
-        
+        }
+
         pdao.Delete(produtoRetorno);
-        
-        
+
     }
+
     public void SelecionarProdutos() {
         Produtos produtoRetorno = new Produtos();
         ProdutosDAO pdao = new ProdutosDAO();
         String NomeProduto;
         ImageIcon image;
-        
-        if(Tabela.getSelectedRow() != - 1){
-            NomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
-            
-            
-            
-            for(Produtos p: pdao.ReadByName(NomeProduto)){
-             
-             if (p.getUrl_Img() != null) {
-                image = new ImageIcon(new ImageIcon(
-                        p.getUrl_Img()).getImage()
-                        .getScaledInstance(200, 130, 0));
 
-                
-            } else {
-                 image = null;
+        if (Tabela.getSelectedRow() != - 1) {
+            NomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
+
+            for (Produtos p : pdao.ReadByName(NomeProduto)) {
+
+                if (p.getUrl_Img() != null) {
+                    image = new ImageIcon(new ImageIcon(
+                            p.getUrl_Img()).getImage()
+                            .getScaledInstance(200, 130, 0));
+
+                } else {
+                    image = null;
+                }
+
+                produtoRetorno.setCodigoProduto(p.getCodigoProduto());
+                produtoRetorno.setIdProduto(p.getIdProduto());
+                produtoRetorno.setNomeProduto(p.getNomeProduto());
+                produtoRetorno.setNotaFiscal(p.getNotaFiscal());
+                produtoRetorno.setQtdProduto(p.getQtdProduto());
+                produtoRetorno.setValorCompra(p.getValorCompra());
+                produtoRetorno.setValorVenda(p.getValorVenda());
+                //produtoRetorno.setUrl_Img(p.getUrl_Img());
+                produtoRetorno.setSerie(p.getSerie());
+                produtoRetorno.setIdCategoria(p.getIdCategoria());
+                produtoRetorno.setIdFornecedor(p.getIdFornecedor());
             }
-             
-            produtoRetorno.setCodigoProduto(p.getCodigoProduto());
-            produtoRetorno.setIdProduto(p.getIdProduto());
-            produtoRetorno.setNomeProduto(p.getNomeProduto());
-            produtoRetorno.setNotaFiscal(p.getNotaFiscal());
-            produtoRetorno.setQtdProduto(p.getQtdProduto());
-            produtoRetorno.setValorCompra(p.getValorCompra());
-            produtoRetorno.setValorVenda(p.getValorVenda());
-            produtoRetorno.setUrl_Img(p.getUrl_Img());
-            produtoRetorno.setIdCategoria(p.getIdCategoria());
-            produtoRetorno.setIdFornecedor(p.getIdFornecedor());
-         }
-            
+
         }
-      
+
         UI_CadastroProduto obj = new UI_CadastroProduto(produtoRetorno);
         obj.setVisible(true);
-        
-        
+        dispose();
     }
+
     /**
      * @param args the command line arguments
      */
