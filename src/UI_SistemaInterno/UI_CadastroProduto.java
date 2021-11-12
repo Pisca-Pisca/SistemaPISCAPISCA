@@ -33,18 +33,34 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     Produtos NovoProduto = new Produtos(); //acessar os atributos da classe produtos
     Produtos P = new Produtos();
     ProdutosDAO dao = new ProdutosDAO();
+    Produtos ProdutoRetorno = new Produtos();
 
     /**
      * Creates new form UI_CadastroProduto
      */
+    public UI_CadastroProduto(Produtos ProdutosRetorno) {
+        initComponents();
+        ProdutoRetorno = ProdutosRetorno;
+        if(ProdutoRetorno.getIdProduto() != 0){
+            txtCodProd.setText(String.valueOf(ProdutoRetorno.getCodigoProduto()));
+            txtDescricao.setText(ProdutoRetorno.getNomeProduto());
+            txtNFe.setText(ProdutoRetorno.getNotaFiscal());
+            txtQtd.setText(String.valueOf(ProdutoRetorno.getQtdProduto()));
+            txtValorCompra.setText(String.valueOf(ProdutoRetorno.getValorCompra()));
+            txtValorVenda.setText(String.valueOf(ProdutoRetorno.getValorVenda()));
+            
+            
+        }
+       
+        
+    }
     public UI_CadastroProduto() {
         initComponents();
-
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();;
-        Tabela.setRowSorter(new TableRowSorter(modelo));
         
-        readTableProduto();
+
+        
+
+        
 
         new Thread() {
 
@@ -77,39 +93,9 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtUsuario.setText(email);
     }
     
-    public void readTableProduto(){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-         
-         for(Produtos p: pdao.Read()){
-             
-             modelo.addRow(new Object[]{
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
-    }
+   
     
-    public void readTableProdutoByName(String Nome){
-         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-         modelo.setNumRows(0);
-         
-         ProdutosDAO pdao = new ProdutosDAO();
-         
-         for(Produtos p: pdao.ReadByName(Nome)){
-             
-             modelo.addRow(new Object[]{
-                 p.getCodigoProduto(),
-                 p.getNomeProduto(),
-                 p.getQtdProduto(),
-                 p.getValorVenda()
-             });
-         }
-    }
+   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -415,17 +401,24 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         }
 
     }
+    
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         P.setNomeProduto(txtDescricao.getText());
-        P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
-        P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
-        P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
-        P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
-        P.setNotaFiscal(txtNFe.getText());
-        P.setSerie(Integer.parseInt(txtSerie.getText()));
-
-        dao.Create(P);
+            P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
+            P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
+            P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+            P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
+            P.setNotaFiscal(txtNFe.getText());
+            P.setSerie(Integer.parseInt(txtSerie.getText()));
+        
+        
+         if(ProdutoRetorno.getIdProduto() != 0){
+             dao.Create(P);
+        }else {
+          dao.Update(ProdutoRetorno);
+         }
+         
         //cadastraProdutoPisca(NovoProduto);
         limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
@@ -435,7 +428,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-            readTableProdutoByName(txtBusca.getText());
+            
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void limparCamposProdutos() {
