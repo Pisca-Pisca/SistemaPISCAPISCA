@@ -370,6 +370,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         if(Tabela.getSelectedRow() != - 1){
             SelecionarProdutosDeletar();
+            readTableProduto();
         } else {
             JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
         }
