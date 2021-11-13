@@ -90,21 +90,21 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        RadioCelular = new javax.swing.JRadioButton();
         jPanel7 = new javax.swing.JPanel();
-        jRadioButton8 = new javax.swing.JRadioButton();
+        RadioFixo = new javax.swing.JRadioButton();
         jPanel6 = new javax.swing.JPanel();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        RadioCnpj = new javax.swing.JRadioButton();
         jPanel5 = new javax.swing.JPanel();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        RadioCpf = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        RadioInscricao = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        RadioRg = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        RadioRazaoSocial = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        RadioNome = new javax.swing.JRadioButton();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -291,7 +291,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton6);
+        grupoSelectCadastroCliente.add(RadioCelular);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -299,45 +299,45 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(RadioCelular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton6)
+                .addComponent(RadioCelular)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         baseTala.add(jPanel8);
-        jPanel8.setBounds(1330, 650, 29, 37);
+        jPanel8.setBounds(1330, 650, 27, 35);
 
         jPanel7.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton8);
+        grupoSelectCadastroCliente.add(RadioFixo);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jRadioButton8)
+                .addComponent(RadioFixo)
                 .addGap(0, 2, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton8)
+                .addComponent(RadioFixo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         baseTala.add(jPanel7);
-        jPanel7.setBounds(1480, 650, 23, 37);
+        jPanel7.setBounds(1480, 650, 23, 35);
 
         jPanel6.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton3);
+        grupoSelectCadastroCliente.add(RadioCnpj);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -345,22 +345,22 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jRadioButton3))
+                .addComponent(RadioCnpj))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton3)
+                .addComponent(RadioCnpj)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         baseTala.add(jPanel6);
-        jPanel6.setBounds(1480, 420, 33, 37);
+        jPanel6.setBounds(1480, 420, 33, 35);
 
         jPanel5.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton7);
+        grupoSelectCadastroCliente.add(RadioCpf);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -368,34 +368,34 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton7)
+                .addComponent(RadioCpf)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton7)
+                .addComponent(RadioCpf)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         baseTala.add(jPanel5);
-        jPanel5.setBounds(1390, 420, 37, 37);
+        jPanel5.setBounds(1390, 420, 33, 35);
 
         jPanel4.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton5);
+        grupoSelectCadastroCliente.add(RadioInscricao);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(RadioInscricao, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(RadioInscricao, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -404,7 +404,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton4);
+        grupoSelectCadastroCliente.add(RadioRg);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -412,14 +412,14 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton4)
+                .addComponent(RadioRg)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RadioRg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -428,7 +428,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton2);
+        grupoSelectCadastroCliente.add(RadioRazaoSocial);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -438,7 +438,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jRadioButton2)
+                    .addComponent(RadioRazaoSocial)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -447,7 +447,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jRadioButton2)
+                    .addComponent(RadioRazaoSocial)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -456,7 +456,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(228, 228, 228));
 
-        grupoSelectCadastroCliente.add(jRadioButton1);
+        grupoSelectCadastroCliente.add(RadioNome);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -466,7 +466,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jRadioButton1)
+                    .addComponent(RadioNome)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -475,7 +475,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jRadioButton1)
+                    .addComponent(RadioNome)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -560,13 +560,26 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         this.conectar.conectaBanco();
 
         NovoCliente.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
-        NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
-        NovoCliente.setRazaoSocial(txtNomeRazaoSocial.getText());
+        if(RadioInscricao.isSelected()){
+            NovoCliente.setRazaoSocial(txtNomeRazaoSocial.getText());
+        }
+        if(RadioNome.isSelected()){
+            NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
+        }
+        if(RadioCpf.isSelected()){
+            NovoCliente.setCpf(txtCPF_CNPJ.getText());
+        }
+        if(RadioCnpj.isSelected()){
+            NovoCliente.setCnpj(txtCPF_CNPJ.getText());
+        }
+        if(RadioRazaoSocial.isSelected()){
+            NovoCliente.setRazaoSocial(txtRGInscricao1.getText());
+        }
+        if(RadioRg.isSelected()){
+            NovoCliente.setRg(txtRGInscricao1.getText());
+        }
+          
         NovoCliente.setDateNascimento(txtDataNascimento.getText());
-        NovoCliente.setCpf(txtCPF_CNPJ.getText());
-        NovoCliente.setCnpj(txtCPF_CNPJ.getText());
-        NovoCliente.setRazaoSocial(txtRGInscricao1.getText());
-        NovoCliente.setRg(txtRGInscricao1.getText());
         NovoCliente.setEmail(txtEmail.getText());
         NovoCliente.setTelefone(txtCelTel.getText());
         NovoCliente.setCep(txtCEP.getText());
@@ -593,7 +606,6 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
                     + "Bairro,"
                     + "Email,"
                     + "Telefone,"
-                    + "idProduto,"
                     + ") VALUES ("
                     + "" + NovoCliente.getCodigoCliente() + ","
                     + "'" + NovoCliente.getDateNascimento() + "',"
@@ -602,7 +614,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
                     + "'" + NovoCliente.getCpf() + "',"
                     + "'" + NovoCliente.getCnpj() + "',"
                     + "'" + NovoCliente.getRg() + "',"
-                    + "'" + NovoCliente.getInscricaoSocial() + "',"
+                    + "'" + NovoCliente.getInscricaoEstadual()+ "',"
                     + "'" + NovoCliente.getEndereco() + "',"
                     + "'" + NovoCliente.getCep() + "',"
                     + "'" + NovoCliente.getEstado() + "',"
@@ -610,7 +622,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
                     + "'" + NovoCliente.getBairro() + "',"
                     + "'" + NovoCliente.getEmail() + "',"
                     + "'" + NovoCliente.getTelefone() + "',"
-                    + "" + NovoCliente.getIdProduto()
+                   
                     + ");");
 
             System.out.println("Cliente:" + NovoCliente);
@@ -645,6 +657,14 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton RadioCelular;
+    private javax.swing.JRadioButton RadioCnpj;
+    private javax.swing.JRadioButton RadioCpf;
+    private javax.swing.JRadioButton RadioFixo;
+    private javax.swing.JRadioButton RadioInscricao;
+    private javax.swing.JRadioButton RadioNome;
+    private javax.swing.JRadioButton RadioRazaoSocial;
+    private javax.swing.JRadioButton RadioRg;
     private javax.swing.JPanel baseTala;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
@@ -666,14 +686,6 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JFormattedTextField txtCEP;

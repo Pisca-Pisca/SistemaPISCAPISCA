@@ -5,6 +5,13 @@
  */
 package UI_SistemaInterno;
 
+import Model.DAO.Clientes;
+import Model.DAO.ClientesDAO;
+import Model.DAO.Produtos;
+import Model.DAO.ProdutosDAO;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jessi
@@ -16,6 +23,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
      */
     public UI_VisualizacaoClientes() {
         initComponents();
+        readTableCliente();
     }
 
     /**
@@ -40,7 +48,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         btnPesquisa = new javax.swing.JButton();
         txtBusca = new javax.swing.JTextField();
         tabelaScroll = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabela = new javax.swing.JTable();
         imgExcluir = new javax.swing.JLabel();
         imgEditar = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
@@ -124,7 +132,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         imgBase.add(txtBusca);
         txtBusca.setBounds(860, 360, 490, 40);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -135,7 +143,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 "Código do Cliente", "Nome Completo", "Telefone"
             }
         ));
-        tabelaScroll.setViewportView(jTable1);
+        tabelaScroll.setViewportView(Tabela);
 
         imgBase.add(tabelaScroll);
         tabelaScroll.setBounds(420, 430, 1460, 570);
@@ -189,7 +197,22 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
         
     }//GEN-LAST:event_btnPesquisaActionPerformed
+    
+    public void readTableCliente() {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
 
+        ClientesDAO cdao = new ClientesDAO();
+        for (Clientes C : cdao.Read()) {
+            
+
+            modelo.addRow(new Object[]{
+                C.getCodigoCliente(),
+                C.getNomeCliente(),
+                C.getTelefone()              
+            });
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -227,6 +250,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEditar;
@@ -241,7 +265,6 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     private javax.swing.JLabel imgEditar;
     private javax.swing.JLabel imgExcluir;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane tabelaScroll;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JLabel txtData;
