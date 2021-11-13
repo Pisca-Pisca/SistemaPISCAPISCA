@@ -94,10 +94,7 @@ public class ClientesDAO {
                 cliente.setBairro(rs.getString("Bairro"));
                 cliente.setEmail(rs.getString("Email"));
                 cliente.setTelefone(rs.getString("Telefone"));
-                
-                System.out.println("Testar String" + rs);
-                System.err.println("Cliente:" + cliente);
-                
+                          
                 Clientes.add(cliente);
             }
         } catch (SQLException ex) {
@@ -131,10 +128,10 @@ public class ClientesDAO {
                 cliente.setDateNascimento(rs.getString("DateNascimento"));
                 cliente.setNomeCliente(rs.getString("NomeCliente"));
                 cliente.setRazaoSocial(rs.getString("RazaoSocial"));
-                cliente.setCpf(rs.getString("Cpg"));
+                cliente.setCpf(rs.getString("Cpf"));
                 cliente.setCnpj(rs.getString("Cnpj"));
                 cliente.setRg(rs.getString("Rg"));
-                cliente.setInscricaoEstadual(rs.getString("IncricaoEstadual"));
+                cliente.setInscricaoEstadual(rs.getString("InscricaoEstadual"));
                 cliente.setEndereco(rs.getString("Endereco"));
                 cliente.setCep(rs.getString("Cep"));
                 cliente.setEstado(rs.getString("Estado"));
@@ -162,7 +159,7 @@ public class ClientesDAO {
         
         try {
              
-            stmt = con.prepareStatement("UPDATE Clientes SET CodigoCliente = ?, DateNascimento = ?, NomeCliente = ?, RazaoSocial = ?, Cpf = ?, Cnpj = ?, Rg = ?, IncricaoEstadual = ?, Endereco = ?, Cep = ?, Estado = ?, Cidade = ?, Bairro = ?, Email = ?, Telefone = ? WHERE idCliente = ?");
+            stmt = con.prepareStatement("UPDATE Clientes SET CodigoCliente = ?, DateNascimento = ?, NomeCliente = ?, RazaoSocial = ?, Cpf = ?, Cnpj = ?, Rg = ?, InscricaoEstadual = ?, Endereco = ?, Cep = ?, Estado = ?, Cidade = ?, Bairro = ?, Email = ?, Telefone = ? WHERE idCliente = ?");
             
             stmt.setInt(1, C.getCodigoCliente());  
             stmt.setString(2, C.getDateNascimento());
@@ -183,7 +180,7 @@ public class ClientesDAO {
        
             stmt.executeUpdate();
             
-            System.out.println("Testar String:" + stmt);
+        
             
             JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
         } 
