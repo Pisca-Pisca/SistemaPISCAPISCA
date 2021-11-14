@@ -4,16 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoProduto.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_Catalogo.java</file>
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroCliente.java</file>
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/ProdutosDAO.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/FuncionariosDAO.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Connection/ConnectionFac.java</file>
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/Clientes.java</file>
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/Produtos.java</file>
             <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/ClientesDAO.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/FornecedoresDAO.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoClientes.java</file>
         </group>
     </open-files>
 </project-private>

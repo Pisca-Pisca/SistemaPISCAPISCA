@@ -10,7 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import Connection.ConnectionFacPisca;
 import Model.DAO.Clientes;
+import Model.DAO.ClientesDAO;
 import Model.DAO.Funcionarios;
+import Model.DAO.Produtos;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -22,7 +24,44 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
     ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
     Clientes NovoCliente = new Clientes(); //acessar os atributos da classe produtos
-
+    Clientes ClienteRetorno = new Clientes();
+    ClientesDAO cdao = new ClientesDAO();
+    
+    public UI_CadastroCliente(Clientes ClientesRetorno) {
+        initComponents();
+        ClienteRetorno = ClientesRetorno;
+        
+         if (ClienteRetorno.getIdCliente() != 0) {
+             if(ClienteRetorno.getCpf() != ""){
+                 txtCodigoCliente.setText(String.valueOf(ClienteRetorno.getCodigoCliente()));
+                 txtNomeRazaoSocial.setText(ClienteRetorno.getNomeCliente());
+                 txtCPF_CNPJ.setText(ClienteRetorno.getCpf());
+                 txtRGInscricao1.setText(ClienteRetorno.getRg());
+                 txtDataNascimento.setText(ClienteRetorno.getDateNascimento()); 
+                 txtCelTel.setText(ClienteRetorno.getTelefone());
+                 txtBairro.setText(ClienteRetorno.getBairro());
+                 txtCidade.setText(ClienteRetorno.getCidade());
+                 comboEstado.setSelectedItem(ClienteRetorno.getEstado());
+                 txtEmail.setText(ClienteRetorno.getEmail());
+                 txtEndereco.setText(ClienteRetorno.getEndereco());
+                 
+                 
+             }
+             if(ClienteRetorno.getCnpj() != ""){
+                 txtCodigoCliente.setText(String.valueOf(ClienteRetorno.getCodigoCliente()));
+                 txtNomeRazaoSocial.setText(ClienteRetorno.getRazaoSocial());
+                 txtCPF_CNPJ.setText(ClienteRetorno.getCnpj());
+                 txtRGInscricao1.setText(ClienteRetorno.getInscricaoEstadual());
+                 txtDataNascimento.setText(ClienteRetorno.getDateNascimento()); 
+                 txtCelTel.setText(ClienteRetorno.getTelefone());
+                 txtBairro.setText(ClienteRetorno.getBairro());
+                 txtCidade.setText(ClienteRetorno.getCidade());
+                 comboEstado.setSelectedItem(ClienteRetorno.getEstado());
+                 txtEmail.setText(ClienteRetorno.getEmail());
+                 txtEndereco.setText(ClienteRetorno.getEndereco());
+             }
+         }
+    }
     public UI_CadastroCliente() {
         initComponents();
 
@@ -503,10 +542,46 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        cadastraClientePisca(NovoCliente);
-        limparCamposClientes();
+        if(ClienteRetorno.getIdCliente() == 0 ){
+            cadastraClientePisca(NovoCliente);
+            limparCamposClientes();
+        }
+        if(ClienteRetorno.getIdCliente() != 0){
+            selecionarProdutoRetorno();
+            cdao.Update(ClienteRetorno);
+        }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
+    public void selecionarProdutoRetorno(){
+         ClienteRetorno.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
+        if(RadioInscricao.isSelected()){
+            ClienteRetorno.setRazaoSocial(txtNomeRazaoSocial.getText());
+        }
+        if(RadioNome.isSelected()){
+            ClienteRetorno.setNomeCliente(txtNomeRazaoSocial.getText());
+        }
+        if(RadioCpf.isSelected()){
+            ClienteRetorno.setCpf(txtCPF_CNPJ.getText());
+        }
+        if(RadioCnpj.isSelected()){
+            ClienteRetorno.setCnpj(txtCPF_CNPJ.getText());
+        }
+        if(RadioRazaoSocial.isSelected()){
+            ClienteRetorno.setRazaoSocial(txtRGInscricao1.getText());
+        }
+        if(RadioRg.isSelected()){
+            ClienteRetorno.setRg(txtRGInscricao1.getText());
+        }
+          
+        ClienteRetorno.setDateNascimento(txtDataNascimento.getText());
+        ClienteRetorno.setEmail(txtEmail.getText());
+        ClienteRetorno.setTelefone(txtCelTel.getText());
+        ClienteRetorno.setCep(txtCEP.getText());
+        ClienteRetorno.setEndereco(txtEndereco.getText());
+        ClienteRetorno.setBairro(txtBairro.getText());
+        ClienteRetorno.setCidade(txtCidade.getText());
+        ClienteRetorno.setEstado((String) comboEstado.getSelectedItem());
+    }
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVendaActionPerformed

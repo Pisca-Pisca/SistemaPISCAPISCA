@@ -10,6 +10,7 @@ import Model.DAO.ClientesDAO;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -143,6 +144,11 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 "Código do Cliente", "Nome Completo", "Telefone"
             }
         ));
+        Tabela.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TabelaKeyReleased(evt);
+            }
+        });
         tabelaScroll.setViewportView(Tabela);
 
         imgBase.add(tabelaScroll);
@@ -161,12 +167,22 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         btnEditar.setBorderPainted(false);
         btnEditar.setContentAreaFilled(false);
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
         imgBase.add(btnEditar);
         btnEditar.setBounds(1450, 1030, 210, 40);
 
         btnExcluir.setBorderPainted(false);
         btnExcluir.setContentAreaFilled(false);
         btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
         imgBase.add(btnExcluir);
         btnExcluir.setBounds(1680, 1030, 200, 40);
 
@@ -195,8 +211,30 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        
+        readTableClienteByName(txtBusca.getText());
     }//GEN-LAST:event_btnPesquisaActionPerformed
+
+    private void TabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TabelaKeyReleased
+        
+    }//GEN-LAST:event_TabelaKeyReleased
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+         if (Tabela.getSelectedRow() != - 1) {
+            SelecionarClienteDelete();
+            readTableCliente();
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (Tabela.getSelectedRow() != - 1) {
+            SelecionarClienteUpdate();
+            readTableCliente();
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
     
     public void readTableCliente() {
         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
@@ -212,6 +250,97 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 C.getTelefone()              
             });
         }
+    }
+    
+    public void readTableClienteByName(String Nome) {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
+
+        ClientesDAO cdao = new ClientesDAO();
+        for (Clientes C : cdao.ReadByName(Nome)) {
+            
+
+            modelo.addRow(new Object[]{
+                C.getCodigoCliente(),
+                C.getNomeCliente(),
+                C.getTelefone()              
+            });
+        }
+    }
+    
+    public void SelecionarClienteUpdate(){
+        Clientes clienteRetorno = new Clientes();
+        ClientesDAO cdao = new ClientesDAO();
+        String NomeCliente;
+        ImageIcon image;
+
+        if (Tabela.getSelectedRow() != - 1) {
+            NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
+
+            for (Clientes c : cdao.ReadByName(NomeCliente)) {
+
+                clienteRetorno.setIdCliente(c.getIdCliente());
+                clienteRetorno.setCodigoCliente(c.getCodigoCliente());
+                clienteRetorno.setDateNascimento(c.getDateNascimento());
+                clienteRetorno.setNomeCliente(c.getNomeCliente());
+                clienteRetorno.setRazaoSocial(c.getRazaoSocial());
+                clienteRetorno.setCpf(c.getCpf());
+                clienteRetorno.setCnpj(c.getCnpj());
+                clienteRetorno.setRg(c.getRg());
+                clienteRetorno.setInscricaoEstadual(c.getInscricaoEstadual());
+                clienteRetorno.setEndereco(c.getEndereco());
+                clienteRetorno.setCep(c.getCep());
+                clienteRetorno.setEstado(c.getEstado());
+                clienteRetorno.setCidade(c.getCidade());
+                clienteRetorno.setBairro(c.getBairro());
+                clienteRetorno.setEmail(c.getEmail());
+                clienteRetorno.setTelefone(c.getTelefone());
+
+                
+            }
+
+        }
+
+        UI_CadastroCliente obj = new UI_CadastroCliente(clienteRetorno);
+        obj.setVisible(true);
+        dispose();
+    }
+    
+    
+    public void SelecionarClienteDelete(){
+        Clientes clienteRetorno = new Clientes();
+        ClientesDAO cdao = new ClientesDAO();
+        String NomeCliente;
+        ImageIcon image;
+
+        if (Tabela.getSelectedRow() != - 1) {
+            NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
+
+            for (Clientes c : cdao.ReadByName(NomeCliente)) {
+
+                clienteRetorno.setIdCliente(c.getIdCliente());
+                clienteRetorno.setCodigoCliente(c.getCodigoCliente());
+                clienteRetorno.setDateNascimento(c.getDateNascimento());
+                clienteRetorno.setNomeCliente(c.getNomeCliente());
+                clienteRetorno.setRazaoSocial(c.getRazaoSocial());
+                clienteRetorno.setCpf(c.getCpf());
+                clienteRetorno.setCnpj(c.getCnpj());
+                clienteRetorno.setRg(c.getRg());
+                clienteRetorno.setInscricaoEstadual(c.getInscricaoEstadual());
+                clienteRetorno.setEndereco(c.getEndereco());
+                clienteRetorno.setCep(c.getCep());
+                clienteRetorno.setEstado(c.getEstado());
+                clienteRetorno.setCidade(c.getCidade());
+                clienteRetorno.setBairro(c.getBairro());
+                clienteRetorno.setEmail(c.getEmail());
+                clienteRetorno.setTelefone(c.getTelefone());
+
+                
+            }
+
+        }
+
+        cdao.Delete(clienteRetorno);
     }
     /**
      * @param args the command line arguments
