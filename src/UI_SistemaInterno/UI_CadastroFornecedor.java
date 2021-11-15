@@ -5,6 +5,8 @@
  */
 package UI_SistemaInterno;
 
+import Model.DAO.Fornecedores;
+import Model.DAO.FornecedoresDAO;
 import Model.DAO.Funcionarios;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
@@ -17,9 +19,8 @@ import javax.swing.JFrame;
  */
 public class UI_CadastroFornecedor extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UI_CadastroFornecedor
-     */
+    Fornecedores Fornecedor = new Fornecedores();
+    FornecedoresDAO fdao = new FornecedoresDAO();
     public UI_CadastroFornecedor() {
         initComponents();
 
@@ -277,9 +278,22 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
+        selecionarCamposFornecedores();
+        fdao.Create(Fornecedor);      
     }//GEN-LAST:event_btnEnviarActionPerformed
-
+    
+    public void selecionarCamposFornecedores(){
+         Fornecedor.setRazaoSocial(txtRazaoSocial.getText());
+         Fornecedor.setCnpj(txtCNPJ.getText());
+         Fornecedor.setInscricaoEstadual(txtInscricaoEstadual.getText());
+         Fornecedor.setEmail(txtEmail.getText());
+         Fornecedor.setTelefone(txtEmail.getText());
+         Fornecedor.setCep(txtCEP.getText());
+         Fornecedor.setEndereco(txtEndereco.getText());
+         Fornecedor.setEstado((String) comboEstado.getSelectedItem());
+         Fornecedor.setCidade(txtCidade.getText());
+         Fornecedor.setBairro(txtBairro.getText());
+    }
     /**
      * @param args the command line arguments
      */
