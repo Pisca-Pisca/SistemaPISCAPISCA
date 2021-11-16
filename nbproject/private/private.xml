@@ -3,11 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_Modal.java</file>
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoProduto.java</file>
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoFuncionario.java</file>
             <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroFuncionario.java</file>
+=======
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoProduto.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroCliente.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/ProdutosDAO.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/Clientes.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/Produtos.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/ClientesDAO.java</file>
+            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoClientes.java</file>
+>>>>>>> bd2b9b6065bd19bf8a3e81e32360557993ad0c04
         </group>
     </open-files>
 </project-private>
