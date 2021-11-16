@@ -175,20 +175,20 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 "Código do Cliente", "Nome Completo", "Telefone"
             }
         ));
-<<<<<<< HEAD
+
         Tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Tabela.setIntercellSpacing(new java.awt.Dimension(2, 2));
         Tabela.setSelectionBackground(new java.awt.Color(255, 184, 0));
         Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
         Tabela.setShowHorizontalLines(true);
         Tabela.setShowVerticalLines(true);
-=======
+
         Tabela.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TabelaKeyReleased(evt);
             }
         });
->>>>>>> bd2b9b6065bd19bf8a3e81e32360557993ad0c04
+
         tabelaScroll.setViewportView(Tabela);
 
         imgBase.add(tabelaScroll);
@@ -312,7 +312,6 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         Clientes clienteRetorno = new Clientes();
         ClientesDAO cdao = new ClientesDAO();
         String NomeCliente;
-        ImageIcon image;
 
         if (Tabela.getSelectedRow() != - 1) {
             NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
@@ -351,7 +350,6 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         Clientes clienteRetorno = new Clientes();
         ClientesDAO cdao = new ClientesDAO();
         String NomeCliente;
-        ImageIcon image;
 
         if (Tabela.getSelectedRow() != - 1) {
             NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
