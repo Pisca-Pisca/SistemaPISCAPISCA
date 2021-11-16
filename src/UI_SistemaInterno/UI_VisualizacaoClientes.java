@@ -5,6 +5,16 @@
  */
 package UI_SistemaInterno;
 
+import Model.DAO.Clientes;
+import Model.DAO.ClientesDAO;
+import Model.DAO.Produtos;
+import Model.DAO.ProdutosDAO;
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jessi
@@ -16,6 +26,33 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
      */
     public UI_VisualizacaoClientes() {
         initComponents();
+        
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
+        
+        readTableCliente();
     }
 
     /**
@@ -40,7 +77,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         btnPesquisa = new javax.swing.JButton();
         txtBusca = new javax.swing.JTextField();
         tabelaScroll = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tabela = new javax.swing.JTable();
         imgExcluir = new javax.swing.JLabel();
         imgEditar = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
@@ -124,7 +161,9 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         imgBase.add(txtBusca);
         txtBusca.setBounds(860, 360, 490, 40);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tabela.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        Tabela.setForeground(new java.awt.Color(0, 0, 0));
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -135,7 +174,13 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 "Código do Cliente", "Nome Completo", "Telefone"
             }
         ));
-        tabelaScroll.setViewportView(jTable1);
+        Tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tabela.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        Tabela.setSelectionBackground(new java.awt.Color(255, 184, 0));
+        Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        Tabela.setShowHorizontalLines(true);
+        Tabela.setShowVerticalLines(true);
+        tabelaScroll.setViewportView(Tabela);
 
         imgBase.add(tabelaScroll);
         tabelaScroll.setBounds(420, 430, 1460, 570);
@@ -189,7 +234,22 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
         
     }//GEN-LAST:event_btnPesquisaActionPerformed
+    
+    public void readTableCliente() {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
 
+        ClientesDAO cdao = new ClientesDAO();
+        for (Clientes C : cdao.Read()) {
+            
+
+            modelo.addRow(new Object[]{
+                C.getCodigoCliente(),
+                C.getNomeCliente(),
+                C.getTelefone()              
+            });
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -227,6 +287,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEditar;
@@ -241,7 +302,6 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     private javax.swing.JLabel imgEditar;
     private javax.swing.JLabel imgExcluir;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane tabelaScroll;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JLabel txtData;

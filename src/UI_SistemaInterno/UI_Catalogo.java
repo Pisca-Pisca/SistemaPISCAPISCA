@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Date;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
 import sistemainternopisca.ModeloTabela;
 
 /**
@@ -82,12 +81,22 @@ public class UI_Catalogo extends javax.swing.JFrame {
         ModeloTabela model = new ModeloTabela(rows, columnName);
         Tabela.setModel(model);
         Tabela.setRowHeight(130);
-        Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
-        Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
-        Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
-        Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
-        Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
-        Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+
+        if (!TabelaScroll.isVisible()) {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+        } else {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(899);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+        }
 
     }
 
@@ -118,12 +127,22 @@ public class UI_Catalogo extends javax.swing.JFrame {
         ModeloTabela model = new ModeloTabela(rows, columnName);
         Tabela.setModel(model);
         Tabela.setRowHeight(130);
-        Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
-        Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
-        Tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
-        Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
-        Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
-        Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+
+        if (!TabelaScroll.isVisible()) {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(900);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+        } else {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(926);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+        }
     }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
@@ -146,9 +165,9 @@ public class UI_Catalogo extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         btnPesquisa = new javax.swing.JButton();
+        txtBusca = new javax.swing.JTextField();
         TabelaScroll = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
-        txtBusca = new javax.swing.JTextField();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -204,7 +223,19 @@ public class UI_Catalogo extends javax.swing.JFrame {
             }
         });
 
-        Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtBusca.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtBusca.setBorder(null);
+        txtBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscaActionPerformed(evt);
+            }
+        });
+
+        TabelaScroll.setViewportBorder(null);
+        TabelaScroll.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+
+        Tabela.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Tabela.setForeground(new java.awt.Color(0, 0, 0));
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -221,15 +252,14 @@ public class UI_Catalogo extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        Tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tabela.setGridColor(new java.awt.Color(155, 155, 155));
+        Tabela.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        Tabela.setSelectionBackground(new java.awt.Color(255, 184, 0));
+        Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        Tabela.setShowHorizontalLines(true);
+        Tabela.setShowVerticalLines(true);
         TabelaScroll.setViewportView(Tabela);
-
-        txtBusca.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        txtBusca.setBorder(null);
-        txtBusca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscaActionPerformed(evt);
-            }
-        });
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTO CATÁLOGO- editado.png"))); // NOI18N
 

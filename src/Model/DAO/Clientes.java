@@ -10,15 +10,15 @@ package Model.DAO;
  * @author lucve
  */
 public class Clientes {
-    private int IdCliente;
-    private int CodigoCliente;
+    private int IdCliente = 0;
+    private int CodigoCliente = 0;
     private String DateNascimento = "";
-    private String NomeCliente;
+    private String NomeCliente = "";
     private String RazaoSocial = "";
     private String Cpf = "";
     private String Cnpj = "" ;
     private String Rg = "";
-    private String InscricaoSocial = "";
+    private String InscricaoEstadual = "";
     private String Endereco = "";
     private String Cep = "";
     private String Estado = "";
@@ -26,7 +26,6 @@ public class Clientes {
     private String Bairro = "";
     private String Email = "";
     private String Telefone = "";
-    private int IdProduto = 1;
     
     // GETTERS E SETTERS
 
@@ -93,14 +92,16 @@ public class Clientes {
     public void setRg(String Rg) {
         this.Rg = Rg;
     }
-
-    public String getInscricaoSocial() {
-        return InscricaoSocial;
+    
+    public String getInscricaoEstadual() {
+        return InscricaoEstadual;
     }
 
-    public void setInscricaoSocial(String InscricaoSocial) {
-        this.InscricaoSocial = InscricaoSocial;
+    public void setInscricaoEstadual(String InscricaoEstadual) {
+        this.InscricaoEstadual = InscricaoEstadual;
     }
+
+    
 
     public String getEndereco() {
         return Endereco;
@@ -158,14 +159,7 @@ public class Clientes {
         this.Telefone = Telefone;
     }
 
-    public int getIdProduto() {
-        return IdProduto;
-    }
-
-    public void setIdProduto(int IdProduto) {
-        this.IdProduto = IdProduto;
-    }
-    
+  
 
     
 

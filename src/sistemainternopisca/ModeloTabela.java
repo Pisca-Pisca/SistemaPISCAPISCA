@@ -31,7 +31,7 @@ public class ModeloTabela extends AbstractTableModel {
             return Icon.class;
         }
         else{
-            return getValueAt(0,column).getClass();
+           return getValueAt(0,column).getClass();
         }
     }
     

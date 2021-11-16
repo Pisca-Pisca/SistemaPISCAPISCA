@@ -5,19 +5,14 @@
  */
 package UI_SistemaInterno;
 
-import Connection.ConnectionFacPisca;
 import Model.DAO.Funcionarios;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import javax.swing.JFrame;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
+import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 import sistemainternopisca.ManipularImagem;
 import javax.swing.JFileChooser;
 
@@ -29,8 +24,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
     private BufferedImage imagem;
 
-    ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
-    Produtos NovoProduto = new Produtos(); //acessar os atributos da classe produtos
     Produtos P = new Produtos();
     ProdutosDAO dao = new ProdutosDAO();
     Produtos ProdutoRetorno = new Produtos();
@@ -41,6 +34,31 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     public UI_CadastroProduto(Produtos ProdutosRetorno) {
         initComponents();
 
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
+        
         ProdutoRetorno = ProdutosRetorno;
 
         if (ProdutoRetorno.getIdProduto() != 0) {
@@ -49,6 +67,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             txtNFe.setText(ProdutoRetorno.getNotaFiscal());
             txtQtd.setText(String.valueOf(ProdutoRetorno.getQtdProduto()));
             txtValorCompra.setText(String.valueOf(ProdutoRetorno.getValorCompra()));
+            txtVoltagem.setText(String.valueOf(ProdutoRetorno.getVoltagem()));
             txtValorVenda.setText(String.valueOf(ProdutoRetorno.getValorVenda()));
             txtSerie.setText(String.valueOf(ProdutoRetorno.getSerie()));
         }
@@ -87,6 +106,20 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
         txtUsuario.setText(email);
+    }
+    
+    private void limparCamposProdutos() {
+
+        txtCodProd.setText("");
+        txtDescricao.setText("");
+        txtQtd.setText("");
+        txtValorCompra.setText("");
+        txtValorVenda.setText("");
+        txtVoltagem.setText("");
+        txtNFe.setText("");
+        txtSerie.setText("");
+        txtFornecedor.setText("");
+        txtCategoria.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -328,7 +361,12 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 200, 130);
 
                 txtNomeArquivo.setText("Imagem enviada com sucesso");
-                P.setUrl_Img(ManipularImagem.getImgBytes(imagem));
+                
+                if (ProdutoRetorno.getIdProduto() == 0) {
+                    P.setUrl_Img(ManipularImagem.getImgBytes(imagem));
+                }else{
+                    ProdutoRetorno.setUrl_Img(ManipularImagem.getImgBytes(imagem));
+                }
 
             } catch (Exception ex) {
                 // System.out.println(ex.printStackTrace().toString());
@@ -345,10 +383,12 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         if (ProdutoRetorno.getIdProduto() == 0) {
+            P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             P.setNomeProduto(txtDescricao.getText());
             P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
             P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+            P.setVoltagem(Integer.parseInt(txtVoltagem.getText()));
             P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             P.setNotaFiscal(txtNFe.getText());
             P.setSerie(Integer.parseInt(txtSerie.getText()));
@@ -359,6 +399,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             ProdutoRetorno.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             ProdutoRetorno.setQtdProduto(Integer.parseInt(txtQtd.getText()));
             ProdutoRetorno.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+            ProdutoRetorno.setVoltagem(Integer.parseInt(txtVoltagem.getText()));
             ProdutoRetorno.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             ProdutoRetorno.setNotaFiscal(txtNFe.getText());
             ProdutoRetorno.setSerie(Integer.parseInt(txtSerie.getText()));
@@ -374,20 +415,10 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
+        UI_VisualizacaoProduto obj = new UI_VisualizacaoProduto(txtBusca.getText());
+        obj.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void limparCamposProdutos() {
-
-        txtCodProd.setText("");
-        txtDescricao.setText("");
-        txtQtd.setText("");
-        txtValorCompra.setText("");
-        txtValorVenda.setText("");
-        txtVoltagem.setText("");
-        txtNFe.setText("");
-        txtSerie.setText("");
-    }
 
     /**
      * @param args the command line arguments

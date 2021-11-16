@@ -8,12 +8,13 @@ package UI_SistemaInterno;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 import UI_SistemaInterno.UI_CadastroProduto;
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import sistemainternopisca.ModeloTabela;
 
 /**
  *
@@ -29,64 +30,128 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
 
     public UI_VisualizacaoProduto() {
         initComponents();
-        
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();;
-        Tabela.setRowSorter(new TableRowSorter(modelo));
 
-        readTableProduto();
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
+        
+        readTabela();
     }
 
-    public void readTableProduto() {
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-        modelo.setNumRows(0);
+    public UI_VisualizacaoProduto(String nome) {
+        initComponents();
 
+        txtBusca.setText(nome);
+        readTabelaByName(nome);
+    }
+
+    public void readTabela() {
         ProdutosDAO pdao = new ProdutosDAO();
-        ImageIcon image;
-        for (Produtos p : pdao.Read()) {
-            if (p.getUrl_Img() != null) {
-                image = new ImageIcon(new ImageIcon(
-                        p.getUrl_Img()).getImage()
+        List<Produtos> list = pdao.Read();
+
+        String[] columnName = {"Imagem", "Código", "Descrição", "Estoque", "Preço R$"};
+        Object[][] rows = new Object[list.size()][5];
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getUrl_Img() != null) {
+                ImageIcon image = new ImageIcon(new ImageIcon(list.get(i).getUrl_Img()).getImage()
                         .getScaledInstance(200, 130, 0));
 
+                rows[i][0] = image;
             } else {
-                image = null;
+                rows[i][0] = null;
             }
 
-            modelo.addRow(new Object[]{
-                image,
-                p.getCodigoProduto(),
-                p.getNomeProduto(),
-                p.getQtdProduto(),
-                p.getValorVenda()
-            });
+            rows[i][1] = list.get(i).getCodigoProduto();
+            rows[i][2] = list.get(i).getNomeProduto();
+            rows[i][3] = list.get(i).getQtdProduto();
+            rows[i][4] = list.get(i).getValorVenda();
+        }
+
+        ModeloTabela model = new ModeloTabela(rows, columnName);
+        Tabela.setModel(model);
+        Tabela.setRowHeight(130);
+
+        if (!TabelaScroll.isVisible()) {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+        } else {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(929);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
     }
 
-    public void readTableProdutoByName(String Nome) {
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
-        modelo.setNumRows(0);
+    public void readTabelaByName(String Nome) {
 
         ProdutosDAO pdao = new ProdutosDAO();
-        ImageIcon image;
+        List<Produtos> list = pdao.ReadByName(Nome);
 
-        for (Produtos p : pdao.ReadByName(Nome)) {
+        String[] columnName = {"Imagem", "Código", "Descrição", "Estoque", "Preço R$"};
+        Object[][] rows = new Object[list.size()][5];
 
-            if (p.getUrl_Img() != null) {
-                image = new ImageIcon(new ImageIcon(
-                        p.getUrl_Img()).getImage()
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getUrl_Img() != null) {
+                ImageIcon image = new ImageIcon(new ImageIcon(list.get(i).getUrl_Img()).getImage()
                         .getScaledInstance(200, 130, 0));
 
+                rows[i][0] = image;
             } else {
-                image = null;
+                rows[i][0] = null;
             }
 
-            modelo.addRow(new Object[]{
-                image,
-                p.getCodigoProduto(),
-                p.getNomeProduto(),
-                p.getQtdProduto(),
-                p.getValorVenda()
-            });
+            rows[i][1] = list.get(i).getCodigoProduto();
+            rows[i][2] = list.get(i).getNomeProduto();
+            rows[i][3] = list.get(i).getQtdProduto();
+            rows[i][4] = list.get(i).getValorVenda();
+        }
+        
+        ModeloTabela model = new ModeloTabela(rows, columnName);
+        Tabela.setModel(model);
+        Tabela.setRowHeight(130);
+
+        if (!TabelaScroll.isVisible()) {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+        } else {
+            Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
+            Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+            Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(929);
+            Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
+            Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
     }
 
@@ -202,7 +267,8 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         baseTela.add(btnPesquisa);
         btnPesquisa.setBounds(1357, 355, 80, 50);
 
-        Tabela.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Tabela.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        Tabela.setForeground(new java.awt.Color(0, 0, 0));
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -219,6 +285,12 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        Tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tabela.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        Tabela.setSelectionBackground(new java.awt.Color(255, 184, 0));
+        Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        Tabela.setShowHorizontalLines(true);
+        Tabela.setShowVerticalLines(true);
         Tabela.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TabelaKeyReleased(evt);
@@ -293,18 +365,17 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscaActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        readTableProdutoByName(txtBusca.getText());
+        readTabelaByName(txtBusca.getText());
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void TabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TabelaKeyReleased
-
 
     }//GEN-LAST:event_TabelaKeyReleased
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         if (Tabela.getSelectedRow() != - 1) {
             SelecionarProdutosDeletar();
-            readTableProduto();
+            readTabela();
         } else {
             JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
         }
@@ -313,7 +384,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         if (Tabela.getSelectedRow() != - 1) {
             SelecionarProdutos();
-            readTableProduto();
+            readTabela();
         } else {
             JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
         }
@@ -323,20 +394,10 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         Produtos produtoRetorno = new Produtos();
         ProdutosDAO pdao = new ProdutosDAO();
         String NomeProduto;
-        ImageIcon image;
 
         NomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
 
         for (Produtos p : pdao.ReadByName(NomeProduto)) {
-
-            if (p.getUrl_Img() != null) {
-                image = new ImageIcon(new ImageIcon(
-                        p.getUrl_Img()).getImage()
-                        .getScaledInstance(200, 130, 0));
-
-            } else {
-                image = null;
-            }
 
             produtoRetorno.setCodigoProduto(p.getCodigoProduto());
             produtoRetorno.setIdProduto(p.getIdProduto());
@@ -344,6 +405,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
             produtoRetorno.setNotaFiscal(p.getNotaFiscal());
             produtoRetorno.setQtdProduto(p.getQtdProduto());
             produtoRetorno.setValorCompra(p.getValorCompra());
+            produtoRetorno.setVoltagem(p.getVoltagem());
             produtoRetorno.setValorVenda(p.getValorVenda());
             produtoRetorno.setUrl_Img(p.getUrl_Img());
             produtoRetorno.setSerie(p.getSerie());
@@ -359,21 +421,11 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         Produtos produtoRetorno = new Produtos();
         ProdutosDAO pdao = new ProdutosDAO();
         String NomeProduto;
-        ImageIcon image;
 
         if (Tabela.getSelectedRow() != - 1) {
             NomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
 
             for (Produtos p : pdao.ReadByName(NomeProduto)) {
-
-                if (p.getUrl_Img() != null) {
-                    image = new ImageIcon(new ImageIcon(
-                            p.getUrl_Img()).getImage()
-                            .getScaledInstance(200, 130, 0));
-
-                } else {
-                    image = null;
-                }
 
                 produtoRetorno.setCodigoProduto(p.getCodigoProduto());
                 produtoRetorno.setIdProduto(p.getIdProduto());
@@ -381,8 +433,9 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 produtoRetorno.setNotaFiscal(p.getNotaFiscal());
                 produtoRetorno.setQtdProduto(p.getQtdProduto());
                 produtoRetorno.setValorCompra(p.getValorCompra());
+                produtoRetorno.setVoltagem(p.getVoltagem());
                 produtoRetorno.setValorVenda(p.getValorVenda());
-                //produtoRetorno.setUrl_Img(p.getUrl_Img());
+                produtoRetorno.setUrl_Img(p.getUrl_Img());
                 produtoRetorno.setSerie(p.getSerie());
                 produtoRetorno.setIdCategoria(p.getIdCategoria());
                 produtoRetorno.setIdFornecedor(p.getIdFornecedor());

@@ -5,6 +5,10 @@
  */
 package UI_SistemaInterno;
 
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author jessi
@@ -16,6 +20,31 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
      */
     public UI_VisualizacaoFornecedores() {
         initComponents();
+        
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     /**
@@ -144,6 +173,8 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         imgBase.add(imgEditar);
         imgEditar.setBounds(1450, 1030, 210, 40);
 
+        jTable1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -155,6 +186,11 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
                 "CNPJ", "RAZÃO SOCIAL", "Telefone"
             }
         ));
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTable1.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        jTable1.setSelectionBackground(new java.awt.Color(255, 184, 0));
+        jTable1.setShowHorizontalLines(true);
+        jTable1.setShowVerticalLines(true);
         tabelaScroll.setViewportView(jTable1);
 
         imgBase.add(tabelaScroll);
