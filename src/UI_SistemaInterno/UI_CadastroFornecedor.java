@@ -8,6 +8,7 @@ package UI_SistemaInterno;
 import Model.DAO.Fornecedores;
 import Model.DAO.FornecedoresDAO;
 import Model.DAO.Funcionarios;
+import Model.DAO.Produtos;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,8 +21,29 @@ import javax.swing.JFrame;
 public class UI_CadastroFornecedor extends javax.swing.JFrame {
 
     Fornecedores Fornecedor = new Fornecedores();
+    Fornecedores FornecedorRetorno = new Fornecedores();
     FornecedoresDAO fdao = new FornecedoresDAO();
 
+    
+    public UI_CadastroFornecedor (Fornecedores fornecedorRetorno) {
+        initComponents();
+        FornecedorRetorno = fornecedorRetorno;
+        if(FornecedorRetorno.getIdFornecedores() != 0){
+            txtCEP.setText(FornecedorRetorno.getCep());
+            txtCNPJ.setText(FornecedorRetorno.getCnpj());
+            txtEmail.setText(FornecedorRetorno.getEmail());
+            txtEndereco.setText(FornecedorRetorno.getEndereco());
+            txtInscricaoEstadual.setText(FornecedorRetorno.getInscricaoEstadual());
+            txtRazaoSocial.setText(FornecedorRetorno.getRazaoSocial());
+            txtTelefone.setText(FornecedorRetorno.getTelefone());
+            txtCidade.setText(FornecedorRetorno.getTelefone());
+            comboEstado.setSelectedItem(FornecedorRetorno.getEstado());
+            
+        
+        }
+    
+    }
+   
     public UI_CadastroFornecedor() {
         initComponents();
 
@@ -52,6 +74,9 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
             }
         }.start();
     }
+    
+    
+    
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
@@ -323,8 +348,18 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+
+        
+        if(FornecedorRetorno.getIdFornecedores() != 0){
+            selecionarCamposFornecedores();
+            fdao.Create(Fornecedor);    
+        } else {
+            fdao.Update(FornecedorRetorno);
+        }
+          
         selecionarCamposFornecedores();
         fdao.Create(Fornecedor);
+
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed

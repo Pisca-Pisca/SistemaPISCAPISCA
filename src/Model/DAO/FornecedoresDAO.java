@@ -105,7 +105,7 @@ public class FornecedoresDAO {
         List<Fornecedores> Fornecedores = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM Fornecedores WHERE like ?");
+            stmt = con.prepareStatement("SELECT * FROM Fornecedores WHERE Cnpj like ?");
             stmt.setString(1, "%" + Nome + "%");
 
             rs = stmt.executeQuery();
