@@ -83,6 +83,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         btnEnviar = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        btnVisualizar = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
         imgTela = new javax.swing.JLabel();
@@ -269,6 +270,16 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         baseTela.add(btnLogout);
         btnLogout.setBounds(1790, 150, 110, 30);
 
+        btnVisualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
+        btnVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVisualizarMouseClicked(evt);
+            }
+        });
+        baseTela.add(btnVisualizar);
+        btnVisualizar.setBounds(1720, 320, 60, 60);
+
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -355,6 +366,13 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
+    private void btnVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisualizarMouseClicked
+        UI_VisualizacaoFornecedores visuFornecedor = new UI_VisualizacaoFornecedores();
+        visuFornecedor.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVisualizarMouseClicked
+
     public void selecionarCamposFornecedores() {
         Fornecedor.setRazaoSocial(txtRazaoSocial.getText());
         Fornecedor.setCnpj(txtCNPJ.getText());
@@ -414,6 +432,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton btnProdutos;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnVenda;
+    private javax.swing.JLabel btnVisualizar;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JLabel imgTela;
     private javax.swing.JTextField txtBairro;

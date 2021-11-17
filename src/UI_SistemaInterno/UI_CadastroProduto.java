@@ -146,6 +146,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtCodProd = new javax.swing.JTextField();
         txtData = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnEnviarArquivo = new javax.swing.JButton();
         txtNomeArquivo = new javax.swing.JLabel();
         txtBusca = new javax.swing.JTextField();
@@ -330,6 +331,16 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(1720, 106, 180, 30);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(1771, 330, 60, 60);
+
         btnEnviarArquivo.setBorderPainted(false);
         btnEnviarArquivo.setContentAreaFilled(false);
         btnEnviarArquivo.addActionListener(new java.awt.event.ActionListener() {
@@ -501,6 +512,13 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCadastroActionPerformed
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        UI_VisualizacaoProduto visuProduto = new UI_VisualizacaoProduto();
+        visuProduto.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -549,6 +567,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtCategoria;

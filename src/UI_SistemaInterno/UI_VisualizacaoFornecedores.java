@@ -72,6 +72,8 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         imgExcluir = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         imgEditar = new javax.swing.JLabel();
+        btnCadastrar = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JLabel();
         tabelaScroll = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         imgTela = new javax.swing.JLabel();
@@ -203,6 +205,24 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         imgBase.add(imgEditar);
         imgEditar.setBounds(1450, 1030, 210, 40);
 
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN CADASTRAR.png"))); // NOI18N
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
+        imgBase.add(btnCadastrar);
+        btnCadastrar.setBounds(1820, 360, 50, 50);
+
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN REFRESH.png"))); // NOI18N
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
+        imgBase.add(btnRefresh);
+        btnRefresh.setBounds(1720, 360, 50, 50);
+
         jTable1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -232,11 +252,11 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgBase, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+            .addComponent(imgBase, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgBase, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+            .addComponent(imgBase, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         pack();
@@ -293,6 +313,16 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        
+    }//GEN-LAST:event_btnRefreshMouseClicked
+
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+       UI_CadastroFornecedor fornecedor = new UI_CadastroFornecedor();
+       fornecedor.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btnCadastrarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -330,6 +360,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCadastrar;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEditar;
@@ -339,6 +370,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnProdutos;
+    private javax.swing.JLabel btnRefresh;
     private javax.swing.JButton btnVenda;
     private javax.swing.JPanel imgBase;
     private javax.swing.JLabel imgEditar;

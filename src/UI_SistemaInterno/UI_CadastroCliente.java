@@ -128,6 +128,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         txtUsuario = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
+        btnVisualizar = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         RadioCelular = new javax.swing.JRadioButton();
         jPanel7 = new javax.swing.JPanel();
@@ -359,6 +360,16 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         baseTala.add(txtData);
         txtData.setBounds(1660, 10, 250, 30);
 
+        btnVisualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
+        btnVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVisualizarMouseClicked(evt);
+            }
+        });
+        baseTala.add(btnVisualizar);
+        btnVisualizar.setBounds(1740, 320, 60, 60);
+
         jPanel8.setBackground(new java.awt.Color(228, 228, 228));
 
         grupoSelectCadastroCliente.add(RadioCelular);
@@ -380,7 +391,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel8);
-        jPanel8.setBounds(1330, 650, 29, 37);
+        jPanel8.setBounds(1330, 650, 24, 30);
 
         jPanel7.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -403,7 +414,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel7);
-        jPanel7.setBounds(1480, 650, 23, 37);
+        jPanel7.setBounds(1480, 650, 20, 30);
 
         jPanel6.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -426,7 +437,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel6);
-        jPanel6.setBounds(1480, 420, 33, 37);
+        jPanel6.setBounds(1480, 420, 30, 30);
 
         jPanel5.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -450,7 +461,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel5);
-        jPanel5.setBounds(1390, 420, 37, 37);
+        jPanel5.setBounds(1390, 420, 30, 30);
 
         jPanel4.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -522,7 +533,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel2);
-        jPanel2.setBounds(730, 540, 21, 30);
+        jPanel2.setBounds(730, 540, 20, 30);
 
         jPanel1.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -666,6 +677,13 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
         dispose();
     }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisualizarMouseClicked
+        UI_VisualizacaoClientes visuClientes = new UI_VisualizacaoClientes();
+        visuClientes.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVisualizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -822,6 +840,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnProdutos;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnVenda;
+    private javax.swing.JLabel btnVisualizar;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.ButtonGroup grupoSelectCadastroCliente;
     private javax.swing.JLabel imgTela;

@@ -38,7 +38,7 @@ public class ProdutosDAO {
             stmt.setInt(3, P.getQtdProduto());
 
             stmt.setDouble(4, P.getValorCompra());
-            
+
             stmt.setInt(5, P.getVoltagem());
 
             stmt.setDouble(6, P.getValorVenda());
@@ -56,9 +56,8 @@ public class ProdutosDAO {
             stmt.executeUpdate();
 
             //JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
-            
             UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
-            dialog.enviaDados("Cadastro de Produto", "Salvo com Sucesso!");
+            dialog.enviaDados("Cadastro de Produto", "Produto salvo com Sucesso!");
             dialog.setVisible(true);
 
         } catch (SQLException ex) {
@@ -170,7 +169,7 @@ public class ProdutosDAO {
             stmt.setBytes(8, P.getUrl_Img());
             stmt.setInt(9, P.getIdCategoria());
             stmt.setInt(10, P.getIdFornecedor());
-            stmt.setInt(11,P.getVoltagem());
+            stmt.setInt(11, P.getVoltagem());
             stmt.setInt(12, P.getIdProduto());
 
             JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
