@@ -6,6 +6,7 @@
 package Model.DAO;
 
 import Connection.ConnectionFac;
+import UI_SistemaInterno.UI_Modal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -49,7 +50,9 @@ public class FuncionariosDAO {
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Cadastro de Funcionário", "Funcionário salvo com Sucesso!");
+            dialog.setVisible(true);
 
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao inserir valores na tabela Funcionários", ex);
@@ -181,7 +184,9 @@ public class FuncionariosDAO {
 
             stmt.setInt(18, F.getIdFuncionario());
 
-            JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Atualização de Funcionário", "Funcionário atualizado com Sucesso!");
+            dialog.setVisible(true);
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao atualizar valores na tabela Funcionários", ex);
         } finally {
@@ -203,7 +208,9 @@ public class FuncionariosDAO {
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Excluído com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Exclusão de Funcionário", "Funcionário excluído com Sucesso!");
+            dialog.setVisible(true);
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao excluir valores na tabela Funcionários", ex);
         } finally {

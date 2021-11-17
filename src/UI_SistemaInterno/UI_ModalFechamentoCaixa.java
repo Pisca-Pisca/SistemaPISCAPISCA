@@ -11,19 +11,14 @@ import javax.swing.JFrame;
  *
  * @author nicol
  */
-public class UI_Modal extends javax.swing.JDialog {
-  
+public class UI_ModalFechamentoCaixa extends javax.swing.JDialog {
+
     /**
      * Creates new form UI_Modal
      */
-    public UI_Modal(java.awt.Frame parent, boolean modal) {
+    public UI_ModalFechamentoCaixa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-    }
-    
-    public void enviaDados(String titulo, String mensagem){
-        txtMensagem.setText(mensagem);
-        txtTitulo1.setText(titulo);
     }
 
     /**
@@ -35,7 +30,9 @@ public class UI_Modal extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnEncerrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        imgEncerrar = new javax.swing.JLabel();
         txtMensagem = new javax.swing.JLabel();
         txtTitulo1 = new javax.swing.JLabel();
         imgHeader = new javax.swing.JLabel();
@@ -44,8 +41,17 @@ public class UI_Modal extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(897, 488));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(897, 488));
         getContentPane().setLayout(null);
+
+        btnEncerrar.setBorderPainted(false);
+        btnEncerrar.setContentAreaFilled(false);
+        btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEncerrar);
+        btnEncerrar.setBounds(250, 310, 390, 130);
 
         btnSair.setContentAreaFilled(false);
         btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -57,13 +63,19 @@ public class UI_Modal extends javax.swing.JDialog {
         getContentPane().add(btnSair);
         btnSair.setBounds(820, 28, 50, 60);
 
-        txtMensagem.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
+        imgEncerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN ENCERRAR FECHAMENTO CAIXA.png"))); // NOI18N
+        getContentPane().add(imgEncerrar);
+        imgEncerrar.setBounds(250, 310, 390, 130);
+
+        txtMensagem.setFont(new java.awt.Font("sansserif", 0, 40)); // NOI18N
         txtMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtMensagem.setText("Fechamento de caixa concluído com sucesso!");
         getContentPane().add(txtMensagem);
-        txtMensagem.setBounds(100, 190, 680, 220);
+        txtMensagem.setBounds(40, 170, 830, 100);
 
         txtTitulo1.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
         txtTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTitulo1.setText("Fechamento de Caixa");
         getContentPane().add(txtTitulo1);
         txtTitulo1.setBounds(80, 30, 680, 60);
 
@@ -86,6 +98,13 @@ public class UI_Modal extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnEncerrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -103,20 +122,21 @@ public class UI_Modal extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_Modal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalFechamentoCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_Modal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalFechamentoCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_Modal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalFechamentoCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_Modal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalFechamentoCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+                UI_ModalFechamentoCaixa dialog = new UI_ModalFechamentoCaixa(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -129,8 +149,10 @@ public class UI_Modal extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEncerrar;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel imgBackground;
+    private javax.swing.JLabel imgEncerrar;
     private javax.swing.JLabel imgHeader;
     private javax.swing.JLabel txtMensagem;
     private javax.swing.JLabel txtTitulo1;

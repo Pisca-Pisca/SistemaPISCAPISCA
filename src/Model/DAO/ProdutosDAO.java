@@ -172,7 +172,10 @@ public class ProdutosDAO {
             stmt.setInt(11, P.getVoltagem());
             stmt.setInt(12, P.getIdProduto());
 
-            JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Atualização do Produto", "Produto atualizado com Sucesso!");
+            dialog.setVisible(true);
+
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao atualizar valores na tabela Produtos", ex);
         } finally {
@@ -194,7 +197,9 @@ public class ProdutosDAO {
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Excluído com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Exclusão de Produto", "Produto excluído com Sucesso!");
+            dialog.setVisible(true);
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao excluir valores na tabela Produtos", ex);
         } finally {

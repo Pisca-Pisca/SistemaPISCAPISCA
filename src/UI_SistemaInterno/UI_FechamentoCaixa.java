@@ -58,6 +58,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
 
         baseTela.setBackground(new java.awt.Color(37, 37, 37));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        baseTela.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
         jPanel1.setLayout(null);
@@ -69,54 +70,81 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(-20, -10, 307, 62);
 
+        baseTela.add(jPanel1);
+        jPanel1.setBounds(1010, 260, 340, 50);
+
         txtDinheiroValorGaveta.setBackground(new java.awt.Color(187, 184, 184));
         txtDinheiroValorGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDinheiroValorGaveta.setBorder(null);
+        baseTela.add(txtDinheiroValorGaveta);
+        txtDinheiroValorGaveta.setBounds(800, 612, 270, 128);
 
         txtCartaoValorGaveta.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoValorGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCartaoValorGaveta.setBorder(null);
+        baseTela.add(txtCartaoValorGaveta);
+        txtCartaoValorGaveta.setBounds(800, 422, 270, 133);
 
         txtBoletoValorGaveta.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoValorGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBoletoValorGaveta.setBorder(null);
+        baseTela.add(txtBoletoValorGaveta);
+        txtBoletoValorGaveta.setBounds(800, 812, 270, 129);
 
         txtEntradaSistema.setBackground(new java.awt.Color(255, 184, 0));
         txtEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtEntradaSistema.setBorder(null);
+        baseTela.add(txtEntradaSistema);
+        txtEntradaSistema.setBounds(1530, 440, 320, 110);
 
         txtTotalGaveta.setBackground(new java.awt.Color(255, 184, 0));
         txtTotalGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtTotalGaveta.setBorder(null);
+        baseTela.add(txtTotalGaveta);
+        txtTotalGaveta.setBounds(1530, 652, 320, 90);
 
         txtFaltaSobra.setBackground(new java.awt.Color(255, 184, 0));
         txtFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtFaltaSobra.setBorder(null);
+        baseTela.add(txtFaltaSobra);
+        txtFaltaSobra.setBounds(1530, 862, 320, 79);
 
         txtBoletoFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBoletoFaltaSobra.setBorder(null);
+        baseTela.add(txtBoletoFaltaSobra);
+        txtBoletoFaltaSobra.setBounds(1080, 800, 310, 140);
 
         txtDinheiroFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtDinheiroFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDinheiroFaltaSobra.setBorder(null);
+        baseTela.add(txtDinheiroFaltaSobra);
+        txtDinheiroFaltaSobra.setBounds(1080, 600, 310, 140);
 
         txtCartaoFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCartaoFaltaSobra.setBorder(null);
+        baseTela.add(txtCartaoFaltaSobra);
+        txtCartaoFaltaSobra.setBounds(1080, 422, 310, 129);
 
         txtBoletoEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBoletoEntradaSistema.setBorder(null);
+        baseTela.add(txtBoletoEntradaSistema);
+        txtBoletoEntradaSistema.setBounds(420, 812, 370, 127);
 
         txtDineiroEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtDineiroEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDineiroEntradaSistema.setBorder(null);
+        baseTela.add(txtDineiroEntradaSistema);
+        txtDineiroEntradaSistema.setBounds(420, 600, 370, 140);
 
         txtCartaoEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCartaoEntradaSistema.setBorder(null);
         txtCartaoEntradaSistema.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        baseTela.add(txtCartaoEntradaSistema);
+        txtCartaoEntradaSistema.setBounds(420, 422, 370, 128);
 
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
@@ -126,6 +154,8 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        baseTela.add(btnCancelar);
+        btnCancelar.setBounds(1600, 1000, 290, 60);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
@@ -135,6 +165,8 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
+        baseTela.add(btnLogout);
+        btnLogout.setBounds(1770, 110, 110, 30);
 
         btnConfirmar.setBorderPainted(false);
         btnConfirmar.setContentAreaFilled(false);
@@ -144,105 +176,18 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
                 btnConfirmarActionPerformed(evt);
             }
         });
+        baseTela.add(btnConfirmar);
+        btnConfirmar.setBounds(1290, 1000, 290, 60);
 
         txtUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtUsuario);
+        txtUsuario.setBounds(1730, 60, 156, 30);
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FECHAMENTO DE CAIXA.png"))); // NOI18N
-
-        javax.swing.GroupLayout baseTelaLayout = new javax.swing.GroupLayout(baseTela);
-        baseTela.setLayout(baseTelaLayout);
-        baseTelaLayout.setHorizontalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1770, 1770, 1770)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1010, 1010, 1010)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(txtCartaoEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(txtCartaoValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(txtCartaoFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
-                .addComponent(txtEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(txtDineiroEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(txtDinheiroValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(txtDinheiroFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
-                .addComponent(txtTotalGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(txtBoletoEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(txtBoletoValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(txtBoletoFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
-                .addComponent(txtFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1290, 1290, 1290)
-                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1730, 1730, 1730)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        baseTelaLayout.setVerticalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtCartaoFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCartaoValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCartaoEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDineiroEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDinheiroFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(txtTotalGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtDinheiroValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58)
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtBoletoFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtBoletoEntradaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtBoletoValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(txtFaltaSobra, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(71, 71, 71)
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addComponent(imgTela)
-        );
+        baseTela.add(imgTela);
+        imgTela.setBounds(0, 0, 1920, 1080);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -278,11 +223,8 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        //modal com confirmação de fechamento
-        
-        UI_Login login = new UI_Login();
-        login.setVisible(true);
-
+        UI_ModalFechamentoCaixa dialog = new UI_ModalFechamentoCaixa(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnConfirmarActionPerformed
 

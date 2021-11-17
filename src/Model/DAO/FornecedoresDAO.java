@@ -6,6 +6,7 @@
 package Model.DAO;
 
 import Connection.ConnectionFac;
+import UI_SistemaInterno.UI_Modal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,19 +20,19 @@ import javax.swing.JOptionPane;
  * @author lucve
  */
 public class FornecedoresDAO {
-    
-    public void Create(Fornecedores F){
-        
+
+    public void Create(Fornecedores F) {
+
         Connection con = ConnectionFac.getConnecton();
-        
+
         PreparedStatement stmt = null;
-        
+
         try {
             stmt = con.prepareStatement("INSERT INTO Fornecedores (CodigoFornecedor, RazaoSocial, Cnpj, InscricaoEstadual, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
-            
-            stmt.setInt(1, F.getCodigoFornecedor());  
+
+            stmt.setInt(1, F.getCodigoFornecedor());
             stmt.setString(2, F.getRazaoSocial());
-            stmt.setString(3, F.getCnpj()); 
+            stmt.setString(3, F.getCnpj());
             stmt.setString(4, F.getInscricaoEstadual());
             stmt.setString(5, F.getEndereco());
             stmt.setString(6, F.getCep());
@@ -40,23 +41,22 @@ public class FornecedoresDAO {
             stmt.setString(9, F.getBairro());
             stmt.setString(10, F.getEmail());
             stmt.setString(11, F.getTelefone());
-            
-       
+
             stmt.executeUpdate();
-            
+
             System.out.println("Testar String:" + stmt);
-            
-            JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
-        } 
-        catch (SQLException ex) {
+
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Cadastro de Fornecedor", "Fornecedor salvo com Sucesso!");
+            dialog.setVisible(true);
+        } catch (SQLException ex) {
             throw new RuntimeException("Erro ao inserir valores na tabela Fornecedores", ex);
-        }
-        finally {
+        } finally {
             ConnectionFac.closeConnection(con, stmt);
         }
-             
+
     }
-    
+
     public List<Fornecedores> Read() {
         Connection con = ConnectionFac.getConnecton();
         PreparedStatement stmt = null;
@@ -72,8 +72,7 @@ public class FornecedoresDAO {
             while (rs.next()) {
 
                 Fornecedores fornecedor = new Fornecedores();
-                
-                
+
                 fornecedor.setIdFornecedores(rs.getInt("idFornecedores"));
                 fornecedor.setCodigoFornecedor(rs.getInt("CodigoFornecedor"));
                 fornecedor.setRazaoSocial(rs.getString("RazaoSocial"));
@@ -86,9 +85,7 @@ public class FornecedoresDAO {
                 fornecedor.setBairro(rs.getString("Bairro"));
                 fornecedor.setEmail(rs.getString("Email"));
                 fornecedor.setTelefone(rs.getString("Telefone"));
-                
-                
-                          
+
                 Fornecedores.add(fornecedor);
             }
         } catch (SQLException ex) {
@@ -99,7 +96,7 @@ public class FornecedoresDAO {
 
         return Fornecedores;
     }
-    
+
     public List<Fornecedores> ReadByName(String Nome) {
         Connection con = ConnectionFac.getConnecton();
         PreparedStatement stmt = null;
@@ -116,8 +113,7 @@ public class FornecedoresDAO {
             while (rs.next()) {
 
                 Fornecedores fornecedor = new Fornecedores();
-                
-                
+
                 fornecedor.setIdFornecedores(rs.getInt("idFornecedores"));
                 fornecedor.setCodigoFornecedor(rs.getInt("CodigoFornecedor"));
                 fornecedor.setRazaoSocial(rs.getString("RazaoSocial"));
@@ -130,9 +126,7 @@ public class FornecedoresDAO {
                 fornecedor.setBairro(rs.getString("Bairro"));
                 fornecedor.setEmail(rs.getString("Email"));
                 fornecedor.setTelefone(rs.getString("Telefone"));
-                
-                
-                          
+
                 Fornecedores.add(fornecedor);
             }
         } catch (SQLException ex) {
@@ -143,19 +137,19 @@ public class FornecedoresDAO {
 
         return Fornecedores;
     }
-    
-     public void Update(Fornecedores F){
-        
+
+    public void Update(Fornecedores F) {
+
         Connection con = ConnectionFac.getConnecton();
-        
+
         PreparedStatement stmt = null;
-        
+
         try {
             stmt = con.prepareStatement("UPDATE Fornecedores SET CodigoFornecedor = ?, RazaoSocial = ?, Cnpj = ?, InscricaoEstadual = ?, Endereco = ?, Cep = ?, Estado = ?, Cidade = ?, Bairro = ?, Email = ?, Telefone = ? WHERE idFornecedores = ?");
-            
-            stmt.setInt(1, F.getCodigoFornecedor());  
+
+            stmt.setInt(1, F.getCodigoFornecedor());
             stmt.setString(2, F.getRazaoSocial());
-            stmt.setString(3, F.getCnpj()); 
+            stmt.setString(3, F.getCnpj());
             stmt.setString(4, F.getInscricaoEstadual());
             stmt.setString(5, F.getEndereco());
             stmt.setString(6, F.getCep());
@@ -164,25 +158,24 @@ public class FornecedoresDAO {
             stmt.setString(9, F.getBairro());
             stmt.setString(10, F.getEmail());
             stmt.setString(11, F.getTelefone());
-            
+
             stmt.setInt(12, F.getIdFornecedores());
-            
-       
+
             stmt.executeUpdate();
-            
+
             System.out.println("Testar String:" + stmt);
-            
-            JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
-        } 
-        catch (SQLException ex) {
+
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Atualização de Fornecedor", "Fornecedor atualizado com Sucesso!");
+            dialog.setVisible(true);
+        } catch (SQLException ex) {
             throw new RuntimeException("Erro ao inserir atualzar na tabela Fornecedores", ex);
-        }
-        finally {
+        } finally {
             ConnectionFac.closeConnection(con, stmt);
         }
-             
+
     }
-     
+
     public void Delete(Fornecedores F) {
 
         Connection con = ConnectionFac.getConnecton();
@@ -196,7 +189,9 @@ public class FornecedoresDAO {
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Excluído com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Exclusão de Fornecedor", "Fornecedor excluído com Sucesso!");
+            dialog.setVisible(true);
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao excluir valores na tabela Fornecedores", ex);
         } finally {
@@ -204,5 +199,5 @@ public class FornecedoresDAO {
         }
 
     }
-    
+
 }
