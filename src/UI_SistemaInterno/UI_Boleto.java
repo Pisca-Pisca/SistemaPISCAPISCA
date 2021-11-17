@@ -62,7 +62,7 @@ public class UI_Boleto extends javax.swing.JFrame {
         btnCaixa = new javax.swing.JButton();
         btnFinanceiro = new javax.swing.JButton();
         btnCadastro = new javax.swing.JButton();
-        btnCadastros = new javax.swing.JButton();
+        btnProdutos = new javax.swing.JButton();
         btnVenda = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
@@ -86,6 +86,7 @@ public class UI_Boleto extends javax.swing.JFrame {
         setUndecorated(true);
 
         baseTela.setBackground(new java.awt.Color(57, 57, 57));
+        baseTela.setLayout(null);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -95,206 +96,159 @@ public class UI_Boleto extends javax.swing.JFrame {
                 btnEncerrarActionPerformed(evt);
             }
         });
+        baseTela.add(btnEncerrar);
+        btnEncerrar.setBounds(100, 1010, 170, 50);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnCaixa);
+        btnCaixa.setBounds(0, 760, 370, 50);
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnFinanceiro);
+        btnFinanceiro.setBounds(0, 650, 370, 60);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnCadastro);
+        btnCadastro.setBounds(0, 540, 360, 50);
 
-        btnCadastros.setBorderPainted(false);
-        btnCadastros.setContentAreaFilled(false);
-        btnCadastros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.setBorderPainted(false);
+        btnProdutos.setContentAreaFilled(false);
+        btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnProdutos);
+        btnProdutos.setBounds(0, 430, 360, 60);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnVenda);
+        btnVenda.setBounds(0, 310, 370, 70);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnLogout);
+        btnLogout.setBounds(1780, 150, 130, 30);
 
         btnImprimir.setBorderPainted(false);
         btnImprimir.setContentAreaFilled(false);
         btnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnImprimir);
+        btnImprimir.setBounds(1530, 990, 170, 70);
 
         btnSair.setBorderPainted(false);
         btnSair.setContentAreaFilled(false);
         btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnSair);
+        btnSair.setBounds(1730, 990, 170, 70);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtData);
+        txtData.setBounds(1630, 12, 270, 50);
 
-        txtUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtUsuario);
+        txtUsuario.setBounds(1710, 100, 190, 30);
 
         txtBeneficiario.setBackground(new java.awt.Color(255, 255, 255));
         txtBeneficiario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtBeneficiario.setOpaque(true);
+        baseTela.add(txtBeneficiario);
+        txtBeneficiario.setBounds(690, 670, 350, 50);
 
         txtAgencia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        baseTela.add(txtAgencia);
+        txtAgencia.setBounds(1040, 390, 150, 40);
 
         txtNumeroDocumento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        baseTela.add(txtNumeroDocumento);
+        txtNumeroDocumento.setBounds(800, 440, 130, 20);
 
         txtCpfBeneficiario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        baseTela.add(txtCpfBeneficiario);
+        txtCpfBeneficiario.setBounds(980, 440, 120, 20);
 
         txtVencimento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        baseTela.add(txtVencimento);
+        txtVencimento.setBounds(1330, 630, 140, 20);
 
         txtValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtValor);
+        txtValor.setBounds(1340, 900, 130, 20);
 
         txtVencimento1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        baseTela.add(txtVencimento1);
+        txtVencimento1.setBounds(1160, 440, 90, 20);
 
         txtBeneficiario1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        baseTela.add(txtBeneficiario1);
+        txtBeneficiario1.setBounds(700, 390, 320, 30);
 
         txtValor1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtValor1);
+        txtValor1.setBounds(1340, 470, 130, 20);
 
         txtNomeCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        baseTela.add(txtNomeCliente);
+        txtNomeCliente.setBounds(740, 930, 370, 20);
 
         txtCpfCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        baseTela.add(txtCpfCliente);
+        txtCpfCliente.setBounds(740, 960, 350, 20);
 
         imgTela.setForeground(new java.awt.Color(255, 255, 255));
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boleto.png"))); // NOI18N
-
-        javax.swing.GroupLayout baseTelaLayout = new javax.swing.GroupLayout(baseTela);
-        baseTela.setLayout(baseTelaLayout);
-        baseTelaLayout.setHorizontalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1780, 1780, 1780)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1160, 1160, 1160)
-                .addComponent(txtVencimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1340, 1340, 1340)
-                .addComponent(txtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(690, 690, 690)
-                .addComponent(txtBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(700, 700, 700)
-                .addComponent(txtBeneficiario1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1730, 1730, 1730)
-                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(800, 800, 800)
-                .addComponent(txtNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1330, 1330, 1330)
-                .addComponent(txtVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1670, 1670, 1670)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1040, 1040, 1040)
-                .addComponent(txtAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1340, 1340, 1340)
-                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(740, 740, 740)
-                .addComponent(txtCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1710, 1710, 1710)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(740, 740, 740)
-                .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(980, 980, 980)
-                .addComponent(txtCpfBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1530, 1530, 1530)
-                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
-        );
-        baseTelaLayout.setVerticalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(1004, 1004, 1004))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(260, 260, 260)
-                        .addComponent(txtVencimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(180, 180, 180)
-                        .addComponent(txtBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(290, 290, 290)
-                        .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(310, 310, 310)
-                        .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(txtBeneficiario1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(430, 430, 430)
-                        .addComponent(btnCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(990, 990, 990)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(650, 650, 650)
-                        .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(440, 440, 440)
-                        .addComponent(txtNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(630, 630, 630)
-                        .addComponent(txtVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(txtAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(900, 900, 900)
-                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(540, 540, 540)
-                        .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(960, 960, 960)
-                        .addComponent(txtCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(930, 930, 930)
-                        .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(440, 440, 440)
-                        .addComponent(txtCpfBeneficiario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(760, 760, 760)
-                        .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(baseTelaLayout.createSequentialGroup()
-                        .addGap(990, 990, 990)
-                        .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(imgTela))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        baseTela.add(imgTela);
+        imgTela.setBounds(0, 0, 1921, 1080);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,7 +258,7 @@ public class UI_Boleto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -314,6 +268,59 @@ public class UI_Boleto extends javax.swing.JFrame {
     private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta financeiro = new UI_FinanceiroConsulta();
+        financeiro.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,12 +360,12 @@ public class UI_Boleto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel baseTela;
     private javax.swing.JButton btnCadastro;
-    private javax.swing.JButton btnCadastros;
     private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEncerrar;
     private javax.swing.JButton btnFinanceiro;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnProdutos;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;

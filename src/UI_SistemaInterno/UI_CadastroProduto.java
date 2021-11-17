@@ -58,7 +58,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 }
             }
         }.start();
-        
+
         ProdutoRetorno = ProdutosRetorno;
 
         if (ProdutoRetorno.getIdProduto() != 0) {
@@ -107,7 +107,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         String email = funcionarios.getEmail();
         txtUsuario.setText(email);
     }
-    
+
     private void limparCamposProdutos() {
 
         txtCodProd.setText("");
@@ -162,20 +162,35 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnFinanceiro);
-        btnFinanceiro.setBounds(0, 630, 370, 100);
+        btnFinanceiro.setBounds(0, 640, 350, 70);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLogout);
         btnLogout.setBounds(1790, 148, 110, 30);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCaixa);
-        btnCaixa.setBounds(0, 740, 370, 100);
+        btnCaixa.setBounds(0, 740, 350, 80);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -183,6 +198,11 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnEncerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEncerrarMouseClicked(evt);
+            }
+        });
+        btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarActionPerformed(evt);
             }
         });
         getContentPane().add(btnEncerrar);
@@ -202,20 +222,35 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnVenda);
-        btnVenda.setBounds(0, 300, 370, 100);
+        btnVenda.setBounds(0, 310, 350, 70);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnProdutos);
-        btnProdutos.setBounds(0, 400, 370, 110);
+        btnProdutos.setBounds(0, 420, 340, 70);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCadastro);
-        btnCadastro.setBounds(0, 520, 370, 100);
+        btnCadastro.setBounds(0, 530, 360, 70);
 
         txtCategoria.setBackground(new java.awt.Color(187, 184, 184));
         txtCategoria.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -293,7 +328,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtUsuario.setToolTipText("");
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(1720, 106, 200, 30);
+        txtUsuario.setBounds(1720, 106, 180, 30);
 
         btnEnviarArquivo.setBorderPainted(false);
         btnEnviarArquivo.setContentAreaFilled(false);
@@ -361,10 +396,10 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 200, 130);
 
                 txtNomeArquivo.setText("Imagem enviada com sucesso");
-                
+
                 if (ProdutoRetorno.getIdProduto() == 0) {
                     P.setUrl_Img(ManipularImagem.getImgBytes(imagem));
-                }else{
+                } else {
                     ProdutoRetorno.setUrl_Img(ManipularImagem.getImgBytes(imagem));
                 }
 
@@ -392,7 +427,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             P.setNotaFiscal(txtNFe.getText());
             P.setSerie(Integer.parseInt(txtSerie.getText()));
-            
+
             dao.Create(P);
         } else {
             ProdutoRetorno.setNomeProduto(txtDescricao.getText());
@@ -419,6 +454,52 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
+
+    }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**
      * @param args the command line arguments

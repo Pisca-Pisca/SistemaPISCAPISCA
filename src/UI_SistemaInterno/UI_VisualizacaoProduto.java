@@ -55,7 +55,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 }
             }
         }.start();
-        
+
         readTabela();
     }
 
@@ -133,7 +133,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
             rows[i][3] = list.get(i).getQtdProduto();
             rows[i][4] = list.get(i).getValorVenda();
         }
-        
+
         ModeloTabela model = new ModeloTabela(rows, columnName);
         Tabela.setModel(model);
         Tabela.setRowHeight(130);
@@ -194,6 +194,11 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
         baseTela.add(btnCaixa);
         btnCaixa.setBounds(6, 755, 360, 70);
 
@@ -211,24 +216,44 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
         baseTela.add(btnFinanceiro);
         btnFinanceiro.setBounds(6, 645, 360, 70);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
         baseTela.add(btnCadastro);
         btnCadastro.setBounds(6, 535, 360, 70);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
         baseTela.add(btnProdutos);
         btnProdutos.setBounds(6, 435, 360, 70);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
         baseTela.add(btnVenda);
         btnVenda.setBounds(6, 315, 360, 70);
         baseTela.add(txtUsuario);
@@ -243,6 +268,11 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
         baseTela.add(btnLogout);
         btnLogout.setBounds(1790, 150, 100, 30);
 
@@ -289,8 +319,6 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         Tabela.setIntercellSpacing(new java.awt.Dimension(2, 2));
         Tabela.setSelectionBackground(new java.awt.Color(255, 184, 0));
         Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        Tabela.setShowHorizontalLines(true);
-        Tabela.setShowVerticalLines(true);
         Tabela.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TabelaKeyReleased(evt);
@@ -389,6 +417,48 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
         }
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     public void SelecionarProdutosDeletar() {
         Produtos produtoRetorno = new Produtos();

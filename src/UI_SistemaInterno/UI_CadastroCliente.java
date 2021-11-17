@@ -26,42 +26,42 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     Clientes NovoCliente = new Clientes(); //acessar os atributos da classe produtos
     Clientes ClienteRetorno = new Clientes();
     ClientesDAO cdao = new ClientesDAO();
-    
+
     public UI_CadastroCliente(Clientes ClientesRetorno) {
         initComponents();
         ClienteRetorno = ClientesRetorno;
-        
-         if (ClienteRetorno.getIdCliente() != 0) {
-             if(ClienteRetorno.getCpf() != ""){
-                 txtCodigoCliente.setText(String.valueOf(ClienteRetorno.getCodigoCliente()));
-                 txtNomeRazaoSocial.setText(ClienteRetorno.getNomeCliente());
-                 txtCPF_CNPJ.setText(ClienteRetorno.getCpf());
-                 txtRGInscricao1.setText(ClienteRetorno.getRg());
-                 txtDataNascimento.setText(ClienteRetorno.getDateNascimento()); 
-                 txtCelTel.setText(ClienteRetorno.getTelefone());
-                 txtBairro.setText(ClienteRetorno.getBairro());
-                 txtCidade.setText(ClienteRetorno.getCidade());
-                 comboEstado.setSelectedItem(ClienteRetorno.getEstado());
-                 txtEmail.setText(ClienteRetorno.getEmail());
-                 txtEndereco.setText(ClienteRetorno.getEndereco());
-                 
-                 
-             }
-             if(ClienteRetorno.getCnpj() != ""){
-                 txtCodigoCliente.setText(String.valueOf(ClienteRetorno.getCodigoCliente()));
-                 txtNomeRazaoSocial.setText(ClienteRetorno.getRazaoSocial());
-                 txtCPF_CNPJ.setText(ClienteRetorno.getCnpj());
-                 txtRGInscricao1.setText(ClienteRetorno.getInscricaoEstadual());
-                 txtDataNascimento.setText(ClienteRetorno.getDateNascimento()); 
-                 txtCelTel.setText(ClienteRetorno.getTelefone());
-                 txtBairro.setText(ClienteRetorno.getBairro());
-                 txtCidade.setText(ClienteRetorno.getCidade());
-                 comboEstado.setSelectedItem(ClienteRetorno.getEstado());
-                 txtEmail.setText(ClienteRetorno.getEmail());
-                 txtEndereco.setText(ClienteRetorno.getEndereco());
-             }
-         }
+
+        if (ClienteRetorno.getIdCliente() != 0) {
+            if (ClienteRetorno.getCpf() != "") {
+                txtCodigoCliente.setText(String.valueOf(ClienteRetorno.getCodigoCliente()));
+                txtNomeRazaoSocial.setText(ClienteRetorno.getNomeCliente());
+                txtCPF_CNPJ.setText(ClienteRetorno.getCpf());
+                txtRGInscricao1.setText(ClienteRetorno.getRg());
+                txtDataNascimento.setText(ClienteRetorno.getDateNascimento());
+                txtCelTel.setText(ClienteRetorno.getTelefone());
+                txtBairro.setText(ClienteRetorno.getBairro());
+                txtCidade.setText(ClienteRetorno.getCidade());
+                comboEstado.setSelectedItem(ClienteRetorno.getEstado());
+                txtEmail.setText(ClienteRetorno.getEmail());
+                txtEndereco.setText(ClienteRetorno.getEndereco());
+
+            }
+            if (ClienteRetorno.getCnpj() != "") {
+                txtCodigoCliente.setText(String.valueOf(ClienteRetorno.getCodigoCliente()));
+                txtNomeRazaoSocial.setText(ClienteRetorno.getRazaoSocial());
+                txtCPF_CNPJ.setText(ClienteRetorno.getCnpj());
+                txtRGInscricao1.setText(ClienteRetorno.getInscricaoEstadual());
+                txtDataNascimento.setText(ClienteRetorno.getDateNascimento());
+                txtCelTel.setText(ClienteRetorno.getTelefone());
+                txtBairro.setText(ClienteRetorno.getBairro());
+                txtCidade.setText(ClienteRetorno.getCidade());
+                comboEstado.setSelectedItem(ClienteRetorno.getEstado());
+                txtEmail.setText(ClienteRetorno.getEmail());
+                txtEndereco.setText(ClienteRetorno.getEndereco());
+            }
+        }
     }
+
     public UI_CadastroCliente() {
         initComponents();
 
@@ -262,35 +262,60 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
             }
         });
         baseTala.add(btnVenda);
-        btnVenda.setBounds(10, 300, 360, 100);
+        btnVenda.setBounds(10, 300, 350, 80);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
         baseTala.add(btnProdutos);
-        btnProdutos.setBounds(10, 400, 360, 110);
+        btnProdutos.setBounds(10, 410, 350, 80);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
         baseTala.add(btnCadastro);
-        btnCadastro.setBounds(10, 520, 360, 100);
+        btnCadastro.setBounds(10, 530, 350, 70);
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
         baseTala.add(btnFinanceiro);
-        btnFinanceiro.setBounds(10, 630, 360, 100);
+        btnFinanceiro.setBounds(10, 640, 350, 70);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
         baseTala.add(btnCaixa);
-        btnCaixa.setBounds(10, 740, 360, 100);
+        btnCaixa.setBounds(10, 740, 350, 80);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
         btnEncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarActionPerformed(evt);
+            }
+        });
         baseTala.add(btnEncerrar);
         btnEncerrar.setBounds(110, 1010, 150, 50);
 
@@ -314,11 +339,17 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
         baseTala.add(btnLogout);
         btnLogout.setBounds(1790, 150, 110, 30);
 
         txtUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         baseTala.add(txtUsuario);
         txtUsuario.setBounds(1720, 100, 200, 30);
 
@@ -349,7 +380,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel8);
-        jPanel8.setBounds(1330, 650, 27, 35);
+        jPanel8.setBounds(1330, 650, 29, 37);
 
         jPanel7.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -372,7 +403,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel7);
-        jPanel7.setBounds(1480, 650, 23, 35);
+        jPanel7.setBounds(1480, 650, 23, 37);
 
         jPanel6.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -395,7 +426,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel6);
-        jPanel6.setBounds(1480, 420, 33, 35);
+        jPanel6.setBounds(1480, 420, 33, 37);
 
         jPanel5.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -419,7 +450,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         );
 
         baseTala.add(jPanel5);
-        jPanel5.setBounds(1390, 420, 33, 35);
+        jPanel5.setBounds(1390, 420, 37, 37);
 
         jPanel4.setBackground(new java.awt.Color(228, 228, 228));
 
@@ -530,7 +561,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(baseTala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(baseTala, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -542,37 +573,37 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if(ClienteRetorno.getIdCliente() == 0 ){
+        if (ClienteRetorno.getIdCliente() == 0) {
             cadastraClientePisca(NovoCliente);
             limparCamposClientes();
         }
-        if(ClienteRetorno.getIdCliente() != 0){
+        if (ClienteRetorno.getIdCliente() != 0) {
             selecionarProdutoRetorno();
             cdao.Update(ClienteRetorno);
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
-    public void selecionarProdutoRetorno(){
-         ClienteRetorno.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
-        if(RadioInscricao.isSelected()){
+    public void selecionarProdutoRetorno() {
+        ClienteRetorno.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
+        if (RadioInscricao.isSelected()) {
             ClienteRetorno.setRazaoSocial(txtNomeRazaoSocial.getText());
         }
-        if(RadioNome.isSelected()){
+        if (RadioNome.isSelected()) {
             ClienteRetorno.setNomeCliente(txtNomeRazaoSocial.getText());
         }
-        if(RadioCpf.isSelected()){
+        if (RadioCpf.isSelected()) {
             ClienteRetorno.setCpf(txtCPF_CNPJ.getText());
         }
-        if(RadioCnpj.isSelected()){
+        if (RadioCnpj.isSelected()) {
             ClienteRetorno.setCnpj(txtCPF_CNPJ.getText());
         }
-        if(RadioRazaoSocial.isSelected()){
+        if (RadioRazaoSocial.isSelected()) {
             ClienteRetorno.setRazaoSocial(txtRGInscricao1.getText());
         }
-        if(RadioRg.isSelected()){
+        if (RadioRg.isSelected()) {
             ClienteRetorno.setRg(txtRGInscricao1.getText());
         }
-          
+
         ClienteRetorno.setDateNascimento(txtDataNascimento.getText());
         ClienteRetorno.setEmail(txtEmail.getText());
         ClienteRetorno.setTelefone(txtCelTel.getText());
@@ -583,7 +614,10 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         ClienteRetorno.setEstado((String) comboEstado.getSelectedItem());
     }
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        // TODO add your handling code here:
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void txtRGInscricao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRGInscricao1ActionPerformed
@@ -593,6 +627,45 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstadoActionPerformed
+
+    private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -635,25 +708,25 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         this.conectar.conectaBanco();
 
         NovoCliente.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
-        if(RadioInscricao.isSelected()){
+        if (RadioInscricao.isSelected()) {
             NovoCliente.setRazaoSocial(txtNomeRazaoSocial.getText());
         }
-        if(RadioNome.isSelected()){
+        if (RadioNome.isSelected()) {
             NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
         }
-        if(RadioCpf.isSelected()){
+        if (RadioCpf.isSelected()) {
             NovoCliente.setCpf(txtCPF_CNPJ.getText());
         }
-        if(RadioCnpj.isSelected()){
+        if (RadioCnpj.isSelected()) {
             NovoCliente.setCnpj(txtCPF_CNPJ.getText());
         }
-        if(RadioRazaoSocial.isSelected()){
+        if (RadioRazaoSocial.isSelected()) {
             NovoCliente.setRazaoSocial(txtRGInscricao1.getText());
         }
-        if(RadioRg.isSelected()){
+        if (RadioRg.isSelected()) {
             NovoCliente.setRg(txtRGInscricao1.getText());
         }
-          
+
         NovoCliente.setDateNascimento(txtDataNascimento.getText());
         NovoCliente.setEmail(txtEmail.getText());
         NovoCliente.setTelefone(txtCelTel.getText());
@@ -689,7 +762,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
                     + "'" + NovoCliente.getCpf() + "',"
                     + "'" + NovoCliente.getCnpj() + "',"
                     + "'" + NovoCliente.getRg() + "',"
-                    + "'" + NovoCliente.getInscricaoEstadual()+ "',"
+                    + "'" + NovoCliente.getInscricaoEstadual() + "',"
                     + "'" + NovoCliente.getEndereco() + "',"
                     + "'" + NovoCliente.getCep() + "',"
                     + "'" + NovoCliente.getEstado() + "',"
@@ -697,7 +770,6 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
                     + "'" + NovoCliente.getBairro() + "',"
                     + "'" + NovoCliente.getEmail() + "',"
                     + "'" + NovoCliente.getTelefone() + "',"
-                   
                     + ");");
 
             System.out.println("Cliente:" + NovoCliente);

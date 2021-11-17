@@ -27,7 +27,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
      */
     public UI_VisualizacaoClientes() {
         initComponents();
-        
+
         new Thread() {
 
             public void run() {
@@ -52,7 +52,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 }
             }
         }.start();
-        
+
         readTableCliente();
     }
 
@@ -94,6 +94,11 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
         imgBase.add(btnCaixa);
         btnCaixa.setBounds(12, 755, 346, 70);
 
@@ -111,24 +116,44 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
         imgBase.add(btnFinanceiro);
         btnFinanceiro.setBounds(12, 645, 346, 70);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
         imgBase.add(btnCadastro);
         btnCadastro.setBounds(12, 535, 346, 70);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
         imgBase.add(btnProdutos);
         btnProdutos.setBounds(12, 435, 350, 70);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
         imgBase.add(btnVenda);
         btnVenda.setBounds(12, 315, 350, 70);
         imgBase.add(txtUsuario);
@@ -143,6 +168,11 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
         imgBase.add(btnLogout);
         btnLogout.setBounds(1787, 149, 110, 30);
 
@@ -175,20 +205,15 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 "Código do Cliente", "Nome Completo", "Telefone"
             }
         ));
-<<<<<<< HEAD
         Tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Tabela.setIntercellSpacing(new java.awt.Dimension(2, 2));
         Tabela.setSelectionBackground(new java.awt.Color(255, 184, 0));
         Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        Tabela.setShowHorizontalLines(true);
-        Tabela.setShowVerticalLines(true);
-=======
         Tabela.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 TabelaKeyReleased(evt);
             }
         });
->>>>>>> bd2b9b6065bd19bf8a3e81e32360557993ad0c04
         tabelaScroll.setViewportView(Tabela);
 
         imgBase.add(tabelaScroll);
@@ -255,11 +280,11 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     private void TabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TabelaKeyReleased
-        
+
     }//GEN-LAST:event_TabelaKeyReleased
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-         if (Tabela.getSelectedRow() != - 1) {
+        if (Tabela.getSelectedRow() != - 1) {
             SelecionarClienteDelete();
             readTableCliente();
         } else {
@@ -275,40 +300,80 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
         }
     }//GEN-LAST:event_btnEditarActionPerformed
-    
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     public void readTableCliente() {
         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
         modelo.setNumRows(0);
 
         ClientesDAO cdao = new ClientesDAO();
         for (Clientes C : cdao.Read()) {
-            
 
             modelo.addRow(new Object[]{
                 C.getCodigoCliente(),
                 C.getNomeCliente(),
-                C.getTelefone()              
+                C.getTelefone()
             });
         }
     }
-    
+
     public void readTableClienteByName(String Nome) {
         DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
         modelo.setNumRows(0);
 
         ClientesDAO cdao = new ClientesDAO();
         for (Clientes C : cdao.ReadByName(Nome)) {
-            
 
             modelo.addRow(new Object[]{
                 C.getCodigoCliente(),
                 C.getNomeCliente(),
-                C.getTelefone()              
+                C.getTelefone()
             });
         }
     }
-    
-    public void SelecionarClienteUpdate(){
+
+    public void SelecionarClienteUpdate() {
         Clientes clienteRetorno = new Clientes();
         ClientesDAO cdao = new ClientesDAO();
         String NomeCliente;
@@ -336,7 +401,6 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 clienteRetorno.setEmail(c.getEmail());
                 clienteRetorno.setTelefone(c.getTelefone());
 
-                
             }
 
         }
@@ -345,9 +409,8 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         obj.setVisible(true);
         dispose();
     }
-    
-    
-    public void SelecionarClienteDelete(){
+
+    public void SelecionarClienteDelete() {
         Clientes clienteRetorno = new Clientes();
         ClientesDAO cdao = new ClientesDAO();
         String NomeCliente;
@@ -375,13 +438,13 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 clienteRetorno.setEmail(c.getEmail());
                 clienteRetorno.setTelefone(c.getTelefone());
 
-                
             }
 
         }
 
         cdao.Delete(clienteRetorno);
     }
+
     /**
      * @param args the command line arguments
      */

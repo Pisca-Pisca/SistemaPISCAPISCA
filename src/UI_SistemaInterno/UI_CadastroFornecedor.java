@@ -21,6 +21,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
 
     Fornecedores Fornecedor = new Fornecedores();
     FornecedoresDAO fdao = new FornecedoresDAO();
+
     public UI_CadastroFornecedor() {
         initComponents();
 
@@ -96,7 +97,6 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         comboEstado.setBackground(new java.awt.Color(102, 102, 102));
         comboEstado.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        comboEstado.setBorder(null);
         baseTela.add(comboEstado);
         comboEstado.setBounds(510, 812, 250, 70);
 
@@ -189,30 +189,55 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
         baseTela.add(btnProdutos);
         btnProdutos.setBounds(10, 410, 350, 100);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
         baseTela.add(btnCadastro);
         btnCadastro.setBounds(10, 520, 350, 100);
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
         baseTela.add(btnFinanceiro);
         btnFinanceiro.setBounds(10, 630, 350, 100);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
         baseTela.add(btnCaixa);
         btnCaixa.setBounds(10, 730, 350, 100);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
         btnEncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarActionPerformed(evt);
+            }
+        });
         baseTela.add(btnEncerrar);
         btnEncerrar.setBounds(100, 1010, 170, 50);
 
@@ -236,6 +261,11 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
         baseTela.add(btnLogout);
         btnLogout.setBounds(1790, 150, 110, 30);
 
@@ -243,12 +273,13 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         baseTela.add(txtData);
-        txtData.setBounds(1670, 10, 235, 30);
+        txtData.setBounds(1670, 10, 230, 30);
 
         txtUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         baseTela.add(txtUsuario);
-        txtUsuario.setBounds(1720, 100, 200, 30);
+        txtUsuario.setBounds(1720, 100, 180, 30);
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FORNECEDOR - CADASTRO.png"))); // NOI18N
         baseTela.add(imgTela);
@@ -274,26 +305,69 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        // TODO add your handling code here:
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         selecionarCamposFornecedores();
-        fdao.Create(Fornecedor);      
+        fdao.Create(Fornecedor);
     }//GEN-LAST:event_btnEnviarActionPerformed
-    
-    public void selecionarCamposFornecedores(){
-         Fornecedor.setRazaoSocial(txtRazaoSocial.getText());
-         Fornecedor.setCnpj(txtCNPJ.getText());
-         Fornecedor.setInscricaoEstadual(txtInscricaoEstadual.getText());
-         Fornecedor.setEmail(txtEmail.getText());
-         Fornecedor.setTelefone(txtEmail.getText());
-         Fornecedor.setCep(txtCEP.getText());
-         Fornecedor.setEndereco(txtEndereco.getText());
-         Fornecedor.setEstado((String) comboEstado.getSelectedItem());
-         Fornecedor.setCidade(txtCidade.getText());
-         Fornecedor.setBairro(txtBairro.getText());
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta financeiro = new UI_FinanceiroConsulta();
+        financeiro.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    public void selecionarCamposFornecedores() {
+        Fornecedor.setRazaoSocial(txtRazaoSocial.getText());
+        Fornecedor.setCnpj(txtCNPJ.getText());
+        Fornecedor.setInscricaoEstadual(txtInscricaoEstadual.getText());
+        Fornecedor.setEmail(txtEmail.getText());
+        Fornecedor.setTelefone(txtEmail.getText());
+        Fornecedor.setCep(txtCEP.getText());
+        Fornecedor.setEndereco(txtEndereco.getText());
+        Fornecedor.setEstado((String) comboEstado.getSelectedItem());
+        Fornecedor.setCidade(txtCidade.getText());
+        Fornecedor.setBairro(txtBairro.getText());
     }
+
     /**
      * @param args the command line arguments
      */
