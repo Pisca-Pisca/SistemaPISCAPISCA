@@ -95,22 +95,47 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -133,6 +158,11 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
         btnGeraBoleto.setBorderPainted(false);
         btnGeraBoleto.setContentAreaFilled(false);
         btnGeraBoleto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGeraBoleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGeraBoletoActionPerformed(evt);
+            }
+        });
 
         btnCalendario.setBorderPainted(false);
         btnCalendario.setContentAreaFilled(false);
@@ -186,12 +216,19 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
-        txtUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         imgTela.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/DadosBoleto.png"))); // NOI18N
@@ -200,9 +237,6 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
         baseTela.setLayout(baseTelaLayout);
         baseTelaLayout.setHorizontalGroup(
             baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1720, 1720, 1720)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(1790, 1790, 1790)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -249,9 +283,6 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(btnGeraBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1670, 1670, 1670)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(1140, 1140, 1140)
                 .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(baseTelaLayout.createSequentialGroup()
@@ -264,6 +295,12 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(imgTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1930, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1720, 1720, 1720)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1670, 1670, 1670)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         baseTelaLayout.setVerticalGroup(
             baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,8 +395,60 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnGeraBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGeraBoletoActionPerformed
+        UI_Boleto boleto = new UI_Boleto();
+        boleto.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnGeraBoletoActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments

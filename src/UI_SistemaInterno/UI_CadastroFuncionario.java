@@ -6,19 +6,18 @@
 package UI_SistemaInterno;
 
 import Model.DAO.Funcionarios;
-import java.awt.Component;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.table.TableCellRenderer;
+import Model.DAO.FuncionariosDAO;
+import javax.swing.text.MaskFormatter;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.text.ParseException;
+import javax.swing.text.DefaultFormatterFactory;
 import sistemainternopisca.ManipularImagem;
 
 /**
@@ -27,15 +26,74 @@ import sistemainternopisca.ManipularImagem;
  */
 public class UI_CadastroFuncionario extends javax.swing.JFrame {
 
+    private MaskFormatter telMask;
+    private MaskFormatter celMask;
     private BufferedImage imagem;
+
+    Funcionarios F = new Funcionarios();
+    FuncionariosDAO dao = new FuncionariosDAO();
+    Funcionarios FuncionarioRetorno = new Funcionarios();
 
     /**
      * Creates new form UI_CadastroFuncionario
+     *
+     * @param FuncionariosRetorno
      */
+    public UI_CadastroFuncionario(Funcionarios FuncionariosRetorno) {
+        initComponents();
+        inicializa_jformatter();
+
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
+
+        FuncionarioRetorno = FuncionariosRetorno;
+
+        if (FuncionarioRetorno.getIdFuncionario() != 0) {
+            txtBairro.setText(FuncionarioRetorno.getBairro());
+            txtCEP.setText(FuncionarioRetorno.getCep());
+            txtCPF.setText(FuncionarioRetorno.getCpf());
+            txtCidade.setText(FuncionarioRetorno.getCidade());
+            txtCodigoFuncionario.setText(String.valueOf(FuncionarioRetorno.getCodigoFunconario()));
+            txtDataAdimissao.setText(FuncionarioRetorno.getAdmicao());
+            txtDataDesligamento.setText(FuncionarioRetorno.getDesligamento());
+            txtDataNascimento.setText(FuncionarioRetorno.getDataNascimento());
+            txtEmail.setText(FuncionarioRetorno.getEmail());
+            txtSenha.setText(FuncionarioRetorno.getSenha());
+            txtEndereco.setText(FuncionarioRetorno.getEndereco());
+            txtNomeCompleto.setText(FuncionarioRetorno.getNomeFuncionario());
+            txtRG.setText(FuncionarioRetorno.getRg());
+            celOuFixo.setText(FuncionarioRetorno.getTelefone());
+            comboEstado.setSelectedIndex(FuncionarioRetorno.getEstado());
+            comboTipoAcesso.setSelectedIndex(FuncionarioRetorno.getTipo_Acesso());
+        }
+
+    }
+
     public UI_CadastroFuncionario() {
         initComponents();
-
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        inicializa_jformatter();
 
         new Thread() {
 
@@ -68,27 +126,75 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         txtUsuario.setText(email);
     }
 
+    private void limparCamposProdutos() {
+
+        txtBairro.setText("");
+        txtCEP.setText("");
+        txtCPF.setText("");
+        txtCidade.setText("");
+        txtCodigoFuncionario.setText("");
+        txtDataAdimissao.setText("");
+        txtDataDesligamento.setText("");
+        txtDataNascimento.setText("");
+        txtEmail.setText("");
+        txtEndereco.setText("");
+        txtNomeCompleto.setText("");
+        txtRG.setText("");
+        celOuFixo.setText("");
+        txtSenha.setText("");
+    }
+
+    public void inicializa_jformatter() {
+
+        try {
+            celMask = new MaskFormatter("(##)#####-####");
+            telMask = new MaskFormatter("(##)####-####");
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        radioFixo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    celOuFixo.setValue(null);
+                    celOuFixo.setFormatterFactory(new DefaultFormatterFactory(telMask));
+                }
+            }
+        });
+
+        radioCelular.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    celOuFixo.setValue(null);
+                    celOuFixo.setFormatterFactory(new DefaultFormatterFactory(celMask));
+                }
+            }
+        });
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         gupoSelectTelCel = new javax.swing.ButtonGroup();
         baseTela = new javax.swing.JPanel();
+        txtNomeCompleto = new javax.swing.JTextField();
+        celOuFixo = new javax.swing.JFormattedTextField();
         txtDataDesligamento = new javax.swing.JFormattedTextField();
         txtDataAdimissao = new javax.swing.JFormattedTextField();
         txtDataNascimento = new javax.swing.JFormattedTextField();
         txtCEP = new javax.swing.JFormattedTextField();
         txtCPF = new javax.swing.JFormattedTextField();
         txtRG = new javax.swing.JFormattedTextField();
-        txtCodigoCliente = new javax.swing.JTextField();
+        txtCodigoFuncionario = new javax.swing.JTextField();
         txtCidade = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
-        txtNomeCompleto = new javax.swing.JTextField();
         txtBusca = new javax.swing.JTextField();
-        txtTelefoneCelular = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JPasswordField();
         btnSearch1 = new javax.swing.JButton();
         btnVenda = new javax.swing.JButton();
         btnProdutos = new javax.swing.JButton();
@@ -102,10 +208,11 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         btnEnviarArquivo = new javax.swing.JButton();
         comboTipoAcesso = new javax.swing.JComboBox<>();
         comboEstado = new javax.swing.JComboBox<>();
+        btnVisualizar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        radioCelular = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        radioFixo = new javax.swing.JRadioButton();
         txtNomeArquivo = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
@@ -117,6 +224,28 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.setBackground(new java.awt.Color(37, 37, 37));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
         baseTela.setLayout(null);
+
+        txtNomeCompleto.setBackground(new java.awt.Color(187, 184, 184));
+        txtNomeCompleto.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtNomeCompleto.setBorder(null);
+        txtNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeCompletoActionPerformed(evt);
+            }
+        });
+        baseTela.add(txtNomeCompleto);
+        txtNomeCompleto.setBounds(1040, 460, 480, 50);
+
+        celOuFixo.setBackground(new java.awt.Color(187, 184, 184));
+        celOuFixo.setBorder(null);
+        celOuFixo.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        celOuFixo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                celOuFixoActionPerformed(evt);
+            }
+        });
+        baseTela.add(celOuFixo);
+        celOuFixo.setBounds(1457, 688, 350, 50);
 
         txtDataDesligamento.setBackground(new java.awt.Color(187, 184, 184));
         txtDataDesligamento.setBorder(null);
@@ -139,6 +268,11 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         }
         txtDataAdimissao.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtDataAdimissao.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtDataAdimissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataAdimissaoActionPerformed(evt);
+            }
+        });
         baseTela.add(txtDataAdimissao);
         txtDataAdimissao.setBounds(1340, 560, 200, 60);
 
@@ -198,11 +332,11 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(txtRG);
         txtRG.setBounds(510, 560, 360, 60);
 
-        txtCodigoCliente.setBackground(new java.awt.Color(187, 184, 184));
-        txtCodigoCliente.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        txtCodigoCliente.setBorder(null);
-        baseTela.add(txtCodigoCliente);
-        txtCodigoCliente.setBounds(510, 460, 220, 50);
+        txtCodigoFuncionario.setBackground(new java.awt.Color(187, 184, 184));
+        txtCodigoFuncionario.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtCodigoFuncionario.setBorder(null);
+        baseTela.add(txtCodigoFuncionario);
+        txtCodigoFuncionario.setBounds(510, 460, 220, 50);
 
         txtCidade.setBackground(new java.awt.Color(187, 184, 184));
         txtCidade.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -228,28 +362,21 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(txtEndereco);
         txtEndereco.setBounds(810, 790, 650, 60);
 
-        txtNomeCompleto.setBackground(new java.awt.Color(187, 184, 184));
-        txtNomeCompleto.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        txtNomeCompleto.setBorder(null);
-        baseTela.add(txtNomeCompleto);
-        txtNomeCompleto.setBounds(1460, 680, 350, 60);
-
         txtBusca.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
         baseTela.add(txtBusca);
         txtBusca.setBounds(780, 340, 660, 40);
 
-        txtTelefoneCelular.setBackground(new java.awt.Color(187, 184, 184));
-        txtTelefoneCelular.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        txtTelefoneCelular.setBorder(null);
-        baseTela.add(txtTelefoneCelular);
-        txtTelefoneCelular.setBounds(1040, 460, 480, 50);
-
-        jPasswordField1.setBackground(new java.awt.Color(187, 184, 184));
-        jPasswordField1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jPasswordField1.setBorder(null);
-        baseTela.add(jPasswordField1);
-        jPasswordField1.setBounds(1040, 690, 360, 50);
+        txtSenha.setBackground(new java.awt.Color(187, 184, 184));
+        txtSenha.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtSenha.setBorder(null);
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
+        baseTela.add(txtSenha);
+        txtSenha.setBounds(1040, 690, 360, 50);
 
         btnSearch1.setBorderPainted(false);
         btnSearch1.setContentAreaFilled(false);
@@ -271,30 +398,55 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
         baseTela.add(btnProdutos);
         btnProdutos.setBounds(9, 400, 360, 110);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
         baseTela.add(btnCadastro);
         btnCadastro.setBounds(9, 520, 360, 100);
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
         baseTela.add(btnFinanceiro);
         btnFinanceiro.setBounds(9, 620, 360, 110);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
         btnEncerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarActionPerformed(evt);
+            }
+        });
         baseTela.add(btnEncerrar);
         btnEncerrar.setBounds(109, 1010, 150, 50);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
         baseTela.add(btnCaixa);
         btnCaixa.setBounds(9, 730, 360, 110);
 
@@ -318,6 +470,11 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
         baseTela.add(btnLogout);
         btnLogout.setBounds(1789, 150, 110, 30);
 
@@ -348,12 +505,22 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(comboEstado);
         comboEstado.setBounds(820, 900, 100, 70);
 
+        btnVisualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
+        btnVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVisualizarMouseClicked(evt);
+            }
+        });
+        baseTela.add(btnVisualizar);
+        btnVisualizar.setBounds(1750, 320, 60, 60);
+
         jPanel1.setBackground(new java.awt.Color(228, 228, 228));
 
-        gupoSelectTelCel.add(jRadioButton2);
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        gupoSelectTelCel.add(radioCelular);
+        radioCelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                radioCelularActionPerformed(evt);
             }
         });
 
@@ -363,13 +530,13 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(radioCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton2)
+                .addComponent(radioCelular)
                 .addContainerGap())
         );
 
@@ -378,13 +545,13 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(228, 228, 228));
 
-        gupoSelectTelCel.add(jRadioButton1);
-        jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jRadioButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jRadioButton1.setPreferredSize(new java.awt.Dimension(120, 18));
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        gupoSelectTelCel.add(radioFixo);
+        radioFixo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        radioFixo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        radioFixo.setPreferredSize(new java.awt.Dimension(120, 18));
+        radioFixo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                radioFixoActionPerformed(evt);
             }
         });
 
@@ -394,14 +561,14 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(radioFixo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(radioFixo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -414,14 +581,15 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
 
         txtUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         baseTela.add(txtUsuario);
-        txtUsuario.setBounds(1719, 100, 200, 30);
+        txtUsuario.setBounds(1719, 100, 180, 30);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         baseTela.add(txtData);
-        txtData.setBounds(1659, 10, 250, 30);
+        txtData.setBounds(1659, 10, 240, 30);
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FUNCIONÁRIO - CADASTRO.png"))); // NOI18N
         baseTela.add(imgTela);
@@ -431,15 +599,11 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -447,11 +611,54 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
-        // TODO add your handling code here:
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        // TODO add your handling code here:
+        if (FuncionarioRetorno.getIdFuncionario() == 0) {
+            F.setCodigoFunconario(Integer.parseInt(txtCodigoFuncionario.getText()));
+            F.setNomeFuncionario(txtNomeCompleto.getText());
+            F.setDataNascimento(txtDataNascimento.getText());
+            F.setAdmicao(txtDataAdimissao.getText());
+            F.setDesligamento(txtDataDesligamento.getText());
+            F.setRg(txtRG.getText());
+            F.setCpf(txtCPF.getText());
+            F.setEndereco(txtEndereco.getText());
+            F.setCep(txtCEP.getText());
+            F.setEstado(comboEstado.getSelectedIndex());
+            F.setCidade(txtCidade.getText());
+            F.setBairro(txtBairro.getText());
+            F.setEmail(txtEmail.getText());
+            F.setSenha(txtSenha.getText());
+            F.setTelefone(celOuFixo.getText());
+            F.setTipo_Acesso(comboTipoAcesso.getSelectedIndex());
+
+            dao.Create(F);
+        } else {
+            FuncionarioRetorno.setCodigoFunconario(Integer.parseInt(txtCodigoFuncionario.getText()));
+            FuncionarioRetorno.setNomeFuncionario(txtNomeCompleto.getText());
+            FuncionarioRetorno.setDataNascimento(txtDataNascimento.getText());
+            FuncionarioRetorno.setAdmicao(txtDataAdimissao.getText());
+            FuncionarioRetorno.setDesligamento(txtDataDesligamento.getText());
+            FuncionarioRetorno.setRg(txtRG.getText());
+            FuncionarioRetorno.setCpf(txtCPF.getText());
+            FuncionarioRetorno.setEndereco(txtEndereco.getText());
+            FuncionarioRetorno.setCep(txtCEP.getText());
+            FuncionarioRetorno.setEstado(comboEstado.getSelectedIndex());
+            FuncionarioRetorno.setCidade(txtCidade.getText());
+            FuncionarioRetorno.setBairro(txtBairro.getText());
+            FuncionarioRetorno.setEmail(txtEmail.getText());
+            FuncionarioRetorno.setSenha(txtSenha.getText());
+            FuncionarioRetorno.setTelefone(celOuFixo.getText());
+            FuncionarioRetorno.setTipo_Acesso(comboTipoAcesso.getSelectedIndex());
+
+            dao.Update(FuncionarioRetorno);
+        }
+
+        limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
@@ -470,14 +677,10 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
             File arquivo = fc.getSelectedFile();
 
             try {
-                imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 160, 160);
+                imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 200, 130);
 
-                String caminho = getClass().getResource("../uploadImg/funcionario/").toString().substring(5);
-                System.out.println(caminho);
-                File outputfile = new File(caminho + arquivo.getName());
-                ImageIO.write(imagem, "jpg", outputfile);
                 txtNomeArquivo.setText("Imagem enviada com sucesso");
-                //F.setUrl_Img(caminho + arquivo.getName());
+                F.setUrl_Img(ManipularImagem.getImgBytes(imagem));
 
             } catch (Exception ex) {
                 // System.out.println(ex.printStackTrace().toString());
@@ -492,13 +695,75 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRGActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void radioFixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFixoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_radioFixoActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void radioCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCelularActionPerformed
+
+    }//GEN-LAST:event_radioCelularActionPerformed
+
+    private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void celOuFixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_celOuFixoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_celOuFixoActionPerformed
+
+    private void txtDataAdimissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataAdimissaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataAdimissaoActionPerformed
+
+    private void txtNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCompletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeCompletoActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisualizarMouseClicked
+        UI_VisualizacaoFuncionario visuFuncionario = new UI_VisualizacaoFuncionario();
+        visuFuncionario.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVisualizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -548,21 +813,22 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnVenda;
+    private javax.swing.JLabel btnVisualizar;
+    private javax.swing.JFormattedTextField celOuFixo;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JComboBox<String> comboTipoAcesso;
     private javax.swing.ButtonGroup gupoSelectTelCel;
     private javax.swing.JLabel imgTela;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    public javax.swing.JRadioButton radioCelular;
+    public javax.swing.JRadioButton radioFixo;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JFormattedTextField txtCEP;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtCodigoCliente;
+    private javax.swing.JTextField txtCodigoFuncionario;
     private javax.swing.JLabel txtData;
     private javax.swing.JFormattedTextField txtDataAdimissao;
     private javax.swing.JFormattedTextField txtDataDesligamento;
@@ -572,7 +838,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel txtNomeArquivo;
     private javax.swing.JTextField txtNomeCompleto;
     private javax.swing.JFormattedTextField txtRG;
-    private javax.swing.JTextField txtTelefoneCelular;
+    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JLabel txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

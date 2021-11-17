@@ -124,9 +124,9 @@ public class UI_Inicio extends javax.swing.JFrame {
             }
         });
 
-        txtUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,9 +149,6 @@ public class UI_Inicio extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(1630, 1630, 1630)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(1760, 1760, 1760)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -163,10 +160,13 @@ public class UI_Inicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(1700, 1700, 1700)
                 .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgTela)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1630, 1630, 1630)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(1580, 1580, 1580)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,8 +210,8 @@ public class UI_Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-        UI_CadastroCliente cliente = new UI_CadastroCliente();
-        cliente.setVisible(true);
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastroActionPerformed
 

@@ -5,6 +5,7 @@
  */
 package UI_SistemaInterno;
 
+
 import Model.DAO.Fornecedores;
 import Model.DAO.FornecedoresDAO;
 import Model.DAO.Produtos;
@@ -13,6 +14,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  *
@@ -25,14 +30,14 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
      */
     public UI_VisualizacaoFornecedores() {
         initComponents();
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();;
-        Tabela.setRowSorter(new TableRowSorter(modelo));
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();;
+        jTable1.setRowSorter(new TableRowSorter(modelo));
         
         ReadTabelaFornecedor();
     }
     
     public void ReadTabelaFornecedor(){
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setNumRows(0);
 
         FornecedoresDAO fdao = new FornecedoresDAO();
@@ -49,7 +54,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
     }
     
     public void readTableFornecedorByName(String Nome){
-        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setNumRows(0);
 
         FornecedoresDAO fdao = new FornecedoresDAO();
@@ -63,6 +68,32 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
                p.getTelefone()
             });
         }
+
+
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     /**
@@ -90,8 +121,10 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         imgExcluir = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         imgEditar = new javax.swing.JLabel();
+        btnCadastrar = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JLabel();
         tabelaScroll = new javax.swing.JScrollPane();
-        Tabela = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,6 +135,11 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -115,18 +153,38 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,6 +193,11 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
         btnPesquisa.setBorderPainted(false);
         btnPesquisa.setContentAreaFilled(false);
@@ -170,7 +233,22 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
 
         imgEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 8.png"))); // NOI18N
 
-        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN CADASTRAR.png"))); // NOI18N
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
+
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN REFRESH.png"))); // NOI18N
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
+
+        jTable1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -181,7 +259,10 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
                 "CNPJ", "RAZÃO SOCIAL", "Telefone"
             }
         ));
-        tabelaScroll.setViewportView(Tabela);
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTable1.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        jTable1.setSelectionBackground(new java.awt.Color(255, 184, 0));
+        tabelaScroll.setViewportView(jTable1);
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/VIZUALIZAÇÃO FORNECEDORES - editado.png"))); // NOI18N
 
@@ -288,7 +369,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(imgBase, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,7 +390,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         
-        if (Tabela.getSelectedRow() != - 1) {
+        if (jTable1.getSelectedRow() != - 1) {
             SelecionarFornecedorEditar();
             
         } else {
@@ -319,7 +400,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         
-        if (Tabela.getSelectedRow() != - 1) {
+        if (jTable1.getSelectedRow() != - 1) {
             SelecionarFornecedorExcluir();
             ReadTabelaFornecedor();
         } else {
@@ -332,7 +413,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         FornecedoresDAO fdao = new FornecedoresDAO();
         String Cnpj;
         
-        Cnpj = Tabela.getValueAt(Tabela.getSelectedRow(), 1).toString();
+        Cnpj = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
 
         for (Fornecedores f : fdao.ReadByName(Cnpj)) {
 
@@ -361,7 +442,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         String Cnpj;
    
 
-        Cnpj = Tabela.getValueAt(Tabela.getSelectedRow(), 1).toString();
+        Cnpj = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
 
         for (Fornecedores f : fdao.ReadByName(Cnpj)) {
 
@@ -385,6 +466,59 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         dispose();
 
     }
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        
+    }//GEN-LAST:event_btnRefreshMouseClicked
+
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+       UI_CadastroFornecedor fornecedor = new UI_CadastroFornecedor();
+       fornecedor.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btnCadastrarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -422,7 +556,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabela;
+    private javax.swing.JLabel btnCadastrar;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEditar;
@@ -432,11 +566,13 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnProdutos;
+    private javax.swing.JLabel btnRefresh;
     private javax.swing.JButton btnVenda;
     private javax.swing.JPanel imgBase;
     private javax.swing.JLabel imgEditar;
     private javax.swing.JLabel imgExcluir;
     private javax.swing.JLabel imgTela;
+    private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane tabelaScroll;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JLabel txtData;

@@ -7,6 +7,7 @@ package Model.DAO;
 
 import Connection.ConnectionFac;
 import Model.DAO.Produtos;
+import UI_SistemaInterno.UI_Modal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,7 @@ public class ProdutosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, DescricaoProduto, QtdProduto, ValorCompra, ValorVenda, NotaFiscal, Serie, Url_Img, idCategoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, DescricaoProduto, QtdProduto, ValorCompra, voltagem ,ValorVenda, NotaFiscal, Serie, Url_Img, idCategoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 
             stmt.setInt(1, P.getCodigoProduto());
 
@@ -38,21 +39,26 @@ public class ProdutosDAO {
 
             stmt.setDouble(4, P.getValorCompra());
 
-            stmt.setDouble(5, P.getValorVenda());
+            stmt.setInt(5, P.getVoltagem());
 
-            stmt.setString(6, P.getNotaFiscal());
+            stmt.setDouble(6, P.getValorVenda());
 
-            stmt.setInt(7, P.getSerie());
+            stmt.setString(7, P.getNotaFiscal());
 
-            stmt.setBytes(8, P.getUrl_Img());
+            stmt.setInt(8, P.getSerie());
 
-            stmt.setInt(9, P.getIdCategoria());
+            stmt.setBytes(9, P.getUrl_Img());
 
-            stmt.setInt(10, P.getIdFornecedor());
+            stmt.setInt(10, P.getIdCategoria());
+
+            stmt.setInt(11, P.getIdFornecedor());
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+            //JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Cadastro de Produto", "Produto salvo com Sucesso!");
+            dialog.setVisible(true);
 
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao inserir valores na tabela Produtos", ex);
@@ -83,6 +89,7 @@ public class ProdutosDAO {
                 produto.setNomeProduto(rs.getString("DescricaoProduto"));
                 produto.setQtdProduto(rs.getInt("QtdProduto"));
                 produto.setValorCompra(rs.getDouble("ValorCompra"));
+                produto.setVoltagem(rs.getInt("voltagem"));
                 produto.setValorVenda(rs.getDouble("ValorVenda"));
                 produto.setNotaFiscal(rs.getString("NotaFiscal"));
                 produto.setSerie(rs.getInt("Serie"));
@@ -123,6 +130,7 @@ public class ProdutosDAO {
                 produto.setNomeProduto(rs.getString("DescricaoProduto"));
                 produto.setQtdProduto(rs.getInt("QtdProduto"));
                 produto.setValorCompra(rs.getDouble("ValorCompra"));
+                produto.setVoltagem(rs.getInt("voltagem"));
                 produto.setValorVenda(rs.getDouble("ValorVenda"));
                 produto.setNotaFiscal(rs.getString("NotaFiscal"));
                 produto.setSerie(rs.getInt("Serie"));
@@ -137,7 +145,6 @@ public class ProdutosDAO {
             throw new RuntimeException("Erro ao ler os valores da tabela Produtos - Filtro de Nome", ex);
         } finally {
             ConnectionFac.closeConnection(con, stmt, rs);
-
         }
 
         return produtos;
@@ -150,7 +157,7 @@ public class ProdutosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE Produtos SET CodigoProduto = ?, DescricaoProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, idFornecedor = ?, idCategoria = ? WHERE idProduto = ?");
+            stmt = con.prepareStatement("UPDATE Produtos SET CodigoProduto = ?, DescricaoProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, idFornecedor = ?, idCategoria = ?, voltagem = ? WHERE idProduto = ?");
 
             stmt.setString(2, P.getNomeProduto());
             stmt.setInt(1, P.getCodigoProduto());
@@ -162,7 +169,8 @@ public class ProdutosDAO {
             stmt.setBytes(8, P.getUrl_Img());
             stmt.setInt(9, P.getIdCategoria());
             stmt.setInt(10, P.getIdFornecedor());
-            stmt.setInt(11, P.getIdProduto());
+            stmt.setInt(11, P.getVoltagem());
+            stmt.setInt(12, P.getIdProduto());
 
             JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
         } catch (SQLException ex) {

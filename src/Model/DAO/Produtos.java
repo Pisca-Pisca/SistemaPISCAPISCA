@@ -12,6 +12,7 @@ public class Produtos {
    private String DescricaoProduto = "";
    private int QtdProduto = 0;
    private double ValorCompra = 0.0;
+   private int  voltagem = 0;
    private double ValorVenda = 0.0;
    private String NotaFiscal = "";
    private int Serie = 0;
@@ -59,6 +60,14 @@ public class Produtos {
 
     public void setValorCompra(double ValorCompra) {
         this.ValorCompra = ValorCompra;
+    }
+    
+    public int getVoltagem() {
+        return voltagem;
+    }
+
+    public void setVoltagem(int voltagem) {
+        this.voltagem = voltagem;
     }
 
     public double getValorVenda() {

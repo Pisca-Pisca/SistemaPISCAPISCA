@@ -15,23 +15,34 @@ public class Funcionarios {
     private String DataNascimento = "";
     private String NomeFuncionario;
     private String Admicao = "";
-    private String Desligamento = "";
+    private String Desligamento = null;
     private String Rg = "";
     private String Cpf = "";
     private String Endereco = "";
     private String Cep = "";
-    private String Estado = "";
+    private int Estado = 0;
     private String Cidade = "";
     private String Bairro = "";
     private String Email = "";
     private String Senha ;
     private String Telefone = "";
-    private String Url_Img = "";
-    
+    private byte[] Url_Img = new byte[5];
+    private int Tipo_Acesso = 1;
+    private boolean Status = false;
+
+        
     // GETTERS E SETTERS
 
     public int getIdFuncionario() {
         return IdFuncionario;
+    }
+
+    public boolean isStatus() {
+        return Status;
+    }
+
+    public void setStatus(boolean Status) {
+        this.Status = Status;
     }
 
     public void setIdFuncionario(int IdFuncionario) {
@@ -75,6 +86,12 @@ public class Funcionarios {
     }
 
     public void setDesligamento(String Desligamento) {
+        if(Desligamento != null){
+            this.setStatus(true);
+        }else{
+            this.setStatus(false);
+        }
+        
         this.Desligamento = Desligamento;
     }
 
@@ -110,11 +127,11 @@ public class Funcionarios {
         this.Cep = Cep;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return Estado;
     }
 
-    public void setEstado(String Estado) {
+    public void setEstado(int Estado) {
         this.Estado = Estado;
     }
 
@@ -158,13 +175,19 @@ public class Funcionarios {
         this.Telefone = Telefone;
     }
 
-    public String getUrl_Img() {
+    public byte[] getUrl_Img() {
         return Url_Img;
     }
 
-    public void setUrl_Img(String Url_Img) {
+    public void setUrl_Img(byte[] Url_Img) {
         this.Url_Img = Url_Img;
     }
     
-    
+    public int getTipo_Acesso() {
+        return Tipo_Acesso;
+    }
+
+    public void setTipo_Acesso(int Tipo_Acesso) {
+        this.Tipo_Acesso = Tipo_Acesso;
+    }   
 }

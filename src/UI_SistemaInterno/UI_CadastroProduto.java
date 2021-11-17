@@ -5,19 +5,14 @@
  */
 package UI_SistemaInterno;
 
-import Connection.ConnectionFacPisca;
 import Model.DAO.Funcionarios;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import javax.swing.JFrame;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
+import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 import sistemainternopisca.ManipularImagem;
 import javax.swing.JFileChooser;
 
@@ -29,8 +24,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
     private BufferedImage imagem;
 
-    ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
-    Produtos NovoProduto = new Produtos(); //acessar os atributos da classe produtos
     Produtos P = new Produtos();
     ProdutosDAO dao = new ProdutosDAO();
     Produtos ProdutoRetorno = new Produtos();
@@ -41,6 +34,31 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     public UI_CadastroProduto(Produtos ProdutosRetorno) {
         initComponents();
 
+        new Thread() {
+
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        String dataHora;
+                        StringBuffer data = new StringBuffer();
+
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        data.append(" - ");
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                        dataHora = "" + data.toString() + sdf.format(d);
+                        txtData.setText(dataHora);
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
+
         ProdutoRetorno = ProdutosRetorno;
 
         if (ProdutoRetorno.getIdProduto() != 0) {
@@ -49,6 +67,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             txtNFe.setText(ProdutoRetorno.getNotaFiscal());
             txtQtd.setText(String.valueOf(ProdutoRetorno.getQtdProduto()));
             txtValorCompra.setText(String.valueOf(ProdutoRetorno.getValorCompra()));
+            txtVoltagem.setText(String.valueOf(ProdutoRetorno.getVoltagem()));
             txtValorVenda.setText(String.valueOf(ProdutoRetorno.getValorVenda()));
             txtSerie.setText(String.valueOf(ProdutoRetorno.getSerie()));
         }
@@ -89,6 +108,20 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtUsuario.setText(email);
     }
 
+    private void limparCamposProdutos() {
+
+        txtCodProd.setText("");
+        txtDescricao.setText("");
+        txtQtd.setText("");
+        txtValorCompra.setText("");
+        txtValorVenda.setText("");
+        txtVoltagem.setText("");
+        txtNFe.setText("");
+        txtSerie.setText("");
+        txtFornecedor.setText("");
+        txtCategoria.setText("");
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -113,6 +146,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtCodProd = new javax.swing.JTextField();
         txtData = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnEnviarArquivo = new javax.swing.JButton();
         txtNomeArquivo = new javax.swing.JLabel();
         txtBusca = new javax.swing.JTextField();
@@ -129,20 +163,35 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
         btnFinanceiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanceiroActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnFinanceiro);
-        btnFinanceiro.setBounds(0, 630, 370, 100);
+        btnFinanceiro.setBounds(0, 640, 350, 70);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLogout);
         btnLogout.setBounds(1790, 148, 110, 30);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaixaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCaixa);
-        btnCaixa.setBounds(0, 740, 370, 100);
+        btnCaixa.setBounds(0, 740, 350, 80);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -150,6 +199,11 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnEncerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEncerrarMouseClicked(evt);
+            }
+        });
+        btnEncerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarActionPerformed(evt);
             }
         });
         getContentPane().add(btnEncerrar);
@@ -169,20 +223,35 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
         btnVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnVenda);
-        btnVenda.setBounds(0, 300, 370, 100);
+        btnVenda.setBounds(0, 310, 350, 70);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
         btnProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdutosActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnProdutos);
-        btnProdutos.setBounds(0, 400, 370, 110);
+        btnProdutos.setBounds(0, 420, 340, 70);
 
         btnCadastro.setBorderPainted(false);
         btnCadastro.setContentAreaFilled(false);
         btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCadastro);
-        btnCadastro.setBounds(0, 520, 370, 100);
+        btnCadastro.setBounds(0, 530, 360, 70);
 
         txtCategoria.setBackground(new java.awt.Color(187, 184, 184));
         txtCategoria.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -260,7 +329,17 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtUsuario.setToolTipText("");
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(1720, 106, 200, 30);
+        txtUsuario.setBounds(1720, 106, 180, 30);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(1771, 330, 60, 60);
 
         btnEnviarArquivo.setBorderPainted(false);
         btnEnviarArquivo.setContentAreaFilled(false);
@@ -328,7 +407,12 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 200, 130);
 
                 txtNomeArquivo.setText("Imagem enviada com sucesso");
-                P.setUrl_Img(ManipularImagem.getImgBytes(imagem));
+
+                if (ProdutoRetorno.getIdProduto() == 0) {
+                    P.setUrl_Img(ManipularImagem.getImgBytes(imagem));
+                } else {
+                    ProdutoRetorno.setUrl_Img(ManipularImagem.getImgBytes(imagem));
+                }
 
             } catch (Exception ex) {
                 // System.out.println(ex.printStackTrace().toString());
@@ -345,20 +429,23 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         if (ProdutoRetorno.getIdProduto() == 0) {
+            P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             P.setNomeProduto(txtDescricao.getText());
             P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
             P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+            P.setVoltagem(Integer.parseInt(txtVoltagem.getText()));
             P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             P.setNotaFiscal(txtNFe.getText());
             P.setSerie(Integer.parseInt(txtSerie.getText()));
-            
+
             dao.Create(P);
         } else {
             ProdutoRetorno.setNomeProduto(txtDescricao.getText());
             ProdutoRetorno.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             ProdutoRetorno.setQtdProduto(Integer.parseInt(txtQtd.getText()));
             ProdutoRetorno.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
+            ProdutoRetorno.setVoltagem(Integer.parseInt(txtVoltagem.getText()));
             ProdutoRetorno.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             ProdutoRetorno.setNotaFiscal(txtNFe.getText());
             ProdutoRetorno.setSerie(Integer.parseInt(txtSerie.getText()));
@@ -374,20 +461,63 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncerrarMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
+        UI_VisualizacaoProduto obj = new UI_VisualizacaoProduto(txtBusca.getText());
+        obj.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void limparCamposProdutos() {
+    private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
 
-        txtCodProd.setText("");
-        txtDescricao.setText("");
-        txtQtd.setText("");
-        txtValorCompra.setText("");
-        txtValorVenda.setText("");
-        txtVoltagem.setText("");
-        txtNFe.setText("");
-        txtSerie.setText("");
-    }
+    }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanceiroActionPerformed
+        UI_FinanceiroConsulta consulta = new UI_FinanceiroConsulta();
+        consulta.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnFinanceiroActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
+        UI_Caixa caixa = new UI_Caixa();
+        caixa.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCaixaActionPerformed
+
+    private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
+        UI_Carrinho carrinho = new UI_Carrinho();
+        carrinho.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVendaActionPerformed
+
+    private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
+        UI_Catalogo catalogo = new UI_Catalogo();
+        catalogo.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnProdutosActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        UI_SelecaoCadastros selecao = new UI_SelecaoCadastros();
+        selecao.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        UI_VisualizacaoProduto visuProduto = new UI_VisualizacaoProduto();
+        visuProduto.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -437,6 +567,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtCategoria;
