@@ -129,22 +129,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
         btnVisualizar = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        RadioCelular = new javax.swing.JRadioButton();
-        jPanel7 = new javax.swing.JPanel();
-        RadioFixo = new javax.swing.JRadioButton();
         jPanel6 = new javax.swing.JPanel();
-        RadioCnpj = new javax.swing.JRadioButton();
-        jPanel5 = new javax.swing.JPanel();
-        RadioCpf = new javax.swing.JRadioButton();
-        jPanel4 = new javax.swing.JPanel();
-        RadioInscricao = new javax.swing.JRadioButton();
-        jPanel3 = new javax.swing.JPanel();
-        RadioRg = new javax.swing.JRadioButton();
-        jPanel2 = new javax.swing.JPanel();
-        RadioRazaoSocial = new javax.swing.JRadioButton();
-        jPanel1 = new javax.swing.JPanel();
-        RadioNome = new javax.swing.JRadioButton();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -252,7 +237,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtCelTel.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCelTel.setBorder(null);
         baseTala.add(txtCelTel);
-        txtCelTel.setBounds(1330, 680, 450, 60);
+        txtCelTel.setBounds(1330, 680, 450, 50);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
@@ -370,198 +355,21 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         baseTala.add(btnVisualizar);
         btnVisualizar.setBounds(1740, 320, 60, 60);
 
-        jPanel8.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioCelular);
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RadioCelular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RadioCelular)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        baseTala.add(jPanel8);
-        jPanel8.setBounds(1330, 650, 24, 30);
-
-        jPanel7.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioFixo);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(RadioFixo)
-                .addGap(0, 2, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RadioFixo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        baseTala.add(jPanel7);
-        jPanel7.setBounds(1480, 650, 20, 30);
-
         jPanel6.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioCnpj);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(RadioCnpj))
+            .addGap(0, 130, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RadioCnpj)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         baseTala.add(jPanel6);
-        jPanel6.setBounds(1480, 420, 30, 30);
-
-        jPanel5.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioCpf);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RadioCpf)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RadioCpf)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        baseTala.add(jPanel5);
-        jPanel5.setBounds(1390, 420, 30, 30);
-
-        jPanel4.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioInscricao);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RadioInscricao, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(RadioInscricao, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        baseTala.add(jPanel4);
-        jPanel4.setBounds(1490, 550, 30, 30);
-
-        jPanel3.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioRg);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RadioRg)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RadioRg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        baseTala.add(jPanel3);
-        jPanel3.setBounds(1390, 550, 30, 30);
-
-        jPanel2.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioRazaoSocial);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(RadioRazaoSocial)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(RadioRazaoSocial)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        baseTala.add(jPanel2);
-        jPanel2.setBounds(730, 540, 20, 30);
-
-        jPanel1.setBackground(new java.awt.Color(228, 228, 228));
-
-        grupoSelectCadastroCliente.add(RadioNome);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(RadioNome)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(RadioNome)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        baseTala.add(jPanel1);
-        jPanel1.setBounds(490, 540, 20, 30);
+        jPanel6.setBounds(1480, 420, 130, 30);
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/CLIENTE - CADASTRO.jpg"))); // NOI18N
         imgTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
@@ -596,24 +404,13 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
     public void selecionarProdutoRetorno() {
         ClienteRetorno.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
-        if (RadioInscricao.isSelected()) {
-            ClienteRetorno.setRazaoSocial(txtNomeRazaoSocial.getText());
-        }
-        if (RadioNome.isSelected()) {
-            ClienteRetorno.setNomeCliente(txtNomeRazaoSocial.getText());
-        }
-        if (RadioCpf.isSelected()) {
-            ClienteRetorno.setCpf(txtCPF_CNPJ.getText());
-        }
-        if (RadioCnpj.isSelected()) {
-            ClienteRetorno.setCnpj(txtCPF_CNPJ.getText());
-        }
-        if (RadioRazaoSocial.isSelected()) {
-            ClienteRetorno.setRazaoSocial(txtRGInscricao1.getText());
-        }
-        if (RadioRg.isSelected()) {
-            ClienteRetorno.setRg(txtRGInscricao1.getText());
-        }
+
+        NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
+
+        NovoCliente.setCpf(txtCPF_CNPJ.getText());
+
+        NovoCliente.setRg(txtRGInscricao1.getText());
+
 
         ClienteRetorno.setDateNascimento(txtDataNascimento.getText());
         ClienteRetorno.setEmail(txtEmail.getText());
@@ -726,24 +523,12 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         this.conectar.conectaBanco();
 
         NovoCliente.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
-        if (RadioInscricao.isSelected()) {
-            NovoCliente.setRazaoSocial(txtNomeRazaoSocial.getText());
-        }
-        if (RadioNome.isSelected()) {
-            NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
-        }
-        if (RadioCpf.isSelected()) {
-            NovoCliente.setCpf(txtCPF_CNPJ.getText());
-        }
-        if (RadioCnpj.isSelected()) {
-            NovoCliente.setCnpj(txtCPF_CNPJ.getText());
-        }
-        if (RadioRazaoSocial.isSelected()) {
-            NovoCliente.setRazaoSocial(txtRGInscricao1.getText());
-        }
-        if (RadioRg.isSelected()) {
-            NovoCliente.setRg(txtRGInscricao1.getText());
-        }
+
+        NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
+
+        NovoCliente.setCpf(txtCPF_CNPJ.getText());
+
+        NovoCliente.setRg(txtRGInscricao1.getText());
 
         NovoCliente.setDateNascimento(txtDataNascimento.getText());
         NovoCliente.setEmail(txtEmail.getText());
@@ -822,14 +607,6 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton RadioCelular;
-    private javax.swing.JRadioButton RadioCnpj;
-    private javax.swing.JRadioButton RadioCpf;
-    private javax.swing.JRadioButton RadioFixo;
-    private javax.swing.JRadioButton RadioInscricao;
-    private javax.swing.JRadioButton RadioNome;
-    private javax.swing.JRadioButton RadioRazaoSocial;
-    private javax.swing.JRadioButton RadioRg;
     private javax.swing.JPanel baseTala;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
@@ -844,14 +621,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.ButtonGroup grupoSelectCadastroCliente;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JFormattedTextField txtCEP;

@@ -50,62 +50,81 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="txtPesquisa1" min="-2" pref="840" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="btnSearch" min="-2" pref="90" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="680" pref="680" max="-2" attributes="0"/>
-                          <Component id="selectDinheiro" min="-2" pref="120" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="selectBoleto" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="txtDesconto" min="-2" pref="490" max="-2" attributes="0"/>
-                          <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                          <Component id="txtSubtotal" min="-2" pref="370" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                          <Component id="btnFechamentoCaixa" min="-2" pref="350" max="-2" attributes="0"/>
-                          <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
-                          <Component id="btnCancelar" min="-2" pref="270" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-                  <Component id="jScrollCupom" min="-2" pref="650" max="-2" attributes="0"/>
+                  <Component id="txtPesquisa1" min="-2" pref="840" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="btnSearch" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="660" pref="660" max="-2" attributes="0"/>
                   <Component id="selectCartão" min="-2" pref="120" max="-2" attributes="0"/>
+                  <EmptySpace min="510" pref="510" max="-2" attributes="0"/>
+                  <Component id="txtNomeVendedor" min="-2" pref="460" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="1220" pref="1220" max="-2" attributes="0"/>
+                  <Component id="txtCPF" min="-2" pref="530" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="txtValorRecebido" min="-2" pref="490" max="-2" attributes="0"/>
+                  <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
+                  <Component id="btnFinalizar" min="-2" pref="290" max="-2" attributes="0"/>
+                  <EmptySpace min="280" pref="280" max="-2" attributes="0"/>
+                  <Component id="qrCode" min="-2" pref="390" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="730" pref="730" max="-2" attributes="0"/>
+                  <Component id="btnCancelar" min="-2" pref="270" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="1770" pref="1770" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" pref="110" max="-2" attributes="0"/>
               </Group>
-              <Component id="imgTela" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="1260" pref="1260" max="-2" attributes="0"/>
+                  <Component id="txtPedido" min="-2" pref="470" max="-2" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
                   <Component id="txtTotal" min="-2" pref="490" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="800" pref="800" max="-2" attributes="0"/>
+                  <Component id="selectDinheiro" min="-2" pref="120" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="680" pref="680" max="-2" attributes="0"/>
+                  <Component id="txtSubtotal" min="-2" pref="370" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="1730" pref="1730" max="-2" attributes="0"/>
+                  <Component id="txtUsuario" min="-2" pref="160" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="680" pref="680" max="-2" attributes="0"/>
                   <Component id="txtTroco" min="-2" pref="370" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="720" pref="720" max="-2" attributes="0"/>
-                  <Component id="btnFinalizar" min="-2" pref="290" max="-2" attributes="0"/>
+                  <EmptySpace min="1230" pref="1230" max="-2" attributes="0"/>
+                  <Component id="txtData" min="-2" pref="530" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="1250" pref="1250" max="-2" attributes="0"/>
+                  <Component id="txtNome" min="-2" pref="530" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
-                  <Component id="txtValorRecebido" min="-2" pref="490" max="-2" attributes="0"/>
+                  <Component id="txtDesconto" min="-2" pref="490" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="1730" pref="1730" max="-2" attributes="0"/>
-                  <Component id="txtUsuario" min="-2" pref="160" max="-2" attributes="0"/>
+                  <EmptySpace min="930" pref="930" max="-2" attributes="0"/>
+                  <Component id="selectBoleto" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
+                  <Component id="btnFechamentoCaixa" min="-2" pref="350" max="-2" attributes="0"/>
+              </Group>
+              <Component id="imgTela" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -118,96 +137,81 @@
                   </Group>
                   <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="selectDinheiro" min="-2" pref="90" max="-2" attributes="0"/>
-                      <Component id="selectBoleto" min="-2" pref="90" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="selectCartão" min="-2" pref="90" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="txtDesconto" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="txtNomeVendedor" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtSubtotal" min="-2" pref="110" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="txtCPF" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnFechamentoCaixa" min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                          <Component id="btnCancelar" min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
+                          <Component id="txtValorRecebido" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
+                          <Component id="btnFinalizar" min="-2" pref="90" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="qrCode" min="-2" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-                  <Component id="jScrollCupom" min="-2" pref="790" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="430" pref="430" max="-2" attributes="0"/>
-                  <Component id="selectCartão" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Component id="btnCancelar" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <Component id="imgTela" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="400" pref="400" max="-2" attributes="0"/>
+                  <Component id="txtPedido" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
                   <Component id="txtTotal" min="-2" pref="90" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="430" pref="430" max="-2" attributes="0"/>
+                  <Component id="selectDinheiro" min="-2" pref="90" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="580" pref="580" max="-2" attributes="0"/>
+                  <Component id="txtSubtotal" min="-2" pref="110" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                  <Component id="txtUsuario" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="790" pref="790" max="-2" attributes="0"/>
                   <Component id="txtTroco" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="900" pref="900" max="-2" attributes="0"/>
-                  <Component id="btnFinalizar" min="-2" pref="90" max="-2" attributes="0"/>
+                  <EmptySpace min="430" pref="430" max="-2" attributes="0"/>
+                  <Component id="txtData" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="790" pref="790" max="-2" attributes="0"/>
-                  <Component id="txtValorRecebido" min="-2" pref="80" max="-2" attributes="0"/>
+                  <EmptySpace min="510" pref="510" max="-2" attributes="0"/>
+                  <Component id="txtNome" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                  <Component id="txtUsuario" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
+                  <Component id="txtDesconto" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="430" pref="430" max="-2" attributes="0"/>
+                  <Component id="selectBoleto" min="-2" pref="90" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="960" pref="960" max="-2" attributes="0"/>
+                  <Component id="btnFechamentoCaixa" min="-2" pref="60" max="-2" attributes="0"/>
+              </Group>
+              <Component id="imgTela" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollCupom">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c4" green="f2" red="fe" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="txtCupom">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c4" green="f2" red="fe" type="rgb"/>
-                </Property>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="sansserif" size="18" style="0"/>
-                </Property>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="PISCA PISCA Ilumina&#xe7;&#xe3;o e Automa&#xe7;&#xe3;o Residencial Ltda. &#xa;CNPJ: 00.000.000/0001-10&#xa;Rua da Consola&#xe7;&#xe3;o, N&#xba; 2007, Consola&#xe7;&#xe3;o &#xa;Fone (11) 3229 - 2578&#xa;Pedido: 21.3248481&#xa;Data: 21/10/2021&#xa;-----------------------------------------------------------------------------------------------------&#xa;&#xa; Descri&#xe7;&#xe3;o                                                             Qtd.        V.unid         Total&#xa; Lustre Pendente Startec Nice 5                       1             699,90         699,90&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;-------------------------------------------------------------------------------------------------------&#xa;            Cliente: Marcos Andr&#xe9; Oliveira&#xa;             Frente de caixa 3.0"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
         <Component class="javax.swing.JRadioButton" name="selectBoleto">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -362,6 +366,49 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtCPF">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="sansserif" size="18" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtPedido">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="sansserif" size="18" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtData">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="sansserif" size="18" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtNomeVendedor">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="sansserif" size="18" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="txtNome">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="sansserif" size="18" style="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="qrCode">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/frame.png"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="imgTela">

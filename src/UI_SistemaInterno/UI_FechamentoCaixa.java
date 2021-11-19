@@ -225,7 +225,6 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         UI_ModalFechamentoCaixa dialog = new UI_ModalFechamentoCaixa(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-        dispose();
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
