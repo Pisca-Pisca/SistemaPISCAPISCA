@@ -208,6 +208,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         btnEnviarArquivo = new javax.swing.JButton();
         comboTipoAcesso = new javax.swing.JComboBox<>();
         comboEstado = new javax.swing.JComboBox<>();
+        btnVisualizar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         radioCelular = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
@@ -219,7 +220,6 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(null);
 
         baseTela.setBackground(new java.awt.Color(37, 37, 37));
         baseTela.setPreferredSize(new java.awt.Dimension(1920, 1080));
@@ -505,6 +505,16 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(comboEstado);
         comboEstado.setBounds(820, 900, 100, 70);
 
+        btnVisualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
+        btnVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVisualizarMouseClicked(evt);
+            }
+        });
+        baseTela.add(btnVisualizar);
+        btnVisualizar.setBounds(1750, 320, 60, 60);
+
         jPanel1.setBackground(new java.awt.Color(228, 228, 228));
 
         gupoSelectTelCel.add(radioCelular);
@@ -563,7 +573,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         );
 
         baseTela.add(jPanel2);
-        jPanel2.setBounds(1590, 640, 30, 34);
+        jPanel2.setBounds(1590, 640, 30, 30);
 
         txtNomeArquivo.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         baseTela.add(txtNomeArquivo);
@@ -585,8 +595,16 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1928, 1080);
 
-        getContentPane().add(baseTela);
-        baseTela.setBounds(0, 0, 1920, 1080);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -740,6 +758,13 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCaixaActionPerformed
 
+    private void btnVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisualizarMouseClicked
+        UI_VisualizacaoFuncionario visuFuncionario = new UI_VisualizacaoFuncionario();
+        visuFuncionario.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVisualizarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -788,6 +813,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnVenda;
+    private javax.swing.JLabel btnVisualizar;
     private javax.swing.JFormattedTextField celOuFixo;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JComboBox<String> comboTipoAcesso;

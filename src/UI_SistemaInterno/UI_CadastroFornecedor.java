@@ -8,6 +8,7 @@ package UI_SistemaInterno;
 import Model.DAO.Fornecedores;
 import Model.DAO.FornecedoresDAO;
 import Model.DAO.Funcionarios;
+import Model.DAO.Produtos;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,8 +21,29 @@ import javax.swing.JFrame;
 public class UI_CadastroFornecedor extends javax.swing.JFrame {
 
     Fornecedores Fornecedor = new Fornecedores();
+    Fornecedores FornecedorRetorno = new Fornecedores();
     FornecedoresDAO fdao = new FornecedoresDAO();
 
+    
+    public UI_CadastroFornecedor (Fornecedores fornecedorRetorno) {
+        initComponents();
+        FornecedorRetorno = fornecedorRetorno;
+        if(FornecedorRetorno.getIdFornecedores() != 0){
+            txtCEP.setText(FornecedorRetorno.getCep());
+            txtCNPJ.setText(FornecedorRetorno.getCnpj());
+            txtEmail.setText(FornecedorRetorno.getEmail());
+            txtEndereco.setText(FornecedorRetorno.getEndereco());
+            txtInscricaoEstadual.setText(FornecedorRetorno.getInscricaoEstadual());
+            txtRazaoSocial.setText(FornecedorRetorno.getRazaoSocial());
+            txtTelefone.setText(FornecedorRetorno.getTelefone());
+            txtCidade.setText(FornecedorRetorno.getTelefone());
+            comboEstado.setSelectedItem(FornecedorRetorno.getEstado());
+            
+        
+        }
+    
+    }
+   
     public UI_CadastroFornecedor() {
         initComponents();
 
@@ -52,6 +74,9 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
             }
         }.start();
     }
+    
+    
+    
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
@@ -83,6 +108,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         btnEnviar = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        btnVisualizar = new javax.swing.JLabel();
         txtData = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
         imgTela = new javax.swing.JLabel();
@@ -269,6 +295,16 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         baseTela.add(btnLogout);
         btnLogout.setBounds(1790, 150, 110, 30);
 
+        btnVisualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
+        btnVisualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVisualizarMouseClicked(evt);
+            }
+        });
+        baseTela.add(btnVisualizar);
+        btnVisualizar.setBounds(1720, 320, 60, 60);
+
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -312,8 +348,18 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+
+        
+        if(FornecedorRetorno.getIdFornecedores() != 0){
+            selecionarCamposFornecedores();
+            fdao.Create(Fornecedor);    
+        } else {
+            fdao.Update(FornecedorRetorno);
+        }
+          
         selecionarCamposFornecedores();
         fdao.Create(Fornecedor);
+
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -354,6 +400,13 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     private void btnEncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnEncerrarActionPerformed
+
+    private void btnVisualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVisualizarMouseClicked
+        UI_VisualizacaoFornecedores visuFornecedor = new UI_VisualizacaoFornecedores();
+        visuFornecedor.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnVisualizarMouseClicked
 
     public void selecionarCamposFornecedores() {
         Fornecedor.setRazaoSocial(txtRazaoSocial.getText());
@@ -414,6 +467,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton btnProdutos;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnVenda;
+    private javax.swing.JLabel btnVisualizar;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JLabel imgTela;
     private javax.swing.JTextField txtBairro;

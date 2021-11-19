@@ -8,6 +8,7 @@ package Model.DAO;
 import Connection.ConnectionFac;
 import Model.DAO.Clientes;
 import Model.DAO.Produtos;
+import UI_SistemaInterno.UI_Modal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,19 +22,19 @@ import javax.swing.JOptionPane;
  * @author lucve
  */
 public class ClientesDAO {
-    
-    public void Create(Clientes C){
-        
+
+    public void Create(Clientes C) {
+
         Connection con = ConnectionFac.getConnecton();
-        
+
         PreparedStatement stmt = null;
-        
+
         try {
             stmt = con.prepareStatement("INSERT INTO Clientes(CodigoCliente, DateNascimento, NomeCliente, RazaoSocial, Cpf, Cnpj, Rg, IncricaoEstadual, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            
-            stmt.setInt(1, C.getCodigoCliente());  
+
+            stmt.setInt(1, C.getCodigoCliente());
             stmt.setString(2, C.getDateNascimento());
-            stmt.setString(3, C.getNomeCliente()); 
+            stmt.setString(3, C.getNomeCliente());
             stmt.setString(4, C.getRazaoSocial());
             stmt.setString(5, C.getCpf());
             stmt.setString(6, C.getCnpj());
@@ -46,22 +47,22 @@ public class ClientesDAO {
             stmt.setString(13, C.getBairro());
             stmt.setString(14, C.getEmail());
             stmt.setString(15, C.getTelefone());
-       
+
             stmt.executeUpdate();
-            
+
             System.out.println("Testar String:" + stmt);
-            
-            JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
-        } 
-        catch (SQLException ex) {
+
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Cadastro de Cliente", "Cliente salvo com Sucesso!");
+            dialog.setVisible(true);
+        } catch (SQLException ex) {
             throw new RuntimeException("Erro ao inserir valores na tabela Clientes", ex);
-        }
-        finally {
+        } finally {
             ConnectionFac.closeConnection(con, stmt);
         }
-             
+
     }
-    
+
     public List<Clientes> Read() {
         Connection con = ConnectionFac.getConnecton();
         PreparedStatement stmt = null;
@@ -77,7 +78,7 @@ public class ClientesDAO {
             while (rs.next()) {
 
                 Clientes cliente = new Clientes();
-                
+
                 cliente.setIdCliente(rs.getInt("idCliente"));
                 cliente.setCodigoCliente(rs.getInt("CodigoCliente"));
                 cliente.setDateNascimento(rs.getString("DateNascimento"));
@@ -94,7 +95,7 @@ public class ClientesDAO {
                 cliente.setBairro(rs.getString("Bairro"));
                 cliente.setEmail(rs.getString("Email"));
                 cliente.setTelefone(rs.getString("Telefone"));
-                          
+
                 Clientes.add(cliente);
             }
         } catch (SQLException ex) {
@@ -105,7 +106,7 @@ public class ClientesDAO {
 
         return Clientes;
     }
-    
+
     public List<Clientes> ReadByName(String Nome) {
         Connection con = ConnectionFac.getConnecton();
         PreparedStatement stmt = null;
@@ -122,7 +123,7 @@ public class ClientesDAO {
             while (rs.next()) {
 
                 Clientes cliente = new Clientes();
-                
+
                 cliente.setIdCliente(rs.getInt("idCliente"));
                 cliente.setCodigoCliente(rs.getInt("CodigoCliente"));
                 cliente.setDateNascimento(rs.getString("DateNascimento"));
@@ -139,7 +140,7 @@ public class ClientesDAO {
                 cliente.setBairro(rs.getString("Bairro"));
                 cliente.setEmail(rs.getString("Email"));
                 cliente.setTelefone(rs.getString("Telefone"));
-                
+
                 Clientes.add(cliente);
             }
         } catch (SQLException ex) {
@@ -150,20 +151,20 @@ public class ClientesDAO {
 
         return Clientes;
     }
-    
-    public void Update(Clientes C){
-        
+
+    public void Update(Clientes C) {
+
         Connection con = ConnectionFac.getConnecton();
-        
+
         PreparedStatement stmt = null;
-        
+
         try {
-             
+
             stmt = con.prepareStatement("UPDATE Clientes SET CodigoCliente = ?, DateNascimento = ?, NomeCliente = ?, RazaoSocial = ?, Cpf = ?, Cnpj = ?, Rg = ?, InscricaoEstadual = ?, Endereco = ?, Cep = ?, Estado = ?, Cidade = ?, Bairro = ?, Email = ?, Telefone = ? WHERE idCliente = ?");
-            
-            stmt.setInt(1, C.getCodigoCliente());  
+
+            stmt.setInt(1, C.getCodigoCliente());
             stmt.setString(2, C.getDateNascimento());
-            stmt.setString(3, C.getNomeCliente()); 
+            stmt.setString(3, C.getNomeCliente());
             stmt.setString(4, C.getRazaoSocial());
             stmt.setString(5, C.getCpf());
             stmt.setString(6, C.getCnpj());
@@ -177,22 +178,20 @@ public class ClientesDAO {
             stmt.setString(14, C.getEmail());
             stmt.setString(15, C.getTelefone());
             stmt.setInt(16, C.getIdCliente());
-       
+
             stmt.executeUpdate();
-            
-        
-            
-            JOptionPane.showMessageDialog(null, "Atualizado com Sucesso");
-        } 
-        catch (SQLException ex) {
+
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Atualização de Cliente", "Cliente atualizado com Sucesso!");
+            dialog.setVisible(true);
+        } catch (SQLException ex) {
             throw new RuntimeException("Erro ao atualizar valores na tabela Clientes", ex);
-        }
-        finally {
+        } finally {
             ConnectionFac.closeConnection(con, stmt);
         }
-             
+
     }
-    
+
     public void Delete(Clientes C) {
 
         Connection con = ConnectionFac.getConnecton();
@@ -206,7 +205,9 @@ public class ClientesDAO {
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Excluído com Sucesso");
+            UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
+            dialog.enviaDados("Exclusão de Cliente", "Cliente excluído com Sucesso!");
+            dialog.setVisible(true);
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao excluir valores na tabela Clientes", ex);
         } finally {
@@ -214,5 +215,5 @@ public class ClientesDAO {
         }
 
     }
-    
+
 }

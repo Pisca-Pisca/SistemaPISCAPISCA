@@ -182,6 +182,8 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         imgEditar = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JLabel();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -361,6 +363,24 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         baseTela.add(btnExcluir);
         btnExcluir.setBounds(1680, 1030, 200, 40);
 
+        btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN CADASTRAR.png"))); // NOI18N
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
+        baseTela.add(btnCadastrar);
+        btnCadastrar.setBounds(1820, 360, 55, 50);
+
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN REFRESH.png"))); // NOI18N
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
+        baseTela.add(btnRefresh);
+        btnRefresh.setBounds(1720, 360, 60, 50);
+
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTO-BUSCA.png"))); // NOI18N
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1921, 1080);
@@ -460,6 +480,16 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        readTabela();
+    }//GEN-LAST:event_btnRefreshMouseClicked
+
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+        UI_CadastroProduto produto =  new UI_CadastroProduto();
+        produto.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCadastrarMouseClicked
+
     public void SelecionarProdutosDeletar() {
         Produtos produtoRetorno = new Produtos();
         ProdutosDAO pdao = new ProdutosDAO();
@@ -558,6 +588,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     private javax.swing.JTable Tabela;
     private javax.swing.JScrollPane TabelaScroll;
     private javax.swing.JPanel baseTela;
+    private javax.swing.JLabel btnCadastrar;
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEditar;
@@ -567,6 +598,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JButton btnProdutos;
+    private javax.swing.JLabel btnRefresh;
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgEditar;
     private javax.swing.JLabel imgExcluir;
