@@ -102,7 +102,9 @@ public class UI_ModalFechamentoCaixa extends javax.swing.JDialog {
         UI_Login login = new UI_Login();
         login.setVisible(true);
 
-        dispose();
+        if(btnEncerrar.isSelected()){
+            dispose();
+        }
     }//GEN-LAST:event_btnEncerrarActionPerformed
 
     /**
@@ -140,7 +142,7 @@ public class UI_ModalFechamentoCaixa extends javax.swing.JDialog {
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
+                        
                     }
                 });
                 dialog.setVisible(true);

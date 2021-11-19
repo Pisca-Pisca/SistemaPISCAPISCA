@@ -69,14 +69,12 @@ public class UI_Boleto extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         txtData = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
-        txtBeneficiario = new javax.swing.JLabel();
         txtAgencia = new javax.swing.JLabel();
         txtNumeroDocumento = new javax.swing.JLabel();
         txtCpfBeneficiario = new javax.swing.JLabel();
         txtVencimento = new javax.swing.JLabel();
         txtValor = new javax.swing.JLabel();
         txtVencimento1 = new javax.swing.JLabel();
-        txtBeneficiario1 = new javax.swing.JLabel();
         txtValor1 = new javax.swing.JLabel();
         txtNomeCliente = new javax.swing.JLabel();
         txtCpfCliente = new javax.swing.JLabel();
@@ -84,6 +82,7 @@ public class UI_Boleto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(null);
 
         baseTela.setBackground(new java.awt.Color(57, 57, 57));
         baseTela.setLayout(null);
@@ -199,13 +198,9 @@ public class UI_Boleto extends javax.swing.JFrame {
         baseTela.add(txtUsuario);
         txtUsuario.setBounds(1710, 100, 190, 30);
 
-        txtBeneficiario.setBackground(new java.awt.Color(255, 255, 255));
-        txtBeneficiario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtBeneficiario.setOpaque(true);
-        baseTela.add(txtBeneficiario);
-        txtBeneficiario.setBounds(690, 670, 350, 50);
-
+        txtAgencia.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         txtAgencia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAgencia.setText("22252-99");
         baseTela.add(txtAgencia);
         txtAgencia.setBounds(1040, 390, 150, 40);
 
@@ -229,10 +224,6 @@ public class UI_Boleto extends javax.swing.JFrame {
         baseTela.add(txtVencimento1);
         txtVencimento1.setBounds(1160, 440, 90, 20);
 
-        txtBeneficiario1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        baseTela.add(txtBeneficiario1);
-        txtBeneficiario1.setBounds(700, 390, 320, 30);
-
         txtValor1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         baseTela.add(txtValor1);
         txtValor1.setBounds(1340, 470, 130, 20);
@@ -246,20 +237,12 @@ public class UI_Boleto extends javax.swing.JFrame {
         txtCpfCliente.setBounds(740, 960, 350, 20);
 
         imgTela.setForeground(new java.awt.Color(255, 255, 255));
-        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boleto.png"))); // NOI18N
+        imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boleto (2).png"))); // NOI18N
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1921, 1080);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(baseTela);
+        baseTela.setBounds(0, 0, 1920, 1080);
 
         pack();
         setLocationRelativeTo(null);
@@ -370,8 +353,6 @@ public class UI_Boleto extends javax.swing.JFrame {
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;
     private javax.swing.JLabel txtAgencia;
-    private javax.swing.JLabel txtBeneficiario;
-    private javax.swing.JLabel txtBeneficiario1;
     private javax.swing.JLabel txtCpfBeneficiario;
     private javax.swing.JLabel txtCpfCliente;
     private javax.swing.JLabel txtData;
