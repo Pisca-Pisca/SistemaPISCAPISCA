@@ -10,25 +10,22 @@ package Model.DAO;
  * @author lucve
  */
 public class Clientes {
+
     private int IdCliente = 0;
     private int CodigoCliente = 0;
     private String DateNascimento = "";
     private String NomeCliente = "";
-    private String RazaoSocial = "";
     private String Cpf = "";
-    private String Cnpj = "" ;
     private String Rg = "";
-    private String InscricaoEstadual = "";
     private String Endereco = "";
     private String Cep = "";
-    private String Estado = "";
+    private int Estado;
     private String Cidade = "";
     private String Bairro = "";
     private String Email = "";
     private String Telefone = "";
-    
-    // GETTERS E SETTERS
 
+    // GETTERS E SETTERS
     public int getIdCliente() {
         return IdCliente;
     }
@@ -61,28 +58,12 @@ public class Clientes {
         this.NomeCliente = NomeCliente;
     }
 
-    public String getRazaoSocial() {
-        return RazaoSocial;
-    }
-
-    public void setRazaoSocial(String RazaoSocial) {
-        this.RazaoSocial = RazaoSocial;
-    }
-
     public String getCpf() {
         return Cpf;
     }
 
     public void setCpf(String Cpf) {
         this.Cpf = Cpf;
-    }
-
-    public String getCnpj() {
-        return Cnpj;
-    }
-
-    public void setCnpj(String Cnpj) {
-        this.Cnpj = Cnpj;
     }
 
     public String getRg() {
@@ -92,16 +73,6 @@ public class Clientes {
     public void setRg(String Rg) {
         this.Rg = Rg;
     }
-    
-    public String getInscricaoEstadual() {
-        return InscricaoEstadual;
-    }
-
-    public void setInscricaoEstadual(String InscricaoEstadual) {
-        this.InscricaoEstadual = InscricaoEstadual;
-    }
-
-    
 
     public String getEndereco() {
         return Endereco;
@@ -119,11 +90,11 @@ public class Clientes {
         this.Cep = Cep;
     }
 
-    public String getEstado() {
+    public int getEstado() {
         return Estado;
     }
 
-    public void setEstado(String Estado) {
+    public void setEstado(int Estado) {
         this.Estado = Estado;
     }
 
@@ -159,12 +130,4 @@ public class Clientes {
         this.Telefone = Telefone;
     }
 
-  
-
-    
-
-
-
-    
-    
 }

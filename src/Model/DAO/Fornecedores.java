@@ -10,9 +10,9 @@ package Model.DAO;
  * @author lucve
  */
 public class Fornecedores {
-    private int IdFornecedores;
 
-    
+    private int IdFornecedores = 0;
+
     private int CodigoFornecedor;
     private String RazaoSocial = "";
     private String Cnpj = "";
@@ -26,8 +26,7 @@ public class Fornecedores {
     private String Telefone = "";
 
     // GETTERS E SETTERS
-    
-   public int getIdFornecedores() {
+    public int getIdFornecedores() {
         return IdFornecedores;
     }
 
@@ -122,6 +121,5 @@ public class Fornecedores {
     public void setTelefone(String Telefone) {
         this.Telefone = Telefone;
     }
-    
-    
+
 }

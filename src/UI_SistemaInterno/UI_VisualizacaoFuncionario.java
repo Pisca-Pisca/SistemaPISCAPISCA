@@ -489,7 +489,7 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
-        UI_CadastroFuncionario funcionario  =  new UI_CadastroFuncionario();
+        UI_CadastroFuncionario funcionario = new UI_CadastroFuncionario();
         funcionario.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastrarMouseClicked
@@ -503,7 +503,7 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
         FuncionariosDAO fdao = new FuncionariosDAO();
         String NomeFuncionario;
 
-        NomeFuncionario = tabela.getValueAt(tabela.getSelectedRow(), 2).toString();
+        NomeFuncionario = tabela.getValueAt(tabela.getSelectedRow(), 1).toString();
 
         for (Funcionarios f : fdao.ReadByName(NomeFuncionario)) {
 
@@ -523,6 +523,7 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
             funcionarioRetorno.setSenha(f.getSenha());
             funcionarioRetorno.setTelefone(f.getTelefone());
             funcionarioRetorno.setTipo_Acesso(f.getTipo_Acesso());
+            funcionarioRetorno.setIdFuncionario(f.getIdFuncionario());
         }
 
         fdao.Delete(funcionarioRetorno);
@@ -535,7 +536,7 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
         String NomeFuncionario;
 
         if (tabela.getSelectedRow() != - 1) {
-            NomeFuncionario = tabela.getValueAt(tabela.getSelectedRow(), 2).toString();
+            NomeFuncionario = tabela.getValueAt(tabela.getSelectedRow(), 1).toString();
 
             for (Funcionarios f : fdao.ReadByName(NomeFuncionario)) {
 
@@ -555,7 +556,11 @@ public class UI_VisualizacaoFuncionario extends javax.swing.JFrame {
                 funcionarioRetorno.setSenha(f.getSenha());
                 funcionarioRetorno.setTelefone(f.getTelefone());
                 funcionarioRetorno.setTipo_Acesso(f.getTipo_Acesso());
+
+                funcionarioRetorno.setIdFuncionario(f.getIdFuncionario());
             }
+
+            System.out.println(NomeFuncionario);
         }
 
         UI_CadastroFuncionario obj = new UI_CadastroFuncionario(funcionarioRetorno);

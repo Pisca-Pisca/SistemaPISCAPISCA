@@ -28,7 +28,7 @@ public class FornecedoresDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO Fornecedores (CodigoFornecedor, RazaoSocial, Cnpj, InscricaoEstadual, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO Fornecedores (CodigoFornecedor, RazaoSocial, Cnpj, InscricaoEstadual, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 
             stmt.setInt(1, F.getCodigoFornecedor());
             stmt.setString(2, F.getRazaoSocial());

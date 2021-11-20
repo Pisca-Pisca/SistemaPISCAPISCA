@@ -17,7 +17,7 @@ public class Produtos {
    private String NotaFiscal = "";
    private int Serie = 0;
    private byte[] Url_Img = new byte[5];
-   private int IdCategoria = 1;
+   private int Categoria = 1;
    private int IdFornecedor = 1;
 
    
@@ -102,12 +102,12 @@ public class Produtos {
         this.Url_Img = Url_Img;
     }
 
-    public int getIdCategoria() {
-        return IdCategoria;
+    public int getCategoria() {
+        return Categoria;
     }
 
-    public void setIdCategoria(int IdCategoria) {
-        this.IdCategoria = IdCategoria;
+    public void setCategoria(int IdCategoria) {
+        this.Categoria = IdCategoria;
     }
 
     public int getIdFornecedor() {

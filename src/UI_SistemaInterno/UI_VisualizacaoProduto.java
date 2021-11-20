@@ -97,7 +97,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
             Tabela.setAutoResizeMode(Tabela.AUTO_RESIZE_OFF);
             Tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
             Tabela.getColumnModel().getColumn(1).setPreferredWidth(130);
-            Tabela.getColumnModel().getColumn(2).setPreferredWidth(944);
+            Tabela.getColumnModel().getColumn(2).setPreferredWidth(950);
             Tabela.getColumnModel().getColumn(3).setPreferredWidth(70);
             Tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
         } else {
@@ -485,7 +485,7 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshMouseClicked
 
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
-        UI_CadastroProduto produto =  new UI_CadastroProduto();
+        UI_CadastroProduto produto = new UI_CadastroProduto();
         produto.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastrarMouseClicked
@@ -509,8 +509,10 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
             produtoRetorno.setValorVenda(p.getValorVenda());
             produtoRetorno.setUrl_Img(p.getUrl_Img());
             produtoRetorno.setSerie(p.getSerie());
-            produtoRetorno.setIdCategoria(p.getIdCategoria());
+            produtoRetorno.setCategoria(p.getCategoria());
             produtoRetorno.setIdFornecedor(p.getIdFornecedor());
+
+            produtoRetorno.setIdProduto(p.getIdProduto());
         }
 
         pdao.Delete(produtoRetorno);
@@ -537,8 +539,9 @@ public class UI_VisualizacaoProduto extends javax.swing.JFrame {
                 produtoRetorno.setValorVenda(p.getValorVenda());
                 produtoRetorno.setUrl_Img(p.getUrl_Img());
                 produtoRetorno.setSerie(p.getSerie());
-                produtoRetorno.setIdCategoria(p.getIdCategoria());
+                produtoRetorno.setCategoria(p.getCategoria());
                 produtoRetorno.setIdFornecedor(p.getIdFornecedor());
+                produtoRetorno.setIdProduto(p.getIdProduto());
             }
 
         }

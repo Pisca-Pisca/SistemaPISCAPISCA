@@ -67,6 +67,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
 
         imgBase = new javax.swing.JPanel();
         btnCaixa = new javax.swing.JButton();
+        imgExcluir = new javax.swing.JLabel();
         btnEncerrar = new javax.swing.JButton();
         btnFinanceiro = new javax.swing.JButton();
         btnCadastro = new javax.swing.JButton();
@@ -79,7 +80,6 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         txtBusca = new javax.swing.JTextField();
         tabelaScroll = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
-        imgExcluir = new javax.swing.JLabel();
         imgEditar = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -100,6 +100,9 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 btnCaixaActionPerformed(evt);
             }
         });
+
+        imgExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 7.png"))); // NOI18N
+        imgExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -194,9 +197,6 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
             }
         });
         tabelaScroll.setViewportView(Tabela);
-
-        imgExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 7.png"))); // NOI18N
-        imgExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         imgEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Group 8.png"))); // NOI18N
         imgEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -475,7 +475,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         String NomeCliente;
 
         if (Tabela.getSelectedRow() != - 1) {
-            NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
+            NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 1).toString();
 
             for (Clientes c : cdao.ReadByName(NomeCliente)) {
 
@@ -483,11 +483,8 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 clienteRetorno.setCodigoCliente(c.getCodigoCliente());
                 clienteRetorno.setDateNascimento(c.getDateNascimento());
                 clienteRetorno.setNomeCliente(c.getNomeCliente());
-                clienteRetorno.setRazaoSocial(c.getRazaoSocial());
                 clienteRetorno.setCpf(c.getCpf());
-                clienteRetorno.setCnpj(c.getCnpj());
                 clienteRetorno.setRg(c.getRg());
-                clienteRetorno.setInscricaoEstadual(c.getInscricaoEstadual());
                 clienteRetorno.setEndereco(c.getEndereco());
                 clienteRetorno.setCep(c.getCep());
                 clienteRetorno.setEstado(c.getEstado());
@@ -497,6 +494,8 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 clienteRetorno.setTelefone(c.getTelefone());
 
             }
+            
+            System.out.println(NomeCliente);
 
         }
 
@@ -511,7 +510,7 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
         String NomeCliente;
 
         if (Tabela.getSelectedRow() != - 1) {
-            NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 2).toString();
+            NomeCliente = Tabela.getValueAt(Tabela.getSelectedRow(), 1).toString();
 
             for (Clientes c : cdao.ReadByName(NomeCliente)) {
 
@@ -519,11 +518,8 @@ public class UI_VisualizacaoClientes extends javax.swing.JFrame {
                 clienteRetorno.setCodigoCliente(c.getCodigoCliente());
                 clienteRetorno.setDateNascimento(c.getDateNascimento());
                 clienteRetorno.setNomeCliente(c.getNomeCliente());
-                clienteRetorno.setRazaoSocial(c.getRazaoSocial());
                 clienteRetorno.setCpf(c.getCpf());
-                clienteRetorno.setCnpj(c.getCnpj());
                 clienteRetorno.setRg(c.getRg());
-                clienteRetorno.setInscricaoEstadual(c.getInscricaoEstadual());
                 clienteRetorno.setEndereco(c.getEndereco());
                 clienteRetorno.setCep(c.getCep());
                 clienteRetorno.setEstado(c.getEstado());

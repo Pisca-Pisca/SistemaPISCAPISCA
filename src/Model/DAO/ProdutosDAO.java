@@ -29,7 +29,7 @@ public class ProdutosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, DescricaoProduto, QtdProduto, ValorCompra, voltagem ,ValorVenda, NotaFiscal, Serie, Url_Img, idCategoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, DescricaoProduto, QtdProduto, ValorCompra, voltagem ,ValorVenda, NotaFiscal, Serie, Url_Img, Categoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 
             stmt.setInt(1, P.getCodigoProduto());
 
@@ -49,7 +49,7 @@ public class ProdutosDAO {
 
             stmt.setBytes(9, P.getUrl_Img());
 
-            stmt.setInt(10, P.getIdCategoria());
+            stmt.setInt(10, P.getCategoria());
 
             stmt.setInt(11, P.getIdFornecedor());
 
@@ -94,7 +94,7 @@ public class ProdutosDAO {
                 produto.setNotaFiscal(rs.getString("NotaFiscal"));
                 produto.setSerie(rs.getInt("Serie"));
                 produto.setUrl_Img(rs.getBytes("Url_Img"));
-                produto.setIdCategoria(rs.getInt("idCategoria"));
+                produto.setCategoria(rs.getInt("Categoria"));
                 produto.setIdFornecedor(rs.getInt("idFornecedor"));
 
                 produtos.add(produto);
@@ -135,7 +135,7 @@ public class ProdutosDAO {
                 produto.setNotaFiscal(rs.getString("NotaFiscal"));
                 produto.setSerie(rs.getInt("Serie"));
                 produto.setUrl_Img(rs.getBytes("Url_Img"));
-                produto.setIdCategoria(rs.getInt("idCategoria"));
+                produto.setCategoria(rs.getInt("Categoria"));
                 produto.setIdFornecedor(rs.getInt("idFornecedor"));
 
                 produtos.add(produto);
@@ -157,7 +157,7 @@ public class ProdutosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE Produtos SET CodigoProduto = ?, DescricaoProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, idFornecedor = ?, idCategoria = ?, voltagem = ? WHERE idProduto = ?");
+            stmt = con.prepareStatement("UPDATE Produtos SET CodigoProduto = ?, DescricaoProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, idFornecedor = ?, Categoria = ?, voltagem = ? WHERE idProduto = ?");
 
             stmt.setString(2, P.getNomeProduto());
             stmt.setInt(1, P.getCodigoProduto());
@@ -167,10 +167,14 @@ public class ProdutosDAO {
             stmt.setInt(6, P.getSerie());
             stmt.setString(7, P.getNotaFiscal());
             stmt.setBytes(8, P.getUrl_Img());
-            stmt.setInt(9, P.getIdCategoria());
+            stmt.setInt(9, P.getCategoria());
             stmt.setInt(10, P.getIdFornecedor());
             stmt.setInt(11, P.getVoltagem());
             stmt.setInt(12, P.getIdProduto());
+            
+            
+            System.out.println(stmt);
+            stmt.executeUpdate();
 
             UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
             dialog.enviaDados("Atualização do Produto", "Produto atualizado com Sucesso!");

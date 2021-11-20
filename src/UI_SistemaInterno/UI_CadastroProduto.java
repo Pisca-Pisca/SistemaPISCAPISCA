@@ -70,6 +70,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             txtVoltagem.setText(String.valueOf(ProdutoRetorno.getVoltagem()));
             txtValorVenda.setText(String.valueOf(ProdutoRetorno.getValorVenda()));
             txtSerie.setText(String.valueOf(ProdutoRetorno.getSerie()));
+            selectCategoria.setSelectedIndex(ProdutoRetorno.getCategoria());
         }
 
     }
@@ -119,7 +120,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtNFe.setText("");
         txtSerie.setText("");
         txtFornecedor.setText("");
-        txtCategoria.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -134,7 +134,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnVenda = new javax.swing.JButton();
         btnProdutos = new javax.swing.JButton();
         btnCadastro = new javax.swing.JButton();
-        txtCategoria = new javax.swing.JTextField();
         txtFornecedor = new javax.swing.JTextField();
         txtValorCompra = new javax.swing.JTextField();
         txtValorVenda = new javax.swing.JTextField();
@@ -151,6 +150,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtNomeArquivo = new javax.swing.JLabel();
         txtBusca = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+        selectCategoria = new javax.swing.JComboBox<>();
         imgTela = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
@@ -253,29 +253,23 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         getContentPane().add(btnCadastro);
         btnCadastro.setBounds(0, 530, 360, 70);
 
-        txtCategoria.setBackground(new java.awt.Color(187, 184, 184));
-        txtCategoria.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        txtCategoria.setBorder(null);
-        getContentPane().add(txtCategoria);
-        txtCategoria.setBounds(930, 600, 340, 60);
-
         txtFornecedor.setBackground(new java.awt.Color(187, 184, 184));
         txtFornecedor.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtFornecedor.setBorder(null);
         getContentPane().add(txtFornecedor);
-        txtFornecedor.setBounds(510, 600, 360, 60);
+        txtFornecedor.setBounds(520, 600, 360, 60);
 
         txtValorCompra.setBackground(new java.awt.Color(187, 184, 184));
         txtValorCompra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtValorCompra.setBorder(null);
         getContentPane().add(txtValorCompra);
-        txtValorCompra.setBounds(510, 720, 280, 60);
+        txtValorCompra.setBounds(520, 720, 270, 60);
 
         txtValorVenda.setBackground(new java.awt.Color(187, 184, 184));
         txtValorVenda.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtValorVenda.setBorder(null);
         getContentPane().add(txtValorVenda);
-        txtValorVenda.setBounds(850, 720, 270, 60);
+        txtValorVenda.setBounds(860, 720, 270, 60);
 
         txtNFe.setBackground(new java.awt.Color(187, 184, 184));
         txtNFe.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -287,13 +281,18 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtSerie.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtSerie.setBorder(null);
         getContentPane().add(txtSerie);
-        txtSerie.setBounds(1590, 730, 250, 50);
+        txtSerie.setBounds(1610, 730, 240, 50);
 
         txtDescricao.setBackground(new java.awt.Color(187, 184, 184));
         txtDescricao.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDescricao.setBorder(null);
+        txtDescricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescricaoActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtDescricao);
-        txtDescricao.setBounds(930, 490, 910, 50);
+        txtDescricao.setBounds(940, 490, 900, 50);
 
         txtQtd.setBackground(new java.awt.Color(187, 184, 184));
         txtQtd.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -316,7 +315,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCodProd);
-        txtCodProd.setBounds(510, 488, 370, 50);
+        txtCodProd.setBounds(510, 490, 370, 50);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
@@ -358,7 +357,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtBusca.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBusca.setBorder(null);
         getContentPane().add(txtBusca);
-        txtBusca.setBounds(730, 340, 750, 40);
+        txtBusca.setBounds(750, 340, 730, 40);
 
         btnSearch.setBorderPainted(false);
         btnSearch.setContentAreaFilled(false);
@@ -371,6 +370,17 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         getContentPane().add(btnSearch);
         btnSearch.setBounds(1483, 328, 80, 60);
 
+        selectCategoria.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        selectCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automatização residencial", "Iluminação", "Materiais elétricos", "Outros" }));
+        selectCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectCategoriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(selectCategoria);
+        selectCategoria.setBounds(920, 590, 360, 70);
+
+        imgTela.setBackground(new java.awt.Color(102, 102, 102));
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PRODUTOCADASTRO.jpg"))); // NOI18N
         imgTela.setToolTipText("");
         imgTela.setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -432,12 +442,14 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
             P.setNomeProduto(txtDescricao.getText());
             P.setCodigoProduto(Integer.parseInt(txtCodProd.getText()));
+            P.setCategoria(selectCategoria.getSelectedIndex());
             P.setQtdProduto(Integer.parseInt(txtQtd.getText()));
             P.setValorCompra(Double.parseDouble(txtValorCompra.getText()));
             P.setVoltagem(Integer.parseInt(txtVoltagem.getText()));
             P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             P.setNotaFiscal(txtNFe.getText());
             P.setSerie(Integer.parseInt(txtSerie.getText()));
+            P.setIdFornecedor(Integer.parseInt(txtFornecedor.getText()));
 
             dao.Create(P);
         } else {
@@ -448,7 +460,9 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             ProdutoRetorno.setVoltagem(Integer.parseInt(txtVoltagem.getText()));
             ProdutoRetorno.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             ProdutoRetorno.setNotaFiscal(txtNFe.getText());
+            ProdutoRetorno.setCategoria(selectCategoria.getSelectedIndex());
             ProdutoRetorno.setSerie(Integer.parseInt(txtSerie.getText()));
+            ProdutoRetorno.setIdFornecedor(Integer.parseInt(txtFornecedor.getText()));
 
             dao.Update(ProdutoRetorno);
         }
@@ -519,6 +533,14 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescricaoActionPerformed
+
+    private void selectCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectCategoriaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -569,8 +591,8 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JLabel imgTela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> selectCategoria;
     private javax.swing.JTextField txtBusca;
-    private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCodProd;
     private javax.swing.JLabel txtData;
     private javax.swing.JTextField txtDescricao;

@@ -69,7 +69,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         }.start();
 
         FuncionarioRetorno = FuncionariosRetorno;
-
+        
         if (FuncionarioRetorno.getIdFuncionario() != 0) {
             txtBairro.setText(FuncionarioRetorno.getBairro());
             txtCEP.setText(FuncionarioRetorno.getCep());

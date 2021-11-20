@@ -24,11 +24,10 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     Fornecedores FornecedorRetorno = new Fornecedores();
     FornecedoresDAO fdao = new FornecedoresDAO();
 
-    
-    public UI_CadastroFornecedor (Fornecedores fornecedorRetorno) {
+    public UI_CadastroFornecedor(Fornecedores fornecedorRetorno) {
         initComponents();
         FornecedorRetorno = fornecedorRetorno;
-        if(FornecedorRetorno.getIdFornecedores() != 0){
+        if (FornecedorRetorno.getIdFornecedores() != 0) {
             txtCEP.setText(FornecedorRetorno.getCep());
             txtCNPJ.setText(FornecedorRetorno.getCnpj());
             txtEmail.setText(FornecedorRetorno.getEmail());
@@ -36,14 +35,25 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
             txtInscricaoEstadual.setText(FornecedorRetorno.getInscricaoEstadual());
             txtRazaoSocial.setText(FornecedorRetorno.getRazaoSocial());
             txtTelefone.setText(FornecedorRetorno.getTelefone());
-            txtCidade.setText(FornecedorRetorno.getTelefone());
+            txtCidade.setText(FornecedorRetorno.getCidade());
             comboEstado.setSelectedItem(FornecedorRetorno.getEstado());
-            
-        
+            txtBairro.setText(FornecedorRetorno.getBairro());
         }
-    
+
     }
-   
+
+    public void limparDados() {
+        txtCEP.setText("");
+        txtCNPJ.setText("");
+        txtEmail.setText("");
+        txtEndereco.setText("");
+        txtInscricaoEstadual.setText("");
+        txtRazaoSocial.setText("");
+        txtTelefone.setText("");
+        txtCidade.setText("");
+        txtBairro.setText("");
+    }
+
     public UI_CadastroFornecedor() {
         initComponents();
 
@@ -74,9 +84,6 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
             }
         }.start();
     }
-    
-    
-    
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
@@ -348,17 +355,15 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-
-        
-        if(FornecedorRetorno.getIdFornecedores() != 0){
+        if (FornecedorRetorno.getIdFornecedores() == 0) {
             selecionarCamposFornecedores();
-            fdao.Create(Fornecedor);    
+            fdao.Create(Fornecedor);
+            limparDados();
         } else {
+            selecionarCamposFornecedoresUpdate();
             fdao.Update(FornecedorRetorno);
+            limparDados();
         }
-          
-        selecionarCamposFornecedores();
-        fdao.Create(Fornecedor);
 
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -413,12 +418,25 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         Fornecedor.setCnpj(txtCNPJ.getText());
         Fornecedor.setInscricaoEstadual(txtInscricaoEstadual.getText());
         Fornecedor.setEmail(txtEmail.getText());
-        Fornecedor.setTelefone(txtEmail.getText());
+        Fornecedor.setTelefone(txtTelefone.getText());
         Fornecedor.setCep(txtCEP.getText());
         Fornecedor.setEndereco(txtEndereco.getText());
         Fornecedor.setEstado((String) comboEstado.getSelectedItem());
         Fornecedor.setCidade(txtCidade.getText());
         Fornecedor.setBairro(txtBairro.getText());
+    }
+    
+    public void selecionarCamposFornecedoresUpdate() {
+        FornecedorRetorno.setRazaoSocial(txtRazaoSocial.getText());
+        FornecedorRetorno.setCnpj(txtCNPJ.getText());
+        FornecedorRetorno.setInscricaoEstadual(txtInscricaoEstadual.getText());
+        FornecedorRetorno.setEmail(txtEmail.getText());
+        FornecedorRetorno.setTelefone(txtTelefone.getText());
+        FornecedorRetorno.setCep(txtCEP.getText());
+        FornecedorRetorno.setEndereco(txtEndereco.getText());
+        FornecedorRetorno.setEstado((String) comboEstado.getSelectedItem());
+        FornecedorRetorno.setCidade(txtCidade.getText());
+        FornecedorRetorno.setBairro(txtBairro.getText());
     }
 
     /**

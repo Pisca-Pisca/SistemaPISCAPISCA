@@ -137,10 +137,11 @@ public class FuncionariosDAO {
                 Funcionario.setCidade(rs.getString("Cidade"));
                 Funcionario.setBairro(rs.getString("Bairro"));
                 Funcionario.setEmail(rs.getString("Email"));
-                Funcionario.setEmail(rs.getString("Senha"));
+                Funcionario.setSenha(rs.getString("Senha"));
                 Funcionario.setTelefone(rs.getString("Telefone"));
                 Funcionario.setUrl_Img(rs.getBytes("Url_Img"));
-                Funcionario.setTipo_Acesso(rs.getInt("Tipo_Acesso_idTipo_Acesso"));
+                Funcionario.setTipo_Acesso(rs.getInt("Tipo_Acesso"));
+                Funcionario.setIdFuncionario(rs.getInt("IdFuncionarios"));
 
                 Funcionarios.add(Funcionario);
 
@@ -183,6 +184,8 @@ public class FuncionariosDAO {
             stmt.setInt(17, F.getTipo_Acesso());
 
             stmt.setInt(18, F.getIdFuncionario());
+            
+            stmt.executeUpdate();
 
             UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
             dialog.enviaDados("Atualização de Funcionário", "Funcionário atualizado com Sucesso!");

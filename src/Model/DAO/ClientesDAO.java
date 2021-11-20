@@ -30,27 +30,22 @@ public class ClientesDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO Clientes(CodigoCliente, DateNascimento, NomeCliente, RazaoSocial, Cpf, Cnpj, Rg, IncricaoEstadual, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO Clientes (CodigoCliente, DateNascimento, NomeCliente, Cpf, Rg, Endereco, Cep, Estado, Cidade, Bairro, Email, Telefone) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
 
             stmt.setInt(1, C.getCodigoCliente());
             stmt.setString(2, C.getDateNascimento());
             stmt.setString(3, C.getNomeCliente());
-            stmt.setString(4, C.getRazaoSocial());
-            stmt.setString(5, C.getCpf());
-            stmt.setString(6, C.getCnpj());
-            stmt.setString(7, C.getRg());
-            stmt.setString(8, C.getInscricaoEstadual());
-            stmt.setString(9, C.getEndereco());
-            stmt.setString(10, C.getEstado());
-            stmt.setString(11, C.getCep());
-            stmt.setString(12, C.getCidade());
-            stmt.setString(13, C.getBairro());
-            stmt.setString(14, C.getEmail());
-            stmt.setString(15, C.getTelefone());
+            stmt.setString(4, C.getCpf());
+            stmt.setString(5, C.getRg());
+            stmt.setString(6, C.getEndereco());
+            stmt.setInt(8, C.getEstado());
+            stmt.setString(7, C.getCep());
+            stmt.setString(9, C.getCidade());
+            stmt.setString(10, C.getBairro());
+            stmt.setString(11, C.getEmail());
+            stmt.setString(12, C.getTelefone());
 
             stmt.executeUpdate();
-
-            System.out.println("Testar String:" + stmt);
 
             UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);
             dialog.enviaDados("Cadastro de Cliente", "Cliente salvo com Sucesso!");
@@ -83,14 +78,11 @@ public class ClientesDAO {
                 cliente.setCodigoCliente(rs.getInt("CodigoCliente"));
                 cliente.setDateNascimento(rs.getString("DateNascimento"));
                 cliente.setNomeCliente(rs.getString("NomeCliente"));
-                cliente.setRazaoSocial(rs.getString("RazaoSocial"));
                 cliente.setCpf(rs.getString("Cpf"));
-                cliente.setCnpj(rs.getString("Cnpj"));
                 cliente.setRg(rs.getString("Rg"));
-                cliente.setInscricaoEstadual(rs.getString("InscricaoEstadual"));
                 cliente.setEndereco(rs.getString("Endereco"));
                 cliente.setCep(rs.getString("Cep"));
-                cliente.setEstado(rs.getString("Estado"));
+                cliente.setEstado(rs.getInt("Estado"));
                 cliente.setCidade(rs.getString("Cidade"));
                 cliente.setBairro(rs.getString("Bairro"));
                 cliente.setEmail(rs.getString("Email"));
@@ -128,14 +120,11 @@ public class ClientesDAO {
                 cliente.setCodigoCliente(rs.getInt("CodigoCliente"));
                 cliente.setDateNascimento(rs.getString("DateNascimento"));
                 cliente.setNomeCliente(rs.getString("NomeCliente"));
-                cliente.setRazaoSocial(rs.getString("RazaoSocial"));
                 cliente.setCpf(rs.getString("Cpf"));
-                cliente.setCnpj(rs.getString("Cnpj"));
                 cliente.setRg(rs.getString("Rg"));
-                cliente.setInscricaoEstadual(rs.getString("InscricaoEstadual"));
                 cliente.setEndereco(rs.getString("Endereco"));
                 cliente.setCep(rs.getString("Cep"));
-                cliente.setEstado(rs.getString("Estado"));
+                cliente.setEstado(rs.getInt("Estado"));
                 cliente.setCidade(rs.getString("Cidade"));
                 cliente.setBairro(rs.getString("Bairro"));
                 cliente.setEmail(rs.getString("Email"));
@@ -160,24 +149,24 @@ public class ClientesDAO {
 
         try {
 
-            stmt = con.prepareStatement("UPDATE Clientes SET CodigoCliente = ?, DateNascimento = ?, NomeCliente = ?, RazaoSocial = ?, Cpf = ?, Cnpj = ?, Rg = ?, InscricaoEstadual = ?, Endereco = ?, Cep = ?, Estado = ?, Cidade = ?, Bairro = ?, Email = ?, Telefone = ? WHERE idCliente = ?");
+            stmt = con.prepareStatement("UPDATE Clientes SET CodigoCliente = ?, DateNascimento = ?, NomeCliente = ?, Cpf = ?, Rg = ?, Endereco = ?, Cep = ?, Estado = ?, Cidade = ?, Bairro = ?, Email = ?, Telefone = ? WHERE idCliente = ?");
 
             stmt.setInt(1, C.getCodigoCliente());
             stmt.setString(2, C.getDateNascimento());
             stmt.setString(3, C.getNomeCliente());
-            stmt.setString(4, C.getRazaoSocial());
-            stmt.setString(5, C.getCpf());
-            stmt.setString(6, C.getCnpj());
-            stmt.setString(7, C.getRg());
-            stmt.setString(8, C.getInscricaoEstadual());
-            stmt.setString(9, C.getEndereco());
-            stmt.setString(10, C.getEstado());
-            stmt.setString(11, C.getCep());
-            stmt.setString(12, C.getCidade());
-            stmt.setString(13, C.getBairro());
-            stmt.setString(14, C.getEmail());
-            stmt.setString(15, C.getTelefone());
-            stmt.setInt(16, C.getIdCliente());
+            stmt.setString(4, C.getCpf());
+            stmt.setString(5, C.getRg());
+            stmt.setString(6, C.getEndereco());
+            stmt.setInt(8, C.getEstado());
+            stmt.setString(7, C.getCep());
+            stmt.setString(9, C.getCidade());
+            stmt.setString(10, C.getBairro());
+            stmt.setString(11, C.getEmail());
+            stmt.setString(12, C.getTelefone());
+            stmt.setInt(13, C.getIdCliente());
+            
+
+            System.out.println("Testar String:" + stmt);
 
             stmt.executeUpdate();
 
@@ -199,10 +188,13 @@ public class ClientesDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM Cliente WHERE idCliente = ?");
+            stmt = con.prepareStatement("DELETE FROM Clientes WHERE NomeCliente = ?");
 
-            stmt.setInt(1, C.getIdCliente());
+            stmt.setString(1, C.getNomeCliente());
 
+            
+            System.out.println(stmt);
+            
             stmt.executeUpdate();
 
             UI_Modal dialog = new UI_Modal(new javax.swing.JFrame(), true);

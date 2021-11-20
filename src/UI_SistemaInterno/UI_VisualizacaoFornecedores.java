@@ -8,8 +8,6 @@ package UI_SistemaInterno;
 
 import Model.DAO.Fornecedores;
 import Model.DAO.FornecedoresDAO;
-import Model.DAO.Produtos;
-import Model.DAO.ProdutosDAO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -41,7 +39,6 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         modelo.setNumRows(0);
 
         FornecedoresDAO fdao = new FornecedoresDAO();
-        ImageIcon image;
         for (Fornecedores p : fdao.Read()) {
             
 
@@ -58,7 +55,6 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         modelo.setNumRows(0);
 
         FornecedoresDAO fdao = new FornecedoresDAO();
-        ImageIcon image;
         for (Fornecedores p : fdao.ReadByName(Nome)) {
             
 
@@ -413,7 +409,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         FornecedoresDAO fdao = new FornecedoresDAO();
         String Cnpj;
         
-        Cnpj = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
+        Cnpj = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
 
         for (Fornecedores f : fdao.ReadByName(Cnpj)) {
 
@@ -442,7 +438,7 @@ public class UI_VisualizacaoFornecedores extends javax.swing.JFrame {
         String Cnpj;
    
 
-        Cnpj = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
+        Cnpj = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
 
         for (Fornecedores f : fdao.ReadByName(Cnpj)) {
 

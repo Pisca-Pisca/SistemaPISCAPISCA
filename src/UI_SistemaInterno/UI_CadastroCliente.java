@@ -12,7 +12,6 @@ import Connection.ConnectionFacPisca;
 import Model.DAO.Clientes;
 import Model.DAO.ClientesDAO;
 import Model.DAO.Funcionarios;
-import Model.DAO.Produtos;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -41,23 +40,11 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
                 txtCelTel.setText(ClienteRetorno.getTelefone());
                 txtBairro.setText(ClienteRetorno.getBairro());
                 txtCidade.setText(ClienteRetorno.getCidade());
-                comboEstado.setSelectedItem(ClienteRetorno.getEstado());
+                comboEstado.setSelectedIndex(ClienteRetorno.getEstado());
                 txtEmail.setText(ClienteRetorno.getEmail());
                 txtEndereco.setText(ClienteRetorno.getEndereco());
+                txtCEP.setText(ClienteRetorno.getCep());
 
-            }
-            if (ClienteRetorno.getCnpj() != "") {
-                txtCodigoCliente.setText(String.valueOf(ClienteRetorno.getCodigoCliente()));
-                txtNomeRazaoSocial.setText(ClienteRetorno.getRazaoSocial());
-                txtCPF_CNPJ.setText(ClienteRetorno.getCnpj());
-                txtRGInscricao1.setText(ClienteRetorno.getInscricaoEstadual());
-                txtDataNascimento.setText(ClienteRetorno.getDateNascimento());
-                txtCelTel.setText(ClienteRetorno.getTelefone());
-                txtBairro.setText(ClienteRetorno.getBairro());
-                txtCidade.setText(ClienteRetorno.getCidade());
-                comboEstado.setSelectedItem(ClienteRetorno.getEstado());
-                txtEmail.setText(ClienteRetorno.getEmail());
-                txtEndereco.setText(ClienteRetorno.getEndereco());
             }
         }
     }
@@ -393,25 +380,22 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         if (ClienteRetorno.getIdCliente() == 0) {
-            cadastraClientePisca(NovoCliente);
+            selecionarCampos();
+            cdao.Create(NovoCliente);
             limparCamposClientes();
         }
         if (ClienteRetorno.getIdCliente() != 0) {
             selecionarProdutoRetorno();
             cdao.Update(ClienteRetorno);
+            limparCamposClientes();
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     public void selecionarProdutoRetorno() {
         ClienteRetorno.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
-
-        NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
-
-        NovoCliente.setCpf(txtCPF_CNPJ.getText());
-
-        NovoCliente.setRg(txtRGInscricao1.getText());
-
-
+        ClienteRetorno.setNomeCliente(txtNomeRazaoSocial.getText());
+        ClienteRetorno.setCpf(txtCPF_CNPJ.getText());
+        ClienteRetorno.setRg(txtRGInscricao1.getText());
         ClienteRetorno.setDateNascimento(txtDataNascimento.getText());
         ClienteRetorno.setEmail(txtEmail.getText());
         ClienteRetorno.setTelefone(txtCelTel.getText());
@@ -419,7 +403,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         ClienteRetorno.setEndereco(txtEndereco.getText());
         ClienteRetorno.setBairro(txtBairro.getText());
         ClienteRetorno.setCidade(txtCidade.getText());
-        ClienteRetorno.setEstado((String) comboEstado.getSelectedItem());
+        ClienteRetorno.setEstado(comboEstado.getSelectedIndex());
     }
     private void btnVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaActionPerformed
         UI_Carrinho carrinho = new UI_Carrinho();
@@ -518,18 +502,12 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         });
     }
 
-    private void cadastraClientePisca(Clientes NovoCliente) {
-
-        this.conectar.conectaBanco();
+    private void selecionarCampos() {
 
         NovoCliente.setCodigoCliente(Integer.parseInt(txtCodigoCliente.getText()));
-
         NovoCliente.setNomeCliente(txtNomeRazaoSocial.getText());
-
         NovoCliente.setCpf(txtCPF_CNPJ.getText());
-
         NovoCliente.setRg(txtRGInscricao1.getText());
-
         NovoCliente.setDateNascimento(txtDataNascimento.getText());
         NovoCliente.setEmail(txtEmail.getText());
         NovoCliente.setTelefone(txtCelTel.getText());
@@ -537,56 +515,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         NovoCliente.setEndereco(txtEndereco.getText());
         NovoCliente.setBairro(txtBairro.getText());
         NovoCliente.setCidade(txtCidade.getText());
-        NovoCliente.setEstado((String) comboEstado.getSelectedItem());
-
-        try {
-
-            this.conectar.insertSQL("INSERT INTO Clientes ("
-                    + "CodigoCliente,"
-                    + "DateNascimento,"
-                    + "NomeCliente,"
-                    + "RazãoSocial,"
-                    + "Cpf,"
-                    + "Cnpj,"
-                    + "Rg,"
-                    + "InscricaoEstadual,"
-                    + "Endereco,"
-                    + "Cep,"
-                    + "Estado,"
-                    + "Cidade,"
-                    + "Bairro,"
-                    + "Email,"
-                    + "Telefone,"
-                    + ") VALUES ("
-                    + "" + NovoCliente.getCodigoCliente() + ","
-                    + "'" + NovoCliente.getDateNascimento() + "',"
-                    + "'" + NovoCliente.getNomeCliente() + "',"
-                    + "'" + NovoCliente.getRazaoSocial() + "',"
-                    + "'" + NovoCliente.getCpf() + "',"
-                    + "'" + NovoCliente.getCnpj() + "',"
-                    + "'" + NovoCliente.getRg() + "',"
-                    + "'" + NovoCliente.getInscricaoEstadual() + "',"
-                    + "'" + NovoCliente.getEndereco() + "',"
-                    + "'" + NovoCliente.getCep() + "',"
-                    + "'" + NovoCliente.getEstado() + "',"
-                    + "'" + NovoCliente.getCidade() + "',"
-                    + "'" + NovoCliente.getBairro() + "',"
-                    + "'" + NovoCliente.getEmail() + "',"
-                    + "'" + NovoCliente.getTelefone() + "',"
-                    + ");");
-
-            System.out.println("Cliente:" + NovoCliente);
-
-        } catch (Exception e) {
-
-            System.out.println("Erro ao cadastrar um cliente " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar Cliente");
-
-        } finally {
-            this.conectar.fechaBanco();
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
-
-        }
+        NovoCliente.setEstado(comboEstado.getSelectedIndex());
 
     }
 
