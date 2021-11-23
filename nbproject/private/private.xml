@@ -3,39 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoProduto.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/Model/DAO/Produtos.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/Model/DAO/ProdutosDAO.java</file>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_Catalogo.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_Inicio.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_FinanceiroConsulta.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_FinanceiroDadosBoleto.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoFornecedores.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_FechamentoCaixa.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoClientes.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoFuncionario.java</file>
-            <file>file:/C:/PROJETOS/ATIVIDADES-FACENS/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoProduto.java</file>
-=======
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_VisualizacaoFornecedores.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroCliente.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroProduto.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroFornecedor.java</file>
-            <file>file:/C:/Users/lucve/Documents/NetBeansProjects/PiscaPisca/SistemaPISCAPISCA/src/Model/DAO/FornecedoresDAO.java</file>
->>>>>>> d4b6881f9a0d2452afdc9a47066e30a8e75e0f75
-=======
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_Caixa.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_FinanceiroDadosBoleto.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroCliente.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_ModalFechamentoCaixa.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroFuncionario.java</file>
-            <file>file:/C:/workspace/ws-java/SistemaInternoPisca/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_FechamentoCaixa.java</file>
->>>>>>> 4298f9f84ead2f2c17bc5f5076318e8e189fc76e
->>>>>>> ef82714fd17ec9ef653437d60c9b3d126c8aaa7a
+            <file>file:/C:/Users/lnaga/OneDrive/Área%20de%20Trabalho/PROJETOS%20GITHUB/SistemaPISCAPISCA/src/UI_SistemaInterno/validar.java</file>
+            <file>file:/C:/Users/lnaga/OneDrive/Área%20de%20Trabalho/PROJETOS%20GITHUB/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroFuncionario.java</file>
+            <file>file:/C:/Users/lnaga/OneDrive/Área%20de%20Trabalho/PROJETOS%20GITHUB/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroFornecedor.java</file>
+            <file>file:/C:/Users/lnaga/OneDrive/Área%20de%20Trabalho/PROJETOS%20GITHUB/SistemaPISCAPISCA/src/UI_SistemaInterno/UI_CadastroCliente.java</file>
         </group>
     </open-files>
 </project-private>

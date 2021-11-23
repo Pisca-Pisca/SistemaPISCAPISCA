@@ -122,4 +122,8 @@ public class Fornecedores {
         this.Telefone = Telefone;
     }
 
+    public boolean isSelected() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

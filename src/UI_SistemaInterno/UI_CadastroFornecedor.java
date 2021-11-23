@@ -23,6 +23,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     Fornecedores Fornecedor = new Fornecedores();
     Fornecedores FornecedorRetorno = new Fornecedores();
     FornecedoresDAO fdao = new FornecedoresDAO();
+    validar Validar = new validar();
 
     public UI_CadastroFornecedor(Fornecedores fornecedorRetorno) {
         initComponents();
@@ -300,7 +301,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
             }
         });
         baseTela.add(btnLogout);
-        btnLogout.setBounds(1790, 150, 110, 30);
+        btnLogout.setBounds(1780, 150, 120, 30);
 
         btnVisualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BTN VISUALIZAÇÃO.png"))); // NOI18N
@@ -355,24 +356,26 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if (FornecedorRetorno.getIdFornecedores() == 0) {
-            selecionarCamposFornecedores();
-            fdao.Create(Fornecedor);
-            limparDados();
+
+        boolean docValido = false;
+
+        docValido = Validar.CNPJValido(txtCNPJ.getText());
+
+        if (docValido) {
+            if (FornecedorRetorno.getIdFornecedores() == 0) {
+                selecionarCamposFornecedores();
+                fdao.Create(Fornecedor);
+                limparDados();
+            }
+            if (FornecedorRetorno.getIdFornecedores() != 0) {
+                selecionarCamposFornecedoresUpdate();
+                fdao.Update(FornecedorRetorno);
+                limparDados();
+            }
         } else {
-            selecionarCamposFornecedoresUpdate();
-            fdao.Update(FornecedorRetorno);
-            limparDados();
+            //MOSTRAR O ERRO
         }
-
     }//GEN-LAST:event_btnEnviarActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        UI_Login login = new UI_Login();
-        login.setVisible(true);
-
-        dispose();
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
         UI_Catalogo catalogo = new UI_Catalogo();
@@ -413,6 +416,13 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnVisualizarMouseClicked
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        UI_Login login = new UI_Login();
+        login.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     public void selecionarCamposFornecedores() {
         Fornecedor.setRazaoSocial(txtRazaoSocial.getText());
         Fornecedor.setCnpj(txtCNPJ.getText());
@@ -425,7 +435,7 @@ public class UI_CadastroFornecedor extends javax.swing.JFrame {
         Fornecedor.setCidade(txtCidade.getText());
         Fornecedor.setBairro(txtBairro.getText());
     }
-    
+
     public void selecionarCamposFornecedoresUpdate() {
         FornecedorRetorno.setRazaoSocial(txtRazaoSocial.getText());
         FornecedorRetorno.setCnpj(txtCNPJ.getText());

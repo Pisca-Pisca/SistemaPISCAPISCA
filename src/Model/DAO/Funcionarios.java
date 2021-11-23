@@ -190,4 +190,8 @@ public class Funcionarios {
     public void setTipo_Acesso(int Tipo_Acesso) {
         this.Tipo_Acesso = Tipo_Acesso;
     }   
+
+    public boolean isSelected() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
