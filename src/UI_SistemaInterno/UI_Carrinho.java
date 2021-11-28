@@ -464,6 +464,46 @@ public class UI_Carrinho extends javax.swing.JFrame {
             }
         });
     }
+    
+    //Lógica do carrinho
+    public static class itemDeInteresse {
+
+        public String nomeItem;
+        public int precoItem;
+        public int qntdItem;
+
+        //valores fake, dps será integrado com o BD
+        public itemDeInteresse() {
+            nomeItem = "n/a";
+            precoItem = 0;
+            qntdItem = 1;
+        }
+      public String getNome() {
+            return nomeItem;
+        }
+
+        public void setNome(String nome) {
+            nome = nomeItem;
+        }
+        
+         public int getQntd() {
+            return qntdItem;
+        }
+         
+         public void setQntd(int quantidade) {
+            quantidade = qntdItem;
+            
+         }
+            //precoItem
+           
+         public int getPreco() {
+             return precoItem;
+         }
+        
+         public void setPreco(int preco) {
+            preco = precoItem;
+            
+         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel baseTela;
