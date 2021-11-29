@@ -33,6 +33,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     Funcionarios F = new Funcionarios();
     FuncionariosDAO dao = new FuncionariosDAO();
     Funcionarios FuncionarioRetorno = new Funcionarios();
+    validar Validar = new validar();
 
     /**
      * Creates new form UI_CadastroFuncionario
@@ -69,7 +70,7 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
         }.start();
 
         FuncionarioRetorno = FuncionariosRetorno;
-        
+
         if (FuncionarioRetorno.getIdFuncionario() != 0) {
             txtBairro.setText(FuncionarioRetorno.getBairro());
             txtCEP.setText(FuncionarioRetorno.getCep());
@@ -618,47 +619,56 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendaActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if (FuncionarioRetorno.getIdFuncionario() == 0) {
-            F.setCodigoFunconario(Integer.parseInt(txtCodigoFuncionario.getText()));
-            F.setNomeFuncionario(txtNomeCompleto.getText());
-            F.setDataNascimento(txtDataNascimento.getText());
-            F.setAdmicao(txtDataAdimissao.getText());
-            F.setDesligamento(txtDataDesligamento.getText());
-            F.setRg(txtRG.getText());
-            F.setCpf(txtCPF.getText());
-            F.setEndereco(txtEndereco.getText());
-            F.setCep(txtCEP.getText());
-            F.setEstado(comboEstado.getSelectedIndex());
-            F.setCidade(txtCidade.getText());
-            F.setBairro(txtBairro.getText());
-            F.setEmail(txtEmail.getText());
-            F.setSenha(txtSenha.getText());
-            F.setTelefone(celOuFixo.getText());
-            F.setTipo_Acesso(comboTipoAcesso.getSelectedIndex());
 
-            dao.Create(F);
+        boolean docValido = false;
+
+        docValido = Validar.CPFValido(txtCPF.getText());
+
+        if (docValido) {
+
+            if (FuncionarioRetorno.getIdFuncionario() == 0) {
+                F.setCodigoFunconario(Integer.parseInt(txtCodigoFuncionario.getText()));
+                F.setNomeFuncionario(txtNomeCompleto.getText());
+                F.setDataNascimento(txtDataNascimento.getText());
+                F.setAdmicao(txtDataAdimissao.getText());
+                F.setDesligamento(txtDataDesligamento.getText());
+                F.setRg(txtRG.getText());
+                F.setCpf(txtCPF.getText());
+                F.setEndereco(txtEndereco.getText());
+                F.setCep(txtCEP.getText());
+                F.setEstado(comboEstado.getSelectedIndex());
+                F.setCidade(txtCidade.getText());
+                F.setBairro(txtBairro.getText());
+                F.setEmail(txtEmail.getText());
+                F.setSenha(txtSenha.getText());
+                F.setTelefone(celOuFixo.getText());
+                F.setTipo_Acesso(comboTipoAcesso.getSelectedIndex());
+
+                dao.Create(F);
+            } else {
+                FuncionarioRetorno.setCodigoFunconario(Integer.parseInt(txtCodigoFuncionario.getText()));
+                FuncionarioRetorno.setNomeFuncionario(txtNomeCompleto.getText());
+                FuncionarioRetorno.setDataNascimento(txtDataNascimento.getText());
+                FuncionarioRetorno.setAdmicao(txtDataAdimissao.getText());
+                FuncionarioRetorno.setDesligamento(txtDataDesligamento.getText());
+                FuncionarioRetorno.setRg(txtRG.getText());
+                FuncionarioRetorno.setCpf(txtCPF.getText());
+                FuncionarioRetorno.setEndereco(txtEndereco.getText());
+                FuncionarioRetorno.setCep(txtCEP.getText());
+                FuncionarioRetorno.setEstado(comboEstado.getSelectedIndex());
+                FuncionarioRetorno.setCidade(txtCidade.getText());
+                FuncionarioRetorno.setBairro(txtBairro.getText());
+                FuncionarioRetorno.setEmail(txtEmail.getText());
+                FuncionarioRetorno.setSenha(txtSenha.getText());
+                FuncionarioRetorno.setTelefone(celOuFixo.getText());
+                FuncionarioRetorno.setTipo_Acesso(comboTipoAcesso.getSelectedIndex());
+
+                dao.Update(FuncionarioRetorno);
+            }
+            limparCamposProdutos();
         } else {
-            FuncionarioRetorno.setCodigoFunconario(Integer.parseInt(txtCodigoFuncionario.getText()));
-            FuncionarioRetorno.setNomeFuncionario(txtNomeCompleto.getText());
-            FuncionarioRetorno.setDataNascimento(txtDataNascimento.getText());
-            FuncionarioRetorno.setAdmicao(txtDataAdimissao.getText());
-            FuncionarioRetorno.setDesligamento(txtDataDesligamento.getText());
-            FuncionarioRetorno.setRg(txtRG.getText());
-            FuncionarioRetorno.setCpf(txtCPF.getText());
-            FuncionarioRetorno.setEndereco(txtEndereco.getText());
-            FuncionarioRetorno.setCep(txtCEP.getText());
-            FuncionarioRetorno.setEstado(comboEstado.getSelectedIndex());
-            FuncionarioRetorno.setCidade(txtCidade.getText());
-            FuncionarioRetorno.setBairro(txtBairro.getText());
-            FuncionarioRetorno.setEmail(txtEmail.getText());
-            FuncionarioRetorno.setSenha(txtSenha.getText());
-            FuncionarioRetorno.setTelefone(celOuFixo.getText());
-            FuncionarioRetorno.setTipo_Acesso(comboTipoAcesso.getSelectedIndex());
-
-            dao.Update(FuncionarioRetorno);
+            // MOSTRAR A MODAL COM ERRO DE CPF
         }
-
-        limparCamposProdutos();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed

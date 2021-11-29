@@ -25,6 +25,7 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     Clientes NovoCliente = new Clientes(); //acessar os atributos da classe produtos
     Clientes ClienteRetorno = new Clientes();
     ClientesDAO cdao = new ClientesDAO();
+    validar Validar = new validar();
 
     public UI_CadastroCliente(Clientes ClientesRetorno) {
         initComponents();
@@ -176,6 +177,11 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
         txtCPF_CNPJ.setBackground(new java.awt.Color(187, 184, 184));
         txtCPF_CNPJ.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCPF_CNPJ.setBorder(null);
+        txtCPF_CNPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCPF_CNPJActionPerformed(evt);
+            }
+        });
         baseTala.add(txtCPF_CNPJ);
         txtCPF_CNPJ.setBounds(1400, 470, 390, 40);
 
@@ -379,15 +385,24 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if (ClienteRetorno.getIdCliente() == 0) {
-            selecionarCampos();
-            cdao.Create(NovoCliente);
-            limparCamposClientes();
-        }
-        if (ClienteRetorno.getIdCliente() != 0) {
-            selecionarProdutoRetorno();
-            cdao.Update(ClienteRetorno);
-            limparCamposClientes();
+
+        boolean docValido = false;
+
+        docValido = Validar.CPFValido(txtCPF_CNPJ.getText());
+
+        if (docValido) {
+            if (ClienteRetorno.getIdCliente() == 0) {
+                selecionarCampos();
+                cdao.Create(NovoCliente);
+                limparCamposClientes();
+            }
+            if (ClienteRetorno.getIdCliente() != 0) {
+                selecionarProdutoRetorno();
+                cdao.Update(ClienteRetorno);
+                limparCamposClientes();
+            }
+        } else {
+            //MOSTRAR ERRO AQUI
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -465,6 +480,10 @@ public class UI_CadastroCliente extends javax.swing.JFrame {
 
         dispose();
     }//GEN-LAST:event_btnVisualizarMouseClicked
+
+    private void txtCPF_CNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPF_CNPJActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCPF_CNPJActionPerformed
 
     /**
      * @param args the command line arguments
