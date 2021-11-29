@@ -82,7 +82,6 @@ public class UI_Boleto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(null);
 
         baseTela.setBackground(new java.awt.Color(57, 57, 57));
         baseTela.setLayout(null);
@@ -241,8 +240,16 @@ public class UI_Boleto extends javax.swing.JFrame {
         baseTela.add(imgTela);
         imgTela.setBounds(0, 0, 1921, 1080);
 
-        getContentPane().add(baseTela);
-        baseTela.setBounds(0, 0, 1920, 1080);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
