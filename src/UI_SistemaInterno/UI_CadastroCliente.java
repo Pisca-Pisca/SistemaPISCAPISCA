@@ -5,6 +5,7 @@
  */
 package UI_SistemaInterno;
 
+import sistemainternopisca.validar;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;

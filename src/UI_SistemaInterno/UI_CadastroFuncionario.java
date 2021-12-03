@@ -5,6 +5,7 @@
  */
 package UI_SistemaInterno;
 
+import sistemainternopisca.validar;
 import Model.DAO.Funcionarios;
 import java.awt.image.BufferedImage;
 import java.io.File;
