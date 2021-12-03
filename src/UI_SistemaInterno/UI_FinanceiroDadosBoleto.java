@@ -182,45 +182,65 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
         btnPesquisar.setContentAreaFilled(false);
         btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        txtRazaoSocial.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtRazaoSocial.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtRazaoSocial.setForeground(new java.awt.Color(153, 153, 153));
+        txtRazaoSocial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRazaoSocial.setText("PISCA PISCA ILUMINAÇÃO E AUTOMAÇÃO RESIDENCIAL LTDA.");
 
         txtCNPJ.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtCNPJ.setForeground(new java.awt.Color(153, 153, 153));
+        txtCNPJ.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCNPJ.setText("00.000.000/0001-10");
 
         txtCEP.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtCEP.setForeground(new java.awt.Color(153, 153, 153));
+        txtCEP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCEP.setText("01301-00 ");
 
         txtEndereço.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtEndereço.setForeground(new java.awt.Color(153, 153, 153));
+        txtEndereço.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtEndereço.setText("Rua das Constelação, Nº 2007");
 
         txtBairro.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtBairro.setForeground(new java.awt.Color(153, 153, 153));
+        txtBairro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtBairro.setText("Consolação");
 
         txtCidade.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtCidade.setForeground(new java.awt.Color(153, 153, 153));
+        txtCidade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCidade.setText("São Paulo");
 
         txtEstado.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtEstado.setForeground(new java.awt.Color(153, 153, 153));
+        txtEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtEstado.setText("SP");
 
         txtCliente.setBackground(new java.awt.Color(187, 184, 184));
         txtCliente.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtCliente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCliente.setBorder(null);
 
         txtNome.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         txtCPF.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtCPF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         txtDataProcessamento.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtDataProcessamento.setForeground(new java.awt.Color(153, 153, 153));
+        txtDataProcessamento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         txtVencimento.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
 
         txtValor.setBackground(new java.awt.Color(187, 184, 184));
         txtValor.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtValor.setBorder(null);
 
         txtDocumento.setBackground(new java.awt.Color(187, 184, 184));
+        txtDocumento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDocumento.setBorder(null);
 
         btnLogout.setBorderPainted(false);
@@ -241,6 +261,7 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         imgTela.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        imgTela.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/DadosBoleto.png"))); // NOI18N
 
         javax.swing.GroupLayout baseTelaLayout = new javax.swing.GroupLayout(baseTela);
@@ -263,9 +284,6 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(1790, 1790, 1790)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(570, 570, 570)
-                .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(1690, 1690, 1690)
@@ -277,12 +295,6 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
                 .addGap(1720, 1720, 1720)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1140, 1140, 1140)
-                .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1480, 1480, 1480)
-                .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(baseTelaLayout.createSequentialGroup()
                 .addGap(110, 110, 110)
@@ -322,6 +334,16 @@ public class UI_FinanceiroDadosBoleto extends javax.swing.JFrame {
                     .addGroup(baseTelaLayout.createSequentialGroup()
                         .addGap(595, 595, 595)
                         .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(570, 570, 570)
+                .addComponent(txtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(393, 393, 393)
+                        .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         baseTelaLayout.setVerticalGroup(
             baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

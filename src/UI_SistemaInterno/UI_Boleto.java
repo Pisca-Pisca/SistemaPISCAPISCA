@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package UI_SistemaInterno;
 
 import Model.DAO.Funcionarios;
@@ -71,6 +67,7 @@ public class UI_Boleto extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JLabel();
         txtAgencia = new javax.swing.JLabel();
         txtNumeroDocumento = new javax.swing.JLabel();
+        txtNumeroDocumento1 = new javax.swing.JLabel();
         txtCpfBeneficiario = new javax.swing.JLabel();
         txtVencimento = new javax.swing.JLabel();
         txtValor = new javax.swing.JLabel();
@@ -78,6 +75,7 @@ public class UI_Boleto extends javax.swing.JFrame {
         txtValor1 = new javax.swing.JLabel();
         txtNomeCliente = new javax.swing.JLabel();
         txtCpfCliente = new javax.swing.JLabel();
+        txtAgencia1 = new javax.swing.JLabel();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -198,14 +196,18 @@ public class UI_Boleto extends javax.swing.JFrame {
         txtUsuario.setBounds(1710, 100, 190, 30);
 
         txtAgencia.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        txtAgencia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAgencia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txtAgencia.setText("22252-99");
         baseTela.add(txtAgencia);
-        txtAgencia.setBounds(1040, 390, 150, 40);
+        txtAgencia.setBounds(1310, 680, 150, 40);
 
         txtNumeroDocumento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         baseTela.add(txtNumeroDocumento);
-        txtNumeroDocumento.setBounds(800, 440, 130, 20);
+        txtNumeroDocumento.setBounds(920, 730, 60, 20);
+
+        txtNumeroDocumento1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        baseTela.add(txtNumeroDocumento1);
+        txtNumeroDocumento1.setBounds(800, 440, 130, 20);
 
         txtCpfBeneficiario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         baseTela.add(txtCpfBeneficiario);
@@ -234,6 +236,12 @@ public class UI_Boleto extends javax.swing.JFrame {
         txtCpfCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         baseTela.add(txtCpfCliente);
         txtCpfCliente.setBounds(740, 960, 350, 20);
+
+        txtAgencia1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        txtAgencia1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAgencia1.setText("22252-99");
+        baseTela.add(txtAgencia1);
+        txtAgencia1.setBounds(1040, 390, 150, 40);
 
         imgTela.setForeground(new java.awt.Color(255, 255, 255));
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boleto (2).png"))); // NOI18N
@@ -302,7 +310,10 @@ public class UI_Boleto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        // TODO add your handling code here:
+        UI_ModalImpressaoDeDocumento impressao = new UI_ModalImpressaoDeDocumento();
+        impressao.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -360,11 +371,13 @@ public class UI_Boleto extends javax.swing.JFrame {
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;
     private javax.swing.JLabel txtAgencia;
+    private javax.swing.JLabel txtAgencia1;
     private javax.swing.JLabel txtCpfBeneficiario;
     private javax.swing.JLabel txtCpfCliente;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtNomeCliente;
     private javax.swing.JLabel txtNumeroDocumento;
+    private javax.swing.JLabel txtNumeroDocumento1;
     private javax.swing.JLabel txtUsuario;
     private javax.swing.JLabel txtValor;
     private javax.swing.JLabel txtValor1;
