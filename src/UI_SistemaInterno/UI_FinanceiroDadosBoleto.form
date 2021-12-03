@@ -65,10 +65,6 @@
                   <EmptySpace min="1790" pref="1790" max="-2" attributes="0"/>
                   <Component id="btnLogout" min="-2" pref="110" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="570" pref="570" max="-2" attributes="0"/>
-                  <Component id="txtRazaoSocial" min="-2" pref="510" max="-2" attributes="0"/>
-              </Group>
               <Component id="btnVenda" min="-2" pref="360" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace min="1690" pref="1690" max="-2" attributes="0"/>
@@ -83,14 +79,6 @@
                   <Component id="txtUsuario" min="-2" pref="182" max="-2" attributes="0"/>
               </Group>
               <Component id="btnFinanceiro" min="-2" pref="360" max="-2" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="1140" pref="1140" max="-2" attributes="0"/>
-                  <Component id="txtCNPJ" min="-2" pref="290" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="1480" pref="1480" max="-2" attributes="0"/>
-                  <Component id="txtCEP" min="-2" pref="250" max="-2" attributes="0"/>
-              </Group>
               <Component id="btnProdutos" min="-2" pref="360" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
@@ -140,6 +128,20 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="597" max="-2" attributes="0"/>
                           <Component id="txtDocumento" min="-2" pref="320" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="570" max="-2" attributes="0"/>
+                  <Component id="txtRazaoSocial" min="-2" pref="517" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="txtCNPJ" min="-2" pref="290" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="393" max="-2" attributes="0"/>
+                          <Component id="txtCEP" min="-2" pref="250" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -376,11 +378,13 @@
         <Component class="javax.swing.JLabel" name="txtRazaoSocial">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="24" style="1"/>
+              <Font name="Dialog" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="PISCA PISCA ILUMINA&#xc7;&#xc3;O E AUTOMA&#xc7;&#xc3;O RESIDENCIAL LTDA."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtCNPJ">
@@ -391,6 +395,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="00.000.000/0001-10"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtCEP">
@@ -401,6 +407,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="01301-00 "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtEndere&#xe7;o">
@@ -411,6 +419,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Rua das Constela&#xe7;&#xe3;o, N&#xba; 2007"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtBairro">
@@ -421,6 +431,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Consola&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtCidade">
@@ -431,6 +443,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="S&#xe3;o Paulo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtEstado">
@@ -441,6 +455,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="SP"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCliente">
@@ -451,6 +467,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="0"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -461,6 +478,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="1"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtCPF">
@@ -468,6 +486,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="1"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtDataProcessamento">
@@ -478,6 +497,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="txtVencimento">
@@ -495,6 +515,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="0"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -505,6 +526,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="b8" red="bb" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -549,6 +571,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="1"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/img/DadosBoleto.png"/>
             </Property>

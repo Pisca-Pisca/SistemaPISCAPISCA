@@ -5,6 +5,7 @@
  */
 package UI_SistemaInterno;
 
+import sistemainternopisca.validar;
 import Model.DAO.Fornecedores;
 import Model.DAO.FornecedoresDAO;
 import Model.DAO.Funcionarios;

@@ -9,6 +9,8 @@ import Model.DAO.Funcionarios;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -138,6 +140,11 @@ public class UI_FinanceiroConsulta extends javax.swing.JFrame {
         btnPesquisar.setBorderPainted(false);
         btnPesquisar.setContentAreaFilled(false);
         btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
@@ -282,6 +289,25 @@ public class UI_FinanceiroConsulta extends javax.swing.JFrame {
 
         dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        Random situacaoCPF = new Random();
+        Boolean restricao = situacaoCPF.nextBoolean();
+
+        if (restricao == false) {
+            UI_ModalSemRestricao semRestricao = new UI_ModalSemRestricao(new javax.swing.JFrame(), true);
+            semRestricao.setVisible(true);
+
+            dispose();
+        } else {
+            UI_ModalComRestricao comRestricao = new UI_ModalComRestricao(new javax.swing.JFrame(), true);
+            comRestricao.setVisible(true);
+
+            dispose();
+        }
+
+
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

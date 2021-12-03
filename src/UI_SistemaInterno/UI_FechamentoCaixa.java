@@ -75,72 +75,84 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
 
         txtDinheiroValorGaveta.setBackground(new java.awt.Color(187, 184, 184));
         txtDinheiroValorGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtDinheiroValorGaveta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDinheiroValorGaveta.setBorder(null);
         baseTela.add(txtDinheiroValorGaveta);
         txtDinheiroValorGaveta.setBounds(800, 612, 270, 128);
 
         txtCartaoValorGaveta.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoValorGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtCartaoValorGaveta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCartaoValorGaveta.setBorder(null);
         baseTela.add(txtCartaoValorGaveta);
         txtCartaoValorGaveta.setBounds(800, 422, 270, 133);
 
         txtBoletoValorGaveta.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoValorGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtBoletoValorGaveta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtBoletoValorGaveta.setBorder(null);
         baseTela.add(txtBoletoValorGaveta);
         txtBoletoValorGaveta.setBounds(800, 812, 270, 129);
 
         txtEntradaSistema.setBackground(new java.awt.Color(255, 184, 0));
-        txtEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtEntradaSistema.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
+        txtEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtEntradaSistema.setBorder(null);
         baseTela.add(txtEntradaSistema);
         txtEntradaSistema.setBounds(1530, 440, 320, 110);
 
         txtTotalGaveta.setBackground(new java.awt.Color(255, 184, 0));
-        txtTotalGaveta.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtTotalGaveta.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
+        txtTotalGaveta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTotalGaveta.setBorder(null);
         baseTela.add(txtTotalGaveta);
         txtTotalGaveta.setBounds(1530, 652, 320, 90);
 
         txtFaltaSobra.setBackground(new java.awt.Color(255, 184, 0));
-        txtFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtFaltaSobra.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
+        txtFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFaltaSobra.setBorder(null);
         baseTela.add(txtFaltaSobra);
         txtFaltaSobra.setBounds(1530, 862, 320, 79);
 
         txtBoletoFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtBoletoFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtBoletoFaltaSobra.setBorder(null);
         baseTela.add(txtBoletoFaltaSobra);
         txtBoletoFaltaSobra.setBounds(1080, 800, 310, 140);
 
         txtDinheiroFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtDinheiroFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtDinheiroFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDinheiroFaltaSobra.setBorder(null);
         baseTela.add(txtDinheiroFaltaSobra);
         txtDinheiroFaltaSobra.setBounds(1080, 600, 310, 140);
 
         txtCartaoFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtCartaoFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCartaoFaltaSobra.setBorder(null);
         baseTela.add(txtCartaoFaltaSobra);
         txtCartaoFaltaSobra.setBounds(1080, 422, 310, 129);
 
         txtBoletoEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtBoletoEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtBoletoEntradaSistema.setBorder(null);
         baseTela.add(txtBoletoEntradaSistema);
         txtBoletoEntradaSistema.setBounds(420, 812, 370, 127);
 
         txtDineiroEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtDineiroEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtDineiroEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDineiroEntradaSistema.setBorder(null);
         baseTela.add(txtDineiroEntradaSistema);
         txtDineiroEntradaSistema.setBounds(420, 600, 370, 140);
 
         txtCartaoEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtCartaoEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCartaoEntradaSistema.setBorder(null);
         txtCartaoEntradaSistema.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         baseTela.add(txtCartaoEntradaSistema);
