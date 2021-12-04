@@ -23,6 +23,7 @@ public class UI_Loading extends javax.swing.JFrame {
                     txtPorcentagem.setText(Integer.toString(i) + "%");
                 }
                  
+                //UI_CadastroProduto login = new UI_CadastroProduto();
                 UI_Login login = new UI_Login();
                 login.setVisible(true);
                 
