@@ -15,6 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JFrame;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  *
@@ -22,15 +24,17 @@ import javax.swing.JFrame;
  */
 public class UI_Caixa extends javax.swing.JFrame {
 
-    String entradaSistemaCartao = "1000.99";
-    String entradaSistemaDinheiro = "300.50";
-    String entradaSistemaBoleto = "900.60";
+    String entradaSistemaCartao = "0.0";
+    String entradaSistemaDinheiro = "0.0";
+    String entradaSistemaBoleto = "0.0";
     String gaveta = "200";
 
     List<Carrinho> listaCarrinho;
     carrinhoDAO cdao = new carrinhoDAO();
     Carrinho carrinho;
     Object itemSelecionado;
+    Locale localeBR = new Locale("pt","BR");
+    
 
     /**
      * Creates new form UI_Caixa
@@ -59,7 +63,6 @@ public class UI_Caixa extends javax.swing.JFrame {
             }
         }.start();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -182,7 +185,7 @@ public class UI_Caixa extends javax.swing.JFrame {
         txtSubtotal.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtSubtotal.setBorder(null);
         baseTela.add(txtSubtotal);
-        txtSubtotal.setBounds(764, 600, 280, 75);
+        txtSubtotal.setBounds(764, 590, 280, 100);
 
         txtDesconto.setEditable(false);
         txtDesconto.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
@@ -263,19 +266,69 @@ public class UI_Caixa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void selectBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBoletoActionPerformed
-        // TODO add your handling code here:
+        if (selectBoleto.isSelected()) {
+            double desconto = 0.0;
+            double subtotal = 0.0;
+            double total = Double.parseDouble(txtTotal.getText());
+
+            subtotal = subtotal + (total - desconto);
+
+            txtSubtotal.setText(String.valueOf(subtotal));
+            txtDesconto.setText("0.0");
+        }
     }//GEN-LAST:event_selectBoletoActionPerformed
 
     private void selectDinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDinheiroActionPerformed
+        if (selectDinheiro.isSelected()) {
 
+            double desconto = Double.parseDouble(txtTotal.getText()) * 0.10;
+            double subtotal = 0.0;
+            double total = Double.parseDouble(txtTotal.getText());
+
+            subtotal = subtotal + (total - desconto);
+
+            txtDesconto.setText(String.valueOf(desconto));
+            txtSubtotal.setText(String.valueOf(subtotal));
+        }
     }//GEN-LAST:event_selectDinheiroActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        if (selectBoleto.isSelected()) {
+            double totalBoleto = Double.parseDouble(entradaSistemaBoleto);
 
+            totalBoleto = totalBoleto + Double.parseDouble(txtSubtotal.getText());
+
+            entradaSistemaBoleto = String.valueOf(totalBoleto);
+        }
+
+        if (selectCartão.isSelected()) {
+            double totalCartao = Double.parseDouble(entradaSistemaCartao);
+
+            totalCartao = totalCartao + Double.parseDouble(txtSubtotal.getText());
+
+            entradaSistemaCartao = String.valueOf(totalCartao);
+        }
+
+        if (selectDinheiro.isSelected()) {
+            double totalDinheiro = Double.parseDouble(entradaSistemaCartao);
+
+            totalDinheiro = (totalDinheiro + Double.parseDouble(txtSubtotal.getText())) * 0.10;
+
+            entradaSistemaCartao = String.valueOf(totalDinheiro);
+        }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void selectCartãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCartãoActionPerformed
-        // TODO add your handling code here:
+        if (selectCartão.isSelected()) {
+            double desconto = 0.0;
+            double subtotal = 0.0;
+            double total = Double.parseDouble(txtTotal.getText());
+
+            subtotal = subtotal + (total - desconto);
+
+            txtSubtotal.setText(String.valueOf(subtotal));
+            txtDesconto.setText("0.0");
+        }
     }//GEN-LAST:event_selectCartãoActionPerformed
 
     private void listarCarrinho() {

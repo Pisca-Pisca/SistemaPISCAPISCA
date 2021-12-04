@@ -101,6 +101,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtBoletoValorGaveta);
         txtBoletoValorGaveta.setBounds(880, 812, 190, 129);
 
+        txtEntradaSistema.setEditable(false);
         txtEntradaSistema.setBackground(new java.awt.Color(255, 184, 0));
         txtEntradaSistema.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         txtEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -108,6 +109,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtEntradaSistema);
         txtEntradaSistema.setBounds(1620, 440, 230, 110);
 
+        txtTotalGaveta.setEditable(false);
         txtTotalGaveta.setBackground(new java.awt.Color(255, 184, 0));
         txtTotalGaveta.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         txtTotalGaveta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -115,6 +117,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtTotalGaveta);
         txtTotalGaveta.setBounds(1620, 652, 230, 90);
 
+        txtFaltaSobra.setEditable(false);
         txtFaltaSobra.setBackground(new java.awt.Color(255, 184, 0));
         txtFaltaSobra.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         txtFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -122,6 +125,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtFaltaSobra);
         txtFaltaSobra.setBounds(1630, 862, 220, 79);
 
+        txtBoletoFaltaSobra.setEditable(false);
         txtBoletoFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBoletoFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -129,6 +133,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtBoletoFaltaSobra);
         txtBoletoFaltaSobra.setBounds(1170, 800, 220, 140);
 
+        txtDinheiroFaltaSobra.setEditable(false);
         txtDinheiroFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtDinheiroFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDinheiroFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -136,6 +141,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtDinheiroFaltaSobra);
         txtDinheiroFaltaSobra.setBounds(1160, 600, 230, 140);
 
+        txtCartaoFaltaSobra.setEditable(false);
         txtCartaoFaltaSobra.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoFaltaSobra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCartaoFaltaSobra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -143,6 +149,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtCartaoFaltaSobra);
         txtCartaoFaltaSobra.setBounds(1170, 422, 220, 129);
 
+        txtBoletoEntradaSistema.setEditable(false);
         txtBoletoEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtBoletoEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtBoletoEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -150,6 +157,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtBoletoEntradaSistema);
         txtBoletoEntradaSistema.setBounds(520, 812, 270, 127);
 
+        txtDineiroEntradaSistema.setEditable(false);
         txtDineiroEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtDineiroEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDineiroEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -157,6 +165,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         baseTela.add(txtDineiroEntradaSistema);
         txtDineiroEntradaSistema.setBounds(510, 600, 280, 140);
 
+        txtCartaoEntradaSistema.setEditable(false);
         txtCartaoEntradaSistema.setBackground(new java.awt.Color(187, 184, 184));
         txtCartaoEntradaSistema.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtCartaoEntradaSistema.setHorizontalAlignment(javax.swing.JTextField.CENTER);

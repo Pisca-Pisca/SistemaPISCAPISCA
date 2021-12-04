@@ -113,6 +113,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtEntradaSistema">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="b8" red="ff" type="rgb"/>
             </Property>
@@ -132,6 +133,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtTotalGaveta">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="b8" red="ff" type="rgb"/>
             </Property>
@@ -151,6 +153,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtFaltaSobra">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="b8" red="ff" type="rgb"/>
             </Property>
@@ -170,6 +173,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtBoletoFaltaSobra">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="b8" red="bb" type="rgb"/>
             </Property>
@@ -189,6 +193,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtDinheiroFaltaSobra">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="b8" red="bb" type="rgb"/>
             </Property>
@@ -208,6 +213,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCartaoFaltaSobra">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="b8" red="bb" type="rgb"/>
             </Property>
@@ -227,6 +233,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtBoletoEntradaSistema">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="b8" red="bb" type="rgb"/>
             </Property>
@@ -246,6 +253,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtDineiroEntradaSistema">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="b8" red="bb" type="rgb"/>
             </Property>
@@ -265,6 +273,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCartaoEntradaSistema">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="b8" red="bb" type="rgb"/>
             </Property>
