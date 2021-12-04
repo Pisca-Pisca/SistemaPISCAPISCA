@@ -5,12 +5,22 @@
  */
 package UI_SistemaInterno;
 
+import Model.DAO.Clientes;
+import Model.DAO.ClientesDAO;
 import Model.DAO.Funcionarios;
+import Model.DAO.FuncionariosDAO;
+import Model.DAO.Produtos;
+import Model.DAO.ProdutosDAO;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
-
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+import sistemainternopisca.ModeloTabela;
 
 /**
  *
@@ -18,9 +28,26 @@ import java.util.Random;
  */
 public class UI_Carrinho extends javax.swing.JFrame {
 
-    
+    List<Clientes> listaClientes;
+    ClientesDAO cdao = new ClientesDAO();
+    Clientes cliente;
+    Object itemSelecionado;
+
+    List<Funcionarios> listaFuncionarios;
+    FuncionariosDAO fdao = new FuncionariosDAO();
+    Funcionarios funcionarios;
+    Object itemSelecionadoFuncionario;
+
+    List<Produtos> listaProdutos;
+    ProdutosDAO pdao = new ProdutosDAO();
+    Produtos produtos;
+    Object itemSelecionadoProdutos;
+
     public UI_Carrinho() {
         initComponents();
+        listarClientes();
+        listarProduto();
+        listarFuncionarios();
 
         new Thread() {
 
@@ -38,6 +65,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
                         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                         dataHora = "" + data.toString() + sdf.format(d);
                         txtUsuario.setText(dataHora);
+                        txtDataHora.setText(dataHora);
                         sleep(1000);
                     }
                 } catch (InterruptedException ex) {
@@ -46,11 +74,58 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 }
             }
         }.start();
+
+        Random codigoCarrinho = new Random();
+        int codigo = codigoCarrinho.nextInt(50000) + 1;
+
+        txtCodigo.setText(String.valueOf(codigo));
     }
 
-    public void enviaDados(UI_Login login, Funcionarios funcionarios) {
-        String email = funcionarios.getEmail();
-        txtUsuario.setText(email);
+    private void listarFuncionarios() {
+        listaFuncionarios = fdao.Read();
+        selecionarFuncinario.removeAllItems();
+
+        for (int i = 0; i < listaFuncionarios.size(); i++) {
+            selecionarFuncinario.addItem(listaFuncionarios.get(i).getNomeFuncionario());
+        }
+    }
+
+    private void listarProduto() {
+        listaProdutos = pdao.Read();
+        selecionarProduto.removeAllItems();
+
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            selecionarProduto.addItem(listaProdutos.get(i).getNomeProduto());
+        }
+    }
+
+    private void listarClientes() {
+        listaClientes = cdao.Read();
+        selecionarClientes.removeAllItems();
+
+        for (int i = 0; i < listaClientes.size(); i++) {
+            selecionarClientes.addItem(listaClientes.get(i).getNomeCliente());
+
+            selecionarClientes.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if (e.getStateChange() == ItemEvent.SELECTED) {
+                        itemSelecionado = selecionarClientes.getSelectedItem().toString();
+
+                        for (int i = 0; i < listaClientes.size(); i++) {
+                            if (itemSelecionado == listaClientes.get(i).getNomeCliente()) {
+                                txtCPF.setText(listaClientes.get(i).getCpf());
+                                txtEndereço.setText(listaClientes.get(i).getEndereco());
+                                txtEmail.setText(listaClientes.get(i).getEmail());
+                                txtCelular.setText(listaClientes.get(i).getTelefone());
+                            }
+                        }
+
+                    }
+                }
+            });
+
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -67,10 +142,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         txtCodigo = new javax.swing.JLabel();
         txtDataHora = new javax.swing.JLabel();
-        txtVendedor = new javax.swing.JLabel();
-        txtCliente = new javax.swing.JTextField();
         btnPesquisaCliente = new javax.swing.JButton();
-        txtBuscaProduto = new javax.swing.JTextField();
         txtCPF = new javax.swing.JLabel();
         txtEmail = new javax.swing.JLabel();
         txtCelular = new javax.swing.JLabel();
@@ -83,14 +155,23 @@ public class UI_Carrinho extends javax.swing.JFrame {
         btnBoleto = new javax.swing.JButton();
         btnEnviar = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        selecionarClientes = new javax.swing.JComboBox<>();
+        selecionarFuncinario = new javax.swing.JComboBox<>();
+        selecionarProduto = new javax.swing.JComboBox<>();
         txtData = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
+        txtqtd = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
+        TabelaScroll = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1922, 1080));
         setUndecorated(true);
 
         baseTela.setBackground(new java.awt.Color(57, 57, 57));
+        baseTela.setLayout(null);
 
         btnVenda.setBorderPainted(false);
         btnVenda.setContentAreaFilled(false);
@@ -100,6 +181,8 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnVendaActionPerformed(evt);
             }
         });
+        baseTela.add(btnVenda);
+        btnVenda.setBounds(0, 326, 370, 50);
 
         btnProdutos.setBorderPainted(false);
         btnProdutos.setContentAreaFilled(false);
@@ -109,6 +192,8 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnProdutosActionPerformed(evt);
             }
         });
+        baseTela.add(btnProdutos);
+        btnProdutos.setBounds(0, 430, 370, 60);
 
         btnCadastros.setBorderPainted(false);
         btnCadastros.setContentAreaFilled(false);
@@ -118,6 +203,8 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnCadastrosActionPerformed(evt);
             }
         });
+        baseTela.add(btnCadastros);
+        btnCadastros.setBounds(0, 546, 370, 50);
 
         btnEncerrar.setBorderPainted(false);
         btnEncerrar.setContentAreaFilled(false);
@@ -127,6 +214,8 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnEncerrarActionPerformed(evt);
             }
         });
+        baseTela.add(btnEncerrar);
+        btnEncerrar.setBounds(100, 1016, 170, 50);
 
         btnCaixa.setBorderPainted(false);
         btnCaixa.setContentAreaFilled(false);
@@ -136,6 +225,8 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnCaixaActionPerformed(evt);
             }
         });
+        baseTela.add(btnCaixa);
+        btnCaixa.setBounds(0, 756, 370, 60);
 
         btnFinanceiro.setBorderPainted(false);
         btnFinanceiro.setContentAreaFilled(false);
@@ -145,6 +236,8 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnFinanceiroActionPerformed(evt);
             }
         });
+        baseTela.add(btnFinanceiro);
+        btnFinanceiro.setBounds(0, 656, 370, 60);
 
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
@@ -154,58 +247,82 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        baseTela.add(btnCancelar);
+        btnCancelar.setBounds(440, 1016, 180, 50);
 
-        txtCodigo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtCodigo.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txtCodigo.setForeground(new java.awt.Color(153, 153, 153));
+        baseTela.add(txtCodigo);
+        txtCodigo.setBounds(480, 399, 130, 31);
 
         txtDataHora.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtDataHora.setForeground(new java.awt.Color(153, 153, 153));
-
-        txtVendedor.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        txtVendedor.setForeground(new java.awt.Color(153, 153, 153));
-
-        txtCliente.setBackground(new java.awt.Color(187, 184, 184));
-        txtCliente.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        txtCliente.setBorder(null);
+        baseTela.add(txtDataHora);
+        txtDataHora.setBounds(680, 398, 240, 32);
 
         btnPesquisaCliente.setBorderPainted(false);
         btnPesquisaCliente.setContentAreaFilled(false);
-
-        txtBuscaProduto.setBackground(new java.awt.Color(187, 184, 184));
-        txtBuscaProduto.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        txtBuscaProduto.setBorder(null);
+        baseTela.add(btnPesquisaCliente);
+        btnPesquisaCliente.setBounds(1300, 476, 70, 50);
 
         txtCPF.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        baseTela.add(txtCPF);
+        txtCPF.setBounds(1420, 490, 410, 30);
 
         txtEmail.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        baseTela.add(txtEmail);
+        txtEmail.setBounds(1420, 570, 410, 30);
 
         txtCelular.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        baseTela.add(txtCelular);
+        txtCelular.setBounds(1120, 570, 240, 30);
 
         txtEndereço.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        baseTela.add(txtEndereço);
+        txtEndereço.setBounds(480, 570, 570, 30);
 
         btnPesquisaProduto.setBorderPainted(false);
         btnPesquisaProduto.setContentAreaFilled(false);
         btnPesquisaProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesquisaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaProdutoActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnPesquisaProduto);
+        btnPesquisaProduto.setBounds(1510, 656, 60, 50);
 
         txtQtdItens.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        baseTela.add(txtQtdItens);
+        txtQtdItens.setBounds(1130, 1030, 80, 20);
 
         txtValorTotal.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        baseTela.add(txtValorTotal);
+        txtValorTotal.setBounds(1240, 1023, 200, 31);
 
         btnCartao.setBorderPainted(false);
         btnCartao.setContentAreaFilled(false);
         btnCartao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnCartao);
+        btnCartao.setBounds(900, 1036, 30, 20);
 
         btnDinheiro.setBorderPainted(false);
         btnDinheiro.setContentAreaFilled(false);
         btnDinheiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnDinheiro);
+        btnDinheiro.setBounds(960, 1026, 30, 40);
 
         btnBoleto.setBorderPainted(false);
         btnBoleto.setContentAreaFilled(false);
         btnBoleto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnBoleto);
+        btnBoleto.setBounds(1020, 1026, 30, 40);
 
         btnEnviar.setBorderPainted(false);
         btnEnviar.setContentAreaFilled(false);
         btnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        baseTela.add(btnEnviar);
+        btnEnviar.setBounds(1670, 1016, 180, 50);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
@@ -215,186 +332,89 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
+        baseTela.add(btnLogout);
+        btnLogout.setBounds(1780, 156, 120, 30);
+
+        selecionarClientes.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        selecionarClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        selecionarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecionarClientesActionPerformed(evt);
+            }
+        });
+        baseTela.add(selecionarClientes);
+        selecionarClientes.setBounds(460, 470, 920, 60);
+
+        selecionarFuncinario.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        selecionarFuncinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        baseTela.add(selecionarFuncinario);
+        selecionarFuncinario.setBounds(960, 380, 880, 60);
+
+        selecionarProduto.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        selecionarProduto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        baseTela.add(selecionarProduto);
+        selecionarProduto.setBounds(454, 646, 920, 60);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtData.setForeground(new java.awt.Color(255, 255, 255));
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtData);
+        txtData.setBounds(1670, 12, 231, 43);
 
         txtUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        baseTela.add(txtUsuario);
+        txtUsuario.setBounds(1720, 102, 180, 30);
+
+        txtqtd.setBackground(new java.awt.Color(187, 184, 187));
+        txtqtd.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        txtqtd.setBorder(null);
+        txtqtd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtqtdActionPerformed(evt);
+            }
+        });
+        baseTela.add(txtqtd);
+        txtqtd.setBounds(1420, 650, 130, 40);
+
+        btnAdd.setBorderPainted(false);
+        btnAdd.setContentAreaFilled(false);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnAdd);
+        btnAdd.setBounds(1590, 650, 240, 40);
+
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Código Produto", "Descrição Produto", "Qtd . Itens", "Preço Un. R$", "Preço Total R$"
+            }
+        ));
+        TabelaScroll.setViewportView(Tabela);
+
+        baseTela.add(TabelaScroll);
+        TabelaScroll.setBounds(460, 716, 1370, 230);
 
         imgTela.setForeground(new java.awt.Color(187, 184, 184));
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/CARRINHO CLIENTE.png"))); // NOI18N
-
-        javax.swing.GroupLayout baseTelaLayout = new javax.swing.GroupLayout(baseTela);
-        baseTela.setLayout(baseTelaLayout);
-        baseTelaLayout.setHorizontalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1420, 1420, 1420)
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(720, 720, 720)
-                .addComponent(txtBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1240, 1240, 1240)
-                .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1300, 1300, 1300)
-                .addComponent(btnPesquisaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1130, 1130, 1130)
-                .addComponent(txtQtdItens, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1670, 1670, 1670)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(960, 960, 960)
-                .addComponent(btnDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(980, 980, 980)
-                .addComponent(txtVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1510, 1510, 1510)
-                .addComponent(btnPesquisaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1120, 1120, 1120)
-                .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(680, 680, 680)
-                .addComponent(txtDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(900, 900, 900)
-                .addComponent(btnCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1780, 1780, 1780)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1670, 1670, 1670)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(440, 440, 440)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1720, 1720, 1720)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(txtEndereço, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1420, 1420, 1420)
-                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1020, 1020, 1020)
-                .addComponent(btnBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        baseTelaLayout.setVerticalGroup(
-            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(430, 430, 430)
-                .addComponent(btnProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(txtBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(btnCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(214, 214, 214)
-                .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(476, 476, 476)
-                .addComponent(btnPesquisaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1030, 1030, 1030)
-                .addComponent(txtQtdItens, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(326, 326, 326)
-                .addComponent(btnVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1016, 1016, 1016)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1026, 1026, 1026)
-                .addComponent(btnDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(txtVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(656, 656, 656)
-                .addComponent(btnPesquisaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(570, 570, 570)
-                .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(410, 410, 410)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(410, 410, 410)
-                .addComponent(txtDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1016, 1016, 1016)
-                .addComponent(btnEncerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(656, 656, 656)
-                .addComponent(btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1036, 1036, 1036)
-                .addComponent(btnCartao, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1016, 1016, 1016)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(546, 546, 546)
-                .addComponent(btnCadastros, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(570, 570, 570)
-                .addComponent(txtEndereço, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(imgTela)
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(490, 490, 490)
-                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(baseTelaLayout.createSequentialGroup()
-                .addGap(1026, 1026, 1026)
-                .addComponent(btnBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        baseTela.add(imgTela);
+        imgTela.setBounds(0, 0, 1922, 1080);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1922, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -454,15 +474,70 @@ public class UI_Carrinho extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void selecionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionarClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selecionarClientesActionPerformed
+
+    private void btnPesquisaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaProdutoActionPerformed
+
+    }//GEN-LAST:event_btnPesquisaProdutoActionPerformed
+
+    private void txtqtdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtqtdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtqtdActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        double quantidade = Double.parseDouble(txtqtd.getText());
+
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+
+        for (Produtos p : pdao.ReadByNameSingle(selecionarProduto.getSelectedItem().toString())) {
+            modelo.addRow(new Object[]{
+                p.getCodigoProduto(),
+                p.getNomeProduto(),
+                txtqtd.getText(),
+                p.getValorVenda(),
+                quantidade * p.getValorVenda()
+            });
+
+            int total = p.getQtdProduto() - Integer.parseInt(txtqtd.getText());
+            p.setQtdProduto(total);
+            pdao.Update(p);
+
+        }
+
+
+        somarValotTotalProdutos();
+        somarValorTotalitens();
+
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void somarValotTotalProdutos() {
+        double soma = 0, valor;
+        int cont = Tabela.getRowCount();
+        for (int i = 0; i < cont; i++) {
+            valor = (double) Tabela.getValueAt(i, 4);
+            soma = soma + valor;
+        }
+        txtValorTotal.setText(String.valueOf(soma));
+    }
+    
+    private void somarValorTotalitens() {
+        int soma = 0, valor;
+        int cont = Tabela.getRowCount();
+        for (int i = 0; i < cont; i++) {
+            valor = Integer.parseInt(String.valueOf(Tabela.getValueAt(i, 2)));
+            soma = soma + valor;
+        }
+        txtQtdItens.setText(String.valueOf(soma));
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        
-        
-        
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -492,49 +567,13 @@ public class UI_Carrinho extends javax.swing.JFrame {
             }
         });
     }
-    
-//    //Lógica do carrinho
-//    public static class itemDeInteresse {
-//
-//        public String nomeItem;
-//        public int precoItem;
-//        public int qntdItem;
-//
-//        //valores fake, dps será integrado com o BD
-//        public itemDeInteresse() {
-//            nomeItem = "n/a";
-//            precoItem = 0;
-//            qntdItem = 1;
-//        }
-//      public String getNome() {
-//            return nomeItem;
-//        }
-//
-//        public void setNome(String nome) {
-//            nome = nomeItem;
-//        }
-//        
-//         public int getQntd() {
-//            return qntdItem;
-//        }
-//         
-//         public void setQntd(int quantidade) {
-//            quantidade = qntdItem;
-//            
-//         }
-//            //precoItem
-//           
-//         public int getPreco() {
-//             return precoItem;
-//         }
-//        
-//         public void setPreco(int preco) {
-//            preco = precoItem;
-//            
-//         }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela;
+    private javax.swing.JScrollPane TabelaScroll;
     private javax.swing.JPanel baseTela;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBoleto;
     private javax.swing.JButton btnCadastros;
     private javax.swing.JButton btnCaixa;
@@ -550,10 +589,11 @@ public class UI_Carrinho extends javax.swing.JFrame {
     private javax.swing.JButton btnProdutos;
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JTextField txtBuscaProduto;
+    private javax.swing.JComboBox<String> selecionarClientes;
+    private javax.swing.JComboBox<String> selecionarFuncinario;
+    private javax.swing.JComboBox<String> selecionarProduto;
     private javax.swing.JLabel txtCPF;
     private javax.swing.JLabel txtCelular;
-    private javax.swing.JTextField txtCliente;
     private javax.swing.JLabel txtCodigo;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtDataHora;
@@ -562,8 +602,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
     private javax.swing.JLabel txtQtdItens;
     private javax.swing.JLabel txtUsuario;
     private javax.swing.JLabel txtValorTotal;
-    private javax.swing.JLabel txtVendedor;
+    private javax.swing.JTextField txtqtd;
     // End of variables declaration//GEN-END:variables
 
-    }
 }

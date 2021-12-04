@@ -12,7 +12,7 @@ package UI_SistemaInterno;
 public class UI_ModalSemRestricao extends javax.swing.JDialog {
 
     /**
-     * Creates new form UI_ModalSemRestricao
+     * Creates new form UI_ModalComRestricao
      */
     public UI_ModalSemRestricao(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -31,18 +31,16 @@ public class UI_ModalSemRestricao extends javax.swing.JDialog {
         txtTitulo = new javax.swing.JLabel();
         btnFechar = new javax.swing.JButton();
         imgHeader = new javax.swing.JLabel();
-        txtMensagem = new javax.swing.JLabel();
-        btnPreencherBoleto = new javax.swing.JButton();
-        imgPreencherBoleto = new javax.swing.JLabel();
+        txtMensagem1 = new javax.swing.JLabel();
+        btnPreencherBoleto = new javax.swing.JLabel();
         imgBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setMinimumSize(new java.awt.Dimension(890, 510));
+        setUndecorated(true);
 
         txtTitulo.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
         txtTitulo.setText("Situação Cadastral");
-        getContentPane().add(txtTitulo);
-        txtTitulo.setBounds(240, 30, 410, 60);
 
         btnFechar.setBorderPainted(false);
         btnFechar.setContentAreaFilled(false);
@@ -52,53 +50,77 @@ public class UI_ModalSemRestricao extends javax.swing.JDialog {
                 btnFecharActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFechar);
-        btnFechar.setBounds(810, 30, 70, 60);
 
         imgHeader.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/HEADER MODAL.png"))); // NOI18N
-        getContentPane().add(imgHeader);
-        imgHeader.setBounds(0, -20, 890, 160);
 
-        txtMensagem.setFont(new java.awt.Font("sansserif", 0, 40)); // NOI18N
-        txtMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtMensagem.setText("Não constam restrições no CPF informado.");
-        getContentPane().add(txtMensagem);
-        txtMensagem.setBounds(30, 180, 830, 100);
+        txtMensagem1.setFont(new java.awt.Font("sansserif", 0, 40)); // NOI18N
+        txtMensagem1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtMensagem1.setText("Não constam restrições.");
 
-        btnPreencherBoleto.setBorderPainted(false);
-        btnPreencherBoleto.setContentAreaFilled(false);
-        btnPreencherBoleto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPreencherBoleto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreencherBoletoActionPerformed(evt);
+        btnPreencherBoleto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnPreencherBoleto.png"))); // NOI18N
+        btnPreencherBoleto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPreencherBoletoMouseClicked(evt);
             }
         });
-        getContentPane().add(btnPreencherBoleto);
-        btnPreencherBoleto.setBounds(170, 340, 520, 90);
-
-        imgPreencherBoleto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnPreencherBoleto.png"))); // NOI18N
-        getContentPane().add(imgPreencherBoleto);
-        imgPreencherBoleto.setBounds(170, 340, 520, 90);
 
         imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IMG BACKGROUND MODAL.png"))); // NOI18N
-        getContentPane().add(imgBackground);
-        imgBackground.setBounds(0, 0, 890, 490);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(810, 810, 810)
+                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(txtMensagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(btnPreencherBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imgHeader)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(84, 84, 84)
+                .addComponent(txtMensagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(btnPreencherBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
-       UI_FinanceiroConsulta volta = new UI_FinanceiroConsulta();
-       volta.setVisible(true);
+        UI_FinanceiroConsulta volta = new UI_FinanceiroConsulta();
+        volta.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
 
-    private void btnPreencherBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreencherBoletoActionPerformed
+    private void btnPreencherBoletoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPreencherBoletoMouseClicked
         UI_FinanceiroDadosBoleto preencherBoleto = new UI_FinanceiroDadosBoleto();
         preencherBoleto.setVisible(true);
 
         dispose();
-    }//GEN-LAST:event_btnPreencherBoletoActionPerformed
+    }//GEN-LAST:event_btnPreencherBoletoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -126,6 +148,7 @@ public class UI_ModalSemRestricao extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(UI_ModalSemRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -144,11 +167,10 @@ public class UI_ModalSemRestricao extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFechar;
-    private javax.swing.JButton btnPreencherBoleto;
+    private javax.swing.JLabel btnPreencherBoleto;
     private javax.swing.JLabel imgBackground;
     private javax.swing.JLabel imgHeader;
-    private javax.swing.JLabel imgPreencherBoleto;
-    private javax.swing.JLabel txtMensagem;
+    private javax.swing.JLabel txtMensagem1;
     private javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

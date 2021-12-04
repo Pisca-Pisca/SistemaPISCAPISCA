@@ -9,12 +9,12 @@ package UI_SistemaInterno;
  *
  * @author jessi
  */
-public class UI_ModalComRestricao extends javax.swing.JDialog {
+public class UI_ModalImpressaoDocumento extends javax.swing.JDialog {
 
     /**
      * Creates new form UI_ModalComRestricao
      */
-    public UI_ModalComRestricao(java.awt.Frame parent, boolean modal) {
+    public UI_ModalImpressaoDocumento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -32,7 +32,6 @@ public class UI_ModalComRestricao extends javax.swing.JDialog {
         btnFechar = new javax.swing.JButton();
         imgHeader = new javax.swing.JLabel();
         txtMensagem1 = new javax.swing.JLabel();
-        txtMensagem = new javax.swing.JLabel();
         imgBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -40,7 +39,7 @@ public class UI_ModalComRestricao extends javax.swing.JDialog {
         setUndecorated(true);
 
         txtTitulo.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
-        txtTitulo.setText("Situação Cadastral");
+        txtTitulo.setText("Impressão");
 
         btnFechar.setBorderPainted(false);
         btnFechar.setContentAreaFilled(false);
@@ -55,11 +54,7 @@ public class UI_ModalComRestricao extends javax.swing.JDialog {
 
         txtMensagem1.setFont(new java.awt.Font("sansserif", 0, 40)); // NOI18N
         txtMensagem1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtMensagem1.setText("Constam restrições.");
-
-        txtMensagem.setFont(new java.awt.Font("sansserif", 0, 40)); // NOI18N
-        txtMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtMensagem.setText("Opção gerar boleto indisponível.");
+        txtMensagem1.setText("Impressão concluída com sucesso.");
 
         imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IMG BACKGROUND MODAL.png"))); // NOI18N
 
@@ -68,40 +63,29 @@ public class UI_ModalComRestricao extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(txtMensagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(810, 810, 810)
+                .addGap(330, 330, 330)
+                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(240, 240, 240)
                 .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(txtMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(txtMensagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(imgHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(imgHeader)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(txtMensagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(txtMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80)
+                .addComponent(txtMensagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgHeader)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(imgBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -111,7 +95,7 @@ public class UI_ModalComRestricao extends javax.swing.JDialog {
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         UI_FinanceiroConsulta volta = new UI_FinanceiroConsulta();
         volta.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
 
@@ -132,20 +116,27 @@ public class UI_ModalComRestricao extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_ModalComRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalImpressaoDocumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_ModalComRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalImpressaoDocumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_ModalComRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalImpressaoDocumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_ModalComRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_ModalImpressaoDocumento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                UI_ModalComRestricao dialog = new UI_ModalComRestricao(new javax.swing.JFrame(), true);
+                UI_ModalImpressaoDocumento dialog = new UI_ModalImpressaoDocumento(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -161,7 +152,6 @@ public class UI_ModalComRestricao extends javax.swing.JDialog {
     private javax.swing.JButton btnFechar;
     private javax.swing.JLabel imgBackground;
     private javax.swing.JLabel imgHeader;
-    private javax.swing.JLabel txtMensagem;
     private javax.swing.JLabel txtMensagem1;
     private javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables

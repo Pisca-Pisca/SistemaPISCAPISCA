@@ -29,7 +29,7 @@ public class ProdutosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, DescricaoProduto, QtdProduto, ValorCompra, voltagem ,ValorVenda, NotaFiscal, Serie, Url_Img, Categoria, idFornecedor) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO produtos (CodigoProduto, DescricaoProduto, QtdProduto, ValorCompra, voltagem ,ValorVenda, NotaFiscal, Serie, Url_Img, Categoria, Fornecedor) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
 
             stmt.setInt(1, P.getCodigoProduto());
 
@@ -95,7 +95,7 @@ public class ProdutosDAO {
                 produto.setSerie(rs.getInt("Serie"));
                 produto.setUrl_Img(rs.getBytes("Url_Img"));
                 produto.setCategoria(rs.getInt("Categoria"));
-                produto.setIdFornecedor(rs.getInt("idFornecedor"));
+                produto.setIdFornecedor(rs.getInt("Fornecedor"));
 
                 produtos.add(produto);
 
@@ -136,7 +136,48 @@ public class ProdutosDAO {
                 produto.setSerie(rs.getInt("Serie"));
                 produto.setUrl_Img(rs.getBytes("Url_Img"));
                 produto.setCategoria(rs.getInt("Categoria"));
-                produto.setIdFornecedor(rs.getInt("idFornecedor"));
+                produto.setIdFornecedor(rs.getInt("Fornecedor"));
+
+                produtos.add(produto);
+
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao ler os valores da tabela Produtos - Filtro de Nome", ex);
+        } finally {
+            ConnectionFac.closeConnection(con, stmt, rs);
+        }
+
+        return produtos;
+    }
+    
+    public List<Produtos> ReadByNameSingle(String Nome) {
+        Connection con = ConnectionFac.getConnecton();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Produtos> produtos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM Produtos WHERE DescricaoProduto = ?");
+            stmt.setString(1, Nome);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Produtos produto = new Produtos();
+
+                produto.setIdProduto(rs.getInt("idProduto"));
+                produto.setCodigoProduto(rs.getInt("CodigoProduto"));
+                produto.setNomeProduto(rs.getString("DescricaoProduto"));
+                produto.setQtdProduto(rs.getInt("QtdProduto"));
+                produto.setValorCompra(rs.getDouble("ValorCompra"));
+                produto.setVoltagem(rs.getInt("voltagem"));
+                produto.setValorVenda(rs.getDouble("ValorVenda"));
+                produto.setNotaFiscal(rs.getString("NotaFiscal"));
+                produto.setSerie(rs.getInt("Serie"));
+                produto.setUrl_Img(rs.getBytes("Url_Img"));
+                produto.setCategoria(rs.getInt("Categoria"));
+                produto.setIdFornecedor(rs.getInt("Fornecedor"));
 
                 produtos.add(produto);
 
@@ -157,7 +198,7 @@ public class ProdutosDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE Produtos SET CodigoProduto = ?, DescricaoProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, idFornecedor = ?, Categoria = ?, voltagem = ? WHERE idProduto = ?");
+            stmt = con.prepareStatement("UPDATE Produtos SET CodigoProduto = ?, DescricaoProduto = ?, QtdProduto = ?, ValorCompra = ?, ValorVenda = ?, Serie = ?, NotaFiscal = ?, Url_Img = ?, Fornecedor = ?, Categoria = ?, voltagem = ? WHERE idProduto = ?");
 
             stmt.setString(2, P.getNomeProduto());
             stmt.setInt(1, P.getCodigoProduto());

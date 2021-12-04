@@ -91,7 +91,7 @@ public class FuncionariosDAO {
                 Funcionario.setCidade(rs.getString("Cidade"));
                 Funcionario.setBairro(rs.getString("Bairro"));
                 Funcionario.setEmail(rs.getString("Email"));
-                Funcionario.setEmail(rs.getString("Senha"));
+                Funcionario.setSenha(rs.getString("Senha"));
                 Funcionario.setTelefone(rs.getString("Telefone"));
                 Funcionario.setUrl_Img(rs.getBytes("Url_Img"));
                 Funcionario.setTipo_Acesso(rs.getInt("Tipo_Acesso"));

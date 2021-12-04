@@ -9,21 +9,7 @@ public class UI_Login extends javax.swing.JFrame {
 
     ConnectionFacPisca conectar = new ConnectionFacPisca(); //acessar os métodos de conexao com o banco
     Funcionarios Funcionario = new Funcionarios(); //acessar os atributos da classe funcionarios
-
-    //Instanciar as UIs para exibir o email de login em todas as telas
-    UI_Inicio inicio = new UI_Inicio();
-    UI_FinanceiroDadosBoleto financeiro = new UI_FinanceiroDadosBoleto();
-    UI_FinanceiroConsulta financeiroConsulta = new UI_FinanceiroConsulta();
-    UI_Catalogo catalogo = new UI_Catalogo();
-    UI_Caixa caixa = new UI_Caixa();
-    UI_CadastroProduto cadastroProduto = new UI_CadastroProduto();
-    UI_CadastroFuncionario cadastroFuncionario = new UI_CadastroFuncionario();
-    UI_CadastroFornecedor cadastroFornecedor = new UI_CadastroFornecedor();
-    UI_CadastroCliente cadastroCliente = new UI_CadastroCliente();
-    UI_Boleto boleto = new UI_Boleto();
-    UI_FechamentoCaixa fechamentoCaixa = new UI_FechamentoCaixa();
-    UI_Carrinho carrinho = new UI_Carrinho();
-
+    
     public UI_Login() {
         initComponents();
 
@@ -164,28 +150,6 @@ public class UI_Login extends javax.swing.JFrame {
                 Funcionario.setEmail(this.conectar.getResultSet().getString(1));
                 Funcionario.setSenha(this.conectar.getResultSet().getString(2));
 
-            }
-
-            if (Funcionario.getEmail() == "") {
-                JOptionPane.showMessageDialog(null, "Login Inválido!");
-            } else {
-                UI_Inicio inicio = new UI_Inicio();
-                inicio.setVisible(true);
-
-                inicio.enviaDados(this, Funcionario);
-                boleto.enviaDados(this, Funcionario);
-                cadastroCliente.enviaDados(this, Funcionario);
-                cadastroFornecedor.enviaDados(this, Funcionario);
-                cadastroFuncionario.enviaDados(this, Funcionario);
-                cadastroProduto.enviaDados(this, Funcionario);
-                caixa.enviaDados(this, Funcionario);
-                carrinho.enviaDados(this, Funcionario);
-                catalogo.enviaDados(this, Funcionario);
-                fechamentoCaixa.enviaDados(this, Funcionario);
-                financeiroConsulta.enviaDados(this, Funcionario);
-                financeiro.enviaDados(this, Funcionario);
-
-                setVisible(false);
             }
 
         } catch (Exception e) {

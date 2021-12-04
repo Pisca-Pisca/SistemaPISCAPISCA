@@ -6,6 +6,9 @@
 package UI_SistemaInterno;
 
 import Model.DAO.Funcionarios;
+import static java.lang.Thread.sleep;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 
 /**
@@ -19,22 +22,40 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
      */
     public UI_FechamentoCaixa() {
         initComponents();
-
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        new Thread() {
+            
+            public void run() {
+                try {
+                    while (true) {
+                        Date d = new Date();
+                        StringBuffer data = new StringBuffer();
+                        
+                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
+                        data.append(sdfData.format(d));
+                        txtDataDocumento.setText(data.toString());
+                        sleep(1000);
+                    }
+                } catch (InterruptedException ex) {
+                    System.out.println("Problema na atualização da data/hora");
+                    ex.printStackTrace();
+                }
+            }
+        }.start();
     }
-
+    
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {
         String email = funcionarios.getEmail();
         txtUsuario.setText(email);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         baseTela = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        txtDataDocumento = new javax.swing.JLabel();
         txtDinheiroValorGaveta = new javax.swing.JTextField();
         txtCartaoValorGaveta = new javax.swing.JTextField();
         txtBoletoValorGaveta = new javax.swing.JTextField();
@@ -63,12 +84,11 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("21/05/2021");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(-20, -10, 307, 62);
+        txtDataDocumento.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
+        txtDataDocumento.setForeground(new java.awt.Color(255, 255, 255));
+        txtDataDocumento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(txtDataDocumento);
+        txtDataDocumento.setBounds(-20, -10, 307, 0);
 
         baseTela.add(jPanel1);
         jPanel1.setBounds(1010, 260, 340, 50);
@@ -223,14 +243,14 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         UI_Login login = new UI_Login();
         login.setVisible(true);
-
+        
         dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         UI_Caixa caixa = new UI_Caixa();
         caixa.setVisible(true);
-
+        
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -280,7 +300,6 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtBoletoEntradaSistema;
     private javax.swing.JTextField txtBoletoFaltaSobra;
@@ -288,6 +307,7 @@ public class UI_FechamentoCaixa extends javax.swing.JFrame {
     private javax.swing.JTextField txtCartaoEntradaSistema;
     private javax.swing.JTextField txtCartaoFaltaSobra;
     private javax.swing.JTextField txtCartaoValorGaveta;
+    private javax.swing.JLabel txtDataDocumento;
     private javax.swing.JTextField txtDineiroEntradaSistema;
     private javax.swing.JTextField txtDinheiroFaltaSobra;
     private javax.swing.JTextField txtDinheiroValorGaveta;

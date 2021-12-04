@@ -54,15 +54,12 @@ public class UI_Caixa extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         txtNomeVendedor = new javax.swing.JLabel();
         txtNome = new javax.swing.JLabel();
-        qrCode = new javax.swing.JLabel();
         imgTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(null);
 
         baseTela.setBackground(new java.awt.Color(37, 37, 37));
-        baseTela.setLayout(null);
 
         grupoSelectPagamento.add(selectBoleto);
         selectBoleto.addActionListener(new java.awt.event.ActionListener() {
@@ -70,16 +67,10 @@ public class UI_Caixa extends javax.swing.JFrame {
                 selectBoletoActionPerformed(evt);
             }
         });
-        baseTela.add(selectBoleto);
-        selectBoleto.setBounds(930, 430, 100, 90);
 
         grupoSelectPagamento.add(selectDinheiro);
-        baseTela.add(selectDinheiro);
-        selectDinheiro.setBounds(800, 430, 120, 90);
 
         grupoSelectPagamento.add(selectCartão);
-        baseTela.add(selectCartão);
-        selectCartão.setBounds(660, 430, 120, 90);
 
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
@@ -89,20 +80,14 @@ public class UI_Caixa extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        baseTela.add(btnLogout);
-        btnLogout.setBounds(1752, 97, 137, 51);
 
         btnSearch.setBorderPainted(false);
         btnSearch.setContentAreaFilled(false);
         btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnSearch);
-        btnSearch.setBounds(970, 300, 90, 60);
 
         btnFinalizar.setBorderPainted(false);
         btnFinalizar.setContentAreaFilled(false);
         btnFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        baseTela.add(btnFinalizar);
-        btnFinalizar.setBounds(720, 900, 290, 90);
 
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
@@ -112,8 +97,6 @@ public class UI_Caixa extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        baseTela.add(btnCancelar);
-        btnCancelar.setBounds(730, 1010, 270, 50);
 
         btnFechamentoCaixa.setBorderPainted(false);
         btnFechamentoCaixa.setContentAreaFilled(false);
@@ -123,89 +106,176 @@ public class UI_Caixa extends javax.swing.JFrame {
                 btnFechamentoCaixaActionPerformed(evt);
             }
         });
-        baseTela.add(btnFechamentoCaixa);
-        btnFechamentoCaixa.setBounds(190, 960, 350, 60);
 
         txtTotal.setEditable(false);
-        txtTotal.setBackground(new java.awt.Color(255, 255, 255));
         txtTotal.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTotal.setBorder(null);
-        baseTela.add(txtTotal);
-        txtTotal.setBounds(120, 460, 485, 58);
 
         txtTroco.setEditable(false);
-        txtTroco.setBackground(new java.awt.Color(255, 255, 255));
         txtTroco.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtTroco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTroco.setBorder(null);
-        baseTela.add(txtTroco);
-        txtTroco.setBounds(680, 800, 364, 65);
 
         txtSubtotal.setEditable(false);
         txtSubtotal.setBackground(new java.awt.Color(196, 196, 196));
         txtSubtotal.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtSubtotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSubtotal.setBorder(null);
-        baseTela.add(txtSubtotal);
-        txtSubtotal.setBounds(680, 600, 364, 75);
 
         txtDesconto.setEditable(false);
         txtDesconto.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtDesconto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDesconto.setBorder(null);
-        baseTela.add(txtDesconto);
-        txtDesconto.setBounds(120, 600, 490, 90);
 
         txtPesquisa1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtPesquisa1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtPesquisa1.setBorder(null);
-        baseTela.add(txtPesquisa1);
-        txtPesquisa1.setBounds(119, 305, 841, 55);
 
         txtValorRecebido.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtValorRecebido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtValorRecebido.setBorder(null);
-        baseTela.add(txtValorRecebido);
-        txtValorRecebido.setBounds(130, 790, 470, 80);
 
         txtUsuario.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        baseTela.add(txtUsuario);
-        txtUsuario.setBounds(1730, 60, 160, 30);
 
         txtCPF.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        baseTela.add(txtCPF);
-        txtCPF.setBounds(1220, 550, 530, 40);
 
         txtPedido.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        baseTela.add(txtPedido);
-        txtPedido.setBounds(1260, 400, 470, 30);
 
         txtData.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        baseTela.add(txtData);
-        txtData.setBounds(1230, 430, 530, 30);
 
         txtNomeVendedor.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        baseTela.add(txtNomeVendedor);
-        txtNomeVendedor.setBounds(1290, 470, 460, 30);
 
         txtNome.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        baseTela.add(txtNome);
-        txtNome.setBounds(1250, 510, 530, 40);
-
-        qrCode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        qrCode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/frame.png"))); // NOI18N
-        baseTela.add(qrCode);
-        qrCode.setBounds(1300, 630, 390, 380);
 
         imgTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/CAIXA.jpg"))); // NOI18N
-        baseTela.add(imgTela);
-        imgTela.setBounds(0, 0, 1920, 1080);
 
-        getContentPane().add(baseTela);
-        baseTela.setBounds(0, 0, 1920, 1226);
+        javax.swing.GroupLayout baseTelaLayout = new javax.swing.GroupLayout(baseTela);
+        baseTela.setLayout(baseTelaLayout);
+        baseTelaLayout.setHorizontalGroup(
+            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1730, 1730, 1730)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(txtPesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1260, 1260, 1260)
+                .addComponent(txtPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(660, 660, 660)
+                .addComponent(selectCartão, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(selectDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(selectBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(200, 200, 200)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(txtNomeVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1220, 1220, 1220)
+                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txtValorRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(btnFechamentoCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1250, 1250, 1250)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1752, 1752, 1752)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(730, 730, 730)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(970, 970, 970)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgTela)
+        );
+        baseTelaLayout.setVerticalGroup(
+            baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(215, 215, 215)
+                .addComponent(txtPesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(txtPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(selectCartão, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectBoleto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtNomeVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
+                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(baseTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addComponent(txtDesconto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtValorRecebido, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(btnFechamentoCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(baseTelaLayout.createSequentialGroup()
+                        .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125)
+                        .addComponent(txtTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(510, 510, 510)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(1010, 1010, 1010)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(460, 460, 460)
+                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(baseTelaLayout.createSequentialGroup()
+                .addGap(300, 300, 300)
+                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(imgTela)
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -280,7 +350,6 @@ public class UI_Caixa extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.ButtonGroup grupoSelectPagamento;
     private javax.swing.JLabel imgTela;
-    private javax.swing.JLabel qrCode;
     private javax.swing.JRadioButton selectBoleto;
     private javax.swing.JRadioButton selectCartão;
     private javax.swing.JRadioButton selectDinheiro;

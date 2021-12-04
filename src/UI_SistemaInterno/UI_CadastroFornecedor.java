@@ -13,6 +13,7 @@ import Model.DAO.Produtos;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import javax.swing.JFrame;
 
 /**

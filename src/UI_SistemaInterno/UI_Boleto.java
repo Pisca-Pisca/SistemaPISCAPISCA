@@ -1,4 +1,3 @@
-
 package UI_SistemaInterno;
 
 import Model.DAO.Funcionarios;
@@ -310,10 +309,10 @@ public class UI_Boleto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        UI_ModalImpressaoDeDocumento impressao = new UI_ModalImpressaoDeDocumento();
+        UI_ModalImpressaoDocumento impressao = new UI_ModalImpressaoDocumento(new javax.swing.JFrame(), true);
         impressao.setVisible(true);
-
         dispose();
+
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

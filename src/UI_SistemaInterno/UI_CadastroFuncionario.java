@@ -18,6 +18,7 @@ import javax.swing.text.MaskFormatter;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.text.ParseException;
+import java.util.Random;
 import javax.swing.text.DefaultFormatterFactory;
 import sistemainternopisca.ManipularImagem;
 
@@ -121,6 +122,11 @@ public class UI_CadastroFuncionario extends javax.swing.JFrame {
                 }
             }
         }.start();
+        
+        Random codigoCliente = new Random();
+        int codigo = codigoCliente.nextInt(500000) + 1;
+
+        txtCodigoFuncionario.setText(String.valueOf(codigo));
     }
 
     public void enviaDados(UI_Login login, Funcionarios funcionarios) {

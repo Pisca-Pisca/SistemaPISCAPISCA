@@ -5,7 +5,8 @@
  */
 package UI_SistemaInterno;
 
-import Model.DAO.Funcionarios;
+import Model.DAO.Fornecedores;
+import Model.DAO.FornecedoresDAO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import Model.DAO.Produtos;
@@ -13,6 +14,8 @@ import Model.DAO.ProdutosDAO;
 import static java.lang.Thread.sleep;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Random;
 import sistemainternopisca.ManipularImagem;
 import javax.swing.JFileChooser;
 
@@ -27,6 +30,9 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     Produtos P = new Produtos();
     ProdutosDAO dao = new ProdutosDAO();
     Produtos ProdutoRetorno = new Produtos();
+
+    List<Fornecedores> listaFornecedores;
+    FornecedoresDAO fdao = new FornecedoresDAO();
 
     /**
      * Creates new form UI_CadastroProduto
@@ -71,12 +77,14 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             txtValorVenda.setText(String.valueOf(ProdutoRetorno.getValorVenda()));
             txtSerie.setText(String.valueOf(ProdutoRetorno.getSerie()));
             selectCategoria.setSelectedIndex(ProdutoRetorno.getCategoria());
+            selecionarFornecedor.setSelectedIndex(ProdutosRetorno.getIdFornecedor());
         }
 
     }
 
     public UI_CadastroProduto() {
         initComponents();
+        listarFornecedores();
 
         new Thread() {
 
@@ -102,11 +110,20 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
                 }
             }
         }.start();
+        
+        Random codigoProduto = new Random();
+        int codigo = codigoProduto.nextInt(500000) + 1;
+
+        txtCodProd.setText(String.valueOf(codigo));
     }
 
-    public void enviaDados(UI_Login login, Funcionarios funcionarios) {
-        String email = funcionarios.getEmail();
-        txtUsuario.setText(email);
+    private void listarFornecedores() {
+        listaFornecedores = fdao.Read();
+        selecionarFornecedor.removeAllItems();
+
+        for (int i = 0; i < listaFornecedores.size(); i++) {
+            selecionarFornecedor.addItem(listaFornecedores.get(i).getRazaoSocial());
+        }
     }
 
     private void limparCamposProdutos() {
@@ -119,7 +136,6 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         txtVoltagem.setText("");
         txtNFe.setText("");
         txtSerie.setText("");
-        txtFornecedor.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -134,7 +150,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         btnVenda = new javax.swing.JButton();
         btnProdutos = new javax.swing.JButton();
         btnCadastro = new javax.swing.JButton();
-        txtFornecedor = new javax.swing.JTextField();
+        selecionarFornecedor = new javax.swing.JComboBox<>();
         txtValorCompra = new javax.swing.JTextField();
         txtValorVenda = new javax.swing.JTextField();
         txtNFe = new javax.swing.JTextField();
@@ -253,11 +269,10 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
         getContentPane().add(btnCadastro);
         btnCadastro.setBounds(0, 530, 360, 70);
 
-        txtFornecedor.setBackground(new java.awt.Color(187, 184, 184));
-        txtFornecedor.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        txtFornecedor.setBorder(null);
-        getContentPane().add(txtFornecedor);
-        txtFornecedor.setBounds(520, 600, 360, 60);
+        selecionarFornecedor.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        selecionarFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(selecionarFornecedor);
+        selecionarFornecedor.setBounds(500, 590, 390, 70);
 
         txtValorCompra.setBackground(new java.awt.Color(187, 184, 184));
         txtValorCompra.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -449,7 +464,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             P.setValorVenda(Double.parseDouble(txtValorVenda.getText()));
             P.setNotaFiscal(txtNFe.getText());
             P.setSerie(Integer.parseInt(txtSerie.getText()));
-            P.setIdFornecedor(Integer.parseInt(txtFornecedor.getText()));
+            P.setIdFornecedor(selecionarFornecedor.getSelectedIndex());
 
             dao.Create(P);
         } else {
@@ -462,7 +477,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
             ProdutoRetorno.setNotaFiscal(txtNFe.getText());
             ProdutoRetorno.setCategoria(selectCategoria.getSelectedIndex());
             ProdutoRetorno.setSerie(Integer.parseInt(txtSerie.getText()));
-            ProdutoRetorno.setIdFornecedor(Integer.parseInt(txtFornecedor.getText()));
+            ProdutoRetorno.setIdFornecedor(selecionarFornecedor.getSelectedIndex());
 
             dao.Update(ProdutoRetorno);
         }
@@ -529,7 +544,7 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         UI_VisualizacaoProduto visuProduto = new UI_VisualizacaoProduto();
         visuProduto.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -591,12 +606,12 @@ public class UI_CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JLabel imgTela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> selecionarFornecedor;
     private javax.swing.JComboBox<String> selectCategoria;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtCodProd;
     private javax.swing.JLabel txtData;
     private javax.swing.JTextField txtDescricao;
-    private javax.swing.JTextField txtFornecedor;
     private javax.swing.JTextField txtNFe;
     private javax.swing.JLabel txtNomeArquivo;
     private javax.swing.JTextField txtQtd;
