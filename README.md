@@ -34,6 +34,21 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 - [Java](https://www.java.com/en/)
 - [MySQL](https://www.mysql.com)
 
+
+
+## 📊 Diagrama de Classes
+
+<div align="center">
+    <img src="https://github.com/Pisca-Pisca/SistemaPISCAPISCA/blob/master/Files%20Readme/diagrama_de_classes.png">
+</div>
+
+## 🤝 Diagrama de Relacionamentos (Banco de dados)
+
+<div align="center">
+    <img src="https://github.com/Pisca-Pisca/SistemaPISCAPISCA/blob/master/Files%20Readme/DiagramaDeClasses.png">
+</div>
+
+
 ## 👩‍💻 Nossa Equipe
 
 - Jéssica Nagata [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/j%C3%A9ssica-marques-nagata-08935a1b1/)](https://www.linkedin.com/in/j%C3%A9ssica-marques-nagata-08935a1b1/) [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/JessicaNagata)](https://github.com/JessicaNagata)
