@@ -39,7 +39,6 @@ public class UI_FinanceiroConsulta extends javax.swing.JFrame {
 
                         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                         dataHora = "" + data.toString() + sdf.format(d);
-                        txtData.setText(dataHora);
                         sleep(1000);
                     }
                 } catch (InterruptedException ex) {

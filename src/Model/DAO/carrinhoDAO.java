@@ -14,12 +14,12 @@ import java.util.List;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author nicol
  */
 public class carrinhoDAO {
+
     public void Create(Carrinho f) {
 
         Connection con = ConnectionFac.getConnecton();
@@ -27,7 +27,7 @@ public class carrinhoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO VendaCarrinho (idVendaCarrinho,  codCompra, Clientes_idCliente, Funcionarios_IdFuncionarios, FormaPagamento, ValorTotal , QtdeItens) VALUES(?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO VendaCarrinho (idVendaCarrinho,  codCompra, Clientes, Funcionarios, FormaPagamento, ValorTotal , QtdeItens) VALUES(?,?,?,?,?,?,?)");
 
             stmt.setInt(1, f.getIdVendaCarrinho());
 
@@ -58,6 +58,41 @@ public class carrinhoDAO {
 
     }
 
+    public List<Carrinho> Read() {
+        Connection con = ConnectionFac.getConnecton();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Carrinho> carrinhos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM VendaCarrinho");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Carrinho carrinho = new Carrinho();
+
+                carrinho.setClienteId(rs.getInt("Clientes"));
+                carrinho.setFuncionarioId(rs.getInt("Funcionarios"));
+                carrinho.setFormaPagamento(rs.getInt("FormaPagamento"));
+                carrinho.setValorTotal(rs.getFloat("ValorTotal"));
+                carrinho.setQtdItens(rs.getInt("QtdeItens"));
+                carrinho.setIdVendaCarrinho(rs.getInt("idVendaCarrinho"));
+                carrinho.setCodigoCompra(rs.getInt("codCompra"));
+
+                carrinhos.add(carrinho);
+
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao ler os valores da tabela VendaCarrinho", ex);
+        } finally {
+            ConnectionFac.closeConnection(con, stmt, rs);
+        }
+
+        return carrinhos;
+    }
+
     public List<Carrinho> ReadByCod(int cod) {
         Connection con = ConnectionFac.getConnecton();
         PreparedStatement stmt = null;
@@ -74,13 +109,13 @@ public class carrinhoDAO {
 
                 Carrinho carrinho = new Carrinho();
 
-              carrinho.setClienteId(rs.getInt("Clientes_idCliente"));
-              carrinho.setFuncionarioId(rs.getInt("Funcionarios_IdFuncionarios"));
-              carrinho.setFormaPagamento(rs.getInt("FormaPagamento"));
-              carrinho.setValorTotal(rs.getFloat("ValorTotal"));
-              carrinho.setQtdItens(rs.getInt("QtdeItens"));
-              carrinho.setIdVendaCarrinho(rs.getInt("idVendaCarrinho"));
-              carrinho.setCodigoCompra(rs.getInt("codCompra"));
+                carrinho.setClienteId(rs.getInt("Clientes"));
+                carrinho.setFuncionarioId(rs.getInt("Funcionarios"));
+                carrinho.setFormaPagamento(rs.getInt("FormaPagamento"));
+                carrinho.setValorTotal(rs.getFloat("ValorTotal"));
+                carrinho.setQtdItens(rs.getInt("QtdeItens"));
+                carrinho.setIdVendaCarrinho(rs.getInt("idVendaCarrinho"));
+                carrinho.setCodigoCompra(rs.getInt("codCompra"));
 
                 carrinhos.add(carrinho);
 

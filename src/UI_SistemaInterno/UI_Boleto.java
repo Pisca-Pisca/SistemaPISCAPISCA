@@ -17,35 +17,17 @@ public class UI_Boleto extends javax.swing.JFrame {
     public UI_Boleto() {
         initComponents();
 
-        new Thread() {
-
-            public void run() {
-                try {
-                    while (true) {
-                        Date d = new Date();
-                        String dataHora;
-                        StringBuffer data = new StringBuffer();
-
-                        SimpleDateFormat sdfData = new SimpleDateFormat("dd/MM/yyyy");
-                        data.append(sdfData.format(d));
-                        data.append(" - ");
-
-                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-                        dataHora = "" + data.toString() + sdf.format(d);
-                        txtData.setText(dataHora);
-                        sleep(1000);
-                    }
-                } catch (InterruptedException ex) {
-                    System.out.println("Problema na atualização da data/hora");
-                    ex.printStackTrace();
-                }
-            }
-        }.start();
     }
 
-    public void enviaDados(UI_Login login, Funcionarios funcionarios) {
-        String email = funcionarios.getEmail();
-        txtUsuario.setText(email);
+    public void enviaDados(UI_FinanceiroDadosBoleto financeiro, String dataVencimento, String numeroDocumento, String valor, String nome, String cpf) {
+        txtCpfCliente.setText(cpf);
+        txtVencimento.setText(dataVencimento);
+        txtVencimento1.setText(dataVencimento);
+        txtNumeroDocumento.setText(numeroDocumento);
+        txtNumeroDocumento1.setText(numeroDocumento);
+        txtNomeCliente.setText(nome);
+        txtValor.setText(valor);
+        txtValor1.setText(valor);
     }
 
     @SuppressWarnings("unchecked")
@@ -62,7 +44,6 @@ public class UI_Boleto extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
-        txtData = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JLabel();
         txtAgencia = new javax.swing.JLabel();
         txtNumeroDocumento = new javax.swing.JLabel();
@@ -181,12 +162,6 @@ public class UI_Boleto extends javax.swing.JFrame {
         });
         baseTela.add(btnSair);
         btnSair.setBounds(1730, 990, 170, 70);
-
-        txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        txtData.setForeground(new java.awt.Color(255, 255, 255));
-        txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        baseTela.add(txtData);
-        txtData.setBounds(1630, 12, 270, 50);
 
         txtUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -336,16 +311,24 @@ public class UI_Boleto extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_Boleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Boleto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_Boleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Boleto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_Boleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Boleto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_Boleto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Boleto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -373,7 +356,6 @@ public class UI_Boleto extends javax.swing.JFrame {
     private javax.swing.JLabel txtAgencia1;
     private javax.swing.JLabel txtCpfBeneficiario;
     private javax.swing.JLabel txtCpfCliente;
-    private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtNomeCliente;
     private javax.swing.JLabel txtNumeroDocumento;
     private javax.swing.JLabel txtNumeroDocumento1;

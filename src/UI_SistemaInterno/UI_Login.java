@@ -151,6 +151,15 @@ public class UI_Login extends javax.swing.JFrame {
                 Funcionario.setSenha(this.conectar.getResultSet().getString(2));
 
             }
+            
+            if (Funcionario.getEmail() == "") {
+                JOptionPane.showMessageDialog(null, "Login Inválido!");
+            } else {
+                UI_Inicio inicio = new UI_Inicio();
+                inicio.setVisible(true);
+                dispose();
+            }
+            
 
         } catch (Exception e) {
             System.out.println("Erro ao consultar funcionários " + e.getMessage());

@@ -4,7 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[890, 510]"/>
+      <Dimension value="[890, 318]"/>
     </Property>
     <Property name="undecorated" type="boolean" value="true"/>
   </Properties>

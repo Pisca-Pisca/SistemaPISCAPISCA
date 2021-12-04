@@ -35,7 +35,7 @@ public class UI_ModalImpressaoDocumento extends javax.swing.JDialog {
         imgBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(890, 510));
+        setMinimumSize(new java.awt.Dimension(890, 318));
         setUndecorated(true);
 
         txtTitulo.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N

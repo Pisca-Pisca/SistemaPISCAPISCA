@@ -5,12 +5,14 @@
  */
 package UI_SistemaInterno;
 
+import Model.DAO.Carrinho;
 import Model.DAO.Clientes;
 import Model.DAO.ClientesDAO;
 import Model.DAO.Funcionarios;
 import Model.DAO.FuncionariosDAO;
 import Model.DAO.Produtos;
 import Model.DAO.ProdutosDAO;
+import Model.DAO.carrinhoDAO;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import static java.lang.Thread.sleep;
@@ -43,6 +45,11 @@ public class UI_Carrinho extends javax.swing.JFrame {
     Produtos produtos;
     Object itemSelecionadoProdutos;
 
+    boolean clicado = false;
+
+    Carrinho carrinho = new Carrinho();
+    carrinhoDAO cadao = new carrinhoDAO();
+
     public UI_Carrinho() {
         initComponents();
         listarClientes();
@@ -64,7 +71,6 @@ public class UI_Carrinho extends javax.swing.JFrame {
 
                         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                         dataHora = "" + data.toString() + sdf.format(d);
-                        txtUsuario.setText(dataHora);
                         txtDataHora.setText(dataHora);
                         sleep(1000);
                     }
@@ -75,10 +81,14 @@ public class UI_Carrinho extends javax.swing.JFrame {
             }
         }.start();
 
+        txtCodigo.setText(String.valueOf(aleatorio()));
+    }
+
+    private int aleatorio() {
         Random codigoCarrinho = new Random();
         int codigo = codigoCarrinho.nextInt(50000) + 1;
 
-        txtCodigo.setText(String.valueOf(codigo));
+        return codigo;
     }
 
     private void listarFuncionarios() {
@@ -87,6 +97,22 @@ public class UI_Carrinho extends javax.swing.JFrame {
 
         for (int i = 0; i < listaFuncionarios.size(); i++) {
             selecionarFuncinario.addItem(listaFuncionarios.get(i).getNomeFuncionario());
+
+            selecionarFuncinario.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if (e.getStateChange() == ItemEvent.SELECTED) {
+                        itemSelecionado = selecionarClientes.getSelectedItem().toString();
+
+                        for (int i = 0; i < listaFuncionarios.size(); i++) {
+                            if (itemSelecionadoFuncionario == listaFuncionarios.get(i).getNomeFuncionario()) {
+                                carrinho.setFuncionarioId(listaFuncionarios.get(i).getCodigoFunconario());
+                            }
+                        }
+
+                    }
+                }
+            });
         }
     }
 
@@ -96,6 +122,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
 
         for (int i = 0; i < listaProdutos.size(); i++) {
             selecionarProduto.addItem(listaProdutos.get(i).getNomeProduto());
+
         }
     }
 
@@ -118,6 +145,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
                                 txtEndereço.setText(listaClientes.get(i).getEndereco());
                                 txtEmail.setText(listaClientes.get(i).getEmail());
                                 txtCelular.setText(listaClientes.get(i).getTelefone());
+                                carrinho.setClienteId(listaClientes.get(i).getIdCliente());
                             }
                         }
 
@@ -155,11 +183,10 @@ public class UI_Carrinho extends javax.swing.JFrame {
         btnBoleto = new javax.swing.JButton();
         btnEnviar = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        btnRemover = new javax.swing.JButton();
         selecionarClientes = new javax.swing.JComboBox<>();
         selecionarFuncinario = new javax.swing.JComboBox<>();
         selecionarProduto = new javax.swing.JComboBox<>();
-        txtData = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JLabel();
         txtqtd = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         TabelaScroll = new javax.swing.JScrollPane();
@@ -304,7 +331,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
         btnCartao.setContentAreaFilled(false);
         btnCartao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         baseTela.add(btnCartao);
-        btnCartao.setBounds(900, 1036, 30, 20);
+        btnCartao.setBounds(900, 1026, 30, 30);
 
         btnDinheiro.setBorderPainted(false);
         btnDinheiro.setContentAreaFilled(false);
@@ -321,6 +348,11 @@ public class UI_Carrinho extends javax.swing.JFrame {
         btnEnviar.setBorderPainted(false);
         btnEnviar.setContentAreaFilled(false);
         btnEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
         baseTela.add(btnEnviar);
         btnEnviar.setBounds(1670, 1016, 180, 50);
 
@@ -334,6 +366,16 @@ public class UI_Carrinho extends javax.swing.JFrame {
         });
         baseTela.add(btnLogout);
         btnLogout.setBounds(1780, 156, 120, 30);
+
+        btnRemover.setBorderPainted(false);
+        btnRemover.setContentAreaFilled(false);
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
+        baseTela.add(btnRemover);
+        btnRemover.setBounds(1620, 640, 80, 50);
 
         selecionarClientes.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         selecionarClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -355,18 +397,6 @@ public class UI_Carrinho extends javax.swing.JFrame {
         baseTela.add(selecionarProduto);
         selecionarProduto.setBounds(454, 646, 920, 60);
 
-        txtData.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        txtData.setForeground(new java.awt.Color(255, 255, 255));
-        txtData.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        baseTela.add(txtData);
-        txtData.setBounds(1670, 12, 231, 43);
-
-        txtUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        txtUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        baseTela.add(txtUsuario);
-        txtUsuario.setBounds(1720, 102, 180, 30);
-
         txtqtd.setBackground(new java.awt.Color(187, 184, 187));
         txtqtd.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         txtqtd.setBorder(null);
@@ -386,7 +416,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
             }
         });
         baseTela.add(btnAdd);
-        btnAdd.setBounds(1590, 650, 240, 40);
+        btnAdd.setBounds(1750, 630, 90, 60);
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -461,10 +491,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFinanceiroActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        UI_Carrinho cancelar = new UI_Carrinho();
-        cancelar.setVisible(true);
-
-        dispose();
+        limparFormulario();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -503,14 +530,47 @@ public class UI_Carrinho extends javax.swing.JFrame {
             int total = p.getQtdProduto() - Integer.parseInt(txtqtd.getText());
             p.setQtdProduto(total);
             pdao.Update(p);
-
         }
-
 
         somarValotTotalProdutos();
         somarValorTotalitens();
 
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        carrinho.setFormaPagamento(0);
+        carrinho.setCodigoCompra(Integer.parseInt(txtCodigo.getText()));
+
+        cadao.Create(carrinho);
+
+        limparFormulario();
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        remover();
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
+    private void remover() {
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        int linha = Tabela.getSelectedRow();
+
+        int soma = Integer.parseInt(txtQtdItens.getText()), valor;
+        valor = Integer.parseInt(String.valueOf(Tabela.getValueAt(linha, 2)));
+
+        soma = soma - valor;
+
+        txtQtdItens.setText(String.valueOf(soma));
+        carrinho.setQtdItens(soma);
+
+        double somapreco = Double.parseDouble(txtValorTotal.getText()), valorpreco;
+        valorpreco = (double) Tabela.getValueAt(linha, 4);
+        somapreco = somapreco - valorpreco;
+        
+        txtValorTotal.setText(String.valueOf(somapreco));
+        carrinho.setValorTotal((float) somapreco);
+
+        modelo.removeRow(linha);
+    }
 
     private void somarValotTotalProdutos() {
         double soma = 0, valor;
@@ -520,8 +580,10 @@ public class UI_Carrinho extends javax.swing.JFrame {
             soma = soma + valor;
         }
         txtValorTotal.setText(String.valueOf(soma));
+
+        carrinho.setValorTotal((float) soma);
     }
-    
+
     private void somarValorTotalitens() {
         int soma = 0, valor;
         int cont = Tabela.getRowCount();
@@ -529,7 +591,24 @@ public class UI_Carrinho extends javax.swing.JFrame {
             valor = Integer.parseInt(String.valueOf(Tabela.getValueAt(i, 2)));
             soma = soma + valor;
         }
+
         txtQtdItens.setText(String.valueOf(soma));
+        carrinho.setQtdItens(soma);
+
+    }
+
+    private void limparFormulario() {
+        txtCPF.setText("");
+        txtEmail.setText("");
+        txtEndereço.setText("");
+        txtQtdItens.setText("");
+        txtValorTotal.setText("");
+        txtDataHora.setText("");
+        txtCelular.setText("");
+        txtCodigo.setText(String.valueOf(aleatorio()));
+
+        DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+        modelo.setNumRows(0);
     }
 
     /**
@@ -547,16 +626,24 @@ public class UI_Carrinho extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Carrinho.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Carrinho.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Carrinho.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_Carrinho.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_Carrinho.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -587,6 +674,7 @@ public class UI_Carrinho extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisaCliente;
     private javax.swing.JButton btnPesquisaProduto;
     private javax.swing.JButton btnProdutos;
+    private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnVenda;
     private javax.swing.JLabel imgTela;
     private javax.swing.JComboBox<String> selecionarClientes;
@@ -595,12 +683,10 @@ public class UI_Carrinho extends javax.swing.JFrame {
     private javax.swing.JLabel txtCPF;
     private javax.swing.JLabel txtCelular;
     private javax.swing.JLabel txtCodigo;
-    private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtDataHora;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtEndereço;
     private javax.swing.JLabel txtQtdItens;
-    private javax.swing.JLabel txtUsuario;
     private javax.swing.JLabel txtValorTotal;
     private javax.swing.JTextField txtqtd;
     // End of variables declaration//GEN-END:variables
